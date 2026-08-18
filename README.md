@@ -4,7 +4,7 @@
 
 BookVerse is a Unified Platform for Books & Educational Resources.
 
-## Built With
+## Technical Stack
 
 - Android Studio
 - Flutter
