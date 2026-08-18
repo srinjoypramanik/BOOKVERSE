@@ -1,2 +1,2 @@
 # BOOKVERSE
-BOOKVERSE is a Unified Platform for Books &amp; Educational Resources
+BookVerse is a Unified Platform for Books &amp; Educational Resources
