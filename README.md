@@ -1,17 +1,13 @@
-# bookverse
+<img width="1904" height="496" alt="Gemini_Generated_Image_ivr861ivr861ivr8" src="https://github.com/user-attachments/assets/5228f334-0021-4468-8a35-44103843578f" />
 
-A new Flutter project.
+# BOOKVERSE
 
-## Getting Started
+## A Unified Platform for Books & Educational Resources.
 
-This project is a starting point for a Flutter application.
+BookVerse is a Flutter-based e-commerce application for buying physical books and educational resources online. It provides a simple, clean, and minimal platform to find books, check availability and prices, place orders, and manage purchases.
 
-A few resources to get you started if this is your first Flutter project:
+## Technical Stack
 
-- [Learn Flutter](https://docs.flutter.dev/get-started/learn-flutter)
-- [Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Flutter learning resources](https://docs.flutter.dev/reference/learning-resources)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- Android Studio
+- Flutter
+- Dart
