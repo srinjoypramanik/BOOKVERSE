@@ -2,7 +2,9 @@
 
 # BOOKVERSE
 
-BookVerse is a Unified Platform for Books & Educational Resources.
+## A Unified Platform for Books & Educational Resources.
+
+BookVerse is a Flutter-based e-commerce application for buying physical books and educational resources online. It provides a simple, clean, and minimal platform to find books, check availability and prices, place orders, and manage purchases.
 
 ## Technical Stack
 
