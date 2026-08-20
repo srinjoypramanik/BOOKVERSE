@@ -1,5 +1,7 @@
 <img width="1904" height="496" alt="Gemini_Generated_Image_ivr861ivr861ivr8" src="https://github.com/user-attachments/assets/5228f334-0021-4468-8a35-44103843578f" />
 
+<img width="1904" height="496" alt="BookVerse Banner" src="https://github.com/user-attachments/assets/5228f334-0021-4468-8a35-44103843578f" />
+
 # BOOKVERSE
 
 ![Flutter](https://img.shields.io/badge/Flutter-Framework-02569B?logo=flutter&logoColor=white)
@@ -20,11 +22,11 @@ BookVerse is a Flutter-based e-commerce application for buying physical books an
 - Flutter
 - Dart
 
-## Design Stack
+## Design 
 
 BookVerse follows a clean and minimalist UI/UX approach inspired by modern e-commerce platforms.
 
-## Features Stack
+## Features 
 
 - User Sign Up & Sign In
 - Book browsing and search
