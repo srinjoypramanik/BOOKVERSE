@@ -14,7 +14,7 @@
 
 BookVerse is a Flutter-based e-commerce application for buying physical books and educational resources online. It provides a simple platform to find books, check availability and prices, place orders, and manage purchases.
 
-## Technical Stack
+## Technical Stack:
 
 - Android Studio
 - Flutter
