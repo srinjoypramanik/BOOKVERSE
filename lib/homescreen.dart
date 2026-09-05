@@ -11,6 +11,7 @@ class Homescreen extends StatelessWidget{
         child: Text('Home Screen',
           style: TextStyle(
             color: Colors.white,
+            fontSize: 35,
           ),
         ),
       ),
