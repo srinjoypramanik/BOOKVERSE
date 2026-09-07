@@ -46,7 +46,20 @@ class Homescreen extends StatelessWidget {
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: Colors.white,
         items: const [
-          
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home_filled,
+                size: 35,
+                color: Colors.black,
+            ),
+            label: 'Home',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.search_sharp,
+                size: 35,
+                color:Colors.black,
+            ),
+            label: 'Search',
+          ),
         ],
       ),
     );
