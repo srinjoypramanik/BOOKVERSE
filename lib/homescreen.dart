@@ -11,10 +11,19 @@ class Homescreen extends StatelessWidget{
 
       appBar: AppBar(
         backgroundColor: Colors.white,
+
+          leading:IconButton(
+            onPressed: () {},
+            icon: const Icon(Icons.menu,
+              color: Colors.black,
+              size: 30,
+            ),
+          ),
+
           actions: [
             Icon(Icons.shopping_bag_outlined,
               color: Colors.black,
-              size: 35,
+              size: 30,
             ),
             const SizedBox(width: 8),
           ],
