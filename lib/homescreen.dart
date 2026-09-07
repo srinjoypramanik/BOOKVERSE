@@ -36,12 +36,24 @@ class Homescreen extends StatelessWidget {
         ],
       ),
 
+
+
+
+
+
+
       body: Center(
         child: Text(
           'Home Screen',
           style: TextStyle(color: Colors.black, fontSize: 35),
         ),
       ),
+
+
+
+
+
+
 
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
