@@ -20,9 +20,14 @@ class Homescreen extends StatelessWidget {
           ),
         ),
 
-        title: Image.asset(
-          'assets/images/bookverse.png',
-          height: 40,
+        titleSpacing: 0
+        ,
+        title: Row(
+          children: [Image.asset(
+              'assets/images/bookverse.png',
+                height: 40,
+            ),
+          ],
         ),
 
         actions: [
@@ -34,14 +39,16 @@ class Homescreen extends StatelessWidget {
             ),
           ),
 
-          const SizedBox(width: 8),
+          const SizedBox(width: 6),
         ],
       ),
 
       body: Center(
         child: Text(
           'Home Screen',
-          style: TextStyle(color: Colors.black, fontSize: 35),
+          style: TextStyle(color: Colors.black,
+              fontSize: 35
+          ),
         ),
       ),
     );
