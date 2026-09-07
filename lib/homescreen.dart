@@ -13,7 +13,10 @@ class Homescreen extends StatelessWidget{
         backgroundColor: Colors.white,
           actions: [
             Icon(Icons.shopping_bag_outlined,
-              
+              color: Colors.black,
+              size: 35,
+            ),
+            const SizedBox(width: 8),
           ],
       ),
 
