@@ -44,25 +44,34 @@ class Homescreen extends StatelessWidget {
       ),
 
       bottomNavigationBar: BottomNavigationBar(
+        type: BottomNavigationBarType.fixed,
         backgroundColor: Colors.white,
+
         items: const [
           BottomNavigationBarItem(
             icon: Icon(Icons.home_filled,
-                size: 35,
+                size: 30,
                 color: Colors.black,
             ),
             label: 'HOME',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.search_sharp,
-                size: 35,
+            icon: Icon(Icons.search_outlined,
+                size: 30,
                 color:Colors.black,
             ),
             label: 'STORE',
           ),
           BottomNavigationBarItem(
+            icon: Icon(Icons.shopping_bag_rounded,
+              size: 30,
+              color:Colors.black,
+            ),
+            label: 'CART',
+          ),
+          BottomNavigationBarItem(
             icon: Icon(Icons.person_2_rounded,
-              size: 35,
+              size: 30,
               color:Colors.black,
             ),
             label: 'AUTH',
