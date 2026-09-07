@@ -8,8 +8,7 @@ class SplashScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Text('Go to Home'
-        ),
+        child: Text('Go to Home'),
       ),
     );
   }
