@@ -14,27 +14,21 @@ class Homescreen extends StatelessWidget {
 
         leading: IconButton(
           onPressed: () {},
-          icon: const Icon(Icons.menu,
-              color: Colors.black,
-              size: 30
-          ),
+          icon: const Icon(Icons.menu, color: Colors.black, size: 35),
         ),
 
         titleSpacing: 0,
         title: Row(
-          children: [Image.asset(
-              'assets/images/bookverse.png',
-                height: 40,
-            ),
-          ],
+          children: [Image.asset('assets/images/bookverse.png', height: 43)],
         ),
 
         actions: [
           IconButton(
             onPressed: () {},
-            icon: const Icon(Icons.shopping_bag_outlined,
+            icon: const Icon(
+              Icons.shopping_bag_outlined,
               color: Colors.black,
-              size: 30,
+              size: 35,
             ),
           ),
 
@@ -45,10 +39,15 @@ class Homescreen extends StatelessWidget {
       body: Center(
         child: Text(
           'Home Screen',
-          style: TextStyle(color: Colors.black,
-              fontSize: 35
-          ),
+          style: TextStyle(color: Colors.black, fontSize: 35),
         ),
+      ),
+
+      bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: Colors.white,
+        items: const [
+          
+        ],
       ),
     );
   }
