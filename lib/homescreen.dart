@@ -8,6 +8,15 @@ class Homescreen extends StatelessWidget{
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
+
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+          actions: [
+            Icon(Icons.shopping_bag_outlined,
+              
+          ],
+      ),
+
       body: Center(
         child: Text('Home Screen',
           style: TextStyle(
