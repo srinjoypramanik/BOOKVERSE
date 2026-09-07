@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'sign_up.dart';
 
-class Homescreen extends StatelessWidget{
+class Homescreen extends StatelessWidget {
   const Homescreen({super.key});
 
   @override
@@ -12,29 +12,30 @@ class Homescreen extends StatelessWidget{
       appBar: AppBar(
         backgroundColor: Colors.white,
 
-          leading:IconButton(
+        leading: IconButton(
+          onPressed: () {},
+          icon: const Icon(Icons.menu, color:
+            Colors.black,
+              size: 30),
+        ),
+
+        actions: [
+          IconButton(
             onPressed: () {},
-            icon: const Icon(Icons.menu,
+            icon: const Icon(
+              Icons.shopping_bag_outlined,
               color: Colors.black,
               size: 30,
             ),
           ),
-
-          actions: [
-            Icon(Icons.shopping_bag_outlined,
-              color: Colors.black,
-              size: 30,
-            ),
-            const SizedBox(width: 8),
-          ],
+          const SizedBox(width: 8),
+        ],
       ),
 
       body: Center(
-        child: Text('Home Screen',
-          style: TextStyle(
-            color: Colors.black,
-            fontSize: 35,
-          ),
+        child: Text(
+          'Home Screen',
+          style: TextStyle(color: Colors.black, fontSize: 35),
         ),
       ),
     );
