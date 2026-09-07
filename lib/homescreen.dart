@@ -14,20 +14,26 @@ class Homescreen extends StatelessWidget {
 
         leading: IconButton(
           onPressed: () {},
-          icon: const Icon(Icons.menu, color:
-            Colors.black,
-              size: 30),
+          icon: const Icon(Icons.menu,
+              color: Colors.black,
+              size: 30
+          ),
+        ),
+
+        title: Image.asset(
+          'assets/images/bookverse.png',
+          height: 40,
         ),
 
         actions: [
           IconButton(
             onPressed: () {},
-            icon: const Icon(
-              Icons.shopping_bag_outlined,
+            icon: const Icon(Icons.shopping_bag_outlined,
               color: Colors.black,
               size: 30,
             ),
           ),
+
           const SizedBox(width: 8),
         ],
       ),
