@@ -20,8 +20,7 @@ class Homescreen extends StatelessWidget {
           ),
         ),
 
-        titleSpacing: 0
-        ,
+        titleSpacing: 0,
         title: Row(
           children: [Image.asset(
               'assets/images/bookverse.png',
