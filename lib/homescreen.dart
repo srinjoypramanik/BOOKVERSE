@@ -59,6 +59,9 @@ class Homescreen extends StatelessWidget {
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
         backgroundColor: Colors.white,
+        // onTap: (index){
+        //
+        // },
 
         items: const [
           BottomNavigationBarItem(
