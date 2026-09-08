@@ -12,7 +12,8 @@ class SignIn extends StatelessWidget{
         centerTitle: true,
         leading: IconButton(
           icon: Icon(
-            
+            Icons.arrow_back,
+            color: Colors.white,
           ),
         ),
         title: Text('BOOKVERSE',
