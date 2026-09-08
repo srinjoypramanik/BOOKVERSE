@@ -5,6 +5,10 @@ class SignIn extends StatelessWidget{
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+      body: AppBar(
+        backgroundColor: Color(0xFFFFFFFF),
+      ),
+    );
   }
 }
