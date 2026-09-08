@@ -61,7 +61,9 @@ class Homescreen extends StatelessWidget {
         backgroundColor: Colors.white,
         onTap: (index){
           if(index == 3){
-            
+            Navigator.push(
+              context,
+            )
           }
         },
 
