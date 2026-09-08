@@ -12,7 +12,7 @@ class SignIn extends StatelessWidget{
         centerTitle: true,
         title: Text('BOOKVERSE',
         style: TextStyle(
-          
+          color: Color()
           ),
         ),
       ),
