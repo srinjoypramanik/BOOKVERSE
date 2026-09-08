@@ -9,6 +9,8 @@ class SignIn extends StatelessWidget{
       backgroundColor: Color(0xFFFFFFFF),
       body: AppBar(
         backgroundColor: Color(0xFFFFFFFF),
+        centerTitle: true,
+        
       ),
     );
   }
