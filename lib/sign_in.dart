@@ -10,6 +10,9 @@ class SignIn extends StatelessWidget{
       body: AppBar(
         backgroundColor: Color(0xFFFFFFFF),
         centerTitle: true,
+        leading: IconButton(
+          
+        ),
         title: Text('BOOKVERSE',
         style: TextStyle(
           color: Color(0xFFFFFFFF)
