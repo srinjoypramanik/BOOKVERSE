@@ -10,7 +10,11 @@ class SignIn extends StatelessWidget{
       body: AppBar(
         backgroundColor: Color(0xFFFFFFFF),
         centerTitle: true,
-        title: Text('BOOKVERSE'),
+        title: Text('BOOKVERSE',
+        style: TextStyle(
+          
+          ),
+        ),
       ),
     );
   }
