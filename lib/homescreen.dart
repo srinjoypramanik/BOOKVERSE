@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'sign_up.dart';
+import 'sign_in.dart';
 
 class Homescreen extends StatelessWidget {
   const Homescreen({super.key});
@@ -58,6 +59,16 @@ class Homescreen extends StatelessWidget {
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
         backgroundColor: Colors.white,
+        onTap: (index){
+          if(index == 3){
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context)=> const SignIn()
+              )
+            );
+          }
+        },
 
         items: const [
           BottomNavigationBarItem(
