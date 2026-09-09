@@ -1,4 +1,3 @@
-import 'package:bookverse/homescreen.dart';
 import 'package:flutter/material.dart';
 import 'splashscreen.dart';
 
