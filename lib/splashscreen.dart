@@ -16,7 +16,7 @@ class SplashScreenState extends State<SplashScreen> {
     super.initState();
 
     Timer(
-        Duration(seconds: 10),
+        Duration(seconds: 6),
         (){
       Navigator.pushReplacement(
           context,
@@ -31,7 +31,11 @@ class SplashScreenState extends State<SplashScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Text('Go to Home'),
+        child: Image.asset(
+          'assets/images/bv.png',
+          height: 200,
+          width: 200,
+        ),
       ),
     );
   }
