@@ -14,7 +14,10 @@ class BookDetails extends StatelessWidget{
 
       body: Center(),
 
-      
+      bottomNavigationBar: BottomNavigationBar(
+          type: BottomNavigationBarType.fixed,
+          backgroundColor: Colors.white,
+          items: const[]),
 
     );
   }
