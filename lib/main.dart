@@ -1,3 +1,4 @@
+import 'package:bookverse/homescreen.dart';
 import 'package:flutter/material.dart';
 import 'splashscreen.dart';
 
@@ -12,7 +13,7 @@ class MyApp extends StatelessWidget{
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: const SplashScreen(),
+      home: const Homescreen(),
     );
   }
 }

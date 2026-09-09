@@ -59,6 +59,8 @@ class Homescreen extends StatelessWidget {
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
         backgroundColor: Colors.white,
+
+        // Tanzid
         onTap: (index){
           if(index == 3){
             Navigator.push(
@@ -69,6 +71,7 @@ class Homescreen extends StatelessWidget {
             );
           }
         },
+        //Tanzid
 
         items: const [
           BottomNavigationBarItem(
