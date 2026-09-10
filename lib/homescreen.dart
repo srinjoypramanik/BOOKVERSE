@@ -41,7 +41,6 @@ class HomeScreen extends StatelessWidget {
       ),
 
       //body
-      
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -65,7 +64,6 @@ class HomeScreen extends StatelessWidget {
             ),
 
             //Catagories
-
             SingleChildScrollView(
               scrollDirection: Axis.horizontal,
               child: Row(
@@ -143,10 +141,30 @@ class HomeScreen extends StatelessWidget {
                       ),
                     ),
                   ),
-
                 ],
               ),
-            )
+            ),
+
+            // Available
+            const SizedBox(height: 15),
+            Padding(padding: const EdgeInsets.symmetric(
+                horizontal: 16,
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text('AVAILABLE HARDCOPIES (5)',
+                    style: TextStyle(
+                      color: Colors.grey,
+                      fontSize: 17,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  
+                ],
+              ),
+
+            ),
 
           ],
         ),
