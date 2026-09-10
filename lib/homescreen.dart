@@ -16,7 +16,9 @@ class HomeScreen extends StatelessWidget {
 
         leading: IconButton(
           onPressed: () {},
-          icon: const Icon(Icons.menu, color: Colors.black, size: 35),
+          icon: const Icon(Icons.menu,
+              color: Colors.black,
+              size: 35),
         ),
 
         titleSpacing: 0,
@@ -44,14 +46,10 @@ class HomeScreen extends StatelessWidget {
 
 
 
-      body: Center(
-        child: Text(
-          'Home Screen',
-          style: TextStyle(color: Colors.black, fontSize: 35),
-        ),
-      ),
+     
 
-
+      // child: Text('Home Screen',
+      // style: TextStyle(color: Colors.black, fontSize: 35),),
 
 
 
