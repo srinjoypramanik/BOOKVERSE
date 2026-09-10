@@ -196,7 +196,50 @@ class HomeScreen extends StatelessWidget {
                   ),
                 ),
 
-                
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Container(
+                          child: Text('BRAND NEW',
+                          style: TextStyle(
+                            fontSize: 12,
+                             ),
+                          ),
+                        ),
+                        const Text('800/-',
+                          style: TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ],
+                    ),
+
+                    SizedBox(height: 12),
+                    const Text('INTRODUCTION TO ALGORITHMS, 4TH EDITION',
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    SizedBox(height: 6),
+                    const Text('Thomas H. Cormen',
+                    style: TextStyle(
+                      color: Colors.grey,
+                    ),
+                    ),
+
+                    
+
+                  ],
+                ),
+              ),
             ),
 
 
