@@ -106,6 +106,26 @@ class HomeScreen extends StatelessWidget {
                     ),
                   ),
 
+                  SizedBox(width: 10),
+                  Container(
+                    padding: EdgeInsets.symmetric(
+                      horizontal: 20,
+                      vertical: 12,
+                    ),
+                    decoration: BoxDecoration(
+                      border: Border.all(
+                        color: Colors.grey,
+                      ),
+                    ),
+                    child: Text('MATHEMATICS',
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+
+                  ),
+
                 ],
               ),
             )
