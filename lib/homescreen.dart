@@ -66,9 +66,20 @@ class HomeScreen extends StatelessWidget {
               scrollDirection: Axis.horizontal,
               child: Row(
                 children: [
-                  const SizedBox(width: 16),
-
                   
+
+                  Container(
+                    padding: EdgeInsets.symmetric(
+                      horizontal: 20,
+                      vertical: 12,
+                    ),
+                    color: Colors.black,
+                    child: Text('ALL BOOKS',
+                    style: TextStyle(
+                      color: Colors.white,
+                      ),
+                    ),
+                  ),
 
                 ],
               ),
