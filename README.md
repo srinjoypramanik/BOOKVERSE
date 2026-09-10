@@ -45,5 +45,7 @@ BookVerse follows a clean and minimalist UI/UX approach inspired by modern e-com
 ## Project Contributors
 1. Srinjoy Pramanik (Co-Author)
 2. Waizur Rahman (Co-Author)
+  - https://github.com/waizurrr
 3. Sheikh Tanzid Ahmed Sadi (Co-Author)
+  - https://github.com/Tanzid316
 
