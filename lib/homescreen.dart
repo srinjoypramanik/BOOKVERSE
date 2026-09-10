@@ -46,19 +46,26 @@ class HomeScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            TextField(
-              decoration: InputDecoration(
-                hintText: 'Search books,authors...',
-                prefixIcon: const Icon(
-                  Icons.search,
-                  color: Colors.grey,
+
+            Padding(padding: const EdgeInsets.all(10),
+              child: TextField(
+                decoration: InputDecoration(
+                  hintText: 'Search books,authors...',
+                  prefixIcon: const Icon(
+                    Icons.search,
+                    color: Colors.grey,
+                  ),
+                  border: OutlineInputBorder(
+                    borderSide: const BorderSide(
+                      color: Colors.grey,
+                    ),
+                  ),
                 ),
-                border: OutlineInputBorder(),
               ),
             ),
 
             //Catagories
-            SizedBox(height: 10),
+
             SingleChildScrollView(
               scrollDirection: Axis.horizontal,
               child: Row(
