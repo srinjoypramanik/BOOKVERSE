@@ -40,12 +40,8 @@ class HomeScreen extends StatelessWidget {
         ],
       ),
 
-
-
-
-
-
-
+      //body
+      
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -62,12 +58,13 @@ class HomeScreen extends StatelessWidget {
             ),
 
             //Catagories
+            
             SingleChildScrollView(
               scrollDirection: Axis.horizontal,
               child: Row(
                 children: [
-                  
 
+                  SizedBox(width: 10),
                   Container(
                     padding: EdgeInsets.symmetric(
                       horizontal: 20,
@@ -79,6 +76,20 @@ class HomeScreen extends StatelessWidget {
                       color: Colors.white,
                       ),
                     ),
+                  ),
+
+                  SizedBox(width: 10),
+                  Container(
+                    padding: EdgeInsets.symmetric(
+                      horizontal: 20,
+                      vertical: 12,
+                    ),
+                    decoration: BoxDecoration(
+                      border: Border.all(
+                        color: Colors.grey,
+                      )
+                    ),
+                    child: Text('Computer'),
                   ),
 
                 ],
