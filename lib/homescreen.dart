@@ -58,7 +58,7 @@ class HomeScreen extends StatelessWidget {
             ),
 
             //Catagories
-            
+            SizedBox(height: 10),
             SingleChildScrollView(
               scrollDirection: Axis.horizontal,
               child: Row(
