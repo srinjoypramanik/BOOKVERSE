@@ -46,7 +46,12 @@ class HomeScreen extends StatelessWidget {
 
 
 
-     
+      body: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          
+        ),
+      ),
 
       // child: Text('Home Screen',
       // style: TextStyle(color: Colors.black, fontSize: 35),),
