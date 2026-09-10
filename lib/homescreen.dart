@@ -23,7 +23,7 @@ class HomeScreen extends StatelessWidget {
 
         titleSpacing: 0,
         title: Row(
-          children: [Image.asset('assets/images/bookverse.png', height: 43)],
+          children: [Image.asset('assets/images/bookverse.png', height: 45)],
         ),
 
         actions: [
@@ -173,7 +173,7 @@ class HomeScreen extends StatelessWidget {
               ),
             ),
 
-            //Books
+            //Books 1,2,3,
             SizedBox(height: 12),
             GestureDetector(
               onTap: (){
@@ -183,7 +183,20 @@ class HomeScreen extends StatelessWidget {
                     ),
                 );
               },
-              
+
+              child: Container(
+                margin: EdgeInsets.symmetric(
+                  horizontal: 20,
+                  vertical: 8,
+                ),
+                padding: EdgeInsets.all(14),
+                decoration: BoxDecoration(
+                  border: Border.all(
+                    color: Colors.black,
+                  ),
+                ),
+
+                
             ),
 
 
