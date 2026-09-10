@@ -53,15 +53,17 @@ class HomeScreen extends StatelessWidget {
             TextField(
               decoration: InputDecoration(
                 hintText: 'Search books,authors...',
-                
+                prefixIcon: const Icon(
+                  Icons.search,
+                  color: Colors.grey,
+                ),
               ),
             )
           ],
         ),
       ),
 
-      // child: Text('Home Screen',
-      // style: TextStyle(color: Colors.black, fontSize: 35),),
+      
 
 
 
