@@ -50,7 +50,7 @@ class HomeScreen extends StatelessWidget {
             Padding(padding: const EdgeInsets.all(10),
               child: TextField(
                 decoration: InputDecoration(
-                  hintText: 'Search books,authors...',
+                  hintText: 'Search books, authors...',
                   prefixIcon: const Icon(
                     Icons.search,
                     color: Colors.grey,
@@ -78,9 +78,11 @@ class HomeScreen extends StatelessWidget {
                       vertical: 12,
                     ),
                     color: Colors.black,
+
                     child: Text('ALL BOOKS',
                     style: TextStyle(
                       color: Colors.white,
+                      fontWeight: FontWeight.bold,
                       ),
                     ),
                   ),
@@ -94,9 +96,14 @@ class HomeScreen extends StatelessWidget {
                     decoration: BoxDecoration(
                       border: Border.all(
                         color: Colors.grey,
-                      )
+                      ),
                     ),
-                    child: Text('Computer'),
+                    child: Text('COMPUTER',
+                      style: TextStyle(
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
+                      ),
+                    ),
                   ),
 
                 ],
