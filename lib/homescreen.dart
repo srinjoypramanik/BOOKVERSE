@@ -49,7 +49,14 @@ class HomeScreen extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
-          
+          children: [
+            TextField(
+              decoration: InputDecoration(
+                hintText: 'Search books,authors...',
+                
+              ),
+            )
+          ],
         ),
       ),
 
