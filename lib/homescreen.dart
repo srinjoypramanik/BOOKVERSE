@@ -160,7 +160,15 @@ class HomeScreen extends StatelessWidget {
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  
+                  TextButton(
+                      onPressed: (){},
+                      child: const Text('Filter',
+                        style: TextStyle(
+                          color: Colors.black,
+                          decoration: TextDecoration.underline,
+                        ),
+                      ),
+                    ),
                 ],
               ),
 
