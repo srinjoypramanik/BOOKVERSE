@@ -184,7 +184,8 @@ class HomeScreen extends StatelessWidget {
                 );
               },
 
-              child: Container(
+              child:
+              Container(
                 margin: EdgeInsets.symmetric(
                   horizontal: 20,
                   vertical: 8,
@@ -274,7 +275,6 @@ class HomeScreen extends StatelessWidget {
 
           ],
         ),
-
       ),
 
 
