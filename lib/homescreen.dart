@@ -392,7 +392,7 @@ class HomeScreen extends StatelessWidget {
                   ),
 
                   SizedBox(height: 12),
-                  const Text('CLEAN CODE',
+                  const Text('CLEAN CODE: A HANDBOOK OF SOFTWARE CRAFTSMANSHIPS',
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
 
@@ -403,6 +403,92 @@ class HomeScreen extends StatelessWidget {
                   ),
                   SizedBox(height: 6),
                   const Text('Robert C. Martin',
+                    style: TextStyle(
+                      color: Colors.grey,
+                    ),
+                  ),
+
+                  SizedBox(height: 8),
+                  const Divider(thickness: 1,),
+                  SizedBox(height: 8),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      const Text('COMPUTER SCIENCE',
+                        style: TextStyle(
+                          color: Colors.grey,
+                          fontSize: 14,
+                        ),
+                      ),
+                      ElevatedButton(
+                        onPressed: (){},
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.black,
+                          foregroundColor: Colors.white,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.zero,
+                          ),
+                        ),
+                        child: const Text('+ADD TO CART',
+                          style: TextStyle(
+                            fontSize: 13,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+
+                ],
+              ),
+            ),
+
+            //Book4
+            Container(
+              margin: EdgeInsets.symmetric(
+                horizontal: 16,
+                vertical: 8,
+              ),
+              padding: EdgeInsets.all(14),
+              decoration: BoxDecoration(
+                border: Border.all(
+                  color: Colors.black,
+                ),
+              ),
+
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Container(
+                        child: Text('BRAND NEW',
+                          style: TextStyle(
+                            fontSize: 12,
+                          ),
+                        ),
+                      ),
+                      const Text('1200/-',
+                        style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ],
+                  ),
+
+                  SizedBox(height: 12),
+                  const Text('STRUCTURE AND INTERPRETATION OF COMPUTER PROGRAMS (SICP)',
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  SizedBox(height: 6),
+                  const Text('Harold Abelson, Gerald Jay Sussman, Julie Sussman',
                     style: TextStyle(
                       color: Colors.grey,
                     ),
@@ -437,7 +523,6 @@ class HomeScreen extends StatelessWidget {
                       ),
                     ],
                   ),
-
                 ],
               ),
             ),
