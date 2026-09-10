@@ -41,3 +41,9 @@ BookVerse follows a clean and minimalist UI/UX approach inspired by modern e-com
 - Book renting and sharing
 - Community book clubs
 - AI-based book recommendations
+
+## Project Contributors
+1. Srinjoy Pramanik (Co-Author)
+2. Waizur Rahman (Co-Author)
+3. Sheikh Tanzid Ahmed Sadi (Co-Author)
+
