@@ -59,15 +59,16 @@ class HomeScreen extends StatelessWidget {
                 ),
                 border: OutlineInputBorder(),
               ),
-            )
+            ),
+
+            //Catagories
             SingleChildScrollView(
               scrollDirection: Axis.horizontal,
               child: Row(
                 children: [
                   const SizedBox(width: 16),
-                  Container(
 
-                  ),
+                  
 
                 ],
               ),
