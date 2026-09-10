@@ -235,7 +235,35 @@ class HomeScreen extends StatelessWidget {
                     ),
                     ),
 
-                    
+                    SizedBox(height: 10),
+                    const Divider(thickness: 0.5,),
+                    SizedBox(height: 10),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        const Text('COMPUTER SCIENCE',
+                          style: TextStyle(
+                            color: Colors.grey,
+                            fontSize: 14,
+                          ),
+                        ),
+                        ElevatedButton(
+                            onPressed: (){},
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: Colors.black,
+                            foregroundColor: Colors.white,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.zero,
+                            ),
+                          ),
+                          child: const Text('+ADD TO CART',
+                            style: TextStyle(
+                              fontSize: 13,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
 
                   ],
                 ),
