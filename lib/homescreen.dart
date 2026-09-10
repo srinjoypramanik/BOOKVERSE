@@ -23,7 +23,9 @@ class HomeScreen extends StatelessWidget {
 
         titleSpacing: 0,
         title: Row(
-          children: [Image.asset('assets/images/bookverse.png', height: 45)],
+          children: [Image.asset('assets/images/bookverse.png',
+              height: 47)
+          ],
         ),
 
         actions: [
@@ -96,7 +98,7 @@ class HomeScreen extends StatelessWidget {
                         color: Colors.grey,
                       ),
                     ),
-                    child: Text('COMPUTER',
+                    child: Text('COMPUTER SCIENCE',
                       style: TextStyle(
                       color: Colors.black,
                       fontWeight: FontWeight.bold,
@@ -153,7 +155,7 @@ class HomeScreen extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text('AVAILABLE HARDCOPIES (5)',
+                  Text('AVAILABLE HARDCOPIES (4)',
                     style: TextStyle(
                       color: Colors.grey,
                       fontSize: 17,
@@ -173,8 +175,8 @@ class HomeScreen extends StatelessWidget {
               ),
             ),
 
-            //Books 1,2,3,
-            SizedBox(height: 12),
+            //Books 1
+            SizedBox(height: 1),
             GestureDetector(
               onTap: (){
                 Navigator.push(context,
@@ -236,9 +238,9 @@ class HomeScreen extends StatelessWidget {
                     ),
                     ),
 
-                    SizedBox(height: 8),
+                    SizedBox(height: 1),
                     const Divider(thickness: 0.5,),
-                    SizedBox(height: 8),
+                    SizedBox(height: 1),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -323,9 +325,9 @@ class HomeScreen extends StatelessWidget {
                     ),
                   ),
 
-                  SizedBox(height: 8),
+                  SizedBox(height: 1),
                   const Divider(thickness: 0.5,),
-                  SizedBox(height: 8),
+                  SizedBox(height: 1),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -408,9 +410,9 @@ class HomeScreen extends StatelessWidget {
                     ),
                   ),
 
-                  SizedBox(height: 8),
-                  const Divider(thickness: 1,),
-                  SizedBox(height: 8),
+                  SizedBox(height: 1),
+                  const Divider(thickness: 0.5,),
+                  SizedBox(height: 1),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -494,9 +496,9 @@ class HomeScreen extends StatelessWidget {
                     ),
                   ),
 
-                  SizedBox(height: 8),
+                  SizedBox(height: 1),
                   const Divider(thickness: 0.5,),
-                  SizedBox(height: 8),
+                  SizedBox(height: 1),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
