@@ -146,7 +146,7 @@ class HomeScreen extends StatelessWidget {
             ),
 
             // Available
-            const SizedBox(height: 15),
+            const SizedBox(height: 12),
             Padding(padding: const EdgeInsets.symmetric(
                 horizontal: 16,
               ),
@@ -168,11 +168,25 @@ class HomeScreen extends StatelessWidget {
                           decoration: TextDecoration.underline,
                         ),
                       ),
-                    ),
+                  ),
                 ],
               ),
-
             ),
+
+            //Books
+            SizedBox(height: 12),
+            GestureDetector(
+              onTap: (){
+                Navigator.push(context,
+                    MaterialPageRoute(
+                      builder: (context)=>const BookDetails(),
+                    ),
+                );
+              },
+              
+            ),
+
+
 
           ],
         ),
