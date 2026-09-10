@@ -57,13 +57,28 @@ class HomeScreen extends StatelessWidget {
                   Icons.search,
                   color: Colors.grey,
                 ),
+                border: OutlineInputBorder(),
               ),
             )
+            SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                children: [
+                  const SizedBox(width: 16),
+                  Container(
+
+                  ),
+
+                ],
+              ),
+            )
+
           ],
         ),
+
       ),
 
-      
+
 
 
 
