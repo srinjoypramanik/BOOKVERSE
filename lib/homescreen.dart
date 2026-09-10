@@ -187,7 +187,7 @@ class HomeScreen extends StatelessWidget {
               child:
               Container(
                 margin: EdgeInsets.symmetric(
-                  horizontal: 20,
+                  horizontal: 16,
                   vertical: 8,
                 ),
                 padding: EdgeInsets.all(14),
@@ -236,9 +236,9 @@ class HomeScreen extends StatelessWidget {
                     ),
                     ),
 
-                    SizedBox(height: 10),
+                    SizedBox(height: 8),
                     const Divider(thickness: 0.5,),
-                    SizedBox(height: 10),
+                    SizedBox(height: 8),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -271,6 +271,92 @@ class HomeScreen extends StatelessWidget {
               ),
             ),
 
+            //Book2
+            Container(
+              margin: EdgeInsets.symmetric(
+                horizontal: 16,
+                vertical: 8,
+              ),
+              padding: EdgeInsets.all(14),
+              decoration: BoxDecoration(
+                border: Border.all(
+                  color: Colors.black,
+                ),
+              ),
+
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Container(
+                        child: Text('BRAND NEW',
+                          style: TextStyle(
+                            fontSize: 12,
+                          ),
+                        ),
+                      ),
+                      const Text('900/-',
+                        style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ],
+                  ),
+
+                  SizedBox(height: 12),
+                  const Text('ARTIFICIAl INTELLIGENCE: A MODERN APPROACH',
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  SizedBox(height: 6),
+                  const Text('Stuart Russell, Peter Norvig',
+                    style: TextStyle(
+                      color: Colors.grey,
+                    ),
+                  ),
+
+                  SizedBox(height: 8),
+                  const Divider(thickness: 0.5,),
+                  SizedBox(height: 8),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      const Text('COMPUTER SCIENCE',
+                        style: TextStyle(
+                          color: Colors.grey,
+                          fontSize: 14,
+                        ),
+                      ),
+                      ElevatedButton(
+                        onPressed: (){},
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.black,
+                          foregroundColor: Colors.white,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.zero,
+                          ),
+                        ),
+                        child: const Text('+ADD TO CART',
+                          style: TextStyle(
+                            fontSize: 13,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+
+            
 
 
           ],
