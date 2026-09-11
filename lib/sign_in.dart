@@ -98,7 +98,13 @@ class SignIn extends StatelessWidget{
 
             },
             style: TextButton.styleFrom(
-              
+              foregroundColor: Colors.black,
+            ),
+            child: Text('Forgot my Password',
+              style: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.w500,
+              ),
             ),
           ),
         ],
