@@ -154,7 +154,8 @@ class SignIn extends StatelessWidget{
                 },
 
                 style: TextButton.styleFrom(
-                  
+                  alignment: Alignment.center,
+                  foregroundColor: Colors.black,
                 ),
               ),
             ),
