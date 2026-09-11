@@ -49,6 +49,7 @@ class SignIn extends StatelessWidget{
           Text('Email Address',
           style: TextStyle(
             fontSize: 20,
+            fontWeight: FontWeight.w500,
           ),
           ),
         ],
