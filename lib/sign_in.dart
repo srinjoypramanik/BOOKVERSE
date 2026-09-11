@@ -47,7 +47,9 @@ class SignIn extends StatelessWidget{
             height: 20,
           ),
           Text('Email Address',
-          style: TextStyle(),
+          style: TextStyle(
+            fontSize: 20,
+          ),
           ),
         ],
       ),
