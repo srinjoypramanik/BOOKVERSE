@@ -81,6 +81,7 @@ class SignIn extends StatelessWidget{
           TextField(
             decoration: InputDecoration(
               hintText: 'Enter your Password',
+              filled: true,
             ),
           ),
         ],
