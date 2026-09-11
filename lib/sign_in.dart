@@ -157,6 +157,12 @@ class SignIn extends StatelessWidget{
                   alignment: Alignment.center,
                   foregroundColor: Colors.black,
                 ),
+
+                child: Text('Create a new account',
+                  style: TextStyle(
+                    fontSize: 20,
+                  ),
+                ),
               ),
             ),
           ),
