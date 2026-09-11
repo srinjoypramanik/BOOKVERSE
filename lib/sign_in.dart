@@ -57,6 +57,7 @@ class SignIn extends StatelessWidget{
           TextField(
             decoration: InputDecoration(
               hintText: 'Enter your email',
+              filled: true,
             ),
           ),
         ],
