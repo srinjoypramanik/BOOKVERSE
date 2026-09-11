@@ -31,6 +31,8 @@ class SignIn extends StatelessWidget{
         children: [
           SizedBox(
             height: 250,
+            child: 
+            Image.asset('assets/images/bookverse.png'),
           ),
         ],
       ),
