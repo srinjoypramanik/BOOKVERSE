@@ -70,6 +70,10 @@ class SignIn extends StatelessWidget{
               ),
             ),
           ),
+
+          Text('Password',
+              
+          ),
         ],
       ),
     );
