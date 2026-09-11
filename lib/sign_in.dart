@@ -139,7 +139,7 @@ class SignIn extends StatelessWidget{
           SizedBox(height: 20),
           Center(
             child: SizedBox(
-              
+              height: 50,
             ),
           ),
         ],
