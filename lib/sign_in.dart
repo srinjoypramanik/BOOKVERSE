@@ -35,7 +35,8 @@ class SignIn extends StatelessWidget{
             Image.asset('assets/images/bookverse.png'),
           ),
           Center(
-            
+            child:
+            Text('Sign in with your email'),
           ),
         ],
       ),
