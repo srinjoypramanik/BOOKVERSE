@@ -20,11 +20,11 @@ class SignIn extends StatelessWidget{
             Navigator.pop(context);
           }
         ),
-        title: Text('BOOKVERSE',
-        style: TextStyle(
-          color: Color(0xFFFFFFFF)
-          ),
-        ),
+        // title: Text('BOOKVERSE',
+        // style: TextStyle(
+        //   color: Color(0xFFFFFFFF)
+        //   ),
+        // ),
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.start,
@@ -148,7 +148,7 @@ class SignIn extends StatelessWidget{
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => SignUpPage();
+                      builder: (context) => SignUpPage(),
                     ),
                   );
                 },
