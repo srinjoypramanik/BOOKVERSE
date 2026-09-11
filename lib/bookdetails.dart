@@ -196,7 +196,31 @@ class BookDetails extends StatelessWidget{
 
            ),
 
-           
+           SizedBox(height: 16),
+           Row(
+             children: [
+               SizedBox(width: 12),
+
+               Expanded(
+                   child: ElevatedButton(
+                       onPressed: () {},
+                     style: ElevatedButton.styleFrom(
+                       backgroundColor: Colors.black,
+                       foregroundColor: Colors.white,
+                       shape: RoundedRectangleBorder(
+                         borderRadius: BorderRadius.zero,
+                       ),
+                     ),
+                     child: Text('+ADD TO SHOPPING CART',
+                     style: TextStyle(
+                       fontSize: 15,
+                      ),
+                     ),
+                   ),
+                ),
+               SizedBox(width: 12),
+             ],
+           ),
 
 
          ],
