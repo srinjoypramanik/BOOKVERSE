@@ -52,7 +52,11 @@ class SignIn extends StatelessWidget{
             fontWeight: FontWeight.w500,
           ),
           ),
+
           SizedBox(height: 10),
+          TextField(
+            
+          ),
         ],
       ),
     );
