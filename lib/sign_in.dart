@@ -84,7 +84,7 @@ class SignIn extends StatelessWidget{
               filled: true,
               fillColor: Color(0xFFF1F1F5),
               border: OutlineInputBorder(
-
+                borderRadius: BorderRadius.circular(20),
               ),
             ),
           ),
