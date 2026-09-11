@@ -34,6 +34,9 @@ class SignIn extends StatelessWidget{
             child: 
             Image.asset('assets/images/bookverse.png'),
           ),
+          Center(
+            
+          ),
         ],
       ),
     );
