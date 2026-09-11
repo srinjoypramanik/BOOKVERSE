@@ -130,6 +130,7 @@ class SignIn extends StatelessWidget{
                 child: Text('Login',
                   style: TextStyle(
                     fontSize: 30,
+                    fontWeight: FontWeight.w500,
                   ),
                 ),
               ),
