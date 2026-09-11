@@ -119,6 +119,8 @@ class SignIn extends StatelessWidget{
                 },
                 style: ElevatedButton.styleFrom(
                   alignment: Alignment.center,
+                  backgroundColor: Colors.black,
+                  foregroundColor: Colors.white,
                 ),
               ),
             ),
