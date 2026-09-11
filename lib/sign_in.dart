@@ -136,6 +136,8 @@ class SignIn extends StatelessWidget{
               ),
             ),
           ),
+          SizedBox(height: 20),
+          
         ],
       ),
     );
