@@ -162,6 +162,7 @@ class SignIn extends StatelessWidget{
                   style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.w500,
+                    decoration: TextDecoration.underline,
                   ),
                 ),
               ),
