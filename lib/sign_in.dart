@@ -44,8 +44,9 @@ class SignIn extends StatelessWidget{
             ),
           ),
           const SizedBox(
-            
+            height: 20,
           ),
+          Text(data),
         ],
       ),
     );
