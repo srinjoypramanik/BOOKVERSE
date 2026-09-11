@@ -39,6 +39,7 @@ class SignIn extends StatelessWidget{
             Text('Sign in with your email',
             style: TextStyle(
               fontSize: 20,
+              fontWeight: FontWeight.w900,
             ),
             ),
           ),
