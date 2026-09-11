@@ -72,7 +72,7 @@ class SignIn extends StatelessWidget{
           ),
 
           Text('Password',
-              
+              style: TextStyle(),
           ),
         ],
       ),
