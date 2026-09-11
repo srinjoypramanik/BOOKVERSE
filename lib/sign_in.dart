@@ -7,7 +7,7 @@ class SignIn extends StatelessWidget{
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color(0xFFFFFFFF),
-      body: AppBar(
+      appBar: AppBar(
         backgroundColor: Color(0xFF000000),
         centerTitle: true,
         leading: IconButton(
@@ -25,6 +25,7 @@ class SignIn extends StatelessWidget{
           ),
         ),
       ),
+
     );
   }
 }
