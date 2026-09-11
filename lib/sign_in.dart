@@ -112,6 +112,15 @@ class SignIn extends StatelessWidget{
             child: SizedBox(
               height: 80,
               width: 200,
+
+              child: ElevatedButton(
+                onPressed: (){
+
+                },
+                style: ElevatedButton.styleFrom(
+                  alignment: Alignment.center,
+                ),
+              ),
             ),
           ),
         ],
