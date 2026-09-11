@@ -80,7 +80,7 @@ class SignIn extends StatelessWidget{
           SizedBox(height: 10),
           TextField(
             decoration: InputDecoration(
-              
+              hintText: 'Enter your Password',
             ),
           ),
         ],
