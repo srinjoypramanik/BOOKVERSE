@@ -94,7 +94,40 @@ class BookDetails extends StatelessWidget{
                ),
              ],
            ),
-           
+           SizedBox(height: 6),
+           Divider(),
+           SizedBox(height: 6),
+           Row(
+             mainAxisAlignment: MainAxisAlignment.spaceBetween,
+             crossAxisAlignment: CrossAxisAlignment.start,
+             children: [
+               Row(
+                 children: [
+                   SizedBox(width: 12),
+                   Column(
+                     crossAxisAlignment: CrossAxisAlignment.start,
+                     children: [
+                       Text('OFFER PRICE',
+                         style: TextStyle(
+                           color: Colors.grey,
+                           fontWeight: FontWeight.bold,
+                           fontSize: 14,
+                         ),
+                       ),
+                       SizedBox(height: 8),
+                       Text('800/-',
+                         style: TextStyle(
+                           color: Colors.black,
+                           fontSize: 22,
+                           fontWeight: FontWeight.bold,
+                         ),
+                       ),
+                     ],
+                   ),
+                 ],
+               ),
+
+               
 
 
          ],
