@@ -66,6 +66,7 @@ class SignIn extends StatelessWidget{
               ),
               contentPadding: EdgeInsets.symmetric(
                 horizontal: 20,
+                vertical: 18,
               ),
             ),
           ),
