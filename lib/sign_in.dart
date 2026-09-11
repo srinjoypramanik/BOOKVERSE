@@ -87,6 +87,9 @@ class SignIn extends StatelessWidget{
                 borderRadius: BorderRadius.circular(20),
                 borderSide: BorderSide.none,
               ),
+              contentPadding: EdgeInsets.symmetric(
+                
+              ),
             ),
           ),
         ],
