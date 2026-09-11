@@ -30,7 +30,7 @@ class SignIn extends StatelessWidget{
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           SizedBox(
-            
+            height: 250,
           ),
         ],
       ),
