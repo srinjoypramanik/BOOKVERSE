@@ -74,6 +74,7 @@ class SignIn extends StatelessWidget{
           Text('Password',
               style: TextStyle(
                 fontSize: 20,
+                fontWeight: FontWeight.w500,
               ),
           ),
         ],
