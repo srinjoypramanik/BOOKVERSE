@@ -27,6 +27,7 @@ class SignIn extends StatelessWidget{
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
       ),
     );
   }
