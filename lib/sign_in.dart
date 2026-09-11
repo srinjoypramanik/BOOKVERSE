@@ -123,7 +123,7 @@ class SignIn extends StatelessWidget{
                   foregroundColor: Colors.white,
 
                   shape: RoundedRectangleBorder(
-                    
+                    borderRadius: BorderRadius.circular(0),
                   ),
                 ),
               ),
