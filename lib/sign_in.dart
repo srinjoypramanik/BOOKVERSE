@@ -36,7 +36,9 @@ class SignIn extends StatelessWidget{
           ),
           Center(
             child:
-            Text('Sign in with your email'),
+            Text('Sign in with your email',
+            style: ,
+            ),
           ),
         ],
       ),
