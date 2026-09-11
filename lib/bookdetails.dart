@@ -68,6 +68,32 @@ class BookDetails extends StatelessWidget{
             ],
            ),
 
+           SizedBox(height: 16),
+           Row(
+             children: [
+               SizedBox(width: 12),
+               Text('INTRODUCTION TO ALGORITHMS,\n4TH EDITION',
+               style: TextStyle(
+                 fontSize: 20,
+                 fontWeight: FontWeight.bold,
+                 )
+               ),
+             ],
+           ),
+
+           SizedBox(height: 8),
+           Row(
+             children: [
+               SizedBox(width: 12),
+               Text('by Thomas H. Corman',
+               style: TextStyle(
+                 color: Colors.grey,
+                 fontSize: 15,
+                 fontWeight: FontWeight.bold
+                ),
+               ),
+             ],
+           ),
            
 
 
