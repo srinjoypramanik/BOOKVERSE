@@ -26,7 +26,7 @@ class SignIn extends StatelessWidget{
         ),
       ),
       body: Column(
-        
+
       ),
     );
   }
