@@ -161,6 +161,7 @@ class SignIn extends StatelessWidget{
                 child: Text('Create a new account',
                   style: TextStyle(
                     fontSize: 20,
+                    
                   ),
                 ),
               ),
