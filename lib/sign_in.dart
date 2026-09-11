@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'sign_up.dart';
 
 class SignIn extends StatelessWidget{
   const SignIn({super.key});
@@ -139,7 +140,24 @@ class SignIn extends StatelessWidget{
           SizedBox(height: 20),
           Center(
             child: SizedBox(
-              
+              height: 50,
+              width: 300,
+
+              child: TextButton(
+                onPressed: (){
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => SignUpPage();
+                    ),
+                  );
+                },
+
+                style: TextButton.styleFrom(
+                  alignment: Alignment.center,
+                  foregroundColor: Colors.black,
+                ),
+              ),
             ),
           ),
         ],
