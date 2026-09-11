@@ -58,6 +58,7 @@ class SignIn extends StatelessWidget{
             decoration: InputDecoration(
               hintText: 'Enter your email',
               filled: true,
+              fillColor: Color(0xFFF1F1F5),
             ),
           ),
         ],
