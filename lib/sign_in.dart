@@ -126,6 +126,12 @@ class SignIn extends StatelessWidget{
                     borderRadius: BorderRadius.circular(0),
                   ),
                 ),
+
+                child: Text('Login',
+                  style: TextStyle(
+                    
+                  ),
+                ),
               ),
             ),
           ),
