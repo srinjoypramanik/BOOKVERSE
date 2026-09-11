@@ -127,7 +127,33 @@ class BookDetails extends StatelessWidget{
                  ],
                ),
 
-               
+               Row(
+                 children: [
+                   Column(
+                     crossAxisAlignment: CrossAxisAlignment.end,
+                     children: [
+                       Text('CATAGORY',
+                         style: TextStyle(
+                           color: Colors.grey,
+                           fontWeight: FontWeight.bold,
+                           fontSize: 14,
+                         ),
+                       ),
+                       SizedBox(height: 8),
+                       Text('COMPUTER SCIENCE',
+                         style: TextStyle(
+                           color: Colors.black,
+                           fontSize: 18,
+                         ),
+                       ),
+                     ],
+                   ),
+                   SizedBox(width: 12),
+                 ],
+               ),
+             ],
+           ),
+           
 
 
          ],
