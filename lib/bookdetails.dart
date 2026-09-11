@@ -12,8 +12,11 @@ class BookDetails extends StatelessWidget{
       appBar: AppBar(
         backgroundColor: Colors.white,
         leading: IconButton(
-          onPressed: () {},
-          icon: const Icon(Icons.arrow_back,
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          icon: const Icon(
+              Icons.arrow_back,
               color: Colors.black,
               size: 35),
         ),
@@ -221,8 +224,6 @@ class BookDetails extends StatelessWidget{
                SizedBox(width: 12),
              ],
            ),
-
-
          ],
         ),
        ),
