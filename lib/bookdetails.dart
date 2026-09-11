@@ -169,6 +169,33 @@ class BookDetails extends StatelessWidget{
              ],
            ),
 
+           SizedBox(height: 12),
+           Row(
+             children: [
+               SizedBox(width: 12),
+               Expanded(child:
+               Text('Introduction to Algorithms is a book on computer programming '
+                   'by Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest, and'
+                   ' Clifford Stein. The book is described by its publisher as "the'
+                   ' leading algorithms text in universities worldwide as well as the'
+                   ' standard reference for professionals". It is commonly cited as a '
+                   'reference for algorithms in published papers, with over 10,000 '
+                   'citations on CiteSeerX, and over 70,000 citations '
+                   'on Google Scholar as of 2024. The book sold half a million copies '
+                   'during first 20 years. Wikipedia.',
+                 style: TextStyle(
+                   color: Colors.grey,
+                   fontSize: 18.5,
+                   height: 1.75,
+
+                 ),
+               ),
+               ),
+               SizedBox(width: 12),
+             ],
+
+           ),
+
            
 
 
