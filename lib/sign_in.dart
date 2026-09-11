@@ -46,7 +46,9 @@ class SignIn extends StatelessWidget{
           const SizedBox(
             height: 20,
           ),
-          Text('Email Address',),
+          Text('Email Address',
+          style: TextStyle(),
+          ),
         ],
       ),
     );
