@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'Checkoutpage.dart';
 class Cart extends StatefulWidget {
   const Cart({super.key});
 
@@ -42,21 +43,47 @@ class  CartState extends State<Cart> {
 
             Container( 
               width:double.infinity,
+              height: 120,
               
 
-              decoration: BoxDecoration(border: Border.all(color: Colors.black,width: 2)),
+              decoration: BoxDecoration(border: Border.all(color: const Color.fromARGB(255, 158, 155, 155),width: 2)),
               child: Column(
                 
 
-                  mainAxisAlignment:MainAxisAlignment.center,
+                  mainAxisAlignment:MainAxisAlignment.spaceEvenly,
                   children:[
-                  ElevatedButton(
-                    style: ElevatedButton.styleFrom(backgroundColor: Colors.black,shape: RoundedRectangleBorder(borderRadius: BorderRadius.zero)) ,
-                  
-                    onPressed:(){},
-                    
-                    child: const Text('PROCEED TO CHECKOUT',textAlign:TextAlign.center,style: TextStyle(fontWeight: FontWeight.bold),))
-                ],
+                    Container(
+                      width:double.infinity,
+                      
+                      child: Row( mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                      
+                       Text('TOTAL  AMOUNT  :  ',style: TextStyle(color:Color.fromARGB(255, 0, 0, 0),fontSize: 20),),
+                       Text('00/=')
+                    ]  
+                    ),
+                    ),
+                    ElevatedButton(
+                            onPressed: (){
+                              Navigator.push(context,MaterialPageRoute(builder:(context)=>const Checkoutpage()));
+                            },
+
+                          style: ElevatedButton.styleFrom(
+                            fixedSize: Size.fromWidth(350),
+                            backgroundColor: Colors.black,
+                            foregroundColor: Colors.white,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.zero,
+                            ),
+                          ),
+                          child: const Text('PROCEED TO CHECKOUT',
+                            style: TextStyle(
+                              fontSize: 20,
+                            ),
+                          ),
+                        ),
+                  ]
+                 
 
               ),
             ),
@@ -70,6 +97,19 @@ class  CartState extends State<Cart> {
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
          backgroundColor: Colors.white,
+            // Tanzid........................................
+        onTap: (index){
+          if(index == 3){
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context)=> const Cart()
+              )
+            );
+          }
+        },
+        //Tanzid.........................................
+
 
       items: const [
         BottomNavigationBarItem(
