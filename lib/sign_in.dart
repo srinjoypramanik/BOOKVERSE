@@ -37,7 +37,50 @@ class SignIn extends StatelessWidget{
           Center(
             child:
             Text('Sign in with your email',
-            style: ,
+            style: TextStyle(
+              fontSize: 20,
+              fontWeight: FontWeight.w900,
+            ),
+            ),
+          ),
+          const SizedBox(
+            height: 20,
+          ),
+          Text('Email Address',
+          style: TextStyle(
+            fontSize: 20,
+            fontWeight: FontWeight.w500,
+          ),
+          ),
+
+          SizedBox(height: 10),
+          TextField(
+            decoration: InputDecoration(
+              hintText: 'Enter your email',
+              filled: true,
+              fillColor: Color(0xFFF1F1F5),
+
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(20),
+                borderSide: BorderSide.none,
+              ),
+              contentPadding: EdgeInsets.symmetric(
+                horizontal: 20,
+                vertical: 18,
+              ),
+            ),
+          ),
+
+          Text('Password',
+              style: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.w500,
+              ),
+          ),
+          SizedBox(height: 10),
+          TextField(
+            decoration: InputDecoration(
+              
             ),
           ),
         ],
