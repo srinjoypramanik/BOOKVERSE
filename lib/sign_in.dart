@@ -121,6 +121,10 @@ class SignIn extends StatelessWidget{
                   alignment: Alignment.center,
                   backgroundColor: Colors.black,
                   foregroundColor: Colors.white,
+
+                  shape: RoundedRectangleBorder(
+                    
+                  ),
                 ),
               ),
             ),
