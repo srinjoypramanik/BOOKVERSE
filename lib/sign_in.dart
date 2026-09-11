@@ -37,7 +37,9 @@ class SignIn extends StatelessWidget{
           Center(
             child:
             Text('Sign in with your email',
-            style: ,
+            style: TextStyle(
+              fontSize: 20,
+            ),
             ),
           ),
         ],
