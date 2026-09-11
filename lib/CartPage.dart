@@ -98,16 +98,7 @@ class  CartState extends State<Cart> {
         type: BottomNavigationBarType.fixed,
          backgroundColor: Colors.white,
             // Tanzid........................................
-        onTap: (index){
-          if(index == 3){
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context)=> const Cart()
-              )
-            );
-          }
-        },
+
         //Tanzid.........................................
 
 

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'bookdetails.dart';
 import 'sign_up.dart';
 import 'sign_in.dart';
-
+import 'CartPage.dart';
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
@@ -551,12 +551,24 @@ class HomeScreen extends StatelessWidget {
             Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context)=> const SignIn()
-              )
+                builder: (context)=> const SignIn(),
+              ),
+            );
+          }
+
+        //Tanzid.........................................
+        //Waizur.........................................
+        else if(index == 2){
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context)=> const Cart(),
+                ),
             );
           }
         },
-        //Tanzid.........................................
+        //Waizur.........................................
+
 
         items: const [
           BottomNavigationBarItem(
