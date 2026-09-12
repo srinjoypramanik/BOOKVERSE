@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'Checkoutpage.dart';
+import 'homescreen.dart';
+import 'sign_in.dart';
 class Cart extends StatefulWidget {
   const Cart({super.key});
 
@@ -17,7 +19,7 @@ class  CartState extends State<Cart> {
         centerTitle: true,
 
         leading: IconButton(
-          onPressed: (){},
+          onPressed: (){ Navigator.push(context,MaterialPageRoute(builder:(context)=>const HomeScreen()));},
            icon: const Icon(Icons.arrow_back,color: Colors.black,size:35)
            ),
 
@@ -99,12 +101,46 @@ class  CartState extends State<Cart> {
          backgroundColor: Colors.white,
             // Tanzid........................................
 
+// Tanzid........................................
+        onTap: (index){
+          if(index == 3){
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context)=> const SignIn(),
+              ),
+            );
+          }
+
+        //Tanzid.........................................
+        //Waizur.........................................
+        else if(index == 2){
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context)=> const Cart(),
+                ),
+            );
+          }
+
+          else if(index == 0){
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context)=> const HomeScreen(),
+                ),
+            );
+          }
+        },
+        //Waizur.........................................
+
         //Tanzid.........................................
 
 
       items: const [
         BottomNavigationBarItem(
           icon: Icon(
+            
             Icons.home_filled,
             size: 30,
             color: Colors.black,
