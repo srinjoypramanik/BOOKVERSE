@@ -9,13 +9,13 @@ class SignUpPage extends StatelessWidget {
       backgroundColor: Colors.white,
 
       appBar: AppBar(
-        backgroundColor: Colors.white,
+        backgroundColor: Colors.black,
         elevation: 1,
 
         leading: IconButton(
           icon: Icon(
             Icons.arrow_back,
-            color: Colors.black,
+            color: Colors.white,
             size: 30,
           ),
 
