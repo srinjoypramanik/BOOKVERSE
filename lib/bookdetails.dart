@@ -5,6 +5,13 @@ import 'CartPage.dart';
 class BookDetails extends StatelessWidget{
   const BookDetails({super.key});
 
+  // final String title;
+  // final String author;
+  // final String price;
+  // final String category;
+  // final String description;
+  
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
