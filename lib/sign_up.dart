@@ -10,7 +10,7 @@ class SignUpPage extends StatelessWidget {
 
       appBar: AppBar(
         backgroundColor: Colors.black,
-        elevation: 1,
+
 
         leading: IconButton(
           icon: Icon(
