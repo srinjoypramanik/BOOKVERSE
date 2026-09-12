@@ -47,50 +47,103 @@ class SignIn extends StatelessWidget{
           const SizedBox(
             height: 20,
           ),
-          Text('Email Address',
-          style: TextStyle(
-            fontSize: 20,
-            fontWeight: FontWeight.w500,
-          ),
+          Row(
+            children: [
+              Container(
+                margin: EdgeInsets.only(left: 15),
+                child: Text(
+                  'Email Address',
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+              ),
+            ],
           ),
 
           SizedBox(height: 10),
-          TextField(
-            decoration: InputDecoration(
-              hintText: 'Enter your email',
-              filled: true,
-              fillColor: Color(0xFFF1F1F5),
+          // TextField(
+          //   decoration: InputDecoration(
+          //     hintText: 'Enter your email',
+          //     filled: true,
+          //     fillColor: Color(0xFFF1F1F5),
+          //
+          //     border: OutlineInputBorder(
+          //       borderRadius: BorderRadius.circular(20),
+          //       borderSide: BorderSide.none,
+          //     ),
+          //     contentPadding: EdgeInsets.symmetric(
+          //       horizontal: 20,
+          //       vertical: 18,
+          //     ),
+          //   ),
+          // ),
 
-              border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(20),
-                borderSide: BorderSide.none,
-              ),
-              contentPadding: EdgeInsets.symmetric(
-                horizontal: 20,
-                vertical: 18,
+          Container(
+            margin: EdgeInsets.only(left: 15, right: 15),
+            child: TextField(
+              decoration: InputDecoration(
+                hintText: 'Enter your email',
+                filled: true,
+                fillColor: Color(0xFFF1F1F5),
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(20),
+                  borderSide: BorderSide.none,
+                ),
+                contentPadding: EdgeInsets.symmetric(
+                  horizontal: 20,
+                  vertical: 18,
+                ),
               ),
             ),
           ),
 
-          Text('Password',
-              style: TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.w500,
+          Row(
+            children: [
+              Container(
+                margin: EdgeInsets.only(left: 15),
+                child: Text(
+                  'Password',
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
               ),
+            ],
           ),
           SizedBox(height: 10),
-          TextField(
-            decoration: InputDecoration(
-              hintText: 'Enter your Password',
-              filled: true,
-              fillColor: Color(0xFFF1F1F5),
-              border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(20),
-                borderSide: BorderSide.none,
-              ),
-              contentPadding: EdgeInsets.symmetric(
-                horizontal: 20,
-                vertical: 18,
+          // TextField(
+          //   decoration: InputDecoration(
+          //     hintText: 'Enter your Password',
+          //     filled: true,
+          //     fillColor: Color(0xFFF1F1F5),
+          //     border: OutlineInputBorder(
+          //       borderRadius: BorderRadius.circular(20),
+          //       borderSide: BorderSide.none,
+          //     ),
+          //     contentPadding: EdgeInsets.symmetric(
+          //       horizontal: 20,
+          //       vertical: 18,
+          //     ),
+          //   ),
+          // ),
+          Container(
+            margin: EdgeInsets.only(left: 15, right: 15),
+            child: TextField(
+              decoration: InputDecoration(
+                hintText: 'Enter your Password',
+                filled: true,
+                fillColor: Color(0xFFF1F1F5),
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(20),
+                  borderSide: BorderSide.none,
+                ),
+                contentPadding: EdgeInsets.symmetric(
+                  horizontal: 20,
+                  vertical: 18,
+                ),
               ),
             ),
           ),
