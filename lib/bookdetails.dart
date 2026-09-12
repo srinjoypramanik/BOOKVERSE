@@ -249,7 +249,7 @@ class BookDetails extends StatelessWidget{
             );
           }
           //Tanzid.........................................
-
+          //Waizur.........................................
           else if(index == 2){
             Navigator.push(
               context,
@@ -259,7 +259,7 @@ class BookDetails extends StatelessWidget{
             );
           }
         },
-        
+          //Waizur.........................................
 
         items: const [
           BottomNavigationBarItem(
