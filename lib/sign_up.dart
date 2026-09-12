@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
+
 class SignUpPage extends StatelessWidget {
+
   const SignUpPage({super.key});
 
 
@@ -38,7 +40,7 @@ class SignUpPage extends StatelessWidget {
 
         child: Padding(
 
-          padding: EdgeInsets.symmetric(horizontal: 38),
+          padding: EdgeInsets.symmetric(horizontal: 20),
 
 
           child: Column(
@@ -49,7 +51,7 @@ class SignUpPage extends StatelessWidget {
             children: [
 
 
-              SizedBox(height: 45),
+              SizedBox(height: 40),
 
 
 
@@ -57,7 +59,7 @@ class SignUpPage extends StatelessWidget {
 
                 child: SizedBox(
 
-                  height: 90,
+                  height: 100,
 
                   child: Image.asset(
                     'assets/images/bookverse.png',
@@ -70,8 +72,7 @@ class SignUpPage extends StatelessWidget {
 
 
 
-              SizedBox(height: 30),
-
+              SizedBox(height: 25),
 
 
 
@@ -79,13 +80,133 @@ class SignUpPage extends StatelessWidget {
 
                 child: Text(
 
-                  'Sign up with email',
+                  "Sign up with email",
 
                   style: TextStyle(
 
                     fontSize: 22,
 
-                    fontWeight: FontWeight.w600,
+                    fontWeight: FontWeight.w700,
+
+                  ),
+
+                ),
+
+              ),
+
+
+
+
+              SizedBox(height: 25),
+
+
+
+
+
+              Text(
+                "Full Name",
+
+                style: TextStyle(
+
+                  fontSize: 18,
+
+                  fontWeight: FontWeight.w500,
+
+                ),
+
+              ),
+
+
+
+              SizedBox(height: 10),
+
+
+
+              TextField(
+
+                decoration: InputDecoration(
+
+                  hintText: "Enter your full name",
+
+                  filled: true,
+
+                  fillColor: Color(0xFFF1F1F5),
+
+
+                  border: OutlineInputBorder(
+
+                    borderRadius: BorderRadius.circular(20),
+
+                    borderSide: BorderSide.none,
+
+                  ),
+
+
+                  contentPadding: EdgeInsets.symmetric(
+
+                    horizontal: 20,
+
+                    vertical: 18,
+
+                  ),
+
+                ),
+
+              ),
+
+
+
+
+              SizedBox(height: 15),
+
+
+
+
+              Text(
+                "Phone Number",
+
+                style: TextStyle(
+
+                  fontSize: 18,
+
+                  fontWeight: FontWeight.w500,
+
+                ),
+
+              ),
+
+
+
+
+              SizedBox(height: 10),
+
+
+
+              TextField(
+
+                decoration: InputDecoration(
+
+                  hintText: "Enter your phone number",
+
+                  filled: true,
+
+                  fillColor: Color(0xFFF1F1F5),
+
+
+                  border: OutlineInputBorder(
+
+                    borderRadius: BorderRadius.circular(20),
+
+                    borderSide: BorderSide.none,
+
+                  ),
+
+
+                  contentPadding: EdgeInsets.symmetric(
+
+                    horizontal: 20,
+
+                    vertical: 18,
 
                   ),
 
@@ -97,114 +218,121 @@ class SignUpPage extends StatelessWidget {
 
 
 
-              SizedBox(height: 25),
+              SizedBox(height: 15),
 
 
 
 
-              buildLabel("Full Name"),
 
-              buildTextField(
-                "Enter your full name",
+              Text(
+                "Email Address",
+
+                style: TextStyle(
+
+                  fontSize: 18,
+
+                  fontWeight: FontWeight.w500,
+
+                ),
+
               ),
 
 
 
 
-
-              buildLabel("Phone Number"),
-
-              buildTextField(
-                "Enter your phone number",
-              ),
+              SizedBox(height: 10),
 
 
 
+              TextField(
+
+                decoration: InputDecoration(
+
+                  hintText: "Enter your email",
+
+                  filled: true,
+
+                  fillColor: Color(0xFFF1F1F5),
 
 
-              buildLabel("Email Address"),
+                  border: OutlineInputBorder(
 
-              buildTextField(
-                "Enter your email",
-              ),
+                    borderRadius: BorderRadius.circular(20),
 
-
-
-
-
-              buildLabel("Password"),
-
-              buildTextField(
-                "Enter your password",
-              ),
-
-
-
-
-
-              buildLabel("Confirm Password"),
-
-              buildTextField(
-                "Re-enter your password",
-              ),
-
-
-
-
-
-              SizedBox(height: 25),
-
-
-
-
-
-              SizedBox(
-
-                width: double.infinity,
-
-                height: 55,
-
-
-                child: ElevatedButton(
-
-
-                  onPressed: (){
-
-
-                  },
-
-
-                  style: ElevatedButton.styleFrom(
-
-                    backgroundColor: Colors.black,
-
-                    foregroundColor: Colors.white,
-
-
-                    shape: RoundedRectangleBorder(
-
-                      borderRadius: BorderRadius.circular(12),
-
-                    ),
+                    borderSide: BorderSide.none,
 
                   ),
 
 
+                  contentPadding: EdgeInsets.symmetric(
 
-                  child: Text(
+                    horizontal: 20,
 
-                    "Sign up with email",
-
-                    style: TextStyle(
-
-                      fontSize: 18,
-
-                      fontWeight: FontWeight.w500,
-
-                    ),
+                    vertical: 18,
 
                   ),
 
+                ),
+
+              ),
+
+
+
+
+              SizedBox(height: 15),
+
+
+
+
+
+              Text(
+                "Password",
+
+                style: TextStyle(
+
+                  fontSize: 18,
+
+                  fontWeight: FontWeight.w500,
+
+                ),
+
+              ),
+
+
+
+
+              SizedBox(height: 10),
+
+
+
+
+              TextField(
+
+                decoration: InputDecoration(
+
+                  hintText: "Enter your password",
+
+                  filled: true,
+
+                  fillColor: Color(0xFFF1F1F5),
+
+
+                  border: OutlineInputBorder(
+
+                    borderRadius: BorderRadius.circular(20),
+
+                    borderSide: BorderSide.none,
+
+                  ),
+
+
+                  contentPadding: EdgeInsets.symmetric(
+
+                    horizontal: 20,
+
+                    vertical: 18,
+
+                  ),
 
                 ),
 
@@ -214,7 +342,71 @@ class SignUpPage extends StatelessWidget {
 
 
 
-              SizedBox(height: 18),
+              SizedBox(height: 15),
+
+
+
+
+
+              Text(
+                "Confirm Password",
+
+                style: TextStyle(
+
+                  fontSize: 18,
+
+                  fontWeight: FontWeight.w500,
+
+                ),
+
+              ),
+
+
+
+
+              SizedBox(height: 10),
+
+
+
+
+
+              TextField(
+
+                decoration: InputDecoration(
+
+                  hintText: "Re-enter your password",
+
+                  filled: true,
+
+                  fillColor: Color(0xFFF1F1F5),
+
+
+                  border: OutlineInputBorder(
+
+                    borderRadius: BorderRadius.circular(20),
+
+                    borderSide: BorderSide.none,
+
+                  ),
+
+
+                  contentPadding: EdgeInsets.symmetric(
+
+                    horizontal: 20,
+
+                    vertical: 18,
+
+                  ),
+
+                ),
+
+              ),
+
+
+
+
+
+              SizedBox(height: 30),
 
 
 
@@ -222,9 +414,69 @@ class SignUpPage extends StatelessWidget {
 
               Center(
 
+                child: SizedBox(
+
+                  width: 250,
+
+                  height: 60,
+
+
+                  child: ElevatedButton(
+
+                    onPressed: (){
+
+
+                    },
+
+
+                    style: ElevatedButton.styleFrom(
+
+                      backgroundColor: Colors.black,
+
+                      foregroundColor: Colors.white,
+
+
+                      shape: RoundedRectangleBorder(
+
+                        borderRadius: BorderRadius.circular(0),
+
+                      ),
+
+                    ),
+
+
+                    child: Text(
+
+                      "Sign up",
+
+                      style: TextStyle(
+
+                        fontSize: 25,
+
+                        fontWeight: FontWeight.w500,
+
+                      ),
+
+                    ),
+
+                  ),
+
+                ),
+
+              ),
+
+
+
+
+              SizedBox(height: 15),
+
+
+
+
+
+              Center(
 
                 child: TextButton(
-
 
                   onPressed: (){
 
@@ -232,76 +484,25 @@ class SignUpPage extends StatelessWidget {
                   },
 
 
+                  child: Text(
 
-                  child: RichText(
+                    "Already have an account? Login",
 
+                    style: TextStyle(
 
-                    text: TextSpan(
+                      color: Colors.black,
 
+                      fontSize: 17,
 
-                      style: TextStyle(
-
-                        color: Colors.black,
-
-                        fontSize: 17,
-
-                      ),
-
-
-
-                      children: [
-
-
-
-                        TextSpan(
-
-                            text: "Already have an account? "
-
-                        ),
-
-
-
-
-
-                        TextSpan(
-
-
-                          text: "Log in",
-
-
-
-                          style: TextStyle(
-
-
-                            decoration: TextDecoration.underline,
-
-
-                            fontWeight: FontWeight.w600,
-
-
-                          ),
-
-
-                        ),
-
-
-
-                      ],
-
+                      decoration: TextDecoration.underline,
 
                     ),
 
-
-
                   ),
-
-
 
                 ),
 
-
               ),
-
 
 
             ],
@@ -312,131 +513,9 @@ class SignUpPage extends StatelessWidget {
 
       ),
 
-    );
-
-  }
-
-
-
-
-
-
-  // Label Widget
-
-  Widget buildLabel(String text){
-
-
-    return Padding(
-
-
-      padding: EdgeInsets.only(
-
-        top: 10,
-
-        bottom: 8,
-
-      ),
-
-
-
-      child: Text(
-
-
-        text,
-
-
-
-        style: TextStyle(
-
-          fontSize: 17,
-
-          fontWeight: FontWeight.w500,
-
-        ),
-
-
-
-      ),
-
-
-    );
-
-
-  }
-
-
-
-
-
-
-
-  // TextField Widget
-
-  Widget buildTextField(String hint){
-
-
-
-    return TextField(
-
-
-
-      decoration: InputDecoration(
-
-
-
-        hintText: hint,
-
-
-
-        filled: true,
-
-
-
-        fillColor: Color(0xFFF0F0F5),
-
-
-
-
-
-        border: OutlineInputBorder(
-
-
-
-          borderRadius: BorderRadius.circular(12),
-
-
-
-          borderSide: BorderSide.none,
-
-
-
-        ),
-
-
-
-
-
-        contentPadding: EdgeInsets.symmetric(
-
-
-          horizontal: 15,
-
-
-          vertical: 16,
-
-
-        ),
-
-
-
-      ),
-
-
 
     );
 
   }
-
-
 
 }
