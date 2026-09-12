@@ -44,7 +44,7 @@ class BookDetails extends StatelessWidget{
           const SizedBox(width: 6),
         ],
       ),
-
+//Body
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -188,8 +188,8 @@ class BookDetails extends StatelessWidget{
                    'during first 20 years. Wikipedia.',
                  style: TextStyle(
                    color: Colors.grey,
-                   fontSize: 18.5,
-                   height: 1.75,
+                   fontSize: 18,
+                   height: 1.70,
 
                  ),
                ),
