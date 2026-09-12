@@ -11,7 +11,7 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-
+//AppBar
       appBar: AppBar(
         backgroundColor: Colors.white,
 
@@ -66,7 +66,7 @@ class HomeScreen extends StatelessWidget {
               ),
             ),
 
-            //Catagories
+        //Catagories
             SingleChildScrollView(
               scrollDirection: Axis.horizontal,
               child: Row(
@@ -148,7 +148,7 @@ class HomeScreen extends StatelessWidget {
               ),
             ),
 
-            // Available
+            // Available Text
             const SizedBox(height: 12),
             Padding(padding: const EdgeInsets.symmetric(
                 horizontal: 16,
