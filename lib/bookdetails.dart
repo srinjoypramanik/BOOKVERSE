@@ -1,5 +1,6 @@
 import 'package:bookverse/sign_in.dart';
 import 'package:flutter/material.dart';
+import 'CartPage.dart';
 
 class BookDetails extends StatelessWidget{
   const BookDetails({super.key});
@@ -247,8 +248,18 @@ class BookDetails extends StatelessWidget{
                 )
             );
           }
+          //Tanzid.........................................
+
+          else if(index == 2){
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context)=> const Cart(),
+              ),
+            );
+          }
         },
-        //Tanzid.........................................
+        
 
         items: const [
           BottomNavigationBarItem(
