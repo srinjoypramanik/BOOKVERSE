@@ -1,228 +1,376 @@
 import 'package:flutter/material.dart';
 import 'sign_up.dart';
 
-class SignIn extends StatelessWidget{
+class SignIn extends StatelessWidget {
   const SignIn({super.key});
 
   @override
   Widget build(BuildContext context) {
+
+    double screenWidth = MediaQuery.of(context).size.width;
+    double screenHeight = MediaQuery.of(context).size.height;
+
     return Scaffold(
-      backgroundColor: Color(0xFFFFFFFF),
+
+      backgroundColor: Colors.white,
+
       appBar: AppBar(
-        backgroundColor: Color(0xFF000000),
-        centerTitle: true,
+        backgroundColor: Colors.black,
+
         leading: IconButton(
-          icon: Icon(
+          icon: const Icon(
             Icons.arrow_back,
             color: Colors.white,
           ),
+
           onPressed: (){
             Navigator.pop(context);
-          }
+          },
         ),
-        // title: Text('BOOKVERSE',
-        // style: TextStyle(
-        //   color: Color(0xFFFFFFFF)
-        //   ),
-        // ),
       ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          SizedBox(
-            height: 250,
-            child: 
-            Image.asset('assets/images/bookverse.png'),
-          ),
-          Center(
-            child:
-            Text('Sign in with your email',
-            style: TextStyle(
-              fontSize: 20,
-              fontWeight: FontWeight.w900,
+
+
+      body: SafeArea(
+
+        child: SingleChildScrollView(
+
+          child: Padding(
+
+            padding: EdgeInsets.symmetric(
+              horizontal: screenWidth * 0.04,
             ),
-            ),
-          ),
-          const SizedBox(
-            height: 20,
-          ),
-          Row(
-            children: [
-              Container(
-                margin: EdgeInsets.only(left: 15),
-                child: Text(
-                  'Email Address',
-                  style: TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.w500,
-                  ),
-                ),
-              ),
-            ],
-          ),
 
-          SizedBox(height: 10),
-          // TextField(
-          //   decoration: InputDecoration(
-          //     hintText: 'Enter your email',
-          //     filled: true,
-          //     fillColor: Color(0xFFF1F1F5),
-          //
-          //     border: OutlineInputBorder(
-          //       borderRadius: BorderRadius.circular(20),
-          //       borderSide: BorderSide.none,
-          //     ),
-          //     contentPadding: EdgeInsets.symmetric(
-          //       horizontal: 20,
-          //       vertical: 18,
-          //     ),
-          //   ),
-          // ),
 
-          Container(
-            margin: EdgeInsets.only(left: 15, right: 15),
-            child: TextField(
-              decoration: InputDecoration(
-                hintText: 'Enter your email',
-                filled: true,
-                fillColor: Color(0xFFF1F1F5),
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(20),
-                  borderSide: BorderSide.none,
-                ),
-                contentPadding: EdgeInsets.symmetric(
-                  horizontal: 20,
-                  vertical: 18,
-                ),
-              ),
-            ),
-          ),
+            child: Column(
 
-          Row(
-            children: [
-              Container(
-                margin: EdgeInsets.only(left: 15),
-                child: Text(
-                  'Password',
-                  style: TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.w500,
-                  ),
-                ),
-              ),
-            ],
-          ),
-          SizedBox(height: 10),
-          // TextField(
-          //   decoration: InputDecoration(
-          //     hintText: 'Enter your Password',
-          //     filled: true,
-          //     fillColor: Color(0xFFF1F1F5),
-          //     border: OutlineInputBorder(
-          //       borderRadius: BorderRadius.circular(20),
-          //       borderSide: BorderSide.none,
-          //     ),
-          //     contentPadding: EdgeInsets.symmetric(
-          //       horizontal: 20,
-          //       vertical: 18,
-          //     ),
-          //   ),
-          // ),
-          Container(
-            margin: EdgeInsets.only(left: 15, right: 15),
-            child: TextField(
-              decoration: InputDecoration(
-                hintText: 'Enter your Password',
-                filled: true,
-                fillColor: Color(0xFFF1F1F5),
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(20),
-                  borderSide: BorderSide.none,
-                ),
-                contentPadding: EdgeInsets.symmetric(
-                  horizontal: 20,
-                  vertical: 18,
-                ),
-              ),
-            ),
-          ),
-          TextButton(
-            onPressed: (){
+              crossAxisAlignment: CrossAxisAlignment.start,
 
-            },
-            style: TextButton.styleFrom(
-              foregroundColor: Colors.black,
-            ),
-            child: Text('Forgot my Password',
-              style: TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.w500,
-              ),
-            ),
-          ),
-          SizedBox(height: 10),
-          Center(
-            child: SizedBox(
-              height: 80,
-              width: 200,
+              children: [
 
-              child: ElevatedButton(
-                onPressed: (){
 
-                },
-                style: ElevatedButton.styleFrom(
-                  alignment: Alignment.center,
-                  backgroundColor: Colors.black,
-                  foregroundColor: Colors.white,
+                SizedBox(
 
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(0),
-                  ),
-                ),
+                  height: screenHeight * 0.18,
 
-                child: Text('Login',
-                  style: TextStyle(
-                    fontSize: 30,
-                    fontWeight: FontWeight.w500,
-                  ),
-                ),
-              ),
-            ),
-          ),
-          SizedBox(height: 20),
-          Center(
-            child: SizedBox(
-              height: 50,
-              width: 300,
-
-              child: TextButton(
-                onPressed: (){
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => SignUpPage(),
+                  child: Center(
+                    child: Image.asset(
+                      'assets/images/bookverse.png',
                     ),
-                  );
-                },
-
-                style: TextButton.styleFrom(
-                  alignment: Alignment.center,
-                  foregroundColor: Colors.black,
-                ),
-
-                child: Text('Create a new account',
-                  style: TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.w500,
-                    decoration: TextDecoration.underline,
                   ),
+
                 ),
-              ),
+
+
+
+                Center(
+
+                  child: Text(
+
+                    'Sign in with your email',
+
+                    style: TextStyle(
+                      fontSize: screenWidth * 0.05,
+                      fontWeight: FontWeight.w900,
+                    ),
+
+                  ),
+
+                ),
+
+
+
+                SizedBox(
+                  height: screenHeight * 0.025,
+                ),
+
+
+
+
+                Text(
+
+                  'Email Address',
+
+                  style: TextStyle(
+                    fontSize: screenWidth * 0.045,
+                    fontWeight: FontWeight.w500,
+                  ),
+
+                ),
+
+
+
+                SizedBox(
+                  height: 10,
+                ),
+
+
+
+                TextField(
+
+                  decoration: InputDecoration(
+
+                    hintText: 'Enter your email',
+
+                    filled: true,
+
+                    fillColor: const Color(0xFFF1F1F5),
+
+
+                    border: OutlineInputBorder(
+
+                      borderRadius: BorderRadius.circular(20),
+
+                      borderSide: BorderSide.none,
+
+                    ),
+
+
+                    contentPadding: const EdgeInsets.symmetric(
+
+                      horizontal: 20,
+
+                      vertical: 18,
+
+                    ),
+
+                  ),
+
+                ),
+
+
+
+
+                SizedBox(
+                  height: 15,
+                ),
+
+
+
+                Text(
+
+                  'Password',
+
+                  style: TextStyle(
+
+                    fontSize: screenWidth * 0.045,
+
+                    fontWeight: FontWeight.w500,
+
+                  ),
+
+                ),
+
+
+
+
+                SizedBox(
+                  height: 10,
+                ),
+
+
+
+
+                TextField(
+
+                  obscureText: true,
+
+                  decoration: InputDecoration(
+
+                    hintText: 'Enter your Password',
+
+                    filled: true,
+
+                    fillColor: const Color(0xFFF1F1F5),
+
+
+                    border: OutlineInputBorder(
+
+                      borderRadius: BorderRadius.circular(20),
+
+                      borderSide: BorderSide.none,
+
+                    ),
+
+
+                    contentPadding: const EdgeInsets.symmetric(
+
+                      horizontal: 20,
+
+                      vertical: 18,
+
+                    ),
+
+                  ),
+
+                ),
+
+
+
+
+                Align(
+
+                  alignment: Alignment.centerLeft,
+
+                  child: TextButton(
+
+                    onPressed: (){},
+
+                    child: Text(
+
+                      'Forgot my Password',
+
+                      style: TextStyle(
+
+                        color: Colors.black,
+
+                        fontSize: screenWidth * 0.045,
+
+                        fontWeight: FontWeight.w500,
+
+                      ),
+
+                    ),
+
+                  ),
+
+                ),
+
+
+
+
+                SizedBox(
+
+                  height: screenHeight * 0.02,
+
+                ),
+
+
+
+
+                Center(
+
+                  child: SizedBox(
+
+                    width: screenWidth * 0.5,
+
+                    height: screenHeight * 0.065,
+
+
+                    child: ElevatedButton(
+
+                      onPressed: (){},
+
+                      style: ElevatedButton.styleFrom(
+
+                        backgroundColor: Colors.black,
+
+                        foregroundColor: Colors.white,
+
+
+                        shape: RoundedRectangleBorder(
+
+                          borderRadius: BorderRadius.circular(0),
+
+                        ),
+
+                      ),
+
+
+                      child: Text(
+
+                        'Login',
+
+                        style: TextStyle(
+
+                          fontSize: screenWidth * 0.07,
+
+                          fontWeight: FontWeight.w500,
+
+                        ),
+
+                      ),
+
+                    ),
+
+                  ),
+
+                ),
+
+
+
+
+
+                SizedBox(
+
+                  height: screenHeight * 0.02,
+
+                ),
+
+
+
+
+                Center(
+
+                  child: SizedBox(
+
+                    width: screenWidth * 0.8,
+
+                    child: TextButton(
+
+                      onPressed: (){
+
+                        Navigator.push(
+
+                          context,
+
+                          MaterialPageRoute(
+
+                            builder: (context)=> const SignUpPage(),
+
+                          ),
+
+                        );
+
+                      },
+
+
+                      child: Text(
+
+                        'Create a new account',
+
+
+                        style: TextStyle(
+
+                          color: Colors.black,
+
+                          fontSize: screenWidth * 0.045,
+
+                          fontWeight: FontWeight.w500,
+
+                          decoration: TextDecoration.underline,
+
+                        ),
+
+                      ),
+
+                    ),
+
+                  ),
+
+                ),
+
+
+              ],
+
             ),
+
           ),
-        ],
+
+        ),
+
       ),
+
     );
+
   }
 }
