@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'OrderConfirmationPage.dart';
 import 'CartPage.dart';
+import 'homescreen.dart';
+import 'sign_in.dart';
 
 class Checkoutpage extends StatefulWidget {
   const Checkoutpage({super.key});
@@ -60,6 +62,42 @@ class _CheckoutpageState extends State<Checkoutpage> {
           bottomNavigationBar: BottomNavigationBar(
       type: BottomNavigationBarType.fixed,
       backgroundColor: Colors.white,
+
+      onTap: (index){
+          if(index == 3){
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context)=> const SignIn(),
+              ),
+            );
+          }
+
+        //Tanzid.........................................
+        //Waizur.........................................
+        else if(index == 2){
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context)=> const Cart(),
+                ),
+            );
+          }
+
+          else if(index == 0){
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context)=> const HomeScreen(),
+                ),
+            );
+          }
+        },
+        //Waizur.........................................
+
+        //Tanzid.........................................
+
+
 
       items: const [
         BottomNavigationBarItem(

@@ -1,5 +1,6 @@
 import 'package:bookverse/sign_in.dart';
 import 'package:flutter/material.dart';
+import 'CartPage.dart';
 
 class BookDetails extends StatelessWidget{
   const BookDetails({super.key});
@@ -44,7 +45,7 @@ class BookDetails extends StatelessWidget{
           const SizedBox(width: 6),
         ],
       ),
-
+//Body
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -188,8 +189,8 @@ class BookDetails extends StatelessWidget{
                    'during first 20 years. Wikipedia.',
                  style: TextStyle(
                    color: Colors.grey,
-                   fontSize: 18.5,
-                   height: 1.75,
+                   fontSize: 18,
+                   height: 1.70,
 
                  ),
                ),
@@ -247,8 +248,18 @@ class BookDetails extends StatelessWidget{
                 )
             );
           }
+          //Tanzid.........................................
+          //Waizur.........................................
+          else if(index == 2){
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context)=> const Cart(),
+              ),
+            );
+          }
         },
-        //Tanzid.........................................
+          //Waizur.........................................
 
         items: const [
           BottomNavigationBarItem(
