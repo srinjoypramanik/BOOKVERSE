@@ -29,13 +29,270 @@ class _CheckoutpageState extends State<Checkoutpage> {
           
 
 
-          body: Column(mainAxisAlignment: MainAxisAlignment.spaceAround,
+          body:
+          
+        
+           Column(mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
+          
+          
+
+
 
             children: [
-               SizedBox(width: double.infinity,),
+              
+
               Container(
-                child: 
+                
+              
+                child: Padding(padding:EdgeInsets.symmetric(horizontal: 20),
+                child: Column( mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment:CrossAxisAlignment.start,
+                children: [
+                
+              Text(
+                "Reciver's Name",
+
+                style: TextStyle(
+
+                  fontSize: 20,
+
+                  fontWeight: FontWeight.bold,
+
+                ),
+
+              ),
+
+
+
+
+              SizedBox(height: 5),
+
+
+
+              TextField(
+
+                decoration: InputDecoration(
+
+                  hintText: "Enter your Name",
+
+                  filled: true,
+
+                  fillColor: Colors.white,
+
+
+                  border: OutlineInputBorder(
+
+                    borderRadius: BorderRadius.circular(0),
+
+                    borderSide: BorderSide(color: Colors.black,width:3),
+
+                  ),
+
+
+                  contentPadding: EdgeInsets.symmetric(
+
+                    horizontal: 20,
+
+                    vertical: 18,
+
+                  ),
+
+                ),
+
+              ),
+              SizedBox(height: 15),
+              Text(
+                "Phone Number",
+
+                style: TextStyle(
+
+                  fontSize: 20,
+
+                  fontWeight: FontWeight.bold,
+
+                ),
+
+              ),
+
+
+
+
+              SizedBox(height: 5),
+
+
+
+              TextField(
+
+                decoration: InputDecoration(
+
+                  hintText: "01XXXXXXXXXX",
+
+                  filled: true,
+
+                  fillColor: Colors.white,
+
+
+                  border: OutlineInputBorder(
+
+                    borderRadius: BorderRadius.circular(0),
+
+                    borderSide:  BorderSide(color: Colors.black,width:3),
+
+                  ),
+
+
+                  contentPadding: EdgeInsets.symmetric(
+
+                    horizontal: 20,
+
+                    vertical: 18,
+
+                  ),
+
+                ),
+
+              ),
+              SizedBox(height: 15),
+              Text(
+                "Address",
+
+                style: TextStyle(
+
+                  fontSize: 20,
+
+                  fontWeight: FontWeight.bold,
+
+                ),
+
+              ),
+
+
+
+
+              SizedBox(height: 5),
+
+
+
+              TextField(
+
+                decoration: InputDecoration(
+
+                  hintText: "Road no. , Area , City ",
+
+                  filled: true,
+
+                  fillColor: Colors.white,
+
+
+                  border: OutlineInputBorder(
+
+                    borderRadius: BorderRadius.circular(0),
+
+                    borderSide:  BorderSide(color: Colors.black,width:3),
+
+                  ),
+
+
+                  contentPadding: EdgeInsets.symmetric(
+
+                    horizontal: 20,
+
+                    vertical: 18,
+
+                  ),
+
+                ),
+
+              ),
+              SizedBox(height: 20),
+              Container(
+        
+                
+                decoration: BoxDecoration(color: Colors.white,border:  Border.all(color: const Color.fromARGB(255, 158, 155, 155),width: 2)),
+                width: double.infinity,
+                
+                
+                child: Padding(padding:EdgeInsets.symmetric(horizontal: 20,vertical: 20),
+                child: Column( mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment:CrossAxisAlignment.start,
+                children: [
+                
+              Text(
+                "PYment methods",
+
+                style: TextStyle(
+
+                  fontSize: 25,
+
+                  fontWeight: FontWeight.bold,
+
+                ),
+
+              ),
+              
+              RadioGroup(onChanged:(value){} , child: 
+              Column(
+                children: [
+                  Row(
+                    children: [
+                  Radio(value: "bikash"),
+                  Text(
+                "bikash",
+
+                style: TextStyle(
+
+                  fontSize: 20,
+
+                  fontWeight: FontWeight.bold,
+
+                ),
+
+              ),
+                  
+                    ]
+                  ),
+                   Row(
+                    children: [
+                  Radio(value: "cash on delivery"),
+                  Text(
+                "cash on delivery",
+
+                style: TextStyle(
+
+                  fontSize: 20,
+
+                  fontWeight: FontWeight.bold,
+
+                ),
+
+              ),
+                  
+                    ]
+                  )
+                ],
+              )
+              
+
+              
+              ),
+              
+                ],
+      
+                ),
+              ),
+              
+              ),
+              
+              SizedBox(height: 80),
+                ],
+                ),
+              ),
+              ),
+
+               SizedBox(width: double.infinity,),
+              
+                
                 ElevatedButton(
                             onPressed: (){
                               Navigator.push(context,MaterialPageRoute(builder:(context)=>const Orderconfirmationpage()));
@@ -55,8 +312,11 @@ class _CheckoutpageState extends State<Checkoutpage> {
                             ),
                           ),
                         ),
-              )
-            ],
+            ]
+            
+
+          
+          
           ),
 
           bottomNavigationBar: BottomNavigationBar(
