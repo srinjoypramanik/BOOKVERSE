@@ -253,7 +253,7 @@ class HomeScreen extends StatelessWidget {
                     ),
 
                     SizedBox(height: 1),
-                    const Divider(thickness: 0.5,),
+                    Divider(thickness: 0.5,),
                     SizedBox(height: 1),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -281,7 +281,6 @@ class HomeScreen extends StatelessWidget {
                         ),
                       ],
                     ),
-
                   ],
                 ),
               ),
@@ -320,14 +319,13 @@ class HomeScreen extends StatelessWidget {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Container(
-                          child: Text('BRAND NEW',
+                        Text('BRAND NEW',
                             style: TextStyle(
                               fontSize: 12,
                             ),
                           ),
-                        ),
-                        const Text('900/-',
+
+                        Text('900/-',
                           style: TextStyle(
                             fontSize: 18,
                             fontWeight: FontWeight.bold,
