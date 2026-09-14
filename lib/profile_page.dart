@@ -13,7 +13,7 @@ class ProfilePage extends StatelessWidget {
 
 
       appBar: AppBar(
-        backgroundColor: Colors.white,
+        backgroundColor: Colors.black,
 
         title: Text(
           "Profile",
@@ -27,132 +27,140 @@ class ProfilePage extends StatelessWidget {
 
 
 
-      body: Column(
-        
-        crossAxisAlignment: CrossAxisAlignment.center,
+      body: Center(
 
-        children: [
+        child: Column(
 
+          mainAxisAlignment: MainAxisAlignment.center,
 
-          SizedBox(height: 40),
-
+          crossAxisAlignment: CrossAxisAlignment.center,
 
 
-          Container(
-
-            height: 100,
-
-            width: 100,
-
-            color: Colors.black,
-
-            child: Icon(
-              Icons.person,
-              size: 60,
-              color: Colors.white,
-            ),
-
-          ),
+          children: [
 
 
+            Container(
 
-          SizedBox(height: 20),
+              height: 100,
 
+              width: 100,
 
+              color: Colors.black,
 
-          Text(
-            "User Name",
+              child: Icon(
+                Icons.person,
+                size: 60,
+                color: Colors.white,
+              ),
 
-            style: TextStyle(
-              fontSize: 22,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-
-
-
-          SizedBox(height: 5),
-
-
-
-          Text(
-            "user@gmail.com",
-
-            style: TextStyle(
-              fontSize: 16,
-              color: Colors.grey,
-            ),
-          ),
-
-
-
-          SizedBox(height: 40),
-
-
-
-          Text(
-            "My Orders",
-
-            style: TextStyle(
-              fontSize: 18,
-            ),
-          ),
-
-
-
-          SizedBox(height: 20),
-
-
-
-          Text(
-            "Wishlist",
-
-            style: TextStyle(
-              fontSize: 18,
-            ),
-          ),
-
-
-
-          SizedBox(height: 20),
-
-
-
-          Text(
-            "Settings",
-
-            style: TextStyle(
-              fontSize: 18,
-            ),
-          ),
-
-
-
-          SizedBox(height: 40),
-
-
-
-          ElevatedButton(
-
-            onPressed: () {},
-
-            style: ElevatedButton.styleFrom(
-              backgroundColor: Colors.black,
             ),
 
 
-            child: Text(
-              "Logout",
+
+            SizedBox(height: 20),
+
+
+
+            Text(
+              "User Name",
 
               style: TextStyle(
-                color: Colors.white,
+                fontSize: 22,
+                fontWeight: FontWeight.bold,
               ),
             ),
 
-          ),
 
-        ],
+
+            SizedBox(height: 5),
+
+
+
+            Text(
+              "user@gmail.com",
+
+              style: TextStyle(
+                fontSize: 16,
+                color: Colors.grey,
+              ),
+            ),
+
+
+
+            SizedBox(height: 40),
+
+
+
+            Text(
+              "My Orders",
+
+              style: TextStyle(
+                fontSize: 18,
+              ),
+            ),
+
+
+
+            SizedBox(height: 20),
+
+
+
+            Text(
+              "Wishlist",
+
+              style: TextStyle(
+                fontSize: 18,
+              ),
+            ),
+
+
+
+            SizedBox(height: 20),
+
+
+
+            Text(
+              "Settings",
+
+              style: TextStyle(
+                fontSize: 18,
+              ),
+            ),
+
+
+
+            SizedBox(height: 40),
+
+
+
+            ElevatedButton(
+
+              onPressed: () {},
+
+
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.black,
+              ),
+
+
+              child: Text(
+                "Logout",
+
+                style: TextStyle(
+                  color: Colors.white,
+                ),
+              ),
+
+            ),
+
+
+          ],
+
+        ),
+
       ),
+
     );
+
   }
 }
