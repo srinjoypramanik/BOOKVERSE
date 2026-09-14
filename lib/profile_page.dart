@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:bookverse/CartPage.dart';
+import 'package:bookverse/homescreen.dart';
 
 class ProfilePage extends StatelessWidget {
   const ProfilePage({super.key});
@@ -176,7 +177,20 @@ class ProfilePage extends StatelessWidget {
 
               child: ElevatedButton(
 
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+
+                    context,
+
+                    MaterialPageRoute(
+
+                      builder: (context)=> const HomeScreen(),
+
+                    ),
+
+                  );
+
+                },
 
 
                 style: ElevatedButton.styleFrom(
