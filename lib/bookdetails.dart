@@ -78,7 +78,7 @@ class BookDetails extends StatelessWidget{
               child: Text('BRAND NEW',
                 style: TextStyle(
                   color: Colors.white,
-                  fontSize: 12,
+                  fontSize: 13,
                   ),
                 ),
               ),

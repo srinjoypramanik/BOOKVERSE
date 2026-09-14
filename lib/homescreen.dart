@@ -511,7 +511,15 @@ class HomeScreen extends StatelessWidget {
                       author: 'by Harold Abelson, Gerald Jay Sussman, Julie Sussman',
                       price:  '1200/-',
                       category: 'COMPUTER SCIENCE',
-                      description: 'Structure and Interpretation of Computer Programs (SICP) is a computer science textbook by Massachusetts Institute of Technology professors Harold Abelson and Gerald Jay Sussman with Julie Sussman. It is known as the "Wizard Book" in hacker culture.[1] It teaches fundamental principles of computer programming, including recursion, abstraction, modularity, and programming language design and implementation.',
+                      description: 'Structure and Interpretation of Computer Programs (SICP) '
+                          'is a computer science textbook by Massachusetts Institute of '
+                          'Technology professors Harold Abelson and Gerald Jay Sussman with'
+                          ' Julie Sussman. It is known as the "Wizard Book" in hacker '
+                          'culture. It teaches fundamental principles of computer '
+                          'programming, including recursion, abstraction, modularity, '
+                          'and programming language design and implementation. The book '
+                          'describes computer science concepts using Scheme, a dialect '
+                          'of Lisp. Wikipedia.',
                     ),
                   ),
                 );
