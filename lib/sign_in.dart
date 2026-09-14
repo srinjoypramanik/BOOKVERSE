@@ -50,11 +50,13 @@ class SignIn extends StatelessWidget {
 
                 SizedBox(
 
-                  height: screenHeight * 0.18,
+                  height: screenHeight * 0.16,
 
                   child: Center(
                     child: Image.asset(
                       'assets/images/bookverse.png',
+                      height: 300,
+                      width: 300,
                     ),
                   ),
 
@@ -88,11 +90,11 @@ class SignIn extends StatelessWidget {
 
                 Text(
 
-                  'Email Address',
+                  'Email Address:',
 
                   style: TextStyle(
                     fontSize: screenWidth * 0.045,
-                    fontWeight: FontWeight.w500,
+                    fontWeight: FontWeight.bold,
                   ),
 
                 ),
@@ -148,13 +150,13 @@ class SignIn extends StatelessWidget {
 
                 Text(
 
-                  'Password',
+                  'Password:',
 
                   style: TextStyle(
 
                     fontSize: screenWidth * 0.045,
 
-                    fontWeight: FontWeight.w500,
+                    fontWeight: FontWeight.bold,
 
                   ),
 
@@ -217,15 +219,15 @@ class SignIn extends StatelessWidget {
 
                     child: Text(
 
-                      'Forgot my Password',
+                      'Forgot My Password',
 
                       style: TextStyle(
 
-                        color: Colors.black,
+                        color: Colors.grey,
 
-                        fontSize: screenWidth * 0.045,
+                        fontSize: 16,
 
-                        fontWeight: FontWeight.w500,
+                        fontWeight: FontWeight.bold,
 
                       ),
 
@@ -282,7 +284,7 @@ class SignIn extends StatelessWidget {
 
                         style: TextStyle(
 
-                          fontSize: screenWidth * 0.07,
+                          fontSize: screenWidth * 0.05,
 
                           fontWeight: FontWeight.w500,
 

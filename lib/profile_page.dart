@@ -13,7 +13,7 @@ class ProfilePage extends StatelessWidget {
 
 
       appBar: AppBar(
-        backgroundColor: Colors.black,
+        backgroundColor: Colors.white,
 
         title: Text(
           "Profile",
@@ -28,7 +28,7 @@ class ProfilePage extends StatelessWidget {
 
 
       body: Column(
-
+        
         crossAxisAlignment: CrossAxisAlignment.center,
 
         children: [

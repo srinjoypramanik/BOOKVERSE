@@ -26,7 +26,7 @@ class _CheckoutpageState extends State<Checkoutpage> {
           onPressed: (){Navigator.push(context,MaterialPageRoute(builder:(context)=>const Cart()));},
            icon: const Icon(Icons.arrow_back,color: Colors.black,size:35)
            ),
-            title: const Text('CHECKOUT DETAILS',style: TextStyle(color: Colors.black,fontSize: 30,fontWeight: FontWeight.bold,),),
+            title: const Text('CHECKOUT DETAILS',style: TextStyle(color: Colors.black,fontSize: 22,fontWeight: FontWeight.bold,),),
       ),
           
 
@@ -53,7 +53,7 @@ class _CheckoutpageState extends State<Checkoutpage> {
                 children: [
                 
               Text(
-                "Reciver's Name",
+                "Reciver's Name:",
 
                 style: TextStyle(
 
@@ -105,7 +105,7 @@ class _CheckoutpageState extends State<Checkoutpage> {
               ),
               SizedBox(height: 15),
               Text(
-                "Phone Number",
+                "Phone Number:",
 
                 style: TextStyle(
 
@@ -157,7 +157,7 @@ class _CheckoutpageState extends State<Checkoutpage> {
               ),
               SizedBox(height: 15),
               Text(
-                "Address",
+                "Address:",
 
                 style: TextStyle(
 
@@ -221,7 +221,7 @@ class _CheckoutpageState extends State<Checkoutpage> {
                 children: [
                 
               Text(
-                "PYment methods",
+                "PAYMENT METHODS",
 
                 style: TextStyle(
 
@@ -238,9 +238,9 @@ class _CheckoutpageState extends State<Checkoutpage> {
                 children: [
                   Row(
                     children: [
-                  Radio(value: "bikash"),
+                  Radio(value: "Bkash"),
                   Text(
-                "bikash",
+                "Bkash",
 
                 style: TextStyle(
 
@@ -256,9 +256,9 @@ class _CheckoutpageState extends State<Checkoutpage> {
                   ),
                    Row(
                     children: [
-                  Radio(value: "cash on delivery"),
+                  Radio(value: "Cash on delivery"),
                   Text(
-                "cash on delivery",
+                "Cash on delivery",
 
                 style: TextStyle(
 
@@ -310,7 +310,7 @@ class _CheckoutpageState extends State<Checkoutpage> {
                           ),
                           child: const Text('CONFIRM PURCHASE',
                             style: TextStyle(
-                              fontSize: 20,
+                              fontSize: 18,
                             ),
                           ),
                         ),

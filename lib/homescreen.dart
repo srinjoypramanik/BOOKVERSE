@@ -3,6 +3,7 @@ import 'bookdetails.dart';
 import 'sign_up.dart';
 import 'sign_in.dart';
 import 'CartPage.dart';
+import 'profile_page.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -86,12 +87,12 @@ class HomeScreen extends StatelessWidget {
             onPressed: () {
               Navigator.push(context,
                 MaterialPageRoute(
-                  builder: (context)=>const Cart(),
+                  builder: (context)=>const ProfilePage(),
                 ),
               );
             },
             icon: const Icon(
-              Icons.shopping_bag_outlined,
+              Icons.person_3_rounded,
               color: Colors.black,
               size: 35,
             ),
@@ -323,7 +324,10 @@ class HomeScreen extends StatelessWidget {
                           ),
                         ),
                         ElevatedButton(
-                            onPressed: (){},
+                            onPressed: (){
+
+
+                            },
                           style: ElevatedButton.styleFrom(
                             backgroundColor: Colors.black,
                             foregroundColor: Colors.white,
