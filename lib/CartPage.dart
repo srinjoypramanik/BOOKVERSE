@@ -26,11 +26,11 @@ class  CartState extends State<Cart> {
 
         
 
-        title: const Text('Bag',style: TextStyle(color: Colors.black,fontSize: 30,fontWeight: FontWeight.bold,),),
+        title: const Text('CART',style: TextStyle(color: Colors.black,fontSize: 20,fontWeight: FontWeight.bold,),),
         
         actions: [TextButton(
           onPressed: (){},
-          child:const Text('CLEAR',style: TextStyle(color:Color.fromARGB(255, 125, 124, 124),fontSize: 25),)  ,)
+          child:const Text('CLEAR',style: TextStyle(color:Color.fromARGB(255, 125, 124, 124),fontSize: 15, fontWeight: FontWeight.bold),)  ,)
           ],
         ),
 

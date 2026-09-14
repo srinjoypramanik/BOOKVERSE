@@ -48,7 +48,13 @@ class BookDetails extends StatelessWidget{
 
         actions: [
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(context,
+                  MaterialPageRoute(
+                      builder: (context)=>const Cart(),
+                  ),
+              );
+            },
             icon: const Icon(
               Icons.shopping_bag_outlined,
               color: Colors.black,
