@@ -13,7 +13,7 @@ class ProfilePage extends StatelessWidget {
 
 
       appBar: AppBar(
-        backgroundColor: Colors.black,
+        backgroundColor: Colors.white,
 
         title: Text(
           "Profile",
@@ -31,7 +31,7 @@ class ProfilePage extends StatelessWidget {
 
         child: Column(
 
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.start,
 
           crossAxisAlignment: CrossAxisAlignment.center,
 
@@ -48,6 +48,7 @@ class ProfilePage extends StatelessWidget {
               color: Colors.black,
 
               child: Icon(
+
                 Icons.person,
                 size: 60,
                 color: Colors.white,
@@ -65,7 +66,7 @@ class ProfilePage extends StatelessWidget {
               "User Name",
 
               style: TextStyle(
-                fontSize: 22,
+                fontSize: 30,
                 fontWeight: FontWeight.bold,
               ),
             ),
@@ -87,7 +88,7 @@ class ProfilePage extends StatelessWidget {
 
 
 
-            SizedBox(height: 40),
+            SizedBox(height: 140),
 
 
 
@@ -95,7 +96,7 @@ class ProfilePage extends StatelessWidget {
               "My Orders",
 
               style: TextStyle(
-                fontSize: 18,
+                fontSize: 20,
               ),
             ),
 
@@ -109,7 +110,7 @@ class ProfilePage extends StatelessWidget {
               "Wishlist",
 
               style: TextStyle(
-                fontSize: 18,
+                fontSize: 20,
               ),
             ),
 
@@ -123,35 +124,71 @@ class ProfilePage extends StatelessWidget {
               "Settings",
 
               style: TextStyle(
-                fontSize: 18,
+                fontSize: 20,
               ),
             ),
 
 
 
-            SizedBox(height: 40),
+            SizedBox(height: 120),
 
 
 
-            ElevatedButton(
+            SizedBox(
 
-              onPressed: () {},
+              height: 50,
+              width: 200,
+
+              child: ElevatedButton(
+
+                onPressed: () {},
 
 
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.black,
-              ),
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.black,
 
-
-              child: Text(
-                "Logout",
-
-                style: TextStyle(
-                  color: Colors.white,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadiusGeometry.zero,
+                  ),
                 ),
+
+
+                child: Text(
+                  "Logout",
+
+
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 25,
+                  ),
+                ),
+
               ),
 
             ),
+            // ElevatedButton(
+            //
+            //   onPressed: () {},
+            //
+            //
+            //   style: ElevatedButton.styleFrom(
+            //     backgroundColor: Colors.black,
+            //
+            //     shape: RoundedRectangleBorder(
+            //         borderRadius: BorderRadiusGeometry.zero,
+            //     ),
+            //   ),
+            //
+            //
+            //   child: Text(
+            //     "Logout",
+            //
+            //     style: TextStyle(
+            //       color: Colors.white,
+            //     ),
+            //   ),
+            //
+            // ),
 
 
           ],
