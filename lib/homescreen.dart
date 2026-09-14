@@ -118,7 +118,7 @@ class HomeScreen extends StatelessWidget {
                         color: Colors.grey,
                       ),
                     ),
-                    child: Text('MATHEMATICS',
+                    child: Text('ELECTRONICS',
                       style: TextStyle(
                         color: Colors.black,
                         fontWeight: FontWeight.bold,
@@ -137,7 +137,7 @@ class HomeScreen extends StatelessWidget {
                         color: Colors.grey,
                       ),
                     ),
-                    child: Text('ELECTRONICS',
+                    child: Text('MATHEMATICS',
                       style: TextStyle(
                         color: Colors.black,
                         fontWeight: FontWeight.bold,
@@ -167,6 +167,7 @@ class HomeScreen extends StatelessWidget {
                       onPressed: (){},
                       child: const Text('Filter',
                         style: TextStyle(
+                          fontSize: 15,
                           color: Colors.black,
                           decoration: TextDecoration.underline,
                         ),
@@ -177,7 +178,6 @@ class HomeScreen extends StatelessWidget {
             ),
 
             //Books 1
-            SizedBox(height: 1),
             GestureDetector(
               onTap: (){
                 Navigator.push(context,
@@ -292,7 +292,7 @@ class HomeScreen extends StatelessWidget {
                 Navigator.push(context,
                     MaterialPageRoute(
                         builder: (context)=> const BookDetails(
-                            title: 'ARTIFICIAL INTELLIGENCE:\nA MODERN APPROACH',
+                            title: 'ARTIFICIAL INTELLIGENCE: A MODERN \nAPPROACH',
                             author: 'Stuart Russell, Peter Norvig',
                             price:  '900/-',
                             category: 'COMPUTER SCIENCE',
@@ -391,7 +391,7 @@ class HomeScreen extends StatelessWidget {
                 Navigator.push(context,
                   MaterialPageRoute(
                     builder: (context)=> const BookDetails(
-                      title: 'CLEAN CODE' ,
+                      title: 'CLEAN CODE: A HANDBOOK OF \nSOFTWARE CRAFTSMANSHIPS' ,
                       author: 'by Robert C. Martin',
                       price:  '700/-',
                       category: 'COMPUTER SCIENCE',
@@ -490,7 +490,7 @@ class HomeScreen extends StatelessWidget {
                 Navigator.push(context,
                   MaterialPageRoute(
                     builder: (context)=> const BookDetails(
-                      title: 'SICP' ,
+                      title: 'Structure and Interpretation of Computer \nPrograms (SICP)' ,
                       author: 'by Harold Abelson, Gerald Jay Sussman, Julie Sussman',
                       price:  '1200/-',
                       category: 'COMPUTER SCIENCE',
