@@ -51,15 +51,16 @@ class SignUpPage extends StatelessWidget {
             children: [
 
 
-              SizedBox(height: 40),
+              SizedBox(height: 10),
 
 
 
               Center(
 
+
                 child: SizedBox(
 
-                  height: 100,
+                  height: 80,
 
                   child: Image.asset(
                     'assets/images/bookverse.png',
@@ -72,32 +73,41 @@ class SignUpPage extends StatelessWidget {
 
 
 
-              SizedBox(height: 25),
+              SizedBox(height: 20),
 
 
 
               Center(
+                child:TextButton(
 
-                child: Text(
+                  onPressed: (){
 
-                  "Sign up with email",
+                  },
 
-                  style: TextStyle(
+                  child: Text(
 
-                    fontSize: 22,
+                    "Sign up with email",
 
-                    fontWeight: FontWeight.w700,
+                    style: TextStyle(
+
+                      fontSize: 22,
+
+                      fontWeight: FontWeight.w700,
+                      decoration: TextDecoration.underline,
+
+                    ),
 
                   ),
-
                 ),
+
+
 
               ),
 
 
 
 
-              SizedBox(height: 25),
+              SizedBox(height: 10),
 
 
 
@@ -406,7 +416,7 @@ class SignUpPage extends StatelessWidget {
 
 
 
-              SizedBox(height: 30),
+              SizedBox(height: 25),
 
 
 
@@ -468,7 +478,7 @@ class SignUpPage extends StatelessWidget {
 
 
 
-              SizedBox(height: 15),
+              SizedBox(height: 10),
 
 
 

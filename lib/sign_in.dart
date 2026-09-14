@@ -4,30 +4,41 @@ import 'sign_up.dart';
 class SignIn extends StatelessWidget {
   const SignIn({super.key});
 
+
   @override
   Widget build(BuildContext context) {
 
-    double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
 
     return Scaffold(
 
       backgroundColor: Colors.white,
 
+
       appBar: AppBar(
+
         backgroundColor: Colors.white,
 
         leading: IconButton(
+
           icon: const Icon(
+
             Icons.arrow_back,
+
             color: Colors.black,
+
           ),
 
           onPressed: (){
+
             Navigator.pop(context);
+
           },
+
         ),
+
       ),
+
 
 
       body: SafeArea(
@@ -37,13 +48,16 @@ class SignIn extends StatelessWidget {
           child: Padding(
 
             padding: EdgeInsets.symmetric(
-              horizontal: screenWidth * 0.04,
+
+              horizontal: 20,
+
             ),
 
 
             child: Column(
 
               crossAxisAlignment: CrossAxisAlignment.start,
+
 
               children: [
 
@@ -52,15 +66,23 @@ class SignIn extends StatelessWidget {
 
                   height: screenHeight * 0.16,
 
+
                   child: Center(
+
                     child: Image.asset(
+
                       'assets/images/bookverse.png',
+
                       height: 300,
+
                       width: 300,
+
                     ),
+
                   ),
 
                 ),
+
 
 
 
@@ -70,9 +92,13 @@ class SignIn extends StatelessWidget {
 
                     'Sign in with your email',
 
+
                     style: TextStyle(
-                      fontSize: screenWidth * 0.05,
+
+                      fontSize: 25,
+
                       fontWeight: FontWeight.w900,
+
                     ),
 
                   ),
@@ -81,9 +107,13 @@ class SignIn extends StatelessWidget {
 
 
 
+
                 SizedBox(
+
                   height: screenHeight * 0.025,
+
                 ),
+
 
 
 
@@ -92,18 +122,28 @@ class SignIn extends StatelessWidget {
 
                   'Email Address:',
 
+
                   style: TextStyle(
-                    fontSize: screenWidth * 0.045,
+
+                    fontSize: 18,
+
                     fontWeight: FontWeight.bold,
+
                   ),
 
                 ),
 
 
 
+
+
                 SizedBox(
+
                   height: 10,
+
                 ),
+
+
 
 
 
@@ -115,7 +155,8 @@ class SignIn extends StatelessWidget {
 
                     filled: true,
 
-                    fillColor: const Color(0xFFF1F1F5),
+                    fillColor: Color(0xFFF1F1F5),
+
 
 
                     border: OutlineInputBorder(
@@ -127,7 +168,8 @@ class SignIn extends StatelessWidget {
                     ),
 
 
-                    contentPadding: const EdgeInsets.symmetric(
+
+                    contentPadding: EdgeInsets.symmetric(
 
                       horizontal: 20,
 
@@ -143,8 +185,12 @@ class SignIn extends StatelessWidget {
 
 
                 SizedBox(
+
                   height: 15,
+
                 ),
+
+
 
 
 
@@ -152,9 +198,10 @@ class SignIn extends StatelessWidget {
 
                   'Password:',
 
+
                   style: TextStyle(
 
-                    fontSize: screenWidth * 0.045,
+                    fontSize: 18,
 
                     fontWeight: FontWeight.bold,
 
@@ -165,9 +212,13 @@ class SignIn extends StatelessWidget {
 
 
 
+
                 SizedBox(
+
                   height: 10,
+
                 ),
+
 
 
 
@@ -176,13 +227,17 @@ class SignIn extends StatelessWidget {
 
                   obscureText: true,
 
+
                   decoration: InputDecoration(
 
                     hintText: 'Enter your Password',
 
+
                     filled: true,
 
-                    fillColor: const Color(0xFFF1F1F5),
+
+                    fillColor: Color(0xFFF1F1F5),
+
 
 
                     border: OutlineInputBorder(
@@ -194,7 +249,8 @@ class SignIn extends StatelessWidget {
                     ),
 
 
-                    contentPadding: const EdgeInsets.symmetric(
+
+                    contentPadding: EdgeInsets.symmetric(
 
                       horizontal: 20,
 
@@ -209,17 +265,22 @@ class SignIn extends StatelessWidget {
 
 
 
+
                 Align(
 
                   alignment: Alignment.centerLeft,
+
 
                   child: TextButton(
 
                     onPressed: (){},
 
+
                     child: Text(
 
                       'Forgot My Password',
+
+
 
                       style: TextStyle(
 
@@ -240,6 +301,7 @@ class SignIn extends StatelessWidget {
 
 
 
+
                 SizedBox(
 
                   height: screenHeight * 0.02,
@@ -249,24 +311,28 @@ class SignIn extends StatelessWidget {
 
 
 
+
                 Center(
 
                   child: SizedBox(
 
-                    width: screenWidth * 0.5,
+                    width: 250,
 
-                    height: screenHeight * 0.065,
+                    height: 60,
 
 
                     child: ElevatedButton(
 
                       onPressed: (){},
 
+
+
                       style: ElevatedButton.styleFrom(
 
                         backgroundColor: Colors.black,
 
                         foregroundColor: Colors.white,
+
 
 
                         shape: RoundedRectangleBorder(
@@ -278,19 +344,23 @@ class SignIn extends StatelessWidget {
                       ),
 
 
+
                       child: Text(
 
                         'Login',
 
+
+
                         style: TextStyle(
 
-                          fontSize: screenWidth * 0.05,
+                          fontSize: 25,
 
                           fontWeight: FontWeight.w500,
 
                         ),
 
                       ),
+
 
                     ),
 
@@ -311,15 +381,18 @@ class SignIn extends StatelessWidget {
 
 
 
+
                 Center(
 
                   child: SizedBox(
 
-                    width: screenWidth * 0.8,
+                    width: 300,
+
 
                     child: TextButton(
 
                       onPressed: (){
+
 
                         Navigator.push(
 
@@ -333,7 +406,9 @@ class SignIn extends StatelessWidget {
 
                         );
 
+
                       },
+
 
 
                       child: Text(
@@ -341,11 +416,13 @@ class SignIn extends StatelessWidget {
                         'Create a new account',
 
 
+
+
                         style: TextStyle(
 
                           color: Colors.black,
 
-                          fontSize: screenWidth * 0.045,
+                          fontSize: 18,
 
                           fontWeight: FontWeight.w500,
 
@@ -355,11 +432,13 @@ class SignIn extends StatelessWidget {
 
                       ),
 
+
                     ),
 
                   ),
 
                 ),
+
 
 
               ],
@@ -375,4 +454,5 @@ class SignIn extends StatelessWidget {
     );
 
   }
+
 }
