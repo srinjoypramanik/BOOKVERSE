@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:bookverse/CartPage.dart';
 
 class ProfilePage extends StatelessWidget {
   const ProfilePage({super.key});
@@ -90,15 +91,54 @@ class ProfilePage extends StatelessWidget {
 
             SizedBox(height: 140),
 
+            TextButton(
 
+              onPressed: (){
+                Navigator.push(
 
-            Text(
-              "My Orders",
+                  context,
 
-              style: TextStyle(
-                fontSize: 20,
+                  MaterialPageRoute(
+
+                    builder: (context)=> const Cart(),
+
+                  ),
+
+                );
+
+              },
+
+              child: Text(
+                "My Orders",
+
+                style: TextStyle(
+                  fontSize: 20,
+                  decoration: TextDecoration.underline,
+                ),
               ),
             ),
+
+
+
+
+            SizedBox(height: 20),
+            TextButton(
+
+              onPressed: (){
+
+              },
+              child: Text(
+                "Wishlist",
+
+                style: TextStyle(
+                  fontSize: 20,
+                  decoration: TextDecoration.underline,
+                ),
+              ),
+            ),
+
+
+
 
 
 
@@ -106,26 +146,21 @@ class ProfilePage extends StatelessWidget {
 
 
 
-            Text(
-              "Wishlist",
+            TextButton(
 
-              style: TextStyle(
-                fontSize: 20,
+              onPressed: (){
+
+              },
+
+              child: Text(
+                "Settings",
+
+                style: TextStyle(
+                  fontSize: 20,
+                  decoration: TextDecoration.underline,
+                ),
               ),
-            ),
 
-
-
-            SizedBox(height: 20),
-
-
-
-            Text(
-              "Settings",
-
-              style: TextStyle(
-                fontSize: 20,
-              ),
             ),
 
 
