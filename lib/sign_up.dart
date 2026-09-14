@@ -16,7 +16,7 @@ class SignUpPage extends StatelessWidget {
 
       appBar: AppBar(
 
-        backgroundColor: Colors.black,
+        backgroundColor: Colors.white,
 
         leading: IconButton(
 
@@ -479,6 +479,7 @@ class SignUpPage extends StatelessWidget {
                 child: TextButton(
 
                   onPressed: (){
+                    Navigator.pop(context);
 
 
                   },

@@ -15,12 +15,12 @@ class SignIn extends StatelessWidget {
       backgroundColor: Colors.white,
 
       appBar: AppBar(
-        backgroundColor: Colors.black,
+        backgroundColor: Colors.white,
 
         leading: IconButton(
           icon: const Icon(
             Icons.arrow_back,
-            color: Colors.white,
+            color: Colors.black,
           ),
 
           onPressed: (){
