@@ -8,8 +8,6 @@ class SignIn extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-    double screenHeight = MediaQuery.of(context).size.height;
-
     return Scaffold(
 
       backgroundColor: Colors.white,
@@ -62,10 +60,10 @@ class SignIn extends StatelessWidget {
               children: [
 
 
+
                 SizedBox(
 
-                  height: screenHeight * 0.16,
-
+                  height: 100,
 
                   child: Center(
 
@@ -86,33 +84,45 @@ class SignIn extends StatelessWidget {
 
 
 
+
+                SizedBox(height: 20),
+
+
+
+
+
                 Center(
+                  child:TextButton(
 
-                  child: Text(
+                    onPressed: (){
 
-                    'Sign in with your email',
+                    },
 
+                    child: Text(
 
-                    style: TextStyle(
+                      'Sign in with your email',
 
-                      fontSize: 25,
+                      style: TextStyle(
 
-                      fontWeight: FontWeight.w900,
+                        fontSize: 20,
+
+                        fontWeight: FontWeight.w900,
+                        decoration: TextDecoration.underline,
+
+                      ),
 
                     ),
-
                   ),
 
+
+
                 ),
 
 
 
 
-                SizedBox(
 
-                  height: screenHeight * 0.025,
-
-                ),
+                SizedBox(height: 20),
 
 
 
@@ -121,7 +131,6 @@ class SignIn extends StatelessWidget {
                 Text(
 
                   'Email Address:',
-
 
                   style: TextStyle(
 
@@ -136,12 +145,7 @@ class SignIn extends StatelessWidget {
 
 
 
-
-                SizedBox(
-
-                  height: 10,
-
-                ),
+                SizedBox(height: 10),
 
 
 
@@ -184,11 +188,8 @@ class SignIn extends StatelessWidget {
 
 
 
-                SizedBox(
 
-                  height: 15,
-
-                ),
+                SizedBox(height: 15),
 
 
 
@@ -213,11 +214,7 @@ class SignIn extends StatelessWidget {
 
 
 
-                SizedBox(
-
-                  height: 10,
-
-                ),
+                SizedBox(height: 10),
 
 
 
@@ -232,9 +229,7 @@ class SignIn extends StatelessWidget {
 
                     hintText: 'Enter your Password',
 
-
                     filled: true,
-
 
                     fillColor: Color(0xFFF1F1F5),
 
@@ -273,22 +268,23 @@ class SignIn extends StatelessWidget {
 
                   child: TextButton(
 
-                    onPressed: (){},
+                    onPressed: (){
+
+                    },
 
 
                     child: Text(
 
                       'Forgot My Password',
 
-
-
                       style: TextStyle(
 
-                        color: Colors.grey,
+                        color: Colors.black,
 
                         fontSize: 16,
 
                         fontWeight: FontWeight.bold,
+                        decoration: TextDecoration.underline,
 
                       ),
 
@@ -302,11 +298,7 @@ class SignIn extends StatelessWidget {
 
 
 
-                SizedBox(
-
-                  height: screenHeight * 0.02,
-
-                ),
+                SizedBox(height: 20),
 
 
 
@@ -349,8 +341,6 @@ class SignIn extends StatelessWidget {
 
                         'Login',
 
-
-
                         style: TextStyle(
 
                           fontSize: 25,
@@ -360,7 +350,6 @@ class SignIn extends StatelessWidget {
                         ),
 
                       ),
-
 
                     ),
 
@@ -372,11 +361,7 @@ class SignIn extends StatelessWidget {
 
 
 
-                SizedBox(
-
-                  height: screenHeight * 0.02,
-
-                ),
+                SizedBox(height: 20),
 
 
 
@@ -410,12 +395,9 @@ class SignIn extends StatelessWidget {
                       },
 
 
-
                       child: Text(
 
                         'Create a new account',
-
-
 
 
                         style: TextStyle(
@@ -431,7 +413,6 @@ class SignIn extends StatelessWidget {
                         ),
 
                       ),
-
 
                     ),
 
