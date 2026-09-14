@@ -185,7 +185,7 @@ class HomeScreen extends StatelessWidget {
                       builder: (context)=>const BookDetails(
                         title: 'INTRODUCTION TO ALGORITHMS,\n4TH EDITION',
                         author: 'by Thomas H. Corman',
-                        price: '800/-',
+                        price: '600/-',
                         category: 'COMPUTER SCIENCE',
                         description: 'Introduction to Algorithms is a book on computer programming '
                             'by Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest, and'
@@ -226,7 +226,7 @@ class HomeScreen extends StatelessWidget {
                              ),
                           ),
 
-                        Text('800/-',
+                        Text('600/-',
                           style: TextStyle(
                             fontSize: 18,
                             fontWeight: FontWeight.bold,
@@ -294,7 +294,7 @@ class HomeScreen extends StatelessWidget {
                         builder: (context)=> const BookDetails(
                             title: 'ARTIFICIAL INTELLIGENCE: A MODERN \nAPPROACH',
                             author: 'Stuart Russell, Peter Norvig',
-                            price:  '1000/-',
+                            price:  '800/-',
                             category: 'COMPUTER SCIENCE',
                             description: 'Artificial Intelligence: A Modern Approach is a textbook'
                                 ' about artificial intelligence by Stuart Russell and Peter Norvig.'
@@ -333,7 +333,7 @@ class HomeScreen extends StatelessWidget {
                             ),
                           ),
 
-                        Text('1000/-',
+                        Text('800/-',
                           style: TextStyle(
                             fontSize: 18,
                             fontWeight: FontWeight.bold,
@@ -401,9 +401,18 @@ class HomeScreen extends StatelessWidget {
                     builder: (context)=> const BookDetails(
                       title: 'CLEAN CODE: A HANDBOOK OF \nSOFTWARE CRAFTSMANSHIPS' ,
                       author: 'by Robert C. Martin',
-                      price:  '700/-',
+                      price:  '1000/-',
                       category: 'COMPUTER SCIENCE',
-                      description: 'Bestselling author Robert C. Martin brings new life and updated code to his beloved Clean Code book With Clean Code, Second Edition, Robert C. Martin ("Uncle Bob") reinvigorates the classic guide to software craftsmanship with updated insights, broader scope, and enriched content. ',
+                      description: '"Clean Code" by Robert C. Martin is a foundational '
+                          'software engineering guide that teaches developers how to '
+                          'write readable, maintainable, and highly efficient code. '
+                          'The book centers around the philosophy that code should '
+                          'be as readable as well-written prose, introducing core '
+                          'tenets like the Boy Scout Rule and the strict mandate that '
+                          'functions should do exactly one thing. While heavily '
+                          'illustrated with Java-based examples, its universal '
+                          'focus on meaningful naming conventions, robust unit '
+                          'testing makes it a staple for developers.',
                     ),
                   ),
                 );
@@ -431,7 +440,7 @@ class HomeScreen extends StatelessWidget {
                               fontSize: 12,
                             ),
                         ),
-                        Text('700/-',
+                        Text('1000/-',
                           style: TextStyle(
                             fontSize: 18,
                             fontWeight: FontWeight.bold,
