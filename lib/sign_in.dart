@@ -260,38 +260,40 @@ class SignIn extends StatelessWidget {
               ),
 
 
+              SizedBox(height: 15),
 
 
+              TextButton(
 
-              Align(
-
-                alignment: Alignment.topLeft,
-
-
-                child: TextButton(
-
-                  onPressed: (){
+                onPressed: (){
 
 
-                  },
+                },
 
 
-                  child: Text(
+                style: TextButton.styleFrom(
 
-                    'Forgot My Password',
+                  padding: EdgeInsets.zero,
+
+                  alignment: Alignment.centerLeft,
+
+                ),
 
 
-                    style: TextStyle(
+                child: Text(
 
-                      color: Colors.black,
+                  'Forgot My Password',
 
-                      fontSize: 16,
 
-                      fontWeight: FontWeight.bold,
+                  style: TextStyle(
 
-                      decoration: TextDecoration.underline,
+                    color: Colors.grey,
 
-                    ),
+                    fontSize: 16,
+
+                    fontWeight: FontWeight.bold,
+
+                    decoration: TextDecoration.underline,
 
                   ),
 
