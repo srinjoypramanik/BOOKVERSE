@@ -220,14 +220,13 @@ class HomeScreen extends StatelessWidget {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Container(
-                          child: Text('BRAND NEW',
+                        Text('BRAND NEW',
                           style: TextStyle(
                             fontSize: 12,
                              ),
                           ),
-                        ),
-                        const Text('800/-',
+
+                        Text('800/-',
                           style: TextStyle(
                             fontSize: 18,
                             fontWeight: FontWeight.bold,
