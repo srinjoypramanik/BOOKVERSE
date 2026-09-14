@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'sign_up.dart';
 
 class SignIn extends StatelessWidget {
+
   const SignIn({super.key});
 
 
@@ -60,7 +61,6 @@ class SignIn extends StatelessWidget {
               children: [
 
 
-
                 SizedBox(
 
                   height: 100,
@@ -84,7 +84,6 @@ class SignIn extends StatelessWidget {
 
 
 
-
                 SizedBox(height: 20),
 
 
@@ -92,29 +91,32 @@ class SignIn extends StatelessWidget {
 
 
                 Center(
-                  child:TextButton(
+
+                  child: TextButton(
 
                     onPressed: (){
 
                     },
 
+
                     child: Text(
 
                       'Sign in with your email',
+
 
                       style: TextStyle(
 
                         fontSize: 20,
 
                         fontWeight: FontWeight.w900,
+
                         decoration: TextDecoration.underline,
 
                       ),
 
                     ),
+
                   ),
-
-
 
                 ),
 
@@ -132,6 +134,7 @@ class SignIn extends StatelessWidget {
 
                   'Email Address:',
 
+
                   style: TextStyle(
 
                     fontSize: 18,
@@ -141,6 +144,7 @@ class SignIn extends StatelessWidget {
                   ),
 
                 ),
+
 
 
 
@@ -162,7 +166,6 @@ class SignIn extends StatelessWidget {
                     fillColor: Color(0xFFF1F1F5),
 
 
-
                     border: OutlineInputBorder(
 
                       borderRadius: BorderRadius.circular(20),
@@ -170,7 +173,6 @@ class SignIn extends StatelessWidget {
                       borderSide: BorderSide.none,
 
                     ),
-
 
 
                     contentPadding: EdgeInsets.symmetric(
@@ -234,7 +236,6 @@ class SignIn extends StatelessWidget {
                     fillColor: Color(0xFFF1F1F5),
 
 
-
                     border: OutlineInputBorder(
 
                       borderRadius: BorderRadius.circular(20),
@@ -242,7 +243,6 @@ class SignIn extends StatelessWidget {
                       borderSide: BorderSide.none,
 
                     ),
-
 
 
                     contentPadding: EdgeInsets.symmetric(
@@ -261,32 +261,34 @@ class SignIn extends StatelessWidget {
 
 
 
-                Align(
-
-                  alignment: Alignment.centerLeft,
+                SizedBox(height: 5),
 
 
-                  child: TextButton(
-
-                    onPressed: (){
-
-                    },
 
 
-                    child: Text(
 
-                      'Forgot My Password',
+                TextButton(
 
-                      style: TextStyle(
+                  onPressed: (){
 
-                        color: Colors.black,
 
-                        fontSize: 16,
+                  },
 
-                        fontWeight: FontWeight.bold,
-                        decoration: TextDecoration.underline,
 
-                      ),
+                  child: Text(
+
+                    'Forgot My Password',
+
+
+                    style: TextStyle(
+
+                      color: Colors.black,
+
+                      fontSize: 16,
+
+                      fontWeight: FontWeight.bold,
+
+                      decoration: TextDecoration.underline,
 
                     ),
 
@@ -326,7 +328,6 @@ class SignIn extends StatelessWidget {
                         foregroundColor: Colors.white,
 
 
-
                         shape: RoundedRectangleBorder(
 
                           borderRadius: BorderRadius.circular(0),
@@ -340,6 +341,7 @@ class SignIn extends StatelessWidget {
                       child: Text(
 
                         'Login',
+
 
                         style: TextStyle(
 
