@@ -1,3 +1,4 @@
+import 'package:bookverse/homescreen.dart';
 import 'package:bookverse/sign_in.dart';
 import 'package:flutter/material.dart';
 import 'CartPage.dart';
@@ -253,7 +254,6 @@ class BookDetails extends StatelessWidget{
                 )
             );
           }
-          //Tanzid.........................................
           //Waizur.........................................
           else if(index == 2){
             Navigator.push(
@@ -263,8 +263,26 @@ class BookDetails extends StatelessWidget{
               ),
             );
           }
+          //Srinjoy.........................................
+          else if(index == 1){
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context)=> const HomeScreen(),
+              ),
+            );
+          }
+          else if(index == 0){
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context)=> const HomeScreen(),
+              ),
+            );
+          }
         },
-          //Waizur.........................................
+        //Srinjoy.........................................
+
 
         items: const [
           BottomNavigationBarItem(
