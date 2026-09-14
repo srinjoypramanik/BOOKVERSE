@@ -65,7 +65,8 @@ class BookDetails extends StatelessWidget{
           const SizedBox(width: 6),
         ],
       ),
-//Body
+
+
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -240,9 +241,6 @@ class BookDetails extends StatelessWidget{
          ],
         ),
        ),
-
-
-
 
 
 

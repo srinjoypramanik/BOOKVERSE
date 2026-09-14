@@ -11,7 +11,8 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-//AppBar
+
+
       appBar: AppBar(
         backgroundColor: Colors.white,
 
@@ -69,8 +70,8 @@ class HomeScreen extends StatelessWidget {
             else if(value==3){}
             else if(value==4){}
           },
-
         ),
+
 
         titleSpacing: 0,
         title: Row(
@@ -78,6 +79,7 @@ class HomeScreen extends StatelessWidget {
               height: 47)
           ],
         ),
+
 
         actions: [
           IconButton(
@@ -94,12 +96,12 @@ class HomeScreen extends StatelessWidget {
               size: 35,
             ),
           ),
-
           const SizedBox(width: 6),
         ],
       ),
 
-      //body
+
+
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -204,7 +206,7 @@ class HomeScreen extends StatelessWidget {
               ),
             ),
 
-            // Available Text
+            // Available
             const SizedBox(height: 12),
             Padding(padding: const EdgeInsets.symmetric(
                 horizontal: 15,
@@ -662,16 +664,9 @@ class HomeScreen extends StatelessWidget {
                 ),
               ),
             ),
-
-
-
           ],
         ),
       ),
-
-
-
-
 
 
 
