@@ -61,8 +61,8 @@ class  CartState extends State<Cart> {
                       child: Row( mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
                       
-                       Text('TOTAL  AMOUNT  :  ',style: TextStyle(color:Color.fromARGB(255, 0, 0, 0),fontSize: 20),),
-                       Text('00/=')
+                       Text('TOTAL AMOUNT  :                         ',style: TextStyle(color:Color.fromARGB(255, 0, 0, 0),fontSize: 18,fontWeight: FontWeight.bold),),
+                       Text('0/-', style: TextStyle(color:Color.fromARGB(255, 0, 0, 0),fontSize: 18,fontWeight: FontWeight.bold),),
                     ]  
                     ),
                     ),
