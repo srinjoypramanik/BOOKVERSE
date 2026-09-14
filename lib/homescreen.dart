@@ -151,7 +151,7 @@ class HomeScreen extends StatelessWidget {
             // Available Text
             const SizedBox(height: 12),
             Padding(padding: const EdgeInsets.symmetric(
-                horizontal: 16,
+                horizontal: 15,
               ),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -294,9 +294,17 @@ class HomeScreen extends StatelessWidget {
                         builder: (context)=> const BookDetails(
                             title: 'ARTIFICIAL INTELLIGENCE: A MODERN \nAPPROACH',
                             author: 'Stuart Russell, Peter Norvig',
-                            price:  '900/-',
+                            price:  '1000/-',
                             category: 'COMPUTER SCIENCE',
-                            description: 'Artificial Intelligence: A Modern Approach is a textbook about artificial intelligence by Stuart Russell and Peter Norvig. It provides an introduction to the concepts, techniques, and applications of artificial intelligence.',
+                            description: 'Artificial Intelligence: A Modern Approach is a textbook'
+                                ' about artificial intelligence by Stuart Russell and Peter Norvig.'
+                                ' It provides an introduction to the concepts, techniques, and '
+                                'applications of artificial intelligence. AIMA has been called '
+                                '"the most popular artificial intelligence textbook in the world", '
+                                'and is considered the standard text in the field of AI. As of 2023, '
+                                'it was used at over 1500 universities worldwide,and has '
+                                'over 59,000 citations on Google Scholar. It gives detailed '
+                                'information about the working of algorithms in AI.',
                         ),
                     ),
                 );
@@ -325,7 +333,7 @@ class HomeScreen extends StatelessWidget {
                             ),
                           ),
 
-                        Text('900/-',
+                        Text('1000/-',
                           style: TextStyle(
                             fontSize: 18,
                             fontWeight: FontWeight.bold,
