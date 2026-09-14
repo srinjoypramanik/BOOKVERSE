@@ -383,7 +383,6 @@ class HomeScreen extends StatelessWidget {
                   ],
                 ),
               ),
-
             ),
 
             //Book3
@@ -419,14 +418,12 @@ class HomeScreen extends StatelessWidget {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Container(
-                          child: Text('BRAND NEW',
+                        Text('BRAND NEW',
                             style: TextStyle(
                               fontSize: 12,
                             ),
-                          ),
                         ),
-                        const Text('700/-',
+                        Text('700/-',
                           style: TextStyle(
                             fontSize: 18,
                             fontWeight: FontWeight.bold,
@@ -481,11 +478,9 @@ class HomeScreen extends StatelessWidget {
                         ),
                       ],
                     ),
-
                   ],
                 ),
               ),
-
             ),
 
 
