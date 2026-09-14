@@ -3,7 +3,20 @@ import 'package:flutter/material.dart';
 import 'CartPage.dart';
 
 class BookDetails extends StatelessWidget{
-  const BookDetails({super.key});
+  final String title;
+  final String author;
+  final String price;
+  final String category;
+  final String description;
+
+  const BookDetails({
+    super.key,
+    required this.title,
+    required this.author,
+    required this.price,
+    required this.category,
+    required this.description,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -76,7 +89,7 @@ class BookDetails extends StatelessWidget{
            Row(
              children: [
                SizedBox(width: 12),
-               Text('INTRODUCTION TO ALGORITHMS,\n4TH EDITION',
+               Text(title,
                style: TextStyle(
                  fontSize: 20,
                  fontWeight: FontWeight.bold,
@@ -89,7 +102,7 @@ class BookDetails extends StatelessWidget{
            Row(
              children: [
                SizedBox(width: 12),
-               Text('by Thomas H. Corman',
+               Text(author,
                style: TextStyle(
                  color: Colors.grey,
                  fontSize: 15,
@@ -119,7 +132,7 @@ class BookDetails extends StatelessWidget{
                          ),
                        ),
                        SizedBox(height: 8),
-                       Text('800/-',
+                       Text(price,
                          style: TextStyle(
                            color: Colors.black,
                            fontSize: 22,
@@ -144,7 +157,7 @@ class BookDetails extends StatelessWidget{
                          ),
                        ),
                        SizedBox(height: 8),
-                       Text('COMPUTER SCIENCE',
+                       Text(category,
                          style: TextStyle(
                            color: Colors.black,
                            fontSize: 18,
@@ -178,15 +191,7 @@ class BookDetails extends StatelessWidget{
              children: [
                SizedBox(width: 12),
                Expanded(child:
-               Text('Introduction to Algorithms is a book on computer programming '
-                   'by Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest, and'
-                   ' Clifford Stein. The book is described by its publisher as "the'
-                   ' leading algorithms text in universities worldwide as well as the'
-                   ' standard reference for professionals". It is commonly cited as a '
-                   'reference for algorithms in published papers, with over 10,000 '
-                   'citations on CiteSeerX, and over 70,000 citations '
-                   'on Google Scholar as of 2024. The book sold half a million copies '
-                   'during first 20 years. Wikipedia.',
+               Text(description,
                  style: TextStyle(
                    color: Colors.grey,
                    fontSize: 18,
