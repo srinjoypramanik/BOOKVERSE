@@ -15,16 +15,12 @@ class ProfilePage extends StatelessWidget {
 
 
       appBar: AppBar(
+
         backgroundColor: Colors.white,
 
-        title: Text(
-          "Profile",
-          style: TextStyle(
-            color: Colors.white,
-          ),
-        ),
 
         centerTitle: true,
+
       ),
 
 
@@ -41,22 +37,20 @@ class ProfilePage extends StatelessWidget {
           children: [
 
 
-            Container(
+            SizedBox(height: 50),
 
-              height: 100,
 
-              width: 100,
+
+            Icon(
+
+              Icons.person,
+
+              size: 100,
 
               color: Colors.black,
 
-              child: Icon(
-
-                Icons.person,
-                size: 60,
-                color: Colors.white,
-              ),
-
             ),
+
 
 
 
@@ -92,9 +86,13 @@ class ProfilePage extends StatelessWidget {
 
             SizedBox(height: 140),
 
+
+
+
             TextButton(
 
               onPressed: (){
+
                 Navigator.push(
 
                   context,
@@ -109,33 +107,54 @@ class ProfilePage extends StatelessWidget {
 
               },
 
+
               child: Text(
+
                 "My Orders",
 
                 style: TextStyle(
+
                   fontSize: 20,
+
                   decoration: TextDecoration.underline,
+
                 ),
+
               ),
+
             ),
 
 
 
 
+
             SizedBox(height: 20),
+
+
+
+
             TextButton(
 
               onPressed: (){
 
+
               },
+
+
               child: Text(
+
                 "Wishlist",
 
                 style: TextStyle(
+
                   fontSize: 20,
+
                   decoration: TextDecoration.underline,
+
                 ),
+
               ),
+
             ),
 
 
@@ -147,22 +166,32 @@ class ProfilePage extends StatelessWidget {
 
 
 
+
             TextButton(
 
               onPressed: (){
 
+
               },
 
+
               child: Text(
+
                 "Settings",
 
                 style: TextStyle(
+
                   fontSize: 20,
+
                   decoration: TextDecoration.underline,
+
                 ),
+
               ),
 
             ),
+
+
 
 
 
@@ -170,14 +199,20 @@ class ProfilePage extends StatelessWidget {
 
 
 
+
             SizedBox(
 
               height: 50,
+
               width: 200,
+
 
               child: ElevatedButton(
 
-                onPressed: () {
+
+                onPressed: (){
+
+
                   Navigator.push(
 
                     context,
@@ -190,55 +225,43 @@ class ProfilePage extends StatelessWidget {
 
                   );
 
+
                 },
 
 
                 style: ElevatedButton.styleFrom(
+
                   backgroundColor: Colors.black,
 
                   shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadiusGeometry.zero,
+
+                    borderRadius: BorderRadius.zero,
+
                   ),
+
                 ),
 
 
+
                 child: Text(
+
                   "Logout",
 
 
                   style: TextStyle(
+
                     color: Colors.white,
+
                     fontSize: 25,
 
                   ),
+
                 ),
+
 
               ),
 
             ),
-            // ElevatedButton(
-            //
-            //   onPressed: () {},
-            //
-            //
-            //   style: ElevatedButton.styleFrom(
-            //     backgroundColor: Colors.black,
-            //
-            //     shape: RoundedRectangleBorder(
-            //         borderRadius: BorderRadiusGeometry.zero,
-            //     ),
-            //   ),
-            //
-            //
-            //   child: Text(
-            //     "Logout",
-            //
-            //     style: TextStyle(
-            //       color: Colors.white,
-            //     ),
-            //   ),
-            //
-            // ),
 
 
           ],
@@ -250,4 +273,5 @@ class ProfilePage extends StatelessWidget {
     );
 
   }
+
 }
