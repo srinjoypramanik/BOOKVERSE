@@ -171,7 +171,21 @@ class HomeScreen extends StatelessWidget {
               },
             ),
 
-
+            ListTile(
+              leading: Icon(
+                Icons.phone,
+                color: Colors.black,
+              ),
+              title: Text('Contact us',
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 16,
+                ),
+              ),
+              onTap: (){
+                Navigator.pop(context);
+              },
+            ),
 
 
 
