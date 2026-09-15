@@ -17,7 +17,6 @@ class HomeScreen extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.white,
 
-
         titleSpacing: 0,
         title: Row(
           children: [Image.asset('assets/images/bookverse.png',
@@ -50,6 +49,7 @@ class HomeScreen extends StatelessWidget {
         child: Column(
           children: [
 
+            
           ],
         ),
       ),
