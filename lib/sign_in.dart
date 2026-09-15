@@ -39,39 +39,74 @@ class SignIn extends StatelessWidget {
 
 
 
-      body: SafeArea(
+      body: Padding(
 
-        child: Padding(
+        padding: EdgeInsets.symmetric(
 
-          padding: EdgeInsets.symmetric(
+          horizontal: 20,
 
-            horizontal: 20,
-
-          ),
+        ),
 
 
-          child: Column(
+        child: Column(
 
-            crossAxisAlignment: CrossAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
 
 
-            children: [
+          children: [
 
 
 
-              SizedBox(
+            SizedBox(
 
-                height: 100,
+              height: 100,
 
-                child: Center(
+              child: Center(
 
-                  child: Image.asset(
+                child: Image.asset(
 
-                    'assets/images/bookverse.png',
+                  'assets/images/bookverse.png',
 
-                    height: 300,
+                  height: 300,
 
-                    width: 300,
+                  width: 300,
+
+                ),
+
+              ),
+
+            ),
+
+
+
+
+
+            SizedBox(height: 20),
+
+
+
+
+
+            Center(
+
+              child: TextButton(
+
+                onPressed: (){
+
+                },
+
+
+                child: Text(
+
+                  'Sign in with your email',
+
+                  style: TextStyle(
+
+                    fontSize: 20,
+
+                    fontWeight: FontWeight.w900,
+
+                    decoration: TextDecoration.underline,
 
                   ),
 
@@ -79,34 +114,304 @@ class SignIn extends StatelessWidget {
 
               ),
 
-
-
-
-
-              SizedBox(height: 20),
+            ),
 
 
 
 
 
-              Center(
+            SizedBox(height: 20),
+
+
+
+
+
+            Text(
+
+              'Email Address:',
+
+
+              style: TextStyle(
+
+                fontSize: 18,
+
+                fontWeight: FontWeight.bold,
+
+              ),
+
+            ),
+
+
+
+
+
+            SizedBox(height: 10),
+
+
+
+
+
+            TextField(
+
+              decoration: InputDecoration(
+
+                hintText: 'Enter your email',
+
+                filled: true,
+
+                fillColor: Color(0xFFF1F1F5),
+
+
+
+                border: OutlineInputBorder(
+
+                  borderRadius: BorderRadius.circular(20),
+
+                  borderSide: BorderSide.none,
+
+                ),
+
+
+
+                contentPadding: EdgeInsets.symmetric(
+
+                  horizontal: 20,
+
+                  vertical: 18,
+
+                ),
+
+              ),
+
+            ),
+
+
+
+
+
+            SizedBox(height: 15),
+
+
+
+
+
+            Text(
+
+              'Password:',
+
+
+              style: TextStyle(
+
+                fontSize: 18,
+
+                fontWeight: FontWeight.bold,
+
+              ),
+
+            ),
+
+
+
+
+
+            SizedBox(height: 10),
+
+
+
+
+
+            TextField(
+
+              obscureText: true,
+
+
+              decoration: InputDecoration(
+
+                hintText: 'Enter your Password',
+
+                filled: true,
+
+                fillColor: Color(0xFFF1F1F5),
+
+
+
+                border: OutlineInputBorder(
+
+                  borderRadius: BorderRadius.circular(20),
+
+                  borderSide: BorderSide.none,
+
+                ),
+
+
+
+                contentPadding: EdgeInsets.symmetric(
+
+                  horizontal: 20,
+
+                  vertical: 18,
+
+                ),
+
+              ),
+
+            ),
+
+
+            SizedBox(height: 15),
+
+
+            TextButton(
+
+              onPressed: (){
+
+
+              },
+
+
+              style: TextButton.styleFrom(
+
+                padding: EdgeInsets.zero,
+
+                alignment: Alignment.centerLeft,
+
+              ),
+
+
+              child: Text(
+
+                'Forgot My Password',
+
+
+                style: TextStyle(
+
+                  color: Colors.grey,
+
+                  fontSize: 16,
+
+                  fontWeight: FontWeight.bold,
+
+                  decoration: TextDecoration.underline,
+
+                ),
+
+              ),
+
+            ),
+
+
+
+
+
+            SizedBox(height: 20),
+
+
+
+
+
+            Center(
+
+              child: SizedBox(
+
+                width: 250,
+
+                height: 60,
+
+
+                child: ElevatedButton(
+
+                  onPressed: (){},
+
+
+
+                  style: ElevatedButton.styleFrom(
+
+                    backgroundColor: Colors.black,
+
+                    foregroundColor: Colors.white,
+
+
+
+                    shape: RoundedRectangleBorder(
+
+                      borderRadius: BorderRadius.circular(0),
+
+                    ),
+
+                  ),
+
+
+
+                  child: Text(
+
+                    'Login',
+
+                    style: TextStyle(
+
+                      fontSize: 25,
+
+                      fontWeight: FontWeight.w500,
+
+                    ),
+
+                  ),
+
+                ),
+
+              ),
+
+            ),
+
+
+
+
+
+            SizedBox(height: 20),
+
+
+
+
+
+            Center(
+
+              child: SizedBox(
+
+                width: 300,
+
 
                 child: TextButton(
 
                   onPressed: (){
+
+
+                    Navigator.push(
+
+                      context,
+
+                      MaterialPageRoute(
+
+                        builder: (context)=> const SignUpPage(),
+
+                      ),
+
+                    );
+
 
                   },
 
 
                   child: Text(
 
-                    'Sign in with your email',
+                    'Create a new account',
+
 
                     style: TextStyle(
 
-                      fontSize: 20,
+                      color: Colors.black,
 
-                      fontWeight: FontWeight.w900,
+                      fontSize: 18,
+
+                      fontWeight: FontWeight.w500,
 
                       decoration: TextDecoration.underline,
 
@@ -118,320 +423,11 @@ class SignIn extends StatelessWidget {
 
               ),
 
+            ),
 
 
 
-
-              SizedBox(height: 20),
-
-
-
-
-
-              Text(
-
-                'Email Address:',
-
-
-                style: TextStyle(
-
-                  fontSize: 18,
-
-                  fontWeight: FontWeight.bold,
-
-                ),
-
-              ),
-
-
-
-
-
-              SizedBox(height: 10),
-
-
-
-
-
-              TextField(
-
-                decoration: InputDecoration(
-
-                  hintText: 'Enter your email',
-
-                  filled: true,
-
-                  fillColor: Color(0xFFF1F1F5),
-
-
-
-                  border: OutlineInputBorder(
-
-                    borderRadius: BorderRadius.circular(20),
-
-                    borderSide: BorderSide.none,
-
-                  ),
-
-
-
-                  contentPadding: EdgeInsets.symmetric(
-
-                    horizontal: 20,
-
-                    vertical: 18,
-
-                  ),
-
-                ),
-
-              ),
-
-
-
-
-
-              SizedBox(height: 15),
-
-
-
-
-
-              Text(
-
-                'Password:',
-
-
-                style: TextStyle(
-
-                  fontSize: 18,
-
-                  fontWeight: FontWeight.bold,
-
-                ),
-
-              ),
-
-
-
-
-
-              SizedBox(height: 10),
-
-
-
-
-
-              TextField(
-
-                obscureText: true,
-
-
-                decoration: InputDecoration(
-
-                  hintText: 'Enter your Password',
-
-                  filled: true,
-
-                  fillColor: Color(0xFFF1F1F5),
-
-
-
-                  border: OutlineInputBorder(
-
-                    borderRadius: BorderRadius.circular(20),
-
-                    borderSide: BorderSide.none,
-
-                  ),
-
-
-
-                  contentPadding: EdgeInsets.symmetric(
-
-                    horizontal: 20,
-
-                    vertical: 18,
-
-                  ),
-
-                ),
-
-              ),
-
-
-              SizedBox(height: 15),
-
-
-              TextButton(
-
-                onPressed: (){
-
-
-                },
-
-
-                style: TextButton.styleFrom(
-
-                  padding: EdgeInsets.zero,
-
-                  alignment: Alignment.centerLeft,
-
-                ),
-
-
-                child: Text(
-
-                  'Forgot My Password',
-
-
-                  style: TextStyle(
-
-                    color: Colors.grey,
-
-                    fontSize: 16,
-
-                    fontWeight: FontWeight.bold,
-
-                    decoration: TextDecoration.underline,
-
-                  ),
-
-                ),
-
-              ),
-
-
-
-
-
-              SizedBox(height: 20),
-
-
-
-
-
-              Center(
-
-                child: SizedBox(
-
-                  width: 250,
-
-                  height: 60,
-
-
-                  child: ElevatedButton(
-
-                    onPressed: (){},
-
-
-
-                    style: ElevatedButton.styleFrom(
-
-                      backgroundColor: Colors.black,
-
-                      foregroundColor: Colors.white,
-
-
-
-                      shape: RoundedRectangleBorder(
-
-                        borderRadius: BorderRadius.circular(0),
-
-                      ),
-
-                    ),
-
-
-
-                    child: Text(
-
-                      'Login',
-
-                      style: TextStyle(
-
-                        fontSize: 25,
-
-                        fontWeight: FontWeight.w500,
-
-                      ),
-
-                    ),
-
-                  ),
-
-                ),
-
-              ),
-
-
-
-
-
-              SizedBox(height: 20),
-
-
-
-
-
-              Center(
-
-                child: SizedBox(
-
-                  width: 300,
-
-
-                  child: TextButton(
-
-                    onPressed: (){
-
-
-                      Navigator.push(
-
-                        context,
-
-                        MaterialPageRoute(
-
-                          builder: (context)=> const SignUpPage(),
-
-                        ),
-
-                      );
-
-
-                    },
-
-
-                    child: Text(
-
-                      'Create a new account',
-
-
-                      style: TextStyle(
-
-                        color: Colors.black,
-
-                        fontSize: 18,
-
-                        fontWeight: FontWeight.w500,
-
-                        decoration: TextDecoration.underline,
-
-                      ),
-
-                    ),
-
-                  ),
-
-                ),
-
-              ),
-
-
-
-            ],
-
-          ),
+          ],
 
         ),
 
