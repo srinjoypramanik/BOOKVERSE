@@ -82,9 +82,9 @@ class HomeScreen extends StatelessWidget {
             ),
 
             ListTile(
-              leading: Icon(
-                Icons.category_rounded,
-                color: Colors.black,
+                  leading: Icon(
+                    Icons.category_rounded,
+                    color: Colors.black,
               ),
               title: Text('Categories',
                 style: TextStyle(
@@ -92,6 +92,9 @@ class HomeScreen extends StatelessWidget {
                   fontSize: 16,
                 ),
               ),
+              onTap: (){
+                Navigator.pop(context);
+              },
             ),
 
             ListTile(
@@ -111,6 +114,22 @@ class HomeScreen extends StatelessWidget {
                         builder: (context)=> const Cart(),
                     ),
                 );
+              },
+            ),
+
+            ListTile(
+              leading: Icon(
+                Icons.receipt_long,
+                color: Colors.black,
+              ),
+              title: Text('My Orders',
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 16,
+                ),
+              ),
+              onTap: (){
+                Navigator.pop(context);
               },
             ),
 
