@@ -112,6 +112,8 @@ class HomeScreen extends StatelessWidget {
               child: TextField(
                 decoration: InputDecoration(
                   hintText: 'Search books, authors...',
+                  filled: true,
+                  fillColor: Color(0xFFF1F1F5),
                   prefixIcon: const Icon(
                     Icons.search,
                     color: Colors.grey,
@@ -730,7 +732,7 @@ class HomeScreen extends StatelessWidget {
               size: 30,
               color:Colors.black,
             ),
-            label: 'AUTH',
+            label: 'ACCOUNT',
           ),
         ],
       ),
