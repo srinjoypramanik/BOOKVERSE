@@ -59,7 +59,7 @@ class ProfilePage extends StatelessWidget {
 
 
             Text(
-              "User Name",
+              "USER NAME",
 
               style: TextStyle(
                 fontSize: 30,
@@ -115,6 +115,7 @@ class ProfilePage extends StatelessWidget {
                 style: TextStyle(
 
                   fontSize: 20,
+                  fontWeight: FontWeight.bold,
 
                   decoration: TextDecoration.underline,
 
@@ -148,6 +149,7 @@ class ProfilePage extends StatelessWidget {
                 style: TextStyle(
 
                   fontSize: 20,
+                  fontWeight: FontWeight.bold,
 
                   decoration: TextDecoration.underline,
 
@@ -182,6 +184,7 @@ class ProfilePage extends StatelessWidget {
                 style: TextStyle(
 
                   fontSize: 20,
+                  fontWeight: FontWeight.bold,
 
                   decoration: TextDecoration.underline,
 
