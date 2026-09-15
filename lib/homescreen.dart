@@ -101,7 +101,16 @@ class HomeScreen extends StatelessWidget {
               ),
               title: Text('Cart',
                 style: TextStyle(
-                
+                  fontWeight: FontWeight.bold,
+                  fontSize: 16,
+                ),
+              ),
+              onTap: (){
+                Navigator.push(context,
+                    MaterialPageRoute(
+                        builder: (context)=> const Cart(),
+                    ),
+                );
               },
             ),
 
