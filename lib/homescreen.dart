@@ -54,10 +54,10 @@ class HomeScreen extends StatelessWidget {
               height: 150,
               color: Colors.black,
               child: Center(
-                child: Text('BOOKVERSE',
+                child: Text('',
                   style: TextStyle(
                     color: Colors.white,
-                    fontSize: 20,
+                    fontSize: 23,
                     fontWeight: FontWeight.bold
                   ),
                 ),
@@ -92,6 +92,17 @@ class HomeScreen extends StatelessWidget {
                   fontSize: 16,
                 ),
               ),
+            ),
+
+            ListTile(
+              leading: Icon(
+                Icons.shopping_bag_rounded,
+                color: Colors.black,
+              ),
+              title: Text('Cart',
+                style: TextStyle(
+                
+              },
             ),
 
 
