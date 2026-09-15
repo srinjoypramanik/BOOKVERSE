@@ -153,6 +153,25 @@ class HomeScreen extends StatelessWidget {
               },
             ),
 
+            Divider(),
+
+            ListTile(
+              leading: Icon(
+                Icons.info,
+                color: Colors.black,
+              ),
+              title: Text('About us',
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 16,
+                ),
+              ),
+              onTap: (){
+                Navigator.pop(context);
+              },
+            ),
+
+
 
 
 
