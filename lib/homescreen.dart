@@ -65,6 +65,14 @@ class HomeScreen extends StatelessWidget {
             ),
             SizedBox(height: 10),
 
+            ListTile(
+              leading: Icon(
+                  Icons.home_filled,
+                color: Colors.black,
+              ),
+              
+            ),
+
 
 
 
