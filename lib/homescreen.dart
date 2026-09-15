@@ -70,7 +70,23 @@ class HomeScreen extends StatelessWidget {
                   Icons.home_filled,
                 color: Colors.black,
               ),
-              
+              title: Text('Home',
+                style: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              onTap: (){
+                Navigator.pop(context);
+              },
+            ),
+
+            ListTile(
+              leading: Icon(
+                Icons.category_rounded,
+                color: Colors.black,
+              ),
+              title: 
             ),
 
 
