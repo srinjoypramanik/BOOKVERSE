@@ -86,7 +86,12 @@ class HomeScreen extends StatelessWidget {
                 Icons.category_rounded,
                 color: Colors.black,
               ),
-              title: 
+              title: Text('Categories',
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 16,
+                ),
+              ),
             ),
 
 
