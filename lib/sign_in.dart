@@ -47,7 +47,9 @@ class SignIn extends StatelessWidget {
 
               Center(
                 child: TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+
+                  },
 
                   child: Text(
                     'Sign in with your email',
@@ -68,7 +70,9 @@ class SignIn extends StatelessWidget {
               Text(
                 'Email Address:',
 
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                style: TextStyle(fontSize: 18,
+                    fontWeight: FontWeight.bold
+                ),
               ),
 
               SizedBox(height: 10),
