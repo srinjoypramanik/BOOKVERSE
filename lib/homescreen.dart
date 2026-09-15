@@ -17,63 +17,7 @@ class HomeScreen extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.white,
 
-        leading: PopupMenuButton<int>(
-          icon: const Icon(
-            Icons.menu,
-            color: Colors.black,
-            size: 35,
-          ),
-        itemBuilder: (context)=>[
-          PopupMenuItem(value: 1,
-          child: Row(
-            children: [
-              const Icon(Icons.home_filled),
-              const SizedBox(width: 10),
-              const Text('Home'),
-              ],
-              ),
-             ),
-          PopupMenuItem(value:2,
-              child: Row(
-                children: [
-                  const Icon(Icons.category_rounded),
-                  const SizedBox(width: 10),
-                  const Text('Categories'),
-                ],
-              ),
-          ),
-          PopupMenuItem(value:3,
-            child: Row(
-              children: [
-                const Icon(Icons.shopping_bag_rounded),
-                const SizedBox(width: 10),
-                const Text('My Orders'),
-              ],
-            ),
-          ),
-          PopupMenuItem(value:2,
-            child: Row(
-              children: [
-                const Icon(Icons.info),
-                const SizedBox(width: 10),
-                const Text('About'),
-              ],
-            ),
-          ),
-        ],
-          offset: const Offset(0, 50),
-          color: Colors.white,
-          elevation: 2,
-
-          onSelected: (value){
-            if(value==1){}
-            else if(value==2){}
-            else if(value==3){}
-            else if(value==4){}
-          },
-        ),
-
-
+        
         titleSpacing: 0,
         title: Row(
           children: [Image.asset('assets/images/bookverse.png',
