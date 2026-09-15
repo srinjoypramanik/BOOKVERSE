@@ -335,8 +335,6 @@ class _CheckoutpageState extends State<Checkoutpage> {
             );
           }
 
-        //Tanzid.........................................
-        //Waizur.........................................
         else if(index == 2){
             Navigator.push(
                 context,
@@ -355,9 +353,6 @@ class _CheckoutpageState extends State<Checkoutpage> {
             );
           }
         },
-        //Waizur.........................................
-
-        //Tanzid.........................................
 
 
 
@@ -395,7 +390,7 @@ class _CheckoutpageState extends State<Checkoutpage> {
             size: 30,
             color: Colors.black,
           ),
-          label: 'AUTH',
+          label: 'ACCOUNT',
         ),
       ],
     ),

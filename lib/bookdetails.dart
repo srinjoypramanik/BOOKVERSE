@@ -248,7 +248,6 @@ class BookDetails extends StatelessWidget{
         type: BottomNavigationBarType.fixed,
         backgroundColor: Colors.white,
 
-        // Tanzid........................................
         onTap: (index){
           if(index == 3){
             Navigator.push(
@@ -258,7 +257,6 @@ class BookDetails extends StatelessWidget{
                 )
             );
           }
-          //Waizur.........................................
           else if(index == 2){
             Navigator.push(
               context,
@@ -267,7 +265,6 @@ class BookDetails extends StatelessWidget{
               ),
             );
           }
-          //Srinjoy.........................................
           else if(index == 1){
             Navigator.push(
               context,
@@ -285,7 +282,6 @@ class BookDetails extends StatelessWidget{
             );
           }
         },
-        //Srinjoy.........................................
 
 
         items: const [
@@ -315,7 +311,7 @@ class BookDetails extends StatelessWidget{
               size: 30,
               color:Colors.black,
             ),
-            label: 'AUTH',
+            label: 'ACCOUNT',
           ),
         ],
       ),

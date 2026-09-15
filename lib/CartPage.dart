@@ -101,9 +101,6 @@ class  CartState extends State<Cart> {
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
          backgroundColor: Colors.white,
-            // Tanzid........................................
-
-// Tanzid........................................
         onTap: (index){
           if(index == 3){
             Navigator.push(
@@ -113,9 +110,6 @@ class  CartState extends State<Cart> {
               ),
             );
           }
-
-        //Tanzid.........................................
-        //Waizur.........................................
         else if(index == 2){
             Navigator.push(
                 context,
@@ -134,10 +128,6 @@ class  CartState extends State<Cart> {
             );
           }
         },
-        //Waizur.........................................
-
-        //Tanzid.........................................
-
 
       items: const [
         BottomNavigationBarItem(
@@ -174,7 +164,7 @@ class  CartState extends State<Cart> {
             size: 30,
             color: Colors.black,
           ),
-          label: 'AUTH',
+          label: 'ACCOUNT',
         ),
       ],
     ),
