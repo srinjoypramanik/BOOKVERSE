@@ -262,16 +262,9 @@ class ProfilePage extends StatelessWidget {
               ),
 
             ),
-
-
           ],
-
         ),
-
       ),
-
     );
-
   }
-
 }
