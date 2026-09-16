@@ -13,15 +13,15 @@ class Settings extends StatelessWidget {
 
       appBar: AppBar(
         backgroundColor: Colors.white,
-        // title:
-        //     Center(
-        //       child: Text(
-        //         'Settings',
-        //         style: TextStyle(
-        //           color: Colors.black,
-        //         ),
-        //       ),
-        //     ),
+        centerTitle: true,
+        title:
+
+            Text(
+              'Settings',
+              style: TextStyle(
+                color: Colors.black,
+              ),
+            ),
 
       ),
 
