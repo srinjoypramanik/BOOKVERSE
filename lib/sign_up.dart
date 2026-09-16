@@ -54,13 +54,12 @@ class SignUpPage extends StatelessWidget {
               SizedBox(height: 10),
 
 
-
               Center(
 
 
                 child: SizedBox(
 
-                  height: 80,
+                  height: 70,
 
                   child: Image.asset(
                     'assets/images/bookverse.png',
@@ -73,7 +72,7 @@ class SignUpPage extends StatelessWidget {
 
 
 
-              SizedBox(height: 20),
+              SizedBox(height: 15),
 
 
 
@@ -90,9 +89,9 @@ class SignUpPage extends StatelessWidget {
 
                     style: TextStyle(
 
-                      fontSize: 22,
+                      fontSize: 20,
 
-                      fontWeight: FontWeight.w700,
+                      fontWeight: FontWeight.bold,
                       decoration: TextDecoration.underline,
 
                     ),
@@ -156,7 +155,7 @@ class SignUpPage extends StatelessWidget {
 
                     horizontal: 20,
 
-                    vertical: 18,
+                    vertical: 16,
 
                   ),
 
@@ -216,7 +215,7 @@ class SignUpPage extends StatelessWidget {
 
                     horizontal: 20,
 
-                    vertical: 18,
+                    vertical: 16,
 
                   ),
 
@@ -278,7 +277,7 @@ class SignUpPage extends StatelessWidget {
 
                     horizontal: 20,
 
-                    vertical: 18,
+                    vertical: 16,
 
                   ),
 
@@ -340,7 +339,7 @@ class SignUpPage extends StatelessWidget {
 
                     horizontal: 20,
 
-                    vertical: 18,
+                    vertical: 16,
 
                   ),
 
@@ -404,7 +403,7 @@ class SignUpPage extends StatelessWidget {
 
                     horizontal: 20,
 
-                    vertical: 18,
+                    vertical: 16,
 
                   ),
 
@@ -461,9 +460,9 @@ class SignUpPage extends StatelessWidget {
 
                       style: TextStyle(
 
-                        fontSize: 25,
+                        fontSize: 23,
 
-                        fontWeight: FontWeight.w500,
+                        fontWeight: FontWeight.bold,
 
                       ),
 
@@ -503,7 +502,8 @@ class SignUpPage extends StatelessWidget {
 
                       color: Colors.black,
 
-                      fontSize: 17,
+                      fontSize: 18,
+                      fontWeight: FontWeight.w500,
 
                       decoration: TextDecoration.underline,
 

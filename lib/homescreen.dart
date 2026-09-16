@@ -17,63 +17,6 @@ class HomeScreen extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.white,
 
-        leading: PopupMenuButton<int>(
-          icon: const Icon(
-            Icons.menu,
-            color: Colors.black,
-            size: 35,
-          ),
-        itemBuilder: (context)=>[
-          PopupMenuItem(value: 1,
-          child: Row(
-            children: [
-              const Icon(Icons.home_filled),
-              const SizedBox(width: 10),
-              const Text('Home'),
-              ],
-              ),
-             ),
-          PopupMenuItem(value:2,
-              child: Row(
-                children: [
-                  const Icon(Icons.category_rounded),
-                  const SizedBox(width: 10),
-                  const Text('Categories'),
-                ],
-              ),
-          ),
-          PopupMenuItem(value:3,
-            child: Row(
-              children: [
-                const Icon(Icons.shopping_bag_rounded),
-                const SizedBox(width: 10),
-                const Text('My Orders'),
-              ],
-            ),
-          ),
-          PopupMenuItem(value:2,
-            child: Row(
-              children: [
-                const Icon(Icons.info),
-                const SizedBox(width: 10),
-                const Text('About'),
-              ],
-            ),
-          ),
-        ],
-          offset: const Offset(0, 50),
-          color: Colors.white,
-          elevation: 2,
-
-          onSelected: (value){
-            if(value==1){}
-            else if(value==2){}
-            else if(value==3){}
-            else if(value==4){}
-          },
-        ),
-
-
         titleSpacing: 0,
         title: Row(
           children: [Image.asset('assets/images/bookverse.png',
@@ -101,6 +44,155 @@ class HomeScreen extends StatelessWidget {
         ],
       ),
 
+      drawer: Drawer(
+        backgroundColor: Colors.white,
+        child: Column(
+          children: [
+
+            Container(
+              width: 500,
+              height: 150,
+              color: Colors.black,
+              child: Center(
+                child: Text('',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 23,
+                    fontWeight: FontWeight.bold
+                  ),
+                ),
+              ),
+            ),
+            SizedBox(height: 10),
+
+            ListTile(
+              leading: Icon(
+                  Icons.home_filled,
+                color: Colors.black,
+              ),
+              title: Text('Home',
+                style: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              onTap: (){
+                Navigator.pop(context);
+              },
+            ),
+
+            ListTile(
+                  leading: Icon(
+                    Icons.category_rounded,
+                    color: Colors.black,
+              ),
+              title: Text('Categories',
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 16,
+                ),
+              ),
+              onTap: (){
+                Navigator.pop(context);
+              },
+            ),
+
+            ListTile(
+              leading: Icon(
+                Icons.shopping_bag_rounded,
+                color: Colors.black,
+              ),
+              title: Text('Cart',
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 16,
+                ),
+              ),
+              onTap: (){
+                Navigator.push(context,
+                    MaterialPageRoute(
+                        builder: (context)=> const Cart(),
+                    ),
+                );
+              },
+            ),
+
+            ListTile(
+              leading: Icon(
+                Icons.receipt_long,
+                color: Colors.black,
+              ),
+              title: Text('My Orders',
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 16,
+                ),
+              ),
+              onTap: (){
+                Navigator.pop(context);
+              },
+            ),
+
+            ListTile(
+              leading: Icon(
+                Icons.person_3_rounded,
+                color: Colors.black,
+              ),
+              title: Text('Account',
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 16,
+                ),
+              ),
+              onTap: (){
+                Navigator.push(context,
+                MaterialPageRoute(
+                    builder: (context)=>const ProfilePage(),
+                  ),
+                );
+              },
+            ),
+
+            Divider(),
+
+            ListTile(
+              leading: Icon(
+                Icons.info,
+                color: Colors.black,
+              ),
+              title: Text('About us',
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 16,
+                ),
+              ),
+              onTap: (){
+                Navigator.pop(context);
+              },
+            ),
+
+            ListTile(
+              leading: Icon(
+                Icons.phone,
+                color: Colors.black,
+              ),
+              title: Text('Contact us',
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 16,
+                ),
+              ),
+              onTap: (){
+                Navigator.pop(context);
+              },
+            ),
+
+
+
+          ],
+        ),
+      ),
+
 
 
       body: SingleChildScrollView(
@@ -112,6 +204,8 @@ class HomeScreen extends StatelessWidget {
               child: TextField(
                 decoration: InputDecoration(
                   hintText: 'Search books, authors...',
+                  filled: true,
+                  fillColor: Color(0xFFF1F1F5),
                   prefixIcon: const Icon(
                     Icons.search,
                     color: Colors.grey,
@@ -678,7 +772,6 @@ class HomeScreen extends StatelessWidget {
         type: BottomNavigationBarType.fixed,
         backgroundColor: Colors.white,
 
-        // Tanzid........................................
         onTap: (index){
           if(index == 3){
             Navigator.push(
@@ -689,8 +782,6 @@ class HomeScreen extends StatelessWidget {
             );
           }
 
-        //Tanzid.........................................
-        //Waizur.........................................
         else if(index == 2){
             Navigator.push(
                 context,
@@ -700,7 +791,6 @@ class HomeScreen extends StatelessWidget {
             );
           }
         },
-        //Waizur.........................................
 
 
         items: const [
@@ -730,7 +820,7 @@ class HomeScreen extends StatelessWidget {
               size: 30,
               color:Colors.black,
             ),
-            label: 'AUTH',
+            label: 'ACCOUNT',
           ),
         ],
       ),
