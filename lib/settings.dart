@@ -11,7 +11,19 @@ class Settings extends StatelessWidget {
 
     return Scaffold(
 
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        // title:
+        //     Center(
+        //       child: Text(
+        //         'Settings',
+        //         style: TextStyle(
+        //           color: Colors.black,
+        //         ),
+        //       ),
+        //     ),
 
+      ),
 
       );
   }
