@@ -47,9 +47,7 @@ class SignUpPage extends StatelessWidget {
 
             crossAxisAlignment: CrossAxisAlignment.start,
 
-
             children: [
-
 
               SizedBox(height: 10),
 
