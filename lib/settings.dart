@@ -21,17 +21,22 @@ class Settings extends StatelessWidget {
 
             SizedBox(height: 20,),
 
-            SizedBox(
+            Center(
+              child: SizedBox(
+              
+                height: 70,
+                child: TextButton(
+                  onPressed: (){
+                    
+                  },
 
-              height: 40,
-              child: Center(
-                child: Text('Language',
+                  child: Text('Language',
                     style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 30,
+                      fontSize: 40,
                       decoration: TextDecoration.underline,
-
+                      color: Colors.black,
                     ),
+                  ),
                 ),
               ),
             ),
