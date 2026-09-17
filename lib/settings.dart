@@ -17,7 +17,17 @@ class Settings extends StatelessWidget {
       ),
 
       body: Column(
-        
+        children: [
+          Center(
+            child: Text('Language',
+              style: TextStyle(
+                fontSize: 30,
+                color: Colors.black,
+                decoration: TextDecoration.underline,
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
