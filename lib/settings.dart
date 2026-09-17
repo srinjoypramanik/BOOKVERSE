@@ -16,7 +16,9 @@ class Settings extends StatelessWidget {
         // ),
       ),
 
-      
+      body: Column(
+        
+      ),
     );
   }
 }
