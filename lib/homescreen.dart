@@ -498,7 +498,12 @@ class HomeScreen extends StatelessWidget {
                             vertical: 4,
                           ),
 
-                         
+                          child: Text('BRAND NEW',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 12,
+                            ),
+                          ),
                         ),
 
                         Text('800/-',
