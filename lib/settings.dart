@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:bookverse/language.dart';
 import 'package:bookverse/theme.dart';
 import 'package:bookverse/privacy.dart';
-import 'feedback.dart';
+import 'package:bookverse/feedback.dart';
 
 class Settings extends StatelessWidget {
   const Settings({super.key});
@@ -31,7 +31,11 @@ class Settings extends StatelessWidget {
 
               child:TextButton(
                 onPressed: (){
+                  Navigator.push(
+                    context,
 
+                    MaterialPageRoute(builder: (context) => const Language()),
+                  );
                 },
                 child: Text('Language',
                   style: TextStyle(
@@ -49,7 +53,11 @@ class Settings extends StatelessWidget {
             child: TextButton(
 
               onPressed: (){
+                Navigator.push(
+                  context,
 
+                  MaterialPageRoute(builder: (context) => const Themepage()),
+                );
               },
 
               child: SizedBox(
@@ -72,7 +80,11 @@ class Settings extends StatelessWidget {
             child: TextButton(
 
               onPressed: (){
+                Navigator.push(
+                  context,
 
+                  MaterialPageRoute(builder: (context) => const Privacy()),
+                );
               },
               child: SizedBox(
 
@@ -94,7 +106,11 @@ class Settings extends StatelessWidget {
             child: TextButton(
 
               onPressed: (){
+                Navigator.push(
+                  context,
 
+                  MaterialPageRoute(builder: (context) => const Feedback_page()),
+                );
               },
               child: SizedBox(
 

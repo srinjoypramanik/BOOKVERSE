@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class Feedback extends StatelessWidget{
-  const Feedback ({super.key});
+class Feedback_page extends StatelessWidget{
+  const Feedback_page ({super.key});
 
   @override
   Widget build(BuildContext context) {
