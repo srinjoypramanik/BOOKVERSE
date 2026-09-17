@@ -23,13 +23,18 @@ class Settings extends StatelessWidget {
 
             child: SizedBox(
 
-              height: 40,
+              height: 60,
 
-              child: Text('Language',
-                style: TextStyle(
-                  fontSize: 30,
-                  color: Colors.black,
-                  decoration: TextDecoration.underline,
+              child:TextButton(
+                onPressed: (){
+
+                },
+                child: Text('Language',
+                  style: TextStyle(
+                    fontSize: 30,
+                    color: Colors.black,
+                    decoration: TextDecoration.underline,
+                  ),
                 ),
               ),
             ),
@@ -37,15 +42,22 @@ class Settings extends StatelessWidget {
 
           SizedBox(height: 40,),
           Center(
-            child: SizedBox(
+            child: TextButton(
 
-              height: 40,
+              onPressed: (){
 
-              child: Text('Theme',
-                style: TextStyle(
-                  fontSize: 30,
-                  color: Colors.black,
-                  decoration: TextDecoration.underline,
+              },
+
+              child: SizedBox(
+
+                height: 40,
+
+                child: Text('Theme',
+                  style: TextStyle(
+                    fontSize: 30,
+                    color: Colors.black,
+                    decoration: TextDecoration.underline,
+                  ),
                 ),
               ),
             ),
@@ -53,20 +65,47 @@ class Settings extends StatelessWidget {
 
           SizedBox(height: 40,),
           Center(
-            child: SizedBox(
+            child: TextButton(
 
-              height: 40,
+              onPressed: (){
 
-              child: Text('Privacy',
-                style: TextStyle(
-                  fontSize: 30,
-                  color: Colors.black,
-                  decoration: TextDecoration.underline,
+              },
+              child: SizedBox(
+
+                height: 40,
+
+                child: Text('Privacy',
+                  style: TextStyle(
+                    fontSize: 30,
+                    color: Colors.black,
+                    decoration: TextDecoration.underline,
+                  ),
                 ),
               ),
             ),
           ),
 
+          SizedBox(height: 40,),
+          Center(
+            child: TextButton(
+
+              onPressed: (){
+
+              },
+              child: SizedBox(
+
+                height: 40,
+
+                child: Text('Feedback',
+                  style: TextStyle(
+                    fontSize: 30,
+                    color: Colors.black,
+                    decoration: TextDecoration.underline,
+                  ),
+                ),
+              ),
+            ),
+          ),
         ],
       ),
     );
