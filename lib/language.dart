@@ -9,6 +9,56 @@ class Language extends StatelessWidget{
       appBar: AppBar(
         backgroundColor: Colors.white,
       ),
+
+      body: Column(
+        children: [
+          ListTile(
+
+            title: Text(
+
+              "English (UK)",
+
+              style: TextStyle(
+
+                fontSize: 22,
+
+                color: Colors.black,
+
+              ),
+
+            ),
+
+            onTap: (){
+
+            },
+
+          ),
+
+          ListTile(
+
+            title: Text(
+
+              "English (USA)",
+
+              style: TextStyle(
+
+                fontSize: 22,
+
+                color: Colors.black,
+
+              ),
+
+            ),
+
+            onTap: (){
+
+            },
+
+          ),
+
+
+        ],
+      ),
     );
 
   }
