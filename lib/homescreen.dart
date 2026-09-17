@@ -191,7 +191,12 @@ class HomeScreen extends StatelessWidget {
                 Icons.settings,
                 color: Colors.black,
               ),
-              
+              title: Text('Settings',
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 16,
+                ),
+              ),
               onTap: (){
                 Navigator.pop(context);
               },
