@@ -18,15 +18,55 @@ class Settings extends StatelessWidget {
 
       body: Column(
         children: [
+          SizedBox(height: 40,),
           Center(
-            child: Text('Language',
-              style: TextStyle(
-                fontSize: 30,
-                color: Colors.black,
-                decoration: TextDecoration.underline,
+
+            child: SizedBox(
+
+              height: 40,
+
+              child: Text('Language',
+                style: TextStyle(
+                  fontSize: 30,
+                  color: Colors.black,
+                  decoration: TextDecoration.underline,
+                ),
               ),
             ),
           ),
+
+          SizedBox(height: 40,),
+          Center(
+            child: SizedBox(
+
+              height: 40,
+
+              child: Text('Theme',
+                style: TextStyle(
+                  fontSize: 30,
+                  color: Colors.black,
+                  decoration: TextDecoration.underline,
+                ),
+              ),
+            ),
+          ),
+
+          SizedBox(height: 40,),
+          Center(
+            child: SizedBox(
+
+              height: 40,
+
+              child: Text('Privacy',
+                style: TextStyle(
+                  fontSize: 30,
+                  color: Colors.black,
+                  decoration: TextDecoration.underline,
+                ),
+              ),
+            ),
+          ),
+
         ],
       ),
     );
