@@ -186,6 +186,21 @@ class HomeScreen extends StatelessWidget {
                 Navigator.pop(context);
               },
             ),
+            ListTile(
+              leading: Icon(
+                Icons.settings,
+                color: Colors.black,
+              ),
+              title: Text('Settings',
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 16,
+                ),
+              ),
+              onTap: (){
+                Navigator.pop(context);
+              },
+            ),
 
 
 
@@ -373,12 +388,20 @@ class HomeScreen extends StatelessWidget {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text('BRAND NEW',
-                          style: TextStyle(
-                            fontSize: 12,
-                             ),
+                        Container(
+                          color: Colors.black,
+                          padding: EdgeInsets.symmetric(
+                            horizontal: 8,
+                            vertical: 4,
                           ),
 
+                          child: Text('BRAND NEW',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 12,
+                            ),
+                          ),
+                        ),
                         Text('600/-',
                           style: TextStyle(
                             fontSize: 18,
@@ -483,11 +506,20 @@ class HomeScreen extends StatelessWidget {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text('BRAND NEW',
+                        Container(
+                          color: Colors.black,
+                          padding: EdgeInsets.symmetric(
+                            horizontal: 8,
+                            vertical: 4,
+                          ),
+
+                          child: Text('BRAND NEW',
                             style: TextStyle(
+                              color: Colors.white,
                               fontSize: 12,
                             ),
                           ),
+                        ),
 
                         Text('800/-',
                           style: TextStyle(
@@ -591,10 +623,19 @@ class HomeScreen extends StatelessWidget {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text('BRAND NEW',
+                        Container(
+                          color: Colors.black,
+                          padding: EdgeInsets.symmetric(
+                            horizontal: 8,
+                            vertical: 4,
+                          ),
+
+                          child: Text('BRAND NEW',
                             style: TextStyle(
+                              color: Colors.white,
                               fontSize: 12,
                             ),
+                          ),
                         ),
                         Text('1000/-',
                           style: TextStyle(
@@ -698,10 +739,19 @@ class HomeScreen extends StatelessWidget {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text('BRAND NEW',
+                        Container(
+                          color: Colors.black,
+                          padding: EdgeInsets.symmetric(
+                            horizontal: 8,
+                            vertical: 4,
+                          ),
+
+                          child: Text('BRAND NEW',
                             style: TextStyle(
+                              color: Colors.white,
                               fontSize: 12,
                             ),
+                          ),
                         ),
                         Text('1200/-',
                           style: TextStyle(
