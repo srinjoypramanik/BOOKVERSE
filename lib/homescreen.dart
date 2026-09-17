@@ -491,11 +491,15 @@ class HomeScreen extends StatelessWidget {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text('BRAND NEW',
-                            style: TextStyle(
-                              fontSize: 12,
-                            ),
+                        Container(
+                          color: Colors.black,
+                          padding: EdgeInsets.symmetric(
+                            horizontal: 8,
+                            vertical: 4,
                           ),
+
+                         
+                        ),
 
                         Text('800/-',
                           style: TextStyle(
