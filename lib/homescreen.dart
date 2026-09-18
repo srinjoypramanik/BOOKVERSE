@@ -236,12 +236,13 @@ class HomeScreen extends StatelessWidget {
                 decoration: InputDecoration(
                   hintText: 'Search books, authors...',
                   filled: true,
-                  fillColor: Color(0xFFF1F1F5),
+                  fillColor: Colors.white,
                   prefixIcon: const Icon(
                     Icons.search,
                     color: Colors.grey,
                   ),
                   border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10),
                     borderSide: const BorderSide(
                       color: Colors.grey,
                     ),
