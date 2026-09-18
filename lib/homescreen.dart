@@ -1,3 +1,4 @@
+import 'package:bookverse/settings.dart';
 import 'package:flutter/material.dart';
 import 'bookdetails.dart';
 import 'sign_up.dart';
@@ -208,7 +209,11 @@ class HomeScreen extends StatelessWidget {
                 ),
               ),
               onTap: (){
-                Navigator.pop(context);
+                Navigator.push(context,
+                  MaterialPageRoute(
+                    builder: (context)=>const Settings(),
+                  ),
+                );
               },
             ),
 
