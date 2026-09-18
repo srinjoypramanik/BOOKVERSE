@@ -134,10 +134,15 @@ class HomeScreen extends StatelessWidget {
             ),
             ListTile(
               leading: Icon(
-                Icons.receipt_long,
+                Icons.receipt_long_rounded,
                 color: Colors.black,
               ),
-              
+              title: Text('My Wishlist',
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 16,
+                ),
+              ),
               onTap: (){
                 Navigator.pop(context);
               },
