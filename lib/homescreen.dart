@@ -1,3 +1,4 @@
+import 'package:bookverse/settings.dart';
 import 'package:flutter/material.dart';
 import 'bookdetails.dart';
 import 'sign_up.dart';
@@ -54,13 +55,9 @@ class HomeScreen extends StatelessWidget {
               height: 150,
               color: Colors.black,
               child: Center(
-                child: Text('',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 23,
-                    fontWeight: FontWeight.bold
-                  ),
-                ),
+                child: Image.asset('assets/images/bookverse.png',
+                      color: Colors.white,
+                      height: 46),
               ),
             ),
             SizedBox(height: 10),
@@ -123,6 +120,21 @@ class HomeScreen extends StatelessWidget {
                 color: Colors.black,
               ),
               title: Text('My Orders',
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 16,
+                ),
+              ),
+              onTap: (){
+                Navigator.pop(context);
+              },
+            ),
+            ListTile(
+              leading: Icon(
+                Icons.receipt_long_rounded,
+                color: Colors.black,
+              ),
+              title: Text('My Wishlist',
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 16,
@@ -198,7 +210,11 @@ class HomeScreen extends StatelessWidget {
                 ),
               ),
               onTap: (){
-                Navigator.pop(context);
+                Navigator.push(context,
+                  MaterialPageRoute(
+                    builder: (context)=>const Settings(),
+                  ),
+                );
               },
             ),
 
@@ -220,12 +236,13 @@ class HomeScreen extends StatelessWidget {
                 decoration: InputDecoration(
                   hintText: 'Search books, authors...',
                   filled: true,
-                  fillColor: Color(0xFFF1F1F5),
+                  fillColor: Colors.white,
                   prefixIcon: const Icon(
                     Icons.search,
                     color: Colors.grey,
                   ),
                   border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10),
                     borderSide: const BorderSide(
                       color: Colors.grey,
                     ),
