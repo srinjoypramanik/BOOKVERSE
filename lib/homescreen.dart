@@ -132,6 +132,16 @@ class HomeScreen extends StatelessWidget {
                 Navigator.pop(context);
               },
             ),
+            ListTile(
+              leading: Icon(
+                Icons.receipt_long,
+                color: Colors.black,
+              ),
+              
+              onTap: (){
+                Navigator.pop(context);
+              },
+            ),
 
             ListTile(
               leading: Icon(
