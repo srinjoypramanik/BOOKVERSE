@@ -53,10 +53,11 @@ class HomeScreen extends StatelessWidget {
             Container(
               width: 500,
               height: 150,
-              color: Colors.white,
+              color: Colors.black,
               child: Center(
                 child: Image.asset('assets/images/bookverse.png',
-                      height: 47),
+                      color: Colors.white,
+                      height: 46),
               ),
             ),
             SizedBox(height: 10),
