@@ -176,7 +176,7 @@ class SignIn extends StatelessWidget {
                       foregroundColor: Colors.white,
 
                       shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10),
+                        borderRadius: BorderRadius.circular(30),
                       ),
                     ),
 

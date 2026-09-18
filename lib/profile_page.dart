@@ -123,7 +123,7 @@ class ProfilePage extends StatelessWidget {
                   backgroundColor: Colors.black,
 
                   shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.zero,
+                    borderRadius: BorderRadius.circular(30),
                   ),
                 ),
 

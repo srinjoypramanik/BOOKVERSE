@@ -126,7 +126,7 @@ class Feedback_page extends StatelessWidget{
               
                     shape: RoundedRectangleBorder(
               
-                      borderRadius: BorderRadius.circular(10),
+                      borderRadius: BorderRadius.circular(30),
               
                     ),
               
