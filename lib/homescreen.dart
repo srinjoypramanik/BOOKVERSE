@@ -5,6 +5,7 @@ import 'sign_up.dart';
 import 'sign_in.dart';
 import 'CartPage.dart';
 import 'profile_page.dart';
+import 'package:bookverse/about_us.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -179,7 +180,16 @@ class HomeScreen extends StatelessWidget {
                 ),
               ),
               onTap: (){
-                Navigator.pop(context);
+                //Navigator.pop(context);
+                //By Tanzid
+                Navigator.push(
+                  context,
+
+                  MaterialPageRoute(
+                    builder: (context) => const AboutUs(),
+                  ),
+                );
+                //By Tanzid
               },
             ),
 
