@@ -69,7 +69,7 @@ class AboutUs extends StatelessWidget {
               Align(
                 alignment: Alignment.centerLeft,
                 child: Text(
-                  "About BookVerse",
+                  "About BOOKVERSE",
                   style: TextStyle(
                     fontSize: 22,
                     fontWeight: FontWeight.bold,
@@ -82,7 +82,8 @@ class AboutUs extends StatelessWidget {
 
 
               Text(
-                "BookVerse is a modern book platform designed to help users find, explore and manage books easily.",
+                "BookVerse is a modern book platform designed to help "
+                    "users find, explore and manage books easily.",
                 style: TextStyle(
                   fontSize: 16,
                 ),
@@ -108,7 +109,8 @@ class AboutUs extends StatelessWidget {
 
 
               Text(
-                "To make reading more accessible by connecting readers with books they love.",
+                "To make reading more accessible by connecting readers with "
+                    "books they love.",
                 style: TextStyle(
                   fontSize: 16,
                 ),

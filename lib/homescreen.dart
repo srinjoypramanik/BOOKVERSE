@@ -1,11 +1,10 @@
-import 'package:bookverse/settings.dart';
 import 'package:flutter/material.dart';
 import 'bookdetails.dart';
-import 'sign_up.dart';
 import 'sign_in.dart';
 import 'CartPage.dart';
 import 'profile_page.dart';
-import 'package:bookverse/about_us.dart';
+import 'drawer.dart';
+
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -46,21 +45,7 @@ class HomeScreen extends StatelessWidget {
         ],
       ),
 
-
-
-
-
-
-
-
-
-
-
-          ],
-        ),
-      ),
-
-
+      drawer: const AppDrawer(),
 
       body: SingleChildScrollView(
         child: Column(

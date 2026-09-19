@@ -15,7 +15,6 @@ class AppDrawer extends StatelessWidget {
         children: [
 
           Container(
-            width: 500,
             height: 150,
             color: Colors.black,
             child: Center(
