@@ -25,7 +25,7 @@ Widget build(BuildContext context) {
             height: 46),
       ),
     ),
-    
+
     SizedBox(height: 10),
 
     ListTile(
@@ -59,3 +59,41 @@ Widget build(BuildContext context) {
         Navigator.pop(context);
       },
     ),
+
+    ListTile(
+      leading: Icon(
+        Icons.shopping_bag_rounded,
+        color: Colors.black,
+      ),
+      title: Text('Cart',
+        style: TextStyle(
+          fontWeight: FontWeight.bold,
+          fontSize: 16,
+        ),
+      ),
+      onTap: (){
+        Navigator.push(context,
+          MaterialPageRoute(
+            builder: (context)=> const Cart(),
+          ),
+        );
+      },
+    ),
+
+    ListTile(
+      leading: Icon(
+        Icons.receipt_long,
+        color: Colors.black,
+      ),
+      title: Text('My Orders',
+        style: TextStyle(
+          fontWeight: FontWeight.bold,
+          fontSize: 16,
+        ),
+      ),
+      onTap: (){
+        Navigator.pop(context);
+      },
+    ),
+
+    
