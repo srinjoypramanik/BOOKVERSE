@@ -184,12 +184,10 @@ class HomeScreen extends StatelessWidget {
                 //By Tanzid
                 Navigator.push(
                   context,
-
                   MaterialPageRoute(
                     builder: (context) => const AboutUs(),
                   ),
                 );
-                //By Tanzid
               },
             ),
 
