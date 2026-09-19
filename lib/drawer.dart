@@ -131,8 +131,7 @@ Widget build(BuildContext context) {
         );
       },
     ),
-
-
+    
     Divider(),
 
     ListTile(
@@ -171,5 +170,25 @@ Widget build(BuildContext context) {
       ),
       onTap: (){
         Navigator.pop(context);
+      },
+    ),
+
+    ListTile(
+      leading: Icon(
+        Icons.settings,
+        color: Colors.black,
+      ),
+      title: Text('Settings',
+        style: TextStyle(
+          fontWeight: FontWeight.bold,
+          fontSize: 16,
+        ),
+      ),
+      onTap: (){
+        Navigator.push(context,
+          MaterialPageRoute(
+            builder: (context)=>const Settings(),
+          ),
+        );
       },
     ),
