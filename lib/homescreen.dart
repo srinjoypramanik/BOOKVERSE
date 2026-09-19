@@ -47,21 +47,7 @@ class HomeScreen extends StatelessWidget {
       ),
 
       drawer: Drawer(
-        backgroundColor: Colors.white,
-        child: Column(
-          children: [
 
-            Container(
-              width: 500,
-              height: 150,
-              color: Colors.black,
-              child: Center(
-                child: Image.asset('assets/images/bookverse.png',
-                      color: Colors.white,
-                      height: 46),
-              ),
-            ),
-            SizedBox(height: 10),
 
             ListTile(
               leading: Icon(
