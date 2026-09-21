@@ -105,6 +105,40 @@ class AppDrawer extends StatelessWidget {
               );
             },
           ),
+          
+
+          Divider(),
+
+          ListTile(
+            leading: Icon(Icons.info,
+                color: Colors.black),
+            title: Text('About us',
+              style: TextStyle(fontWeight: FontWeight.bold,
+                  fontSize: 16),
+            ),
+            onTap: () {
+              //Navigator.pop(context);
+              //By Tanzid
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => const AboutUs()),
+              );
+            },
+          ),
+
+          ListTile(
+            leading: Icon(Icons.phone,
+                color: Colors.black),
+            title: Text('Contact us',
+              style: TextStyle(fontWeight: FontWeight.bold,
+                  fontSize: 16),
+            ),
+            onTap: () {
+              Navigator.pop(context);
+            },
+          ),
+
 
 
 
