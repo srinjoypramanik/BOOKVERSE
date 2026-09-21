@@ -24,13 +24,17 @@ class AppDrawer extends StatelessWidget {
               ),
             ),
           ),
-                  SizedBox(height: 10),
+          
+          SizedBox(height: 10),
 
           ListTile(
-            leading: Icon(Icons.home_filled,
-                color: Colors.black),
+            leading: Icon(
+              Icons.home_filled,
+              color: Colors.black
+              ),
             title: Text('Home',
-              style: TextStyle(fontSize: 16,
+              style: TextStyle(
+                  fontSize: 16,
                   fontWeight: FontWeight.bold),
             ),
             onTap: () {
@@ -39,8 +43,10 @@ class AppDrawer extends StatelessWidget {
           ),
 
           ListTile(
-            leading: Icon(Icons.category_rounded,
-                color: Colors.black),
+            leading: Icon(
+              Icons.category_rounded,
+              color: Colors.black
+              ),
             title: Text('Categories',
               style: TextStyle(fontWeight: FontWeight.bold,
                   fontSize: 16),
@@ -51,8 +57,10 @@ class AppDrawer extends StatelessWidget {
           ),
           
           ListTile(
-            leading: Icon(Icons.shopping_bag_rounded,
-                color: Colors.black),
+            leading: Icon(
+              Icons.shopping_bag_rounded,
+              color: Colors.black
+            ),
             title: Text('Cart',
               style: TextStyle(fontWeight: FontWeight.bold,
                   fontSize: 16),
@@ -67,8 +75,10 @@ class AppDrawer extends StatelessWidget {
           ),
 
           ListTile(
-            leading: Icon(Icons.receipt_long,
-                color: Colors.black),
+            leading: Icon(
+              Icons.receipt_long,
+              color: Colors.black
+              ),
             title: Text('My Orders',
               style: TextStyle(fontWeight: FontWeight.bold,
                   fontSize: 16),
@@ -79,8 +89,10 @@ class AppDrawer extends StatelessWidget {
           ),
           
           ListTile(
-            leading: Icon(Icons.receipt_long_rounded,
-                color: Colors.black),
+            leading: Icon(
+              Icons.receipt_long_rounded,
+              color: Colors.black
+            ),
             title: Text('My Wishlist',
               style: TextStyle(fontWeight: FontWeight.bold,
                   fontSize: 16),
@@ -91,8 +103,10 @@ class AppDrawer extends StatelessWidget {
           ),
 
           ListTile(
-            leading: Icon(Icons.person_3_rounded,
-                color: Colors.black),
+            leading: Icon(
+              Icons.person_3_rounded,
+              color: Colors.black
+              ),
             title: Text('Account',
               style: TextStyle(fontWeight: FontWeight.bold,
                   fontSize: 16),
@@ -106,19 +120,18 @@ class AppDrawer extends StatelessWidget {
             },
           ),
           
-
           Divider(),
 
           ListTile(
-            leading: Icon(Icons.info,
-                color: Colors.black),
+            leading: Icon(
+              Icons.info,
+              color: Colors.black
+                 ),
             title: Text('About us',
               style: TextStyle(fontWeight: FontWeight.bold,
                   fontSize: 16),
             ),
             onTap: () {
-              //Navigator.pop(context);
-              //By Tanzid
               Navigator.push(
                 context,
                 MaterialPageRoute(
@@ -128,10 +141,13 @@ class AppDrawer extends StatelessWidget {
           ),
 
           ListTile(
-            leading: Icon(Icons.phone,
-                color: Colors.black),
+            leading: Icon(
+              Icons.phone,
+              color: Colors.black
+              ),
             title: Text('Contact us',
-              style: TextStyle(fontWeight: FontWeight.bold,
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
                   fontSize: 16),
             ),
             onTap: () {
@@ -139,10 +155,13 @@ class AppDrawer extends StatelessWidget {
             },
           ),
                     ListTile(
-            leading: Icon(Icons.settings,
-                color: Colors.black),
+            leading: Icon(
+              Icons.settings,
+              color: Colors.black
+              ),
             title: Text('Settings',
-              style: TextStyle(fontWeight: FontWeight.bold,
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
                   fontSize: 16),
             ),
             onTap: () {
