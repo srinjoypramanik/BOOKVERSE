@@ -24,5 +24,31 @@ class AppDrawer extends StatelessWidget {
               ),
             ),
           ),
+                  SizedBox(height: 10),
+
+          ListTile(
+            leading: Icon(Icons.home_filled,
+                color: Colors.black),
+            title: Text('Home',
+              style: TextStyle(fontSize: 16,
+                  fontWeight: FontWeight.bold),
+            ),
+            onTap: () {
+              Navigator.pop(context);
+            },
+          ),
+
+          ListTile(
+            leading: Icon(Icons.category_rounded,
+                color: Colors.black),
+            title: Text('Categories',
+              style: TextStyle(fontWeight: FontWeight.bold,
+                  fontSize: 16),
+            ),
+            onTap: () {
+              Navigator.pop(context);
+            },
+          ),
+
 
 
