@@ -77,6 +77,35 @@ class AppDrawer extends StatelessWidget {
               Navigator.pop(context);
             },
           ),
+          
+          ListTile(
+            leading: Icon(Icons.receipt_long_rounded,
+                color: Colors.black),
+            title: Text('My Wishlist',
+              style: TextStyle(fontWeight: FontWeight.bold,
+                  fontSize: 16),
+            ),
+            onTap: () {
+              Navigator.pop(context);
+            },
+          ),
+
+          ListTile(
+            leading: Icon(Icons.person_3_rounded,
+                color: Colors.black),
+            title: Text('Account',
+              style: TextStyle(fontWeight: FontWeight.bold,
+                  fontSize: 16),
+            ),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => const ProfilePage()),
+              );
+            },
+          ),
+
 
 
 
