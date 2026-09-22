@@ -186,7 +186,7 @@ class BookDetails extends StatelessWidget{
            Divider(),
 
            SizedBox(height: 6),
-           
+
            Row(
              children: [
                SizedBox(width: 12),

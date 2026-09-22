@@ -72,7 +72,7 @@ class HomeScreen extends StatelessWidget {
               ),
             ),
 
-        //Catagories
+
             SingleChildScrollView(
               scrollDirection: Axis.horizontal,
               child: Row(
@@ -124,7 +124,7 @@ class HomeScreen extends StatelessWidget {
                         color: Colors.grey,
                       ),
                     ),
-                    child: Text('ELECTRONICS',
+                    child: Text('ELECTRICAL & ELECTRONICS',
                       style: TextStyle(
                         color: Colors.black,
                         fontWeight: FontWeight.bold,
@@ -154,7 +154,7 @@ class HomeScreen extends StatelessWidget {
               ),
             ),
 
-            // Available
+
             const SizedBox(height: 12),
             Padding(padding: const EdgeInsets.symmetric(
                 horizontal: 15,
