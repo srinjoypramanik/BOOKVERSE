@@ -61,3 +61,33 @@ class BookDetails extends StatelessWidget{
               size: 35,
             ),
           ),
+           const SizedBox(width: 6),
+        ],
+      ),
+
+
+      body: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+         children:[
+
+           SizedBox(height: 16),
+           Row(
+            children: [
+            SizedBox(width: 12),
+            Container(
+              color: Colors.black,
+              padding: EdgeInsets.symmetric(
+                horizontal: 10,
+                vertical: 5,
+              ),
+
+              child: Text('BRAND NEW',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 13,
+                  ),
+                ),
+              ),
+            ],
+           ),
