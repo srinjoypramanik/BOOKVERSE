@@ -176,5 +176,35 @@ class BookDetails extends StatelessWidget{
              ],
            ),
            SizedBox(height: 6),
+           Divider(),
+           SizedBox(height: 6),
+           Row(
+             children: [
+               SizedBox(width: 12),
+               Text('DESCRIPTION / INFO',
+                 style: TextStyle(
+                   color: Colors.black,
+                   fontSize: 18,
+                   fontWeight: FontWeight.bold,
+                 ),
+               ),
+             ],
+           ),
+
+           SizedBox(height: 12),
+           Row(
+             children: [
+               SizedBox(width: 12),
+               Expanded(child:
+               Text(description,
+                 style: TextStyle(
+                   color: Colors.grey,
+                   fontSize: 18,
+                   height: 1.70,
+
+                 ),
+               ),
+               ),
+
 
            
