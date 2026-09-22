@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-//import 'package:bookverse/language.dart';
-import 'package:bookverse/theme.dart';
-import 'package:bookverse/privacy.dart';
-import 'package:bookverse/feedback.dart';
+
 
 class Settings extends StatelessWidget {
   const Settings({super.key});
