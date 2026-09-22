@@ -30,7 +30,7 @@ class AboutUs extends StatelessWidget {
 
               Image.asset(
                 'assets/images/bookverse.png',
-                height: 120,
+                height: 90,
               ),
 
 
