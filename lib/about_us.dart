@@ -83,7 +83,7 @@ class AboutUs extends StatelessWidget {
 
               Text(
                 "BookVerse is a modern book platform designed to help "
-                    "users find, explore and manage books easily.",
+                    "Users to find, explore and manage books easily.",
                 style: TextStyle(
                   fontSize: 16,
                 ),
