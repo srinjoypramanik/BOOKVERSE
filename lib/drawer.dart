@@ -19,7 +19,7 @@ class AppDrawer extends StatelessWidget {
             color: Colors.black,
             child: Center(
               child: Image.asset('assets/images/bookverse.png',
-                color: Colors.white,
+                color: Colors.black,
                 height: 46,
               ),
             ),
