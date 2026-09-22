@@ -239,6 +239,35 @@ class BookDetails extends StatelessWidget{
          ],
         ),
        ),
+            bottomNavigationBar: BottomNavigationBar(
+        type: BottomNavigationBarType.fixed,
+        backgroundColor: Colors.white,
+
+        onTap: (index){
+          if(index == 3){
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context)=> const SignIn()
+                )
+            );
+          }
+          else if(index == 2){
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context)=> const Cart(),
+              ),
+            );
+          }
+          else if(index == 1){
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context)=> const HomeScreen(),
+              ),
+            );
+          }
 
 
 
