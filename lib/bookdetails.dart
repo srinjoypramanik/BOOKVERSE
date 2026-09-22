@@ -117,9 +117,13 @@ class BookDetails extends StatelessWidget{
                ),
              ],
            ),
+
            SizedBox(height: 6),
+
            Divider(),
+
            SizedBox(height: 6),
+
            Row(
              mainAxisAlignment: MainAxisAlignment.spaceBetween,
              crossAxisAlignment: CrossAxisAlignment.start,
@@ -149,6 +153,7 @@ class BookDetails extends StatelessWidget{
                    ),
                  ],
                ),
+
                Row(
                  children: [
                    Column(
@@ -175,9 +180,13 @@ class BookDetails extends StatelessWidget{
                ),
              ],
            ),
+
            SizedBox(height: 6),
+
            Divider(),
+
            SizedBox(height: 6),
+           
            Row(
              children: [
                SizedBox(width: 12),
