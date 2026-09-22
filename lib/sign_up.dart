@@ -1,9 +1,50 @@
 import 'package:flutter/material.dart';
 
 
-class SignUpPage extends StatelessWidget {
+class SignUpPage extends StatefulWidget {
 
   const SignUpPage({super.key});
+
+
+  @override
+  State<SignUpPage> createState() => _SignUpPageState();
+
+}
+
+
+
+class _SignUpPageState extends State<SignUpPage> {
+
+
+  String name = "";
+  String phone = "";
+  String email = "";
+  String password = "";
+  String confirmPassword = "";
+
+
+  bool isSignupActive = false;
+
+
+
+  void checkSignupButton(){
+
+
+    setState(() {
+
+      isSignupActive =
+          name.isNotEmpty &&
+              phone.isNotEmpty &&
+              email.isNotEmpty &&
+              password.isNotEmpty &&
+              confirmPassword.isNotEmpty;
+
+
+    });
+
+
+  }
+
 
 
   @override
@@ -18,6 +59,7 @@ class SignUpPage extends StatelessWidget {
 
         backgroundColor: Colors.white,
 
+
         leading: IconButton(
 
           icon: Icon(
@@ -26,8 +68,11 @@ class SignUpPage extends StatelessWidget {
             size: 30,
           ),
 
+
           onPressed: (){
+
             Navigator.pop(context);
+
           },
 
         ),
@@ -47,25 +92,31 @@ class SignUpPage extends StatelessWidget {
 
             crossAxisAlignment: CrossAxisAlignment.start,
 
+
             children: [
+
+
 
               SizedBox(height: 10),
 
 
-              Center(
 
+              Center(
 
                 child: SizedBox(
 
                   height: 70,
 
                   child: Image.asset(
+
                     'assets/images/bookverse.png',
+
                   ),
 
                 ),
 
               ),
+
 
 
 
@@ -74,32 +125,39 @@ class SignUpPage extends StatelessWidget {
 
 
 
+
+
               Center(
-                child:TextButton(
+
+                child: TextButton(
 
                   onPressed: (){
 
+
                   },
+
 
                   child: Text(
 
                     "Sign up with email",
+
 
                     style: TextStyle(
 
                       fontSize: 20,
 
                       fontWeight: FontWeight.bold,
+
                       decoration: TextDecoration.underline,
 
                     ),
 
                   ),
+
                 ),
 
-
-
               ),
+
 
 
 
@@ -111,6 +169,7 @@ class SignUpPage extends StatelessWidget {
 
 
               Text(
+
                 "Full Name",
 
                 style: TextStyle(
@@ -129,7 +188,18 @@ class SignUpPage extends StatelessWidget {
 
 
 
+
+
               TextField(
+
+                onChanged: (value){
+
+                  name = value;
+
+                  checkSignupButton();
+
+                },
+
 
                 decoration: InputDecoration(
 
@@ -164,12 +234,15 @@ class SignUpPage extends StatelessWidget {
 
 
 
+
               SizedBox(height: 15),
 
 
 
 
+
               Text(
+
                 "Phone Number",
 
                 style: TextStyle(
@@ -189,7 +262,18 @@ class SignUpPage extends StatelessWidget {
 
 
 
+
+
               TextField(
+
+                onChanged: (value){
+
+                  phone = value;
+
+                  checkSignupButton();
+
+                },
+
 
                 decoration: InputDecoration(
 
@@ -232,6 +316,7 @@ class SignUpPage extends StatelessWidget {
 
 
               Text(
+
                 "Email Address",
 
                 style: TextStyle(
@@ -247,11 +332,23 @@ class SignUpPage extends StatelessWidget {
 
 
 
+
               SizedBox(height: 10),
 
 
 
+
+
               TextField(
+
+                onChanged: (value){
+
+                  email = value;
+
+                  checkSignupButton();
+
+                },
+
 
                 decoration: InputDecoration(
 
@@ -286,6 +383,7 @@ class SignUpPage extends StatelessWidget {
 
 
 
+
               SizedBox(height: 15),
 
 
@@ -293,6 +391,7 @@ class SignUpPage extends StatelessWidget {
 
 
               Text(
+
                 "Password",
 
                 style: TextStyle(
@@ -308,12 +407,26 @@ class SignUpPage extends StatelessWidget {
 
 
 
+
               SizedBox(height: 10),
 
 
 
 
+
               TextField(
+
+                obscureText: true,
+
+
+                onChanged: (value){
+
+                  password = value;
+
+                  checkSignupButton();
+
+                },
+
 
                 decoration: InputDecoration(
 
@@ -356,6 +469,7 @@ class SignUpPage extends StatelessWidget {
 
 
               Text(
+
                 "Confirm Password",
 
                 style: TextStyle(
@@ -371,6 +485,7 @@ class SignUpPage extends StatelessWidget {
 
 
 
+
               SizedBox(height: 10),
 
 
@@ -378,6 +493,18 @@ class SignUpPage extends StatelessWidget {
 
 
               TextField(
+
+                obscureText: true,
+
+
+                onChanged: (value){
+
+                  confirmPassword = value;
+
+                  checkSignupButton();
+
+                },
+
 
                 decoration: InputDecoration(
 
@@ -438,7 +565,14 @@ class SignUpPage extends StatelessWidget {
 
                     style: ElevatedButton.styleFrom(
 
-                      backgroundColor: Colors.black,
+
+                      backgroundColor: isSignupActive
+
+                          ? Colors.black
+
+                          : Color(0xFF2563EB),
+
+
 
                       foregroundColor: Colors.white,
 
@@ -452,9 +586,12 @@ class SignUpPage extends StatelessWidget {
                     ),
 
 
+
+
                     child: Text(
 
                       "Sign up",
+
 
                       style: TextStyle(
 
@@ -466,11 +603,13 @@ class SignUpPage extends StatelessWidget {
 
                     ),
 
+
                   ),
 
                 ),
 
               ),
+
 
 
 
@@ -486,6 +625,8 @@ class SignUpPage extends StatelessWidget {
                 child: TextButton(
 
                   onPressed: (){
+
+
                     Navigator.pop(context);
 
 
@@ -496,11 +637,13 @@ class SignUpPage extends StatelessWidget {
 
                     "Already have an account? Login",
 
+
                     style: TextStyle(
 
                       color: Colors.black,
 
                       fontSize: 18,
+
                       fontWeight: FontWeight.w500,
 
                       decoration: TextDecoration.underline,
@@ -514,6 +657,7 @@ class SignUpPage extends StatelessWidget {
               ),
 
 
+
             ],
 
           ),
@@ -521,7 +665,6 @@ class SignUpPage extends StatelessWidget {
         ),
 
       ),
-
 
     );
 
