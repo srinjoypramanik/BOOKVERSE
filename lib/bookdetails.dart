@@ -91,3 +91,31 @@ class BookDetails extends StatelessWidget{
               ),
             ],
            ),
+            SizedBox(height: 16),
+           Row(
+             children: [
+               SizedBox(width: 12),
+               Text(title,
+               style: TextStyle(
+                 fontSize: 20,
+                 fontWeight: FontWeight.bold,
+                 )
+               ),
+             ],
+           ),
+
+           SizedBox(height: 8),
+           Row(
+             children: [
+               SizedBox(width: 12),
+               Text(author,
+               style: TextStyle(
+                 color: Colors.grey,
+                 fontSize: 15,
+                 fontWeight: FontWeight.bold
+                ),
+               ),
+             ],
+           ),
+           SizedBox(height: 6),
+           
