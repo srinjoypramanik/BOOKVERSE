@@ -120,13 +120,97 @@ class AboutUs extends StatelessWidget {
               SizedBox(height: 25),
 
 
+              // Divider(),
+              //
+              //
+              // Text(
+              //   "( For Example )Version 1.0.0",
+              //   style: TextStyle(
+              //     color: Colors.grey,
+              //   ),
+              // ),
+
+              SizedBox(height: 30),
+
               Divider(),
 
 
-              Text(
-                "( For Example )Version 1.0.0",
-                style: TextStyle(
-                  color: Colors.grey,
+              Align(
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  "Contact Us",
+                  style: TextStyle(
+                    fontSize: 22,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+
+
+              SizedBox(height: 15),
+
+
+              ListTile(
+                contentPadding: EdgeInsets.zero,
+
+                leading: Icon(
+                  Icons.email,
+                  color: Colors.black,
+                ),
+
+                title: Text(
+                  "Email",
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+
+                subtitle: Text(
+                  "support@bookverse.com",
+                ),
+              ),
+
+
+
+              ListTile(
+                contentPadding: EdgeInsets.zero,
+
+                leading: Icon(
+                  Icons.phone,
+                  color: Colors.black,
+                ),
+
+                title: Text(
+                  "Phone",
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+
+                subtitle: Text(
+                  "+880 1234567890",
+                ),
+              ),
+
+
+
+              ListTile(
+                contentPadding: EdgeInsets.zero,
+
+                leading: Icon(
+                  Icons.location_on,
+                  color: Colors.black,
+                ),
+
+                title: Text(
+                  "Address",
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+
+                subtitle: Text(
+                  "Dhaka, Bangladesh",
                 ),
               ),
 
@@ -138,3 +222,4 @@ class AboutUs extends StatelessWidget {
     );
   }
 }
+

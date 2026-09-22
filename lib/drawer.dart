@@ -140,21 +140,27 @@ class AppDrawer extends StatelessWidget {
             },
           ),
 
+          //By Tanzid
           ListTile(
             leading: Icon(
-              Icons.phone,
-              color: Colors.black
-              ),
+                Icons.info,
+                color: Colors.black
+            ),
             title: Text('Contact us',
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
+              style: TextStyle(fontWeight: FontWeight.bold,
                   fontSize: 16),
             ),
             onTap: () {
-              Navigator.pop(context);
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => const AboutUs()),
+              );
             },
           ),
-                    ListTile(
+          //By Tanzid
+
+          ListTile(
             leading: Icon(
               Icons.settings,
               color: Colors.black
