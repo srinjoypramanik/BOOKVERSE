@@ -98,9 +98,16 @@ class BookDetails extends StatelessWidget{
              children: [
                SizedBox(width: 12),
 
-               
+               Expanded(child: Image.asset(
+                 image,
+                 height: 450,
+                 fit: BoxFit.contain,
+                  ),
+               ),
+               SizedBox(width: 12),
              ],
            ),
+           SizedBox(height: 16),
            Row(
              children: [
                SizedBox(width: 12),

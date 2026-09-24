@@ -202,7 +202,7 @@ class HomeScreen extends StatelessWidget {
                             'citations on CiteSeerX, and over 70,000 citations '
                             'on Google Scholar as of 2024. The book sold half a million copies '
                             'during first 20 years. Wikipedia.',
-                        image: 'assets/images/bookverse.png',
+                        image: 'assets/images/intro_to_algo.jpg',
                       ),
                     ),
                 );
