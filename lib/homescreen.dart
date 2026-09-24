@@ -219,6 +219,7 @@ class HomeScreen extends StatelessWidget {
                   border: Border.all(
                     color: Colors.black,
                   ),
+                  borderRadius: BorderRadius.circular(5),
                 ),
                 child: Row(
                   children: [
@@ -348,6 +349,7 @@ class HomeScreen extends StatelessWidget {
                   border: Border.all(
                     color: Colors.black,
                   ),
+                  borderRadius: BorderRadius.circular(5),
                 ),
                 child: Row(
                   children: [
@@ -478,6 +480,7 @@ class HomeScreen extends StatelessWidget {
                   border: Border.all(
                     color: Colors.black,
                   ),
+                  borderRadius: BorderRadius.circular(5),
                 ),
                 child: Row(
                   children: [
@@ -606,6 +609,7 @@ class HomeScreen extends StatelessWidget {
                   border: Border.all(
                     color: Colors.black,
                   ),
+                  borderRadius: BorderRadius.circular(5),
                 ),
                 child: Row(
                   children: [
