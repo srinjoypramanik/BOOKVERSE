@@ -578,7 +578,7 @@ class HomeScreen extends StatelessWidget {
                     builder: (context)=> const BookDetails(
                       title: 'Structure and Interpretation of Computer \nPrograms (SICP)' ,
                       author: 'by Harold Abelson, Gerald Jay Sussman, Julie Sussman',
-                      price:  '1200/-',
+                      price:  '\$6.00',
                       category: 'COMPUTER SCIENCE',
                       description: 'Structure and Interpretation of Computer Programs (SICP) '
                           'is a computer science textbook by Massachusetts Institute of '
@@ -599,7 +599,7 @@ class HomeScreen extends StatelessWidget {
                   horizontal: 16,
                   vertical: 8,
                 ),
-                padding: EdgeInsets.all(14),
+                padding: EdgeInsets.all(8),
                 decoration: BoxDecoration(
                   border: Border.all(
                     color: Colors.black,
@@ -607,7 +607,7 @@ class HomeScreen extends StatelessWidget {
                 ),
                 child: Row(
                   children: [
-                    Image.asset('name',
+                    Image.asset('assets/images/si_cp.jpg',
                     width:110,
                       height:198,
                       fit: BoxFit.fitWidth,
@@ -634,7 +634,7 @@ class HomeScreen extends StatelessWidget {
                                   ),
                                 ),
                               ),
-                              Text('1200/-',
+                              Text('\$6.00',
                                 style: TextStyle(
                                   fontSize: 18,
                                   fontWeight: FontWeight.bold,
@@ -645,7 +645,7 @@ class HomeScreen extends StatelessWidget {
 
                           SizedBox(height: 12),
                           const Text('STRUCTURE AND INTERPRETATION OF COMPUTER PROGRAMS (SICP)',
-                            maxLines: 1,
+                            maxLines: 2,
                             overflow: TextOverflow.ellipsis,
 
                             style: TextStyle(
@@ -655,6 +655,7 @@ class HomeScreen extends StatelessWidget {
                           ),
                           SizedBox(height: 6),
                           const Text('Harold Abelson, Gerald Jay Sussman, Julie Sussman',
+                            overflow: TextOverflow.ellipsis,
                             style: TextStyle(
                               color: Colors.grey,
                             ),
@@ -666,7 +667,7 @@ class HomeScreen extends StatelessWidget {
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              const Text('COMPUTER SCIENCE',
+                              const Text('COMPUTER \nSCIENCE',
                                 style: TextStyle(
                                   color: Colors.grey,
                                   fontSize: 14,
@@ -683,7 +684,7 @@ class HomeScreen extends StatelessWidget {
                                 ),
                                 child: const Text('+ADD TO CART',
                                   style: TextStyle(
-                                    fontSize: 13,
+                                    fontSize: 12,
                                   ),
                                 ),
                               ),
