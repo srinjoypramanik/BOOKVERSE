@@ -323,7 +323,7 @@ class HomeScreen extends StatelessWidget {
                                 'it was used at over 1500 universities worldwide,and has '
                                 'over 59,000 citations on Google Scholar. It gives detailed '
                                 'information about the working of algorithms in AI.',
-                          image: 'assets/images/bookverse.png',
+                          image: 'assets/images/ai_modern.jpg',
                         ),
                     ),
                 );
@@ -441,7 +441,7 @@ class HomeScreen extends StatelessWidget {
                           'illustrated with Java-based examples, its universal '
                           'focus on meaningful naming conventions, robust unit '
                           'testing makes it a staple for developers.',
-                      image: 'assets/images/bookverse.png',
+                      image: 'assets/images/clean_code.jpg',
                     ),
                   ),
                 );
@@ -558,7 +558,7 @@ class HomeScreen extends StatelessWidget {
                           'and programming language design and implementation. The book '
                           'describes computer science concepts using Scheme, a dialect '
                           'of Lisp. Wikipedia.',
-                      image: 'assets/images/bookverse.png',
+                      image: 'assets/images/si_cp.jpg',
                     ),
                   ),
                 );
