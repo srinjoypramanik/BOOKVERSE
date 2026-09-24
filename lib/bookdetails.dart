@@ -9,6 +9,7 @@ class BookDetails extends StatelessWidget{
   final String price;
   final String category;
   final String description;
+  final String image;
 
   const BookDetails({
     super.key,
@@ -17,6 +18,7 @@ class BookDetails extends StatelessWidget{
     required this.price,
     required this.category,
     required this.description,
+    required this.image,
   });
 
   @override
@@ -92,6 +94,13 @@ class BookDetails extends StatelessWidget{
             ],
            ),
             SizedBox(height: 16),
+           Row(
+             children: [
+               SizedBox(width: 12),
+
+               
+             ],
+           ),
            Row(
              children: [
                SizedBox(width: 12),
