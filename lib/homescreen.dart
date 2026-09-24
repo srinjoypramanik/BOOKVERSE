@@ -471,7 +471,7 @@ class HomeScreen extends StatelessWidget {
                   horizontal: 16,
                   vertical: 8,
                 ),
-                padding: EdgeInsets.all(14),
+                padding: EdgeInsets.all(8),
                 decoration: BoxDecoration(
                   border: Border.all(
                     color: Colors.black,
@@ -479,7 +479,7 @@ class HomeScreen extends StatelessWidget {
                 ),
                 child: Row(
                   children: [
-                    Image.asset('name',
+                    Image.asset('assets/images/clean_code.jpg',
                     width: 110,
                     height: 198,
                     fit: BoxFit.fitWidth,
@@ -506,7 +506,7 @@ class HomeScreen extends StatelessWidget {
                                   ),
                                 ),
                               ),
-                              Text('1000/-',
+                              Text('\$10.00',
                                 style: TextStyle(
                                   fontSize: 18,
                                   fontWeight: FontWeight.bold,
@@ -517,7 +517,7 @@ class HomeScreen extends StatelessWidget {
 
                           SizedBox(height: 12),
                           const Text('CLEAN CODE: A HANDBOOK OF SOFTWARE CRAFTSMANSHIPS',
-                            maxLines: 1,
+                            maxLines: 2,
                             overflow: TextOverflow.ellipsis,
 
                             style: TextStyle(
@@ -538,7 +538,7 @@ class HomeScreen extends StatelessWidget {
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              const Text('COMPUTER SCIENCE',
+                              const Text('COMPUTER \nSCIENCE',
                                 style: TextStyle(
                                   color: Colors.grey,
                                   fontSize: 14,
@@ -555,7 +555,7 @@ class HomeScreen extends StatelessWidget {
                                 ),
                                 child: const Text('+ADD TO CART',
                                   style: TextStyle(
-                                    fontSize: 13,
+                                    fontSize: 12,
                                   ),
                                 ),
                               ),
