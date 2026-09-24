@@ -96,9 +96,7 @@ class _SignUpPageState extends State<SignUpPage> {
             children: [
 
 
-
-              SizedBox(height: 10),
-
+              SizedBox(height: 8),
 
 
               Center(
@@ -121,8 +119,7 @@ class _SignUpPageState extends State<SignUpPage> {
 
 
 
-              SizedBox(height: 15),
-
+              SizedBox(height: 8),
 
 
 
@@ -162,7 +159,7 @@ class _SignUpPageState extends State<SignUpPage> {
 
 
 
-              SizedBox(height: 10),
+              SizedBox(height: 8),
 
 
 
@@ -170,13 +167,13 @@ class _SignUpPageState extends State<SignUpPage> {
 
               Text(
 
-                "Full Name",
+                "Full Name:",
 
                 style: TextStyle(
 
                   fontSize: 18,
 
-                  fontWeight: FontWeight.w500,
+                  fontWeight: FontWeight.bold,
 
                 ),
 
@@ -184,7 +181,7 @@ class _SignUpPageState extends State<SignUpPage> {
 
 
 
-              SizedBox(height: 10),
+              SizedBox(height: 8),
 
 
 
@@ -235,7 +232,7 @@ class _SignUpPageState extends State<SignUpPage> {
 
 
 
-              SizedBox(height: 15),
+              SizedBox(height: 8),
 
 
 
@@ -243,13 +240,13 @@ class _SignUpPageState extends State<SignUpPage> {
 
               Text(
 
-                "Phone Number",
+                "Phone Number:",
 
                 style: TextStyle(
 
                   fontSize: 18,
 
-                  fontWeight: FontWeight.w500,
+                  fontWeight: FontWeight.bold,
 
                 ),
 
@@ -258,7 +255,7 @@ class _SignUpPageState extends State<SignUpPage> {
 
 
 
-              SizedBox(height: 10),
+              SizedBox(height: 8),
 
 
 
@@ -309,7 +306,7 @@ class _SignUpPageState extends State<SignUpPage> {
 
 
 
-              SizedBox(height: 15),
+              SizedBox(height: 8),
 
 
 
@@ -317,13 +314,13 @@ class _SignUpPageState extends State<SignUpPage> {
 
               Text(
 
-                "Email Address",
+                "Email Address:",
 
                 style: TextStyle(
 
                   fontSize: 18,
 
-                  fontWeight: FontWeight.w500,
+                  fontWeight: FontWeight.bold,
 
                 ),
 
@@ -333,7 +330,7 @@ class _SignUpPageState extends State<SignUpPage> {
 
 
 
-              SizedBox(height: 10),
+              SizedBox(height: 8),
 
 
 
@@ -384,7 +381,7 @@ class _SignUpPageState extends State<SignUpPage> {
 
 
 
-              SizedBox(height: 15),
+              SizedBox(height: 8),
 
 
 
@@ -392,13 +389,13 @@ class _SignUpPageState extends State<SignUpPage> {
 
               Text(
 
-                "Password",
+                "Password:",
 
                 style: TextStyle(
 
                   fontSize: 18,
 
-                  fontWeight: FontWeight.w500,
+                  fontWeight: FontWeight.bold,
 
                 ),
 
@@ -408,7 +405,7 @@ class _SignUpPageState extends State<SignUpPage> {
 
 
 
-              SizedBox(height: 10),
+              SizedBox(height: 8),
 
 
 
@@ -462,7 +459,7 @@ class _SignUpPageState extends State<SignUpPage> {
 
 
 
-              SizedBox(height: 15),
+              SizedBox(height: 8),
 
 
 
@@ -470,13 +467,13 @@ class _SignUpPageState extends State<SignUpPage> {
 
               Text(
 
-                "Confirm Password",
+                "Confirm Password:",
 
                 style: TextStyle(
 
                   fontSize: 18,
 
-                  fontWeight: FontWeight.w500,
+                  fontWeight: FontWeight.bold,
 
                 ),
 
@@ -486,7 +483,7 @@ class _SignUpPageState extends State<SignUpPage> {
 
 
 
-              SizedBox(height: 10),
+              SizedBox(height: 8),
 
 
 
@@ -540,7 +537,7 @@ class _SignUpPageState extends State<SignUpPage> {
 
 
 
-              SizedBox(height: 25),
+              SizedBox(height: 20),
 
 
 
@@ -614,7 +611,7 @@ class _SignUpPageState extends State<SignUpPage> {
 
 
 
-              SizedBox(height: 10),
+              SizedBox(height: 8),
 
 
 
