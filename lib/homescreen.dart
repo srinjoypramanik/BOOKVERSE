@@ -191,7 +191,7 @@ class HomeScreen extends StatelessWidget {
                       builder: (context)=>const BookDetails(
                         title: 'INTRODUCTION TO ALGORITHMS,\n4TH EDITION',
                         author: 'by Thomas H. Corman',
-                        price: '600/-',
+                        price: '\$12.00',
                         category: 'COMPUTER SCIENCE',
                         description: 'Introduction to Algorithms is a book on computer programming '
                             'by Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest, and'
@@ -214,93 +214,98 @@ class HomeScreen extends StatelessWidget {
                   horizontal: 16,
                   vertical: 8,
                 ),
-                padding: EdgeInsets.all(14),
+                padding: EdgeInsets.all(8),
                 decoration: BoxDecoration(
                   border: Border.all(
                     color: Colors.black,
                   ),
                 ),
+                
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Container(
+                                color: Colors.black,
+                                padding: EdgeInsets.symmetric(
+                                  horizontal: 8,
+                                  vertical: 4,
+                                ),
 
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Container(
-                          color: Colors.black,
-                          padding: EdgeInsets.symmetric(
-                            horizontal: 8,
-                            vertical: 4,
+                                child: Text('BRAND NEW',
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 12,
+                                  ),
+                                ),
+                              ),
+                              Text('\$12.00',
+                                style: TextStyle(
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ],
                           ),
 
-                          child: Text('BRAND NEW',
+                          SizedBox(height: 12),
+                          const Text('INTRODUCTION TO ALGORITHMS, 4TH EDITION',
+                            maxLines: 2,
+                            overflow: TextOverflow.ellipsis,
+
                             style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 12,
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold,
                             ),
                           ),
-                        ),
-                        Text('600/-',
-                          style: TextStyle(
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold,
+                          SizedBox(height: 6),
+                          const Text('Thomas H. Cormen',
+                            style: TextStyle(
+                              color: Colors.grey,
+                            ),
                           ),
-                        ),
-                      ],
-                    ),
 
-                    SizedBox(height: 12),
-                    const Text('INTRODUCTION TO ALGORITHMS, 4TH EDITION',
-                      maxLines: 1,
-                      overflow: TextOverflow.ellipsis,
+                          SizedBox(height: 1),
+                          Divider(thickness: 0.5,),
+                          SizedBox(height: 1),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              const Text('COMPUTER \nSCIENCE',
+                                style: TextStyle(
+                                  color: Colors.grey,
+                                  fontSize: 14,
+                                ),
+                              ),
+                              ElevatedButton(
+                                onPressed: (){
 
-                      style: TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold,
+
+                                },
+                                style: ElevatedButton.styleFrom(
+                                  backgroundColor: Colors.black,
+                                  foregroundColor: Colors.white,
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.zero,
+                                  ),
+                                ),
+                                child: const Text('+ADD TO CART',
+                                  style: TextStyle(
+                                    fontSize: 12,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
                       ),
-                    ),
-                    SizedBox(height: 6),
-                    const Text('Thomas H. Cormen',
-                    style: TextStyle(
-                      color: Colors.grey,
-                    ),
-                    ),
-
-                    SizedBox(height: 1),
-                    Divider(thickness: 0.5,),
-                    SizedBox(height: 1),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        const Text('COMPUTER SCIENCE',
-                          style: TextStyle(
-                            color: Colors.grey,
-                            fontSize: 14,
-                          ),
-                        ),
-                        ElevatedButton(
-                            onPressed: (){
-
-
-                            },
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors.black,
-                            foregroundColor: Colors.white,
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.zero,
-                            ),
-                          ),
-                          child: const Text('+ADD TO CART',
-                            style: TextStyle(
-                              fontSize: 13,
-                            ),
-                          ),
-                        ),
-                      ],
                     ),
                   ],
                 ),
+
+
               ),
             ),
 
