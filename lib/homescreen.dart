@@ -605,8 +605,19 @@ class HomeScreen extends StatelessWidget {
                     color: Colors.black,
                   ),
                 ),
+                child: Row(
+                  children: [
+                    Image.asset('name',
+                    width:110,
+                      height:198,
+                      fit: BoxFit.fitWidth,
+                    ),
+                    SizedBox(width: 10),
+                    Expanded(
 
-                
+                    ),
+                  ],
+                ),
               ),
             ),
           ],
