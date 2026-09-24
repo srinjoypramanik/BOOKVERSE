@@ -225,7 +225,7 @@ class HomeScreen extends StatelessWidget {
                     Image.asset('assets/images/intro_to_algo.jpg',
                     width: 110,
                     height: 198,
-                    fit: BoxFit.contain
+                    fit: BoxFit.fitWidth,
                     ),
                     SizedBox(width: 10),
                     Expanded(
@@ -310,8 +310,6 @@ class HomeScreen extends StatelessWidget {
                     ),
                   ],
                 ),
-
-
               ),
             ),
 
@@ -344,14 +342,102 @@ class HomeScreen extends StatelessWidget {
                   horizontal: 16,
                   vertical: 8,
                 ),
-                padding: EdgeInsets.all(14),
+                padding: EdgeInsets.all(8),
                 decoration: BoxDecoration(
                   border: Border.all(
                     color: Colors.black,
                   ),
                 ),
+                child: Row(
+                  children: [
+                    Image.asset('assets/images/ai_modern.jpg',
+                    width: 110,
+                      height: 198,
+                        fit: BoxFit.fitWidth,
+                    ),
+                    SizedBox(width: 10),
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Container(
+                                color: Colors.black,
+                                padding: EdgeInsets.symmetric(
+                                  horizontal: 8,
+                                  vertical: 4,
+                                ),
 
-                
+                                child: Text('BRAND NEW',
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 12,
+                                  ),
+                                ),
+                              ),
+
+                              Text('\$8.00',
+                                style: TextStyle(
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ],
+                          ),
+
+                          SizedBox(height: 12),
+                          const Text('ARTIFICIAl INTELLIGENCE: A MODERN APPROACH',
+                            maxLines: 2,
+                            overflow: TextOverflow.ellipsis,
+
+                            style: TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          SizedBox(height: 6),
+                          const Text('Stuart Russell, Peter Norvig',
+                            style: TextStyle(
+                              color: Colors.grey,
+                            ),
+                          ),
+
+                          SizedBox(height: 1),
+                          const Divider(thickness: 0.5,),
+                          SizedBox(height: 1),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              const Text('COMPUTER \nSCIENCE',
+                                style: TextStyle(
+                                  color: Colors.grey,
+                                  fontSize: 14,
+                                ),
+                              ),
+                              ElevatedButton(
+                                onPressed: (){},
+                                style: ElevatedButton.styleFrom(
+                                  backgroundColor: Colors.black,
+                                  foregroundColor: Colors.white,
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.zero,
+                                  ),
+                                ),
+                                child: const Text('+ADD TO CART',
+                                  style: TextStyle(
+                                    fontSize: 12,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
 
