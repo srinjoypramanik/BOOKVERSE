@@ -449,7 +449,7 @@ class HomeScreen extends StatelessWidget {
                     builder: (context)=> const BookDetails(
                       title: 'CLEAN CODE: A HANDBOOK OF \nSOFTWARE CRAFTSMANSHIPS' ,
                       author: 'by Robert C. Martin',
-                      price:  '1000/-',
+                      price:  '\$10.00',
                       category: 'COMPUTER SCIENCE',
                       description: '"Clean Code" by Robert C. Martin is a foundational '
                           'software engineering guide that teaches developers how to '
@@ -478,83 +478,7 @@ class HomeScreen extends StatelessWidget {
                   ),
                 ),
 
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Container(
-                          color: Colors.black,
-                          padding: EdgeInsets.symmetric(
-                            horizontal: 8,
-                            vertical: 4,
-                          ),
-
-                          child: Text('BRAND NEW',
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 12,
-                            ),
-                          ),
-                        ),
-                        Text('1000/-',
-                          style: TextStyle(
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ],
-                    ),
-
-                    SizedBox(height: 12),
-                    const Text('CLEAN CODE: A HANDBOOK OF SOFTWARE CRAFTSMANSHIPS',
-                      maxLines: 1,
-                      overflow: TextOverflow.ellipsis,
-
-                      style: TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    SizedBox(height: 6),
-                    const Text('Robert C. Martin',
-                      style: TextStyle(
-                        color: Colors.grey,
-                      ),
-                    ),
-
-                    SizedBox(height: 1),
-                    const Divider(thickness: 0.5,),
-                    SizedBox(height: 1),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        const Text('COMPUTER SCIENCE',
-                          style: TextStyle(
-                            color: Colors.grey,
-                            fontSize: 14,
-                          ),
-                        ),
-                        ElevatedButton(
-                          onPressed: (){},
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors.black,
-                            foregroundColor: Colors.white,
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.zero,
-                            ),
-                          ),
-                          child: const Text('+ADD TO CART',
-                            style: TextStyle(
-                              fontSize: 13,
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
+               
               ),
             ),
 
