@@ -143,7 +143,7 @@ class AppDrawer extends StatelessWidget {
           //By Tanzid
           ListTile(
             leading: Icon(
-                Icons.info,
+                Icons.phone,
                 color: Colors.black
             ),
             title: Text('Contact us',
