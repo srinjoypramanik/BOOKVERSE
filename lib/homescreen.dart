@@ -220,7 +220,15 @@ class HomeScreen extends StatelessWidget {
                     color: Colors.black,
                   ),
                 ),
-                
+                child: Row(
+                  children: [
+                    Image.asset('assets/images/intro_to_algo.jpg',
+                    width: 110,
+                    height: 198,
+                    fit: BoxFit.contain
+                    ),
+                    SizedBox(width: 10),
+                    Expanded(
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
