@@ -270,6 +270,7 @@ class HomeScreen extends StatelessWidget {
                           ),
                           SizedBox(height: 6),
                           const Text('Thomas H. Cormen',
+                            overflow: TextOverflow.ellipsis,
                             style: TextStyle(
                               color: Colors.grey,
                             ),
@@ -399,6 +400,7 @@ class HomeScreen extends StatelessWidget {
                           ),
                           SizedBox(height: 6),
                           const Text('Stuart Russell, Peter Norvig',
+                            overflow: TextOverflow.ellipsis,
                             style: TextStyle(
                               color: Colors.grey,
                             ),
@@ -527,6 +529,7 @@ class HomeScreen extends StatelessWidget {
                           ),
                           SizedBox(height: 6),
                           const Text('Robert C. Martin',
+                            overflow: TextOverflow.ellipsis,
                             style: TextStyle(
                               color: Colors.grey,
                             ),
@@ -568,7 +571,6 @@ class HomeScreen extends StatelessWidget {
                 ),
               ),
             ),
-
 
             //Book4
             GestureDetector(
@@ -644,7 +646,7 @@ class HomeScreen extends StatelessWidget {
                           ),
 
                           SizedBox(height: 12),
-                          const Text('STRUCTURE AND INTERPRETATION OF COMPUTER PROGRAMS (SICP)',
+                          const Text('STRUCTURE AND INTERPRETA\nTION OF COMPUTER PROGRAMS (SICP)',
                             maxLines: 2,
                             overflow: TextOverflow.ellipsis,
 
