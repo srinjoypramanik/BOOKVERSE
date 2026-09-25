@@ -159,6 +159,7 @@ class _SignInState extends State<SignIn> {
       ),
 
       body: SafeArea(
+        
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20),
 
