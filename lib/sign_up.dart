@@ -46,7 +46,7 @@ class _SignUpPageState extends State<SignUpPage> {
     }
 
     try {
-      
+
       UserCredential userCredential = await FirebaseAuth.instance
           .createUserWithEmailAndPassword(
             email: email.trim(),
@@ -65,7 +65,9 @@ class _SignUpPageState extends State<SignUpPage> {
       });
 
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text("Account Created Successfully")),
+        const SnackBar(content: Text("Account Created Successfully",
+          ),
+        ),
       );
 
       Navigator.pop(context);
