@@ -688,7 +688,7 @@ class HomeScreen extends StatelessWidget {
                                 ),
                               ),
 
-                              Text('\$10.00',
+                              Text('\$12.00',
                                 style: TextStyle(
                                   fontSize: 18,
                                   fontWeight: FontWeight.bold,
@@ -981,6 +981,274 @@ class HomeScreen extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               const Text('COMPUTER \nSCIENCE',
+                                style: TextStyle(
+                                  color: Colors.grey,
+                                  fontSize: 14,
+                                ),
+                              ),
+                              ElevatedButton(
+                                onPressed: (){},
+                                style: ElevatedButton.styleFrom(
+                                  backgroundColor: Colors.black,
+                                  foregroundColor: Colors.white,
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.zero,
+                                  ),
+                                ),
+                                child: const Text('+ADD TO CART',
+                                  style: TextStyle(
+                                    fontSize: 12,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+
+            // EE Book 3
+            GestureDetector(
+              onTap: () {
+                Navigator.push(context,
+                  MaterialPageRoute(
+                    builder: (context)=> const BookDetails(
+                      title: 'MICROELECTRONIC CIRCUITS',
+                      author: 'by Adel S. Sedra, Kenneth C. Smith',
+                      price:  '\$10.00',
+                      category: 'ELECTRICAL & ELECTRONICS',
+                      description: 'Microelectronic Circuits by Adel S. Sedra and Kenneth '
+                          'C. Smith is universally recognized as the gold-standard textbook '
+                          'for electrical and computer engineering education worldwide.'
+                          ' Published by Oxford University Press and currently in its '
+                          'updated eighth edition, this authoritative text seamlessly'
+                          ' bridges the gap between fundamental semiconductor physics '
+                          'and modern integrated circuit (IC) design. It provides an '
+                          'exceptionally detailed, parallel treatment of both MOSFETs and'
+                          ' BJTs, guiding students from the basic operation of single-stage'
+                          ' amplifiers up to complex analog and digital IC building blocks,'
+                          ' operational amplifiers, and frequency response analysis. '
+                          'Renowned for its rigorous mathematical foundations paired '
+                          'with practical design insights, "Sedra/Smith" remains an '
+                          'indispensable reference for both university classrooms and '
+                          'professional engineering careers.',
+                      image: 'assets/images/microelec_circuit.jpg',
+                    ),
+                  ),
+                );
+              },
+              child: Container(
+                margin: EdgeInsets.symmetric(
+                  horizontal: 16,
+                  vertical: 8,
+                ),
+                padding: EdgeInsets.all(8),
+                decoration: BoxDecoration(
+                  border: Border.all(
+                    color: Colors.black,
+                  ),
+                  borderRadius: BorderRadius.circular(5),
+                ),
+                child: Row(
+                  children: [
+                    Image.asset('assets/images/microelec_circuit.jpg',
+                      width: 110,
+                      height: 198,
+                      fit: BoxFit.fitWidth,
+                    ),
+                    SizedBox(width: 10),
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Container(
+                                color: Colors.black,
+                                padding: EdgeInsets.symmetric(
+                                  horizontal: 8,
+                                  vertical: 4,
+                                ),
+
+                                child: Text('BRAND NEW',
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 12,
+                                  ),
+                                ),
+                              ),
+
+                              Text('\$10.00',
+                                style: TextStyle(
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ],
+                          ),
+
+                          SizedBox(height: 12),
+                          const Text('MICROELECTRONIC CIRCUITS ',
+                            maxLines: 2,
+                            overflow: TextOverflow.ellipsis,
+
+                            style: TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          SizedBox(height: 6),
+                          const Text('Adel S. Sedra, Kenneth C. Smith',
+                            overflow: TextOverflow.ellipsis,
+                            style: TextStyle(
+                              color: Colors.grey,
+                            ),
+                          ),
+
+                          SizedBox(height: 1),
+                          const Divider(thickness: 0.5,),
+                          SizedBox(height: 1),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              const Text('ELECTRICAL & \nELECTRONICS',
+                                style: TextStyle(
+                                  color: Colors.grey,
+                                  fontSize: 14,
+                                ),
+                              ),
+                              ElevatedButton(
+                                onPressed: (){},
+                                style: ElevatedButton.styleFrom(
+                                  backgroundColor: Colors.black,
+                                  foregroundColor: Colors.white,
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.zero,
+                                  ),
+                                ),
+                                child: const Text('+ADD TO CART',
+                                  style: TextStyle(
+                                    fontSize: 12,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            // EE Book 4
+            GestureDetector(
+              onTap: () {
+                Navigator.push(context,
+                  MaterialPageRoute(
+                    builder: (context)=> const BookDetails(
+                      title: 'THE ART OF ELECTRONICS',
+                      author: 'by Paul Horowitz, Winfield Hill',
+                      price:  '\$12.00',
+                      category: 'ELECTRICAL & ELECTRONICS',
+                      description: 'The Art of Electronics, by Paul Horowitz and '
+                          'Winfield Hill, is a popular electronics design reference '
+                          'textbook dealing with analog and digital electronics. The '
+                          'third edition was published in 2015. The book covers many'
+                          ' areas of circuit design, from basic DC voltage, current, '
+                          'and resistance, to active filters and oscillators, to digital '
+                          'electronics, including microprocessors and digital bus'
+                          ' interfacing. It also includes discussions of such often'
+                          '-neglected areas as high-frequency, high-speed design '
+                          'techniques and low-power applications. The book includes '
+                          'many example circuits. In addition to having examples of'
+                          'effective practices in circuit design',
+                      image: 'assets/images/art_of_elec.jpg',
+                    ),
+                  ),
+                );
+              },
+              child: Container(
+                margin: EdgeInsets.symmetric(
+                  horizontal: 16,
+                  vertical: 8,
+                ),
+                padding: EdgeInsets.all(8),
+                decoration: BoxDecoration(
+                  border: Border.all(
+                    color: Colors.black,
+                  ),
+                  borderRadius: BorderRadius.circular(5),
+                ),
+                child: Row(
+                  children: [
+                    Image.asset('assets/images/art_of_elec.jpg',
+                      width: 110,
+                      height: 198,
+                      fit: BoxFit.fitWidth,
+                    ),
+                    SizedBox(width: 10),
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Container(
+                                color: Colors.black,
+                                padding: EdgeInsets.symmetric(
+                                  horizontal: 8,
+                                  vertical: 4,
+                                ),
+
+                                child: Text('BRAND NEW',
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 12,
+                                  ),
+                                ),
+                              ),
+
+                              Text('\$12.00',
+                                style: TextStyle(
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ],
+                          ),
+
+                          SizedBox(height: 12),
+                          const Text('THE ART OF ELECTRONICS',
+                            maxLines: 2,
+                            overflow: TextOverflow.ellipsis,
+
+                            style: TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          SizedBox(height: 6),
+                          const Text('Paul Horowitz, Winfield Hill',
+                            overflow: TextOverflow.ellipsis,
+                            style: TextStyle(
+                              color: Colors.grey,
+                            ),
+                          ),
+
+                          SizedBox(height: 1),
+                          const Divider(thickness: 0.5,),
+                          SizedBox(height: 1),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              const Text('ELECTRICAL & \nELECTRONICS',
                                 style: TextStyle(
                                   color: Colors.grey,
                                   fontSize: 14,
