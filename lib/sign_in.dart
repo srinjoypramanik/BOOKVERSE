@@ -174,8 +174,9 @@ class _SignInState extends State<SignIn> {
                 height: 100,
 
                 child: Center(
-                  
+
                   child: Image.asset(
+                    
                     'assets/images/bookverse.png',
 
                     height: 300,
