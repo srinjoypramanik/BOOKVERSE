@@ -190,7 +190,7 @@ class _SignInState extends State<SignIn> {
               Center(
                 child: TextButton(
                   onPressed: () {
-                    
+
                   },
 
                   child: const Text(
@@ -212,7 +212,8 @@ class _SignInState extends State<SignIn> {
               Text(
                 'Email Address:',
 
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                style: TextStyle(fontSize: 18,
+                    fontWeight: FontWeight.bold),
               ),
 
               SizedBox(height: 10),
