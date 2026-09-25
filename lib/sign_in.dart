@@ -117,7 +117,7 @@ class _SignInState extends State<SignIn> {
             children: [
 
               Image.asset(
-                
+
                 'assets/images/login_failed.png',
 
                 height: 180,
@@ -130,7 +130,8 @@ class _SignInState extends State<SignIn> {
               const Text(
                 "Login Failed",
 
-                style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+                style: TextStyle(
+                    fontSize: 25, fontWeight: FontWeight.bold),
               ),
             ],
           ),
