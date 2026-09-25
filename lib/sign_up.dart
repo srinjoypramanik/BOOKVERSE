@@ -75,7 +75,8 @@ class _SignUpPageState extends State<SignUpPage> {
       ScaffoldMessenger.of(
         context,
       ).showSnackBar(SnackBar(content: Text(e.message ?? "Signup Failed",
-      ),),);
+      ),
+      ),);
     }
   }
 
