@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'sign_up.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'sign_up.dart';
+
 
 class SignIn extends StatefulWidget {
 
@@ -27,16 +28,65 @@ class _SignInState extends State<SignIn> {
 
   void checkLoginButton(){
 
-
     setState(() {
-
 
       isLoginActive =
           email.isNotEmpty &&
               password.isNotEmpty;
 
-
     });
+
+  }
+
+
+
+  Future<void> loginUser() async {
+
+
+    try {
+
+
+      await FirebaseAuth.instance.signInWithEmailAndPassword(
+
+        email: email.trim(),
+
+        password: password.trim(),
+
+      );
+
+
+
+      ScaffoldMessenger.of(context).showSnackBar(
+
+        const SnackBar(
+
+          content: Text("Login Successful"),
+
+        ),
+
+      );
+
+
+    }
+
+
+    on FirebaseAuthException catch(e){
+
+
+      ScaffoldMessenger.of(context).showSnackBar(
+
+        SnackBar(
+
+          content: Text(
+              e.message ?? "Login Failed"
+          ),
+
+        ),
+
+      );
+
+
+    }
 
 
   }
@@ -48,7 +98,9 @@ class _SignInState extends State<SignIn> {
   @override
   Widget build(BuildContext context) {
 
+
     return Scaffold(
+
 
       backgroundColor: Colors.white,
 
@@ -61,8 +113,11 @@ class _SignInState extends State<SignIn> {
         leading: IconButton(
 
           icon: const Icon(
+
             Icons.arrow_back,
+
             color: Colors.black,
+
           ),
 
 
@@ -78,16 +133,22 @@ class _SignInState extends State<SignIn> {
 
 
 
+
+
       body: SafeArea(
+
 
         child: Padding(
 
           padding: EdgeInsets.symmetric(horizontal: 20),
 
 
+
           child: Column(
 
+
             crossAxisAlignment: CrossAxisAlignment.start,
+
 
 
             children: [
@@ -118,9 +179,7 @@ class _SignInState extends State<SignIn> {
 
 
 
-
               SizedBox(height: 20),
-
 
 
 
@@ -129,7 +188,9 @@ class _SignInState extends State<SignIn> {
 
                 child: TextButton(
 
+
                   onPressed: () {},
+
 
 
                   child: Text(
@@ -152,7 +213,6 @@ class _SignInState extends State<SignIn> {
                 ),
 
               ),
-
 
 
 
@@ -181,9 +241,7 @@ class _SignInState extends State<SignIn> {
 
 
 
-
               SizedBox(height: 10),
-
 
 
 
@@ -206,7 +264,9 @@ class _SignInState extends State<SignIn> {
 
                 decoration: InputDecoration(
 
+
                   hintText: 'Enter your email',
+
 
 
                   filled: true,
@@ -215,13 +275,18 @@ class _SignInState extends State<SignIn> {
                   fillColor: Color(0xFFF1F1F5),
 
 
+
                   border: OutlineInputBorder(
+
 
                     borderRadius: BorderRadius.circular(20),
 
+
                     borderSide: BorderSide.none,
 
+
                   ),
+
 
 
                   contentPadding: EdgeInsets.symmetric(
@@ -231,6 +296,7 @@ class _SignInState extends State<SignIn> {
                     vertical: 18,
 
                   ),
+
 
                 ),
 
@@ -264,9 +330,7 @@ class _SignInState extends State<SignIn> {
 
 
 
-
               SizedBox(height: 10),
-
 
 
 
@@ -275,6 +339,7 @@ class _SignInState extends State<SignIn> {
 
 
                 obscureText: true,
+
 
 
                 onChanged: (value){
@@ -292,7 +357,9 @@ class _SignInState extends State<SignIn> {
 
                 decoration: InputDecoration(
 
+
                   hintText: 'Enter your Password',
+
 
 
                   filled: true,
@@ -301,13 +368,18 @@ class _SignInState extends State<SignIn> {
                   fillColor: Color(0xFFF1F1F5),
 
 
+
                   border: OutlineInputBorder(
+
 
                     borderRadius: BorderRadius.circular(20),
 
+
                     borderSide: BorderSide.none,
 
+
                   ),
+
 
 
                   contentPadding: EdgeInsets.symmetric(
@@ -317,6 +389,7 @@ class _SignInState extends State<SignIn> {
                     vertical: 18,
 
                   ),
+
 
                 ),
 
@@ -332,9 +405,12 @@ class _SignInState extends State<SignIn> {
 
 
 
+
               TextButton(
 
+
                 onPressed: () {},
+
 
 
                 style: TextButton.styleFrom(
@@ -346,20 +422,28 @@ class _SignInState extends State<SignIn> {
                 ),
 
 
+
                 child: Text(
+
 
                   'Forgot My Password',
 
 
+
                   style: TextStyle(
+
 
                     color: Colors.grey,
 
+
                     fontSize: 16,
+
 
                     fontWeight: FontWeight.bold,
 
+
                     decoration: TextDecoration.underline,
+
 
                   ),
 
@@ -379,17 +463,25 @@ class _SignInState extends State<SignIn> {
 
               Center(
 
+
                 child: SizedBox(
+
 
                   width: 250,
 
+
                   height: 60,
+
 
 
                   child: ElevatedButton(
 
 
-                    onPressed: () {},
+                    onPressed: isLoginActive
+
+                        ? loginUser
+
+                        : null,
 
 
 
@@ -420,7 +512,9 @@ class _SignInState extends State<SignIn> {
 
                     child: Text(
 
+
                       'Login',
+
 
 
                       style: TextStyle(
@@ -436,6 +530,7 @@ class _SignInState extends State<SignIn> {
 
                   ),
 
+
                 ),
 
               ),
@@ -450,14 +545,19 @@ class _SignInState extends State<SignIn> {
 
 
 
+
               Center(
 
+
                 child: SizedBox(
+
 
                   width: 300,
 
 
+
                   child: TextButton(
+
 
 
                     onPressed: (){
@@ -480,9 +580,12 @@ class _SignInState extends State<SignIn> {
 
 
 
+
                     child: Text(
 
+
                       'Create a new account',
+
 
 
                       style: TextStyle(
@@ -499,7 +602,9 @@ class _SignInState extends State<SignIn> {
 
                     ),
 
+
                   ),
+
 
                 ),
 
@@ -509,7 +614,9 @@ class _SignInState extends State<SignIn> {
 
             ],
 
+
           ),
+
 
         ),
 
@@ -517,6 +624,8 @@ class _SignInState extends State<SignIn> {
 
     );
 
+
   }
+
 
 }
