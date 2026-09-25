@@ -132,7 +132,7 @@ class _SignInState extends State<SignIn> {
 
                 style: TextStyle(
                     fontSize: 25,
-                    fontWeight: FontWeight.bold),
+                    fontWeight: FontWeight.bold,),
               ),
             ],
           ),
