@@ -6,7 +6,6 @@ import 'bookdetails.dart';
 import 'CartPage.dart';
 
 void main() async{
-  runApp(const MyApp());
 
   // for firebase.
   WidgetsFlutterBinding.ensureInitialized();
@@ -16,6 +15,10 @@ void main() async{
     options: DefaultFirebaseOptions.currentPlatform,
 
   );
+  //for firebase.
+
+  runApp(const MyApp());
+
 }
 
 class MyApp extends StatelessWidget{
