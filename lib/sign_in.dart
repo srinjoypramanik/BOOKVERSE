@@ -9,7 +9,7 @@ class SignIn extends StatefulWidget {
 
   @override
   State<SignIn> createState() => _SignInState();
-  
+
 }
 
 class _SignInState extends State<SignIn> {
@@ -24,7 +24,6 @@ class _SignInState extends State<SignIn> {
   bool showSuccessSplash = false;
 
   // Login failed splash control
-
   bool showErrorSplash = false;
 
   void checkLoginButton() {
