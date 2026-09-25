@@ -112,9 +112,10 @@ class _SignInState extends State<SignIn> {
         body: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
-            
+
 
             children: [
+              
               Image.asset(
                 'assets/images/login_failed.png',
 
