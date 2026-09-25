@@ -19,6 +19,7 @@ class SignUpPage extends StatefulWidget {
 class _SignUpPageState extends State<SignUpPage> {
 
 
+
   String name = "";
   String phone = "";
   String email = "";
@@ -66,8 +67,37 @@ class _SignUpPageState extends State<SignUpPage> {
   Future<void> signupUser() async {
 
 
+
+    if(password != confirmPassword){
+
+
+      ScaffoldMessenger.of(context).showSnackBar(
+
+        const SnackBar(
+
+          content: Text(
+            "Password doesn't match",
+          ),
+
+        ),
+
+      );
+
+
+      return;
+
+
+    }
+
+
+
+
+
     try {
 
+
+
+      // Firebase Authentication
 
       UserCredential userCredential =
 
@@ -83,11 +113,19 @@ class _SignUpPageState extends State<SignUpPage> {
 
 
 
+
+
+
+      // Get user UID
+
       String uid = userCredential.user!.uid;
 
 
 
-      // Save user information
+
+
+
+      // Save user data to Firestore
 
       await FirebaseFirestore.instance
 
@@ -98,11 +136,11 @@ class _SignUpPageState extends State<SignUpPage> {
           .set({
 
 
-        "name": name,
+        "name": name.trim(),
 
-        "phone": phone,
+        "phone": phone.trim(),
 
-        "email": email,
+        "email": email.trim(),
 
 
       });
@@ -111,9 +149,11 @@ class _SignUpPageState extends State<SignUpPage> {
 
 
 
+
       ScaffoldMessenger.of(context).showSnackBar(
 
-        SnackBar(
+
+        const SnackBar(
 
           content: Text(
 
@@ -123,7 +163,11 @@ class _SignUpPageState extends State<SignUpPage> {
 
         ),
 
+
       );
+
+
+
 
 
 
@@ -131,7 +175,10 @@ class _SignUpPageState extends State<SignUpPage> {
 
 
 
+
+
     }
+
 
 
 
@@ -141,6 +188,7 @@ class _SignUpPageState extends State<SignUpPage> {
 
       ScaffoldMessenger.of(context).showSnackBar(
 
+
         SnackBar(
 
           content: Text(
@@ -149,7 +197,9 @@ class _SignUpPageState extends State<SignUpPage> {
 
           ),
 
+
         ),
+
 
       );
 
@@ -157,7 +207,10 @@ class _SignUpPageState extends State<SignUpPage> {
     }
 
 
+
   }
+
+
 
 
 
@@ -175,7 +228,478 @@ class _SignUpPageState extends State<SignUpPage> {
 
 
 
-      body: Container(),
+      appBar: AppBar(
+
+        backgroundColor: Colors.white,
+
+        leading: IconButton(
+
+          icon: const Icon(
+
+            Icons.arrow_back,
+
+            color: Colors.black,
+
+          ),
+
+
+          onPressed: (){
+
+            Navigator.pop(context);
+
+          },
+
+        ),
+
+      ),
+
+
+
+
+
+      body: SingleChildScrollView(
+
+
+        child: Padding(
+
+
+          padding: const EdgeInsets.symmetric(horizontal:20),
+
+
+
+          child: Column(
+
+
+            crossAxisAlignment: CrossAxisAlignment.start,
+
+
+            children: [
+
+
+
+
+              const SizedBox(height:20),
+
+
+
+
+              Center(
+
+                child: Image.asset(
+
+                  'assets/images/bookverse.png',
+
+                  height:100,
+
+                ),
+
+              ),
+
+
+
+
+
+              const SizedBox(height:20),
+
+
+
+
+
+
+              const Text(
+
+                "Name:",
+
+                style: TextStyle(
+
+                  fontSize:18,
+
+                  fontWeight:FontWeight.bold,
+
+                ),
+
+              ),
+
+
+
+
+              TextField(
+
+                onChanged:(value){
+
+                  name=value;
+
+                  checkSignupButton();
+
+                },
+
+
+                decoration:InputDecoration(
+
+                  hintText:"Enter your name",
+
+                  filled:true,
+
+                  fillColor:Color(0xFFF1F1F5),
+
+                  border:OutlineInputBorder(
+
+                    borderRadius:BorderRadius.circular(20),
+
+                    borderSide:BorderSide.none,
+
+                  ),
+
+                ),
+
+              ),
+
+
+
+
+
+
+              const SizedBox(height:15),
+
+
+
+
+
+              const Text(
+
+                "Mobile Number:",
+
+                style: TextStyle(
+
+                  fontSize:18,
+
+                  fontWeight:FontWeight.bold,
+
+                ),
+
+              ),
+
+
+
+
+
+              TextField(
+
+                keyboardType:TextInputType.phone,
+
+
+                onChanged:(value){
+
+                  phone=value;
+
+                  checkSignupButton();
+
+                },
+
+
+                decoration:InputDecoration(
+
+                  hintText:"Enter your phone number",
+
+                  filled:true,
+
+                  fillColor:Color(0xFFF1F1F5),
+
+                  border:OutlineInputBorder(
+
+                    borderRadius:BorderRadius.circular(20),
+
+                    borderSide:BorderSide.none,
+
+                  ),
+
+                ),
+
+              ),
+
+
+
+
+
+
+              const SizedBox(height:15),
+
+
+
+
+
+
+              const Text(
+
+                "Email Address:",
+
+                style:TextStyle(
+
+                  fontSize:18,
+
+                  fontWeight:FontWeight.bold,
+
+                ),
+
+              ),
+
+
+
+
+
+
+              TextField(
+
+                onChanged:(value){
+
+                  email=value;
+
+                  checkSignupButton();
+
+                },
+
+
+
+                decoration:InputDecoration(
+
+                  hintText:"Enter your email",
+
+                  filled:true,
+
+                  fillColor:Color(0xFFF1F1F5),
+
+                  border:OutlineInputBorder(
+
+                    borderRadius:BorderRadius.circular(20),
+
+                    borderSide:BorderSide.none,
+
+                  ),
+
+                ),
+
+              ),
+
+
+
+
+
+
+              const SizedBox(height:15),
+
+
+
+
+
+              const Text(
+
+                "Password:",
+
+                style:TextStyle(
+
+                  fontSize:18,
+
+                  fontWeight:FontWeight.bold,
+
+                ),
+
+              ),
+
+
+
+
+
+              TextField(
+
+                obscureText:true,
+
+
+                onChanged:(value){
+
+                  password=value;
+
+                  checkSignupButton();
+
+                },
+
+
+
+                decoration:InputDecoration(
+
+                  hintText:"Enter password",
+
+                  filled:true,
+
+                  fillColor:Color(0xFFF1F1F5),
+
+                  border:OutlineInputBorder(
+
+                    borderRadius:BorderRadius.circular(20),
+
+                    borderSide:BorderSide.none,
+
+                  ),
+
+                ),
+
+              ),
+
+
+
+
+
+
+              const SizedBox(height:15),
+
+
+
+
+
+              const Text(
+
+                "Confirm Password:",
+
+                style:TextStyle(
+
+                  fontSize:18,
+
+                  fontWeight:FontWeight.bold,
+
+                ),
+
+              ),
+
+
+
+
+
+              TextField(
+
+                obscureText:true,
+
+
+                onChanged:(value){
+
+                  confirmPassword=value;
+
+                  checkSignupButton();
+
+                },
+
+
+                decoration:InputDecoration(
+
+                  hintText:"Confirm password",
+
+                  filled:true,
+
+                  fillColor:Color(0xFFF1F1F5),
+
+                  border:OutlineInputBorder(
+
+                    borderRadius:BorderRadius.circular(20),
+
+                    borderSide:BorderSide.none,
+
+                  ),
+
+                ),
+
+              ),
+
+
+
+
+
+
+              const SizedBox(height:30),
+
+
+
+
+
+
+              Center(
+
+
+                child:SizedBox(
+
+
+                  width:250,
+
+                  height:60,
+
+
+
+                  child:ElevatedButton(
+
+
+
+                    onPressed:isSignupActive
+
+                        ? signupUser
+
+                        : null,
+
+
+
+                    style:ElevatedButton.styleFrom(
+
+
+                      backgroundColor:Colors.black,
+
+                      foregroundColor:Colors.white,
+
+
+                      shape:RoundedRectangleBorder(
+
+                        borderRadius:BorderRadius.circular(30),
+
+                      ),
+
+
+                    ),
+
+
+
+                    child:const Text(
+
+                      "Sign Up",
+
+                      style:TextStyle(
+
+                        fontSize:25,
+
+                      ),
+
+                    ),
+
+
+                  ),
+
+
+                ),
+
+
+              ),
+
+
+
+              const SizedBox(height:30),
+
+
+
+            ],
+
+
+          ),
+
+
+        ),
+
+
+      ),
+
 
 
     );
