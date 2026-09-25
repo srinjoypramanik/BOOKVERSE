@@ -80,20 +80,8 @@ class HomeScreen extends StatelessWidget {
                 children: [
 
                   SizedBox(width: 10),
-                  Container(
-                    padding: EdgeInsets.symmetric(
-                      horizontal: 20,
-                      vertical: 12,
-                    ),
-                    color: Colors.black,
 
-                    child: Text('ALL BOOKS',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ),
+                  
 
                   SizedBox(width: 10),
                   Container(
@@ -117,7 +105,7 @@ class HomeScreen extends StatelessWidget {
                   SizedBox(width: 10),
                   Container(
                     padding: EdgeInsets.symmetric(
-                      horizontal: 20,
+                      horizontal: 18,
                       vertical: 12,
                     ),
                     decoration: BoxDecoration(
@@ -156,14 +144,14 @@ class HomeScreen extends StatelessWidget {
             ),
 
 
-            const SizedBox(height: 12),
+            SizedBox(height: 10),
             Padding(padding: const EdgeInsets.symmetric(
                 horizontal: 15,
               ),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text('AVAILABLE HARDCOPIES (4)',
+                  Text('AVAILABLE HARDCOPIES (8)',
                     style: TextStyle(
                       color: Colors.grey,
                       fontSize: 17,
