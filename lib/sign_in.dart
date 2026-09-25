@@ -61,9 +61,10 @@ class _SignInState extends State<SignIn> {
         setState(
                 () {
           showErrorSplash = false;
+            }
+          );
         }
-        );
-      });
+      );
     }
   }
 
