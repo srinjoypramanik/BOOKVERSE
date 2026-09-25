@@ -30,7 +30,7 @@ class _SignUpPageState extends State<SignUpPage> {
           email.isNotEmpty &&
           password.isNotEmpty &&
           confirmPassword.isNotEmpty;
-      
+
     });
   }
 
@@ -46,6 +46,7 @@ class _SignUpPageState extends State<SignUpPage> {
     }
 
     try {
+      
       UserCredential userCredential = await FirebaseAuth.instance
           .createUserWithEmailAndPassword(
             email: email.trim(),
