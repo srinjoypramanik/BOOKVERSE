@@ -252,7 +252,8 @@ class _SignInState extends State<SignIn> {
               Text(
                 'Password:',
 
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                style: TextStyle(fontSize: 18,
+                    fontWeight: FontWeight.bold),
               ),
 
               SizedBox(height: 10),
