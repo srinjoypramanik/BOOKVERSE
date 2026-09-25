@@ -85,62 +85,74 @@ class HomeScreen extends StatelessWidget {
                     onTap: (){},
                     child: Container(
                       padding: EdgeInsets.symmetric(
-                        horizontal: 20,
+                        horizontal: 16,
                         vertical: 12,
                       ),
-                      color: Colors.black,
+                      decoration: BoxDecoration(
+                        color: Colors.black,
+                      ),
 
                       child: Text('ALL BOOKS',
                         style: TextStyle(
                           color: Colors.white,
                           fontWeight: FontWeight.bold,
+                          fontSize: 13,
                         ),
                       ),
                     ),
                   ),
 
-                  SizedBox(width: 10),
-                  Container(
-                    padding: EdgeInsets.symmetric(
-                      horizontal: 20,
-                      vertical: 12,
-                    ),
-                    decoration: BoxDecoration(
-                      border: Border.all(
-                        color: Colors.grey,
+                  SizedBox(width: 8),
+                  GestureDetector(
+                    onTap: (){},
+                    child: Container(
+                      padding: EdgeInsets.symmetric(
+                        horizontal: 16,
+                        vertical: 12,
                       ),
-                    ),
-                    child: Text('COMPUTER SCIENCE',
-                      style: TextStyle(
-                      color: Colors.black,
-                      fontWeight: FontWeight.bold,
+                      decoration: BoxDecoration(
+                        border: Border.all(
+                          color: Colors.grey,
+                        ),
                       ),
-                    ),
-                  ),
-
-                  SizedBox(width: 10),
-                  Container(
-                    padding: EdgeInsets.symmetric(
-                      horizontal: 18,
-                      vertical: 12,
-                    ),
-                    decoration: BoxDecoration(
-                      border: Border.all(
-                        color: Colors.grey,
-                      ),
-                    ),
-                    child: Text('ELECTRICAL & ELECTRONICS',
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontWeight: FontWeight.bold,
+                      child: Text('COMPUTER SCIENCE',
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 13,
+                        ),
                       ),
                     ),
                   ),
 
-                  SizedBox(width: 10),
+                  SizedBox(width: 8),
+                  GestureDetector(
+                    onTap: (){},
+                    child: Container(
+                      padding: EdgeInsets.symmetric(
+                        horizontal: 16,
+                        vertical: 12,
+                      ),
+                      decoration: BoxDecoration(
+                        border: Border.all(
+                          color: Colors.grey,
+                        ),
+                      ),
+                      child: Text('ELECTRICAL ELECTRONICS',
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 13,
+                        ),
+                      ),
+                    ),
+                  ),
+
+
+                  SizedBox(width: 8),
                   Container(
                     padding: EdgeInsets.symmetric(
-                      horizontal: 20,
+                      horizontal: 16,
                       vertical: 12,
                     ),
                     decoration: BoxDecoration(
@@ -152,6 +164,7 @@ class HomeScreen extends StatelessWidget {
                       style: TextStyle(
                         color: Colors.black,
                         fontWeight: FontWeight.bold,
+                        fontSize: 13,
                       ),
                     ),
                   ),
