@@ -131,7 +131,8 @@ class _SignInState extends State<SignIn> {
                 "Login Failed",
 
                 style: TextStyle(
-                    fontSize: 25, fontWeight: FontWeight.bold),
+                    fontSize: 25,
+                    fontWeight: FontWeight.bold),
               ),
             ],
           ),
