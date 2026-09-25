@@ -24,6 +24,10 @@ class _SignInState extends State<SignIn> {
 
   bool showSuccessSplash = false;
 
+  // Login failed splash control
+
+  bool showErrorSplash = false;
+
   void checkLoginButton() {
     setState(() {
       isLoginActive = email.isNotEmpty && password.isNotEmpty;
@@ -50,12 +54,22 @@ class _SignInState extends State<SignIn> {
         );
       });
     } on FirebaseAuthException catch (e) {
-      print(e.message);
+      setState(() {
+        showErrorSplash = true;
+      });
+
+      Timer(const Duration(seconds: 3), () {
+        setState(() {
+          showErrorSplash = false;
+        });
+      });
     }
   }
 
   @override
   Widget build(BuildContext context) {
+    // Success Splash UI
+
     if (showSuccessSplash) {
       return Scaffold(
         backgroundColor: Colors.white,
@@ -77,6 +91,38 @@ class _SignInState extends State<SignIn> {
 
               const Text(
                 "Login Successful",
+
+                style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+              ),
+            ],
+          ),
+        ),
+      );
+    }
+
+    // Error Splash UI
+
+    if (showErrorSplash) {
+      return Scaffold(
+        backgroundColor: Colors.white,
+
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+
+            children: [
+              Image.asset(
+                'assets/images/login_failed.png',
+
+                height: 150,
+
+                width: 150,
+              ),
+
+              const SizedBox(height: 30),
+
+              const Text(
+                "Login Failed",
 
                 style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
               ),
@@ -124,7 +170,6 @@ class _SignInState extends State<SignIn> {
               ),
 
               const SizedBox(height: 20),
-
               Center(
                 child: TextButton(
                   onPressed: () {},
@@ -144,6 +189,7 @@ class _SignInState extends State<SignIn> {
               ),
 
               const SizedBox(height: 20),
+
               Text(
                 'Email Address:',
 
