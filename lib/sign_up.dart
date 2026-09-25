@@ -13,6 +13,7 @@ class SignUpPage extends StatefulWidget {
 
 
 class _SignUpPageState extends State<SignUpPage> {
+
   String name = "";
   String phone = "";
   String email = "";
@@ -29,6 +30,7 @@ class _SignUpPageState extends State<SignUpPage> {
           email.isNotEmpty &&
           password.isNotEmpty &&
           confirmPassword.isNotEmpty;
+      
     });
   }
 
