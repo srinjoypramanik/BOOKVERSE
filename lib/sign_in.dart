@@ -148,7 +148,8 @@ class _SignInState extends State<SignIn> {
         backgroundColor: Colors.white,
 
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back, color: Colors.black),
+          icon: const Icon(Icons.arrow_back,
+              color: Colors.black),
 
           onPressed: () {
             Navigator.pop(context);
