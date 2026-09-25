@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'sign_up.dart';
+import 'homescreen.dart';
+
 
 
 class SignIn extends StatefulWidget {
@@ -70,6 +72,21 @@ class _SignInState extends State<SignIn> {
       );
 
 
+
+      Navigator.pushReplacement(
+
+        context,
+
+        MaterialPageRoute(
+
+          builder: (context) => const HomeScreen(),
+
+        ),
+
+      );
+
+
+
     }
 
 
@@ -106,7 +123,9 @@ class _SignInState extends State<SignIn> {
 
     return Scaffold(
 
+
       backgroundColor: Colors.white,
+
 
 
       appBar: AppBar(
@@ -137,7 +156,9 @@ class _SignInState extends State<SignIn> {
 
 
 
+
       body: SafeArea(
+
 
         child: Padding(
 
@@ -145,6 +166,7 @@ class _SignInState extends State<SignIn> {
 
 
           child: Column(
+
 
             crossAxisAlignment: CrossAxisAlignment.start,
 
@@ -156,6 +178,7 @@ class _SignInState extends State<SignIn> {
               SizedBox(
 
                 height: 100,
+
 
                 child: Center(
 
@@ -175,7 +198,11 @@ class _SignInState extends State<SignIn> {
 
 
 
+
+
               SizedBox(height: 20),
+
+
 
 
 
@@ -209,7 +236,11 @@ class _SignInState extends State<SignIn> {
 
 
 
+
+
               SizedBox(height: 20),
+
+
 
 
 
@@ -230,11 +261,16 @@ class _SignInState extends State<SignIn> {
 
 
 
+
+
               SizedBox(height: 10),
 
 
 
+
+
               TextField(
+
 
                 onChanged: (value){
 
@@ -245,13 +281,18 @@ class _SignInState extends State<SignIn> {
                 },
 
 
+
                 decoration: InputDecoration(
+
 
                   hintText: 'Enter your email',
 
+
                   filled: true,
 
+
                   fillColor: Color(0xFFF1F1F5),
+
 
 
                   border: OutlineInputBorder(
@@ -263,6 +304,7 @@ class _SignInState extends State<SignIn> {
                   ),
 
 
+
                   contentPadding: EdgeInsets.symmetric(
 
                     horizontal: 20,
@@ -271,13 +313,18 @@ class _SignInState extends State<SignIn> {
 
                   ),
 
+
                 ),
 
               ),
 
 
 
+
+
               SizedBox(height: 15),
+
+
 
 
 
@@ -298,13 +345,19 @@ class _SignInState extends State<SignIn> {
 
 
 
+
+
               SizedBox(height: 10),
+
+
 
 
 
               TextField(
 
+
                 obscureText: true,
+
 
 
                 onChanged: (value){
@@ -316,13 +369,18 @@ class _SignInState extends State<SignIn> {
                 },
 
 
+
                 decoration: InputDecoration(
+
 
                   hintText: 'Enter your Password',
 
+
                   filled: true,
 
+
                   fillColor: Color(0xFFF1F1F5),
+
 
 
                   border: OutlineInputBorder(
@@ -334,6 +392,7 @@ class _SignInState extends State<SignIn> {
                   ),
 
 
+
                   contentPadding: EdgeInsets.symmetric(
 
                     horizontal: 20,
@@ -342,13 +401,18 @@ class _SignInState extends State<SignIn> {
 
                   ),
 
+
                 ),
+
 
               ),
 
 
 
+
+
               SizedBox(height: 15),
+
 
 
 
@@ -358,6 +422,7 @@ class _SignInState extends State<SignIn> {
                 onPressed: () {},
 
 
+
                 style: TextButton.styleFrom(
 
                   padding: EdgeInsets.zero,
@@ -365,6 +430,7 @@ class _SignInState extends State<SignIn> {
                   alignment: Alignment.centerLeft,
 
                 ),
+
 
 
                 child: Text(
@@ -390,20 +456,28 @@ class _SignInState extends State<SignIn> {
 
 
 
+
+
               SizedBox(height: 20),
+
+
 
 
 
               Center(
 
+
                 child: SizedBox(
+
 
                   width: 250,
 
                   height: 60,
 
 
+
                   child: ElevatedButton(
+
 
 
                     onPressed: isLoginActive
@@ -414,7 +488,10 @@ class _SignInState extends State<SignIn> {
 
 
 
+
                     style: ElevatedButton.styleFrom(
+
+
 
                       backgroundColor: isLoginActive
 
@@ -423,7 +500,9 @@ class _SignInState extends State<SignIn> {
                           : Color(0xFF2563EB),
 
 
+
                       foregroundColor: Colors.white,
+
 
 
                       shape: RoundedRectangleBorder(
@@ -432,12 +511,17 @@ class _SignInState extends State<SignIn> {
 
                       ),
 
+
                     ),
+
+
 
 
                     child: Text(
 
+
                       'Login',
+
 
 
                       style: TextStyle(
@@ -448,7 +532,9 @@ class _SignInState extends State<SignIn> {
 
                       ),
 
+
                     ),
+
 
                   ),
 
@@ -458,31 +544,44 @@ class _SignInState extends State<SignIn> {
 
 
 
+
+
               SizedBox(height: 20),
+
+
 
 
 
               Center(
 
+
                 child: SizedBox(
+
 
                   width: 300,
 
 
+
                   child: TextButton(
+
 
                     onPressed: (){
 
 
                       Navigator.push(
 
+
                         context,
+
 
                         MaterialPageRoute(
 
+
                           builder: (context)=> const SignUpPage(),
 
+
                         ),
+
 
                       );
 
@@ -490,9 +589,12 @@ class _SignInState extends State<SignIn> {
                     },
 
 
+
                     child: Text(
 
+
                       'Create a new account',
+
 
 
                       style: TextStyle(
@@ -507,22 +609,31 @@ class _SignInState extends State<SignIn> {
 
                       ),
 
+
                     ),
+
 
                   ),
 
+
                 ),
+
 
               ),
 
 
+
             ],
+
 
           ),
 
+
         ),
 
+
       ),
+
 
     );
 
