@@ -1,711 +1,335 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-
-
+import 'sign_in.dart';
 
 class SignUpPage extends StatefulWidget {
-
   const SignUpPage({super.key});
-
 
   @override
   State<SignUpPage> createState() => _SignUpPageState();
-
 }
 
-
-
 class _SignUpPageState extends State<SignUpPage> {
-
-
-
   String name = "";
   String phone = "";
   String email = "";
   String password = "";
   String confirmPassword = "";
 
-
-
   bool isSignupActive = false;
 
-
-
-
-  void checkSignupButton(){
-
-
+  void checkSignupButton() {
     setState(() {
-
-
       isSignupActive =
-
           name.isNotEmpty &&
-
-              phone.isNotEmpty &&
-
-              email.isNotEmpty &&
-
-              password.isNotEmpty &&
-
-              confirmPassword.isNotEmpty;
-
-
-
+          phone.isNotEmpty &&
+          email.isNotEmpty &&
+          password.isNotEmpty &&
+          confirmPassword.isNotEmpty;
     });
-
-
   }
 
-
-
-
-
-
-
   Future<void> signupUser() async {
-
-
-
-    if(password != confirmPassword){
-
-
+    if (password != confirmPassword) {
       ScaffoldMessenger.of(context).showSnackBar(
-
         const SnackBar(
-
-          content: Text(
-            "Password doesn't match/\n Please Try Again.",
-          ),
-
+          content: Text("Password doesn't match/\n Please Try Again."),
         ),
-
       );
-
 
       return;
-
-
     }
 
-
-
-
-
     try {
+      UserCredential userCredential = await FirebaseAuth.instance
+          .createUserWithEmailAndPassword(
+            email: email.trim(),
 
-
-
-      // Firebase Authentication
-
-      UserCredential userCredential =
-
-      await FirebaseAuth.instance.createUserWithEmailAndPassword(
-
-
-        email: email.trim(),
-
-        password: password.trim(),
-
-
-      );
-
-
-
-
-
-
-      // Get user UID
+            password: password.trim(),
+          );
 
       String uid = userCredential.user!.uid;
 
-
-
-
-
-
-      // Save user data to Firestore
-
-      await FirebaseFirestore.instance
-
-          .collection("users")
-
-          .doc(uid)
-
-          .set({
-
-
+      await FirebaseFirestore.instance.collection("users").doc(uid).set({
         "name": name.trim(),
 
         "phone": phone.trim(),
 
         "email": email.trim(),
-
-
       });
 
-
-
-
-
-
       ScaffoldMessenger.of(context).showSnackBar(
-
-
-        const SnackBar(
-
-          content: Text(
-
-            "Account Created Successfully",
-
-          ),
-
-        ),
-
-
+        const SnackBar(content: Text("Account Created Successfully")),
       );
-
-
-
-
-
 
       Navigator.pop(context);
-
-
-
-
-
+    } on FirebaseAuthException catch (e) {
+      ScaffoldMessenger.of(
+        context,
+      ).showSnackBar(SnackBar(content: Text(e.message ?? "Signup Failed")));
     }
-
-
-
-
-    on FirebaseAuthException catch(e){
-
-
-
-      ScaffoldMessenger.of(context).showSnackBar(
-
-
-        SnackBar(
-
-          content: Text(
-
-            e.message ?? "Signup Failed",
-
-          ),
-
-
-        ),
-
-
-      );
-
-
-    }
-
-
-
   }
-
-
-
-
-
-
-
 
   @override
   Widget build(BuildContext context) {
-
-
     return Scaffold(
-
-
       backgroundColor: Colors.white,
 
-
-
       appBar: AppBar(
-
         backgroundColor: Colors.white,
 
         leading: IconButton(
+          icon: const Icon(Icons.arrow_back, color: Colors.black),
 
-          icon: const Icon(
-
-            Icons.arrow_back,
-
-            color: Colors.black,
-
-          ),
-
-
-          onPressed: (){
-
+          onPressed: () {
             Navigator.pop(context);
-
           },
-
         ),
-
       ),
-
-
-
-
 
       body: SingleChildScrollView(
-
-
         child: Padding(
-
-
-          padding: const EdgeInsets.symmetric(horizontal:20),
-
-
+          padding: const EdgeInsets.symmetric(horizontal: 20),
 
           child: Column(
-
-
             crossAxisAlignment: CrossAxisAlignment.start,
 
-
             children: [
-
-
-
-
-              const SizedBox(height:20),
-
-
-
+              const SizedBox(height: 20),
 
               Center(
-
-                child: Image.asset(
-
-                  'assets/images/bookverse.png',
-
-                  height:100,
-
-                ),
-
+                child: Image.asset('assets/images/bookverse.png', height: 100),
               ),
 
-
-
-
-
-              const SizedBox(height:20),
-
-
-
-
-
+              const SizedBox(height: 20),
 
               const Text(
-
                 "Name:",
 
-                style: TextStyle(
-
-                  fontSize:18,
-
-                  fontWeight:FontWeight.bold,
-
-                ),
-
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
               ),
-
-
-
 
               TextField(
-
-                onChanged:(value){
-
-                  name=value;
+                onChanged: (value) {
+                  name = value;
 
                   checkSignupButton();
-
                 },
 
+                decoration: InputDecoration(
+                  hintText: "Enter your name",
 
-                decoration:InputDecoration(
+                  filled: true,
 
-                  hintText:"Enter your name",
+                  fillColor: Color(0xFFF1F1F5),
 
-                  filled:true,
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(20),
 
-                  fillColor:Color(0xFFF1F1F5),
-
-                  border:OutlineInputBorder(
-
-                    borderRadius:BorderRadius.circular(20),
-
-                    borderSide:BorderSide.none,
-
+                    borderSide: BorderSide.none,
                   ),
-
                 ),
-
               ),
 
-
-
-
-
-
-              const SizedBox(height:15),
-
-
-
-
+              const SizedBox(height: 15),
 
               const Text(
-
                 "Mobile Number:",
 
-                style: TextStyle(
-
-                  fontSize:18,
-
-                  fontWeight:FontWeight.bold,
-
-                ),
-
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
               ),
-
-
-
-
 
               TextField(
+                keyboardType: TextInputType.phone,
 
-                keyboardType:TextInputType.phone,
-
-
-                onChanged:(value){
-
-                  phone=value;
+                onChanged: (value) {
+                  phone = value;
 
                   checkSignupButton();
-
                 },
 
+                decoration: InputDecoration(
+                  hintText: "Enter your phone number",
 
-                decoration:InputDecoration(
+                  filled: true,
 
-                  hintText:"Enter your phone number",
+                  fillColor: Color(0xFFF1F1F5),
 
-                  filled:true,
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(20),
 
-                  fillColor:Color(0xFFF1F1F5),
-
-                  border:OutlineInputBorder(
-
-                    borderRadius:BorderRadius.circular(20),
-
-                    borderSide:BorderSide.none,
-
+                    borderSide: BorderSide.none,
                   ),
-
                 ),
-
               ),
 
-
-
-
-
-
-              const SizedBox(height:15),
-
-
-
-
-
+              const SizedBox(height: 15),
 
               const Text(
-
                 "Email Address:",
 
-                style:TextStyle(
-
-                  fontSize:18,
-
-                  fontWeight:FontWeight.bold,
-
-                ),
-
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
               ),
-
-
-
-
-
 
               TextField(
-
-                onChanged:(value){
-
-                  email=value;
+                onChanged: (value) {
+                  email = value;
 
                   checkSignupButton();
-
                 },
 
+                decoration: InputDecoration(
+                  hintText: "Enter your email",
 
+                  filled: true,
 
-                decoration:InputDecoration(
+                  fillColor: Color(0xFFF1F1F5),
 
-                  hintText:"Enter your email",
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(20),
 
-                  filled:true,
-
-                  fillColor:Color(0xFFF1F1F5),
-
-                  border:OutlineInputBorder(
-
-                    borderRadius:BorderRadius.circular(20),
-
-                    borderSide:BorderSide.none,
-
+                    borderSide: BorderSide.none,
                   ),
-
                 ),
-
               ),
 
-
-
-
-
-
-              const SizedBox(height:15),
-
-
-
-
-
+              const SizedBox(height: 15),
               const Text(
-
                 "Password:",
 
-                style:TextStyle(
-
-                  fontSize:18,
-
-                  fontWeight:FontWeight.bold,
-
-                ),
-
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
               ),
-
-
-
-
 
               TextField(
+                obscureText: true,
 
-                obscureText:true,
-
-
-                onChanged:(value){
-
-                  password=value;
+                onChanged: (value) {
+                  password = value;
 
                   checkSignupButton();
-
                 },
 
+                decoration: InputDecoration(
+                  hintText: "Enter password",
 
+                  filled: true,
 
-                decoration:InputDecoration(
+                  fillColor: Color(0xFFF1F1F5),
 
-                  hintText:"Enter password",
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(20),
 
-                  filled:true,
-
-                  fillColor:Color(0xFFF1F1F5),
-
-                  border:OutlineInputBorder(
-
-                    borderRadius:BorderRadius.circular(20),
-
-                    borderSide:BorderSide.none,
-
+                    borderSide: BorderSide.none,
                   ),
-
                 ),
-
               ),
 
-
-
-
-
-
-              const SizedBox(height:15),
-
-
-
-
+              const SizedBox(height: 15),
 
               const Text(
-
                 "Confirm Password:",
 
-                style:TextStyle(
-
-                  fontSize:18,
-
-                  fontWeight:FontWeight.bold,
-
-                ),
-
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
               ),
-
-
-
-
 
               TextField(
+                obscureText: true,
 
-                obscureText:true,
-
-
-                onChanged:(value){
-
-                  confirmPassword=value;
+                onChanged: (value) {
+                  confirmPassword = value;
 
                   checkSignupButton();
-
                 },
 
+                decoration: InputDecoration(
+                  hintText: "Confirm password",
 
-                decoration:InputDecoration(
+                  filled: true,
 
-                  hintText:"Confirm password",
+                  fillColor: Color(0xFFF1F1F5),
 
-                  filled:true,
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(20),
 
-                  fillColor:Color(0xFFF1F1F5),
-
-                  border:OutlineInputBorder(
-
-                    borderRadius:BorderRadius.circular(20),
-
-                    borderSide:BorderSide.none,
-
+                    borderSide: BorderSide.none,
                   ),
-
                 ),
-
               ),
 
-
-
-
-
-
-              const SizedBox(height:30),
-
-
-
-
-
+              const SizedBox(height: 30),
 
               Center(
+                child: SizedBox(
+                  width: 250,
 
+                  height: 60,
 
-                child:SizedBox(
+                  child: ElevatedButton(
+                    onPressed: isSignupActive ? signupUser : null,
 
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.black,
 
-                  width:250,
+                      foregroundColor: Colors.white,
 
-                  height:60,
-
-
-
-                  child:ElevatedButton(
-
-
-
-                    onPressed:isSignupActive
-
-                        ? signupUser
-
-                        : null,
-
-
-
-                    style:ElevatedButton.styleFrom(
-
-
-                      backgroundColor:Colors.black,
-
-                      foregroundColor:Colors.white,
-
-
-                      shape:RoundedRectangleBorder(
-
-                        borderRadius:BorderRadius.circular(30),
-
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(30),
                       ),
-
-
                     ),
 
-
-
-                    child:const Text(
-
+                    child: const Text(
                       "Sign Up",
 
-                      style:TextStyle(
-
-                        fontSize:25,
-
-                      ),
-
+                      style: TextStyle(fontSize: 25),
                     ),
-
-
                   ),
-
-
                 ),
-
-
               ),
 
+              const SizedBox(height: 30),
 
+              Center(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
 
-              const SizedBox(height:30),
+                  children: [
+                    const Text(
+                      "Already have an account? ",
 
+                      style: TextStyle(fontSize: 16, color: Colors.black),
+                    ),
 
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
 
+                          MaterialPageRoute(
+                            builder: (context) => const SignIn(),
+                          ),
+                        );
+                      },
+
+                      child: const Text(
+                        "Login",
+
+                        style: TextStyle(
+                          fontSize: 16,
+
+                          color: Colors.blue,
+
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
             ],
-
-
           ),
-
-
         ),
-
-
       ),
-
-
-
     );
-
-
   }
-
-
 }
