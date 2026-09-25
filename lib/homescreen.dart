@@ -4,6 +4,7 @@ import 'sign_in.dart';
 import 'CartPage.dart';
 import 'profile_page.dart';
 import 'drawer.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 
 class HomeScreen extends StatelessWidget {
@@ -747,7 +748,7 @@ class HomeScreen extends StatelessWidget {
                 size: 30,
                 color:Colors.black,
             ),
-            label: 'STORE',
+            label: 'SEARCH',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.shopping_bag_rounded,

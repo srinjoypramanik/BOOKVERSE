@@ -1,20 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'sign_in.dart';
 
 
 class SignUpPage extends StatefulWidget {
-
   const SignUpPage({super.key});
-
 
   @override
   State<SignUpPage> createState() => _SignUpPageState();
-
 }
 
 
-
 class _SignUpPageState extends State<SignUpPage> {
-
 
   String name = "";
   String phone = "";
@@ -22,649 +20,326 @@ class _SignUpPageState extends State<SignUpPage> {
   String password = "";
   String confirmPassword = "";
 
-
   bool isSignupActive = false;
 
-
-
-  void checkSignupButton(){
-
-
+  void checkSignupButton() {
     setState(() {
-
       isSignupActive =
           name.isNotEmpty &&
-              phone.isNotEmpty &&
-              email.isNotEmpty &&
-              password.isNotEmpty &&
-              confirmPassword.isNotEmpty;
-
+          phone.isNotEmpty &&
+          email.isNotEmpty &&
+          password.isNotEmpty &&
+          confirmPassword.isNotEmpty;
 
     });
-
-
   }
 
+  Future<void> signupUser() async {
+    if (password != confirmPassword) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text("Password doesn't match/\n Please Try Again."),
+        ),
+      );
 
+      return;
+    }
+
+    try {
+
+      UserCredential userCredential = await FirebaseAuth.instance
+          .createUserWithEmailAndPassword(
+            email: email.trim(),
+
+            password: password.trim(),
+          );
+
+      String uid = userCredential.user!.uid;
+
+      await FirebaseFirestore.instance.collection("users").doc(uid).set({
+        "name": name.trim(),
+
+        "phone": phone.trim(),
+
+        "email": email.trim(),
+      });
+
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text("Account Created Successfully",
+          ),
+        ),
+      );
+
+      Navigator.pop(context);
+    } on FirebaseAuthException catch (e) {
+      ScaffoldMessenger.of(
+        context,
+      ).showSnackBar(SnackBar(content: Text(e.message ?? "Signup Failed",
+          ),
+        ),
+      );
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
-
       backgroundColor: Colors.white,
 
-
       appBar: AppBar(
-
         backgroundColor: Colors.white,
 
-
         leading: IconButton(
+          icon: const Icon(Icons.arrow_back, color: Colors.black),
 
-          icon: Icon(
-            Icons.arrow_back,
-            color: Colors.black,
-            size: 30,
-          ),
-
-
-          onPressed: (){
-
+          onPressed: () {
             Navigator.pop(context);
-
           },
-
         ),
-
       ),
 
-
-
       body: SingleChildScrollView(
-
         child: Padding(
-
-          padding: EdgeInsets.symmetric(horizontal: 20),
-
+          padding: const EdgeInsets.symmetric(horizontal: 20),
 
           child: Column(
-
             crossAxisAlignment: CrossAxisAlignment.start,
 
-
             children: [
-
-
-              SizedBox(height: 8),
-
+              const SizedBox(height: 20),
 
               Center(
-
-                child: SizedBox(
-
-                  height: 70,
-
-                  child: Image.asset(
-
-                    'assets/images/bookverse.png',
-
-                  ),
-
-                ),
-
+                child: Image.asset('assets/images/bookverse.png', height: 100),
               ),
 
+              const SizedBox(height: 20),
 
+              const Text(
+                "Name:",
 
-
-
-              SizedBox(height: 8),
-
-
-
-
-              Center(
-
-                child: TextButton(
-
-                  onPressed: (){
-
-
-                  },
-
-
-                  child: Text(
-
-                    "Sign up with email",
-
-
-                    style: TextStyle(
-
-                      fontSize: 20,
-
-                      fontWeight: FontWeight.bold,
-
-                      decoration: TextDecoration.underline,
-
-                    ),
-
-                  ),
-
-                ),
-
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
               ),
-
-
-
-
-
-              SizedBox(height: 8),
-
-
-
-
-
-              Text(
-
-                "Full Name:",
-
-                style: TextStyle(
-
-                  fontSize: 18,
-
-                  fontWeight: FontWeight.bold,
-
-                ),
-
-              ),
-
-
-
-              SizedBox(height: 8),
-
-
-
-
 
               TextField(
-
-                onChanged: (value){
-
+                onChanged: (value) {
                   name = value;
 
                   checkSignupButton();
-
                 },
 
-
                 decoration: InputDecoration(
-
-                  hintText: "Enter your full name",
+                  hintText: "Enter your name",
 
                   filled: true,
 
                   fillColor: Color(0xFFF1F1F5),
 
-
                   border: OutlineInputBorder(
-
                     borderRadius: BorderRadius.circular(20),
 
                     borderSide: BorderSide.none,
-
                   ),
-
-
-                  contentPadding: EdgeInsets.symmetric(
-
-                    horizontal: 20,
-
-                    vertical: 16,
-
-                  ),
-
                 ),
-
               ),
 
+              const SizedBox(height: 15),
 
+              const Text(
+                "Mobile Number:",
 
-
-
-              SizedBox(height: 8),
-
-
-
-
-
-              Text(
-
-                "Phone Number:",
-
-                style: TextStyle(
-
-                  fontSize: 18,
-
-                  fontWeight: FontWeight.bold,
-
-                ),
-
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
               ),
-
-
-
-
-              SizedBox(height: 8),
-
-
-
-
 
               TextField(
+                keyboardType: TextInputType.phone,
 
-                onChanged: (value){
-
+                onChanged: (value) {
                   phone = value;
 
                   checkSignupButton();
-
                 },
 
-
                 decoration: InputDecoration(
-
                   hintText: "Enter your phone number",
 
                   filled: true,
 
                   fillColor: Color(0xFFF1F1F5),
 
-
                   border: OutlineInputBorder(
-
                     borderRadius: BorderRadius.circular(20),
 
                     borderSide: BorderSide.none,
-
                   ),
-
-
-                  contentPadding: EdgeInsets.symmetric(
-
-                    horizontal: 20,
-
-                    vertical: 16,
-
-                  ),
-
                 ),
-
               ),
 
+              const SizedBox(height: 15),
 
-
-
-
-              SizedBox(height: 8),
-
-
-
-
-
-              Text(
-
+              const Text(
                 "Email Address:",
 
-                style: TextStyle(
-
-                  fontSize: 18,
-
-                  fontWeight: FontWeight.bold,
-
-                ),
-
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
               ),
 
-
-
-
-
-              SizedBox(height: 8),
-
-
-
-
-
               TextField(
-
-                onChanged: (value){
-
+                onChanged: (value) {
                   email = value;
 
                   checkSignupButton();
-
                 },
 
-
                 decoration: InputDecoration(
-
                   hintText: "Enter your email",
 
                   filled: true,
 
                   fillColor: Color(0xFFF1F1F5),
 
-
                   border: OutlineInputBorder(
-
                     borderRadius: BorderRadius.circular(20),
 
                     borderSide: BorderSide.none,
-
                   ),
-
-
-                  contentPadding: EdgeInsets.symmetric(
-
-                    horizontal: 20,
-
-                    vertical: 16,
-
-                  ),
-
                 ),
-
               ),
 
-
-
-
-
-              SizedBox(height: 8),
-
-
-
-
-
-              Text(
-
+              const SizedBox(height: 15),
+              const Text(
                 "Password:",
 
-                style: TextStyle(
-
-                  fontSize: 18,
-
-                  fontWeight: FontWeight.bold,
-
-                ),
-
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
               ),
 
-
-
-
-
-              SizedBox(height: 8),
-
-
-
-
-
               TextField(
-
                 obscureText: true,
 
-
-                onChanged: (value){
-
+                onChanged: (value) {
                   password = value;
 
                   checkSignupButton();
-
                 },
 
-
                 decoration: InputDecoration(
-
-                  hintText: "Enter your password",
+                  hintText: "Enter password",
 
                   filled: true,
 
                   fillColor: Color(0xFFF1F1F5),
 
-
                   border: OutlineInputBorder(
-
                     borderRadius: BorderRadius.circular(20),
 
                     borderSide: BorderSide.none,
-
                   ),
-
-
-                  contentPadding: EdgeInsets.symmetric(
-
-                    horizontal: 20,
-
-                    vertical: 16,
-
-                  ),
-
                 ),
-
               ),
 
+              const SizedBox(height: 15),
 
-
-
-
-              SizedBox(height: 8),
-
-
-
-
-
-              Text(
-
+              const Text(
                 "Confirm Password:",
 
-                style: TextStyle(
-
-                  fontSize: 18,
-
-                  fontWeight: FontWeight.bold,
-
-                ),
-
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
               ),
 
-
-
-
-
-              SizedBox(height: 8),
-
-
-
-
-
               TextField(
-
                 obscureText: true,
 
-
-                onChanged: (value){
-
+                onChanged: (value) {
                   confirmPassword = value;
 
                   checkSignupButton();
-
                 },
 
-
                 decoration: InputDecoration(
-
-                  hintText: "Re-enter your password",
+                  hintText: "Confirm password",
 
                   filled: true,
 
                   fillColor: Color(0xFFF1F1F5),
 
-
                   border: OutlineInputBorder(
-
                     borderRadius: BorderRadius.circular(20),
 
                     borderSide: BorderSide.none,
-
                   ),
-
-
-                  contentPadding: EdgeInsets.symmetric(
-
-                    horizontal: 20,
-
-                    vertical: 16,
-
-                  ),
-
                 ),
-
               ),
 
-
-
-
-
-              SizedBox(height: 20),
-
-
-
-
+              const SizedBox(height: 30),
 
               Center(
-
                 child: SizedBox(
-
                   width: 250,
 
                   height: 60,
 
-
                   child: ElevatedButton(
-
-                    onPressed: (){
-
-
-                    },
-
+                    onPressed: isSignupActive ? signupUser : null,
 
                     style: ElevatedButton.styleFrom(
-
-
-                      backgroundColor: isSignupActive
-
-                          ? Colors.black
-
-                          : Color(0xFF2563EB),
-
-
+                      backgroundColor: Colors.black,
 
                       foregroundColor: Colors.white,
 
-
                       shape: RoundedRectangleBorder(
-
                         borderRadius: BorderRadius.circular(30),
-
                       ),
-
                     ),
 
+                    child: const Text(
+                      "Sign Up",
 
-
-
-                    child: Text(
-
-                      "Sign up",
-
-
-                      style: TextStyle(
-
-                        fontSize: 23,
-
-                        fontWeight: FontWeight.bold,
-
-                      ),
-
+                      style: TextStyle(fontSize: 25),
                     ),
-
-
                   ),
-
                 ),
-
               ),
 
-
-
-
-
-              SizedBox(height: 8),
-
-
-
-
+              const SizedBox(height: 30),
 
               Center(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
 
-                child: TextButton(
+                  children: [
+                    const Text(
+                      "Already have an account? ",
 
-                  onPressed: (){
-
-
-                    Navigator.pop(context);
-
-
-                  },
-
-
-                  child: Text(
-
-                    "Already have an account? Login",
-
-
-                    style: TextStyle(
-
-                      color: Colors.black,
-
-                      fontSize: 18,
-
-                      fontWeight: FontWeight.w500,
-
-                      decoration: TextDecoration.underline,
-
+                      style: TextStyle(fontSize: 16, color: Colors.black),
                     ),
 
-                  ),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
 
+                          MaterialPageRoute(
+                            builder: (context) => const SignIn(),
+                          ),
+                        );
+                      },
+
+                      child: const Text(
+                        "Login",
+
+                        style: TextStyle(
+                          fontSize: 16,
+
+                          color: Colors.blue,
+
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
-
               ),
-
-
-
             ],
-
           ),
-
         ),
-
       ),
-
     );
-
   }
-
 }
