@@ -51,7 +51,8 @@ class _SignInState extends State<SignIn> {
           );
         }
       );
-    } on FirebaseAuthException catch (e) {
+    }
+    on FirebaseAuthException catch (e) {
       setState(() {
         showErrorSplash = true;
       });
