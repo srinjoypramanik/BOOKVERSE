@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+
 import 'package:bookverse/CartPage.dart';
 import 'package:bookverse/homescreen.dart';
-import 'settings.dart';
+import 'settings.dart' as my_settings;
 
 
 
@@ -11,11 +13,37 @@ class ProfilePage extends StatelessWidget {
   const ProfilePage({super.key});
 
 
+
   @override
   Widget build(BuildContext context) {
 
 
     User? user = FirebaseAuth.instance.currentUser;
+
+
+
+    // No user logged in
+    if(user == null){
+
+      return Scaffold(
+
+        backgroundColor: Colors.white,
+
+        body: Center(
+
+          child: Text(
+            "No User Logged In",
+            style: TextStyle(
+              fontSize: 20,
+            ),
+          ),
+
+        ),
+
+      );
+
+    }
+
 
 
 
@@ -36,314 +64,249 @@ class ProfilePage extends StatelessWidget {
 
 
 
-      body: Center(
 
 
-        child: Column(
+      body: FutureBuilder<DocumentSnapshot>(
 
 
-          mainAxisAlignment: MainAxisAlignment.start,
+        future: FirebaseFirestore.instance
 
+            .collection("users")
 
-          crossAxisAlignment: CrossAxisAlignment.center,
+            .doc(user.uid)
 
-
-
-          children: [
-
-
-
-            SizedBox(height: 50),
+            .get(),
 
 
 
 
-
-            Icon(
-
-              Icons.person,
-
-              size: 100,
-
-              color: Colors.black,
-
-            ),
+        builder: (context, snapshot){
 
 
 
+          if(snapshot.connectionState == ConnectionState.waiting){
 
 
-            SizedBox(height: 20),
+            return Center(
+
+              child: CircularProgressIndicator(),
+
+            );
+
+
+          }
 
 
 
 
 
-            // User Name
+          if(!snapshot.hasData || snapshot.data!.data() == null){
 
-            Text(
 
-              user?.displayName ?? "USER NAME",
+            return Center(
 
-              style: TextStyle(
+              child: Text(
 
-                fontSize: 30,
+                "User Information Not Found",
 
-                fontWeight: FontWeight.bold,
+                style: TextStyle(
+
+                  fontSize: 18,
+
+                ),
 
               ),
 
-            ),
+            );
+
+
+          }
 
 
 
 
 
-            SizedBox(height: 8),
+          Map<String,dynamic> data =
+
+          snapshot.data!.data()
+
+          as Map<String,dynamic>;
 
 
 
 
 
-            // Mobile Number
 
-            Text(
+          return Center(
 
-              "01XXXXXXXXX",
 
-              style: TextStyle(
+            child: Column(
 
-                fontSize: 16,
 
-                color: Colors.grey,
+              mainAxisAlignment: MainAxisAlignment.start,
 
-              ),
 
-            ),
+              crossAxisAlignment: CrossAxisAlignment.center,
 
 
 
+              children: [
 
 
-            SizedBox(height: 8),
+
+                SizedBox(height:50),
 
 
 
 
 
-            // Email
+                Icon(
 
-            Text(
+                  Icons.person,
 
-              user?.email ?? "user@gmail.com",
+                  size:100,
 
-              style: TextStyle(
+                  color:Colors.black,
 
-                fontSize: 16,
-
-                color: Colors.grey,
-
-              ),
-
-            ),
+                ),
 
 
 
 
 
-            SizedBox(height: 140),
+                SizedBox(height:20),
 
 
 
 
 
-            TextButton(
+                // Name
+
+                Text(
 
 
-              onPressed: (){
+                  data["name"] ?? "USER NAME",
 
 
-                Navigator.push(
+                  style:TextStyle(
 
-                  context,
+                    fontSize:30,
 
-                  MaterialPageRoute(
-
-                    builder: (context)=> const Cart(),
+                    fontWeight:FontWeight.bold,
 
                   ),
 
-                );
-
-
-              },
-
-
-
-              child: Text(
-
-                "My Orders",
-
-
-                style: TextStyle(
-
-                  fontSize: 20,
-
-                  fontWeight: FontWeight.bold,
-
-                  decoration: TextDecoration.underline,
 
                 ),
 
-              ),
-
-            ),
 
 
 
 
-
-            SizedBox(height: 20),
+                SizedBox(height:8),
 
 
 
 
 
-            TextButton(
+                // Mobile Number
+
+                Text(
 
 
-              onPressed: () {},
+                  data["phone"] ?? "Mobile Number",
 
 
+                  style:TextStyle(
 
-              child: Text(
+                    fontSize:16,
 
-                "Wishlist",
-
-
-                style: TextStyle(
-
-                  fontSize: 20,
-
-                  fontWeight: FontWeight.bold,
-
-                  decoration: TextDecoration.underline,
-
-                ),
-
-              ),
-
-            ),
-
-
-
-
-
-            SizedBox(height: 20),
-
-
-
-
-
-            TextButton(
-
-
-              onPressed: (){
-
-
-                Navigator.push(
-
-                  context,
-
-                  MaterialPageRoute(
-
-                    builder: (context)=> const Settings(),
+                    color:Colors.grey,
 
                   ),
 
-                );
-
-
-              },
-
-
-
-              child: Text(
-
-                "Settings",
-
-
-                style: TextStyle(
-
-                  fontSize: 20,
-
-                  fontWeight: FontWeight.bold,
-
-                  decoration: TextDecoration.underline,
 
                 ),
 
-              ),
-
-            ),
 
 
 
 
-
-            SizedBox(height: 120),
+                SizedBox(height:8),
 
 
 
 
 
-            SizedBox(
+                // Email
+
+                Text(
 
 
-              height: 50,
+                  data["email"] ?? "Email",
 
 
-              width: 200,
+                  style:TextStyle(
+
+                    fontSize:16,
+
+                    color:Colors.grey,
+
+                  ),
+
+
+                ),
 
 
 
-              child: ElevatedButton(
-
-
-                onPressed: () async {
 
 
 
-                  await FirebaseAuth.instance.signOut();
+                SizedBox(height:140),
 
 
 
-                  Navigator.pushReplacement(
 
-                    context,
 
-                    MaterialPageRoute(
+                TextButton(
 
-                      builder: (context)=> const HomeScreen(),
+
+                  onPressed:(){
+
+
+
+                    Navigator.push(
+
+                      context,
+
+                      MaterialPageRoute(
+
+                        builder:(context)=> const Cart(),
+
+                      ),
+
+                    );
+
+
+                  },
+
+
+
+                  child:Text(
+
+                    "My Orders",
+
+
+                    style:TextStyle(
+
+                      fontSize:20,
+
+                      fontWeight:FontWeight.bold,
+
+                      decoration:TextDecoration.underline,
 
                     ),
 
-                  );
-
-
-                },
-
-
-
-                style: ElevatedButton.styleFrom(
-
-
-                  backgroundColor: Colors.black,
-
-
-                  shape: RoundedRectangleBorder(
-
-                    borderRadius: BorderRadius.circular(30),
 
                   ),
 
@@ -352,17 +315,36 @@ class ProfilePage extends StatelessWidget {
 
 
 
-                child: Text(
 
 
-                  "Logout",
+                SizedBox(height:20),
 
 
-                  style: TextStyle(
 
-                    color: Colors.white,
 
-                    fontSize: 25,
+
+                TextButton(
+
+
+                  onPressed:(){},
+
+
+
+                  child:Text(
+
+                    "Wishlist",
+
+
+                    style:TextStyle(
+
+                      fontSize:20,
+
+                      fontWeight:FontWeight.bold,
+
+                      decoration:TextDecoration.underline,
+
+                    ),
+
 
                   ),
 
@@ -370,20 +352,177 @@ class ProfilePage extends StatelessWidget {
                 ),
 
 
-              ),
+
+
+
+
+                SizedBox(height:20),
+
+
+
+
+
+                TextButton(
+
+
+                  onPressed:(){
+
+
+
+                    Navigator.push(
+
+                      context,
+
+                      MaterialPageRoute(
+
+                        builder:(context)=> const my_settings.Settings(),
+
+                      ),
+
+                    );
+
+
+                  },
+
+
+
+                  child:Text(
+
+                    "Settings",
+
+
+                    style:TextStyle(
+
+                      fontSize:20,
+
+                      fontWeight:FontWeight.bold,
+
+                      decoration:TextDecoration.underline,
+
+                    ),
+
+
+                  ),
+
+
+                ),
+
+
+
+
+
+
+                SizedBox(height:120),
+
+
+
+
+
+                SizedBox(
+
+
+                  width:200,
+
+
+                  height:50,
+
+
+
+                  child: ElevatedButton(
+
+
+                    onPressed:() async {
+
+
+
+                      await FirebaseAuth.instance.signOut();
+
+
+
+                      Navigator.pushReplacement(
+
+
+                        context,
+
+
+                        MaterialPageRoute(
+
+
+                          builder:(context)=> const HomeScreen(),
+
+
+                        ),
+
+
+                      );
+
+
+
+                    },
+
+
+
+
+                    style:ElevatedButton.styleFrom(
+
+
+                      backgroundColor:Colors.black,
+
+
+
+                      shape:RoundedRectangleBorder(
+
+                        borderRadius:BorderRadius.circular(30),
+
+                      ),
+
+
+                    ),
+
+
+
+
+
+                    child:Text(
+
+
+                      "Logout",
+
+
+                      style:TextStyle(
+
+                        color:Colors.white,
+
+                        fontSize:25,
+
+                      ),
+
+
+                    ),
+
+
+                  ),
+
+
+                ),
+
+
+
+              ],
 
 
             ),
 
 
+          );
 
-          ],
 
 
-        ),
+        },
 
 
       ),
+
 
 
     );
