@@ -176,7 +176,7 @@ class _SignInState extends State<SignIn> {
                 child: Center(
 
                   child: Image.asset(
-                    
+
                     'assets/images/bookverse.png',
 
                     height: 300,
@@ -189,7 +189,9 @@ class _SignInState extends State<SignIn> {
               const SizedBox(height: 20),
               Center(
                 child: TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    
+                  },
 
                   child: const Text(
                     'Sign in with your email',
