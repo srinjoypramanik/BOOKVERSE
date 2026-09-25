@@ -43,13 +43,14 @@ class _SignInState extends State<SignIn> {
       });
 
       Timer(const Duration(seconds: 3), () {
-        
+
         Navigator.pushReplacement(
           context,
 
           MaterialPageRoute(builder: (context) => const HomeScreen()),
-        );
-      });
+          );
+        }
+      );
     } on FirebaseAuthException catch (e) {
       setState(() {
         showErrorSplash = true;
