@@ -815,7 +815,7 @@ class HomeScreen extends StatelessWidget {
                                   ),
                                 ),
                               ),
-                              Text('\$6.00',
+                              Text('\$8.00',
                                 style: TextStyle(
                                   fontSize: 18,
                                   fontWeight: FontWeight.bold,
@@ -849,6 +849,138 @@ class HomeScreen extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               const Text('COMPUTER \nSCIENCE',
+                                style: TextStyle(
+                                  color: Colors.grey,
+                                  fontSize: 14,
+                                ),
+                              ),
+                              ElevatedButton(
+                                onPressed: (){},
+                                style: ElevatedButton.styleFrom(
+                                  backgroundColor: Colors.black,
+                                  foregroundColor: Colors.white,
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.zero,
+                                  ),
+                                ),
+                                child: const Text('+ADD TO CART',
+                                  style: TextStyle(
+                                    fontSize: 12,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            // EE Book 1
+            GestureDetector(
+              onTap: () {
+                Navigator.push(context,
+                  MaterialPageRoute(
+                    builder: (context)=> const BookDetails(
+                      title: 'FUNDAMENTALS OF ELECTRIC CIRCUITS,\n6TH EDITION',
+                      author: 'by Charles K. Alexander, Matthew Sadiku',
+                      price:  '\$10.00',
+                      category: 'ELECTRICAL & ELECTRONICS',
+                      description: 'Fundamentals of Electric Circuits by Charles K. Alexander '
+                          'and Matthew N. O. Sadiku is a benchmark introductory engineering '
+                          'textbook published by McGraw-Hill that offers a clear, comprehensive,'
+                          ' and student-focused introduction to linear circuit analysis. The '
+                          'text is strategically organized into three distinct parts, '
+                          'sequentially guiding students through the foundational physics of '
+                          'DC circuits, the steady-state analysis of AC circuits, and advanced '
+                          'network analysis methods like Laplace and Fourier transforms. '
+                          'Renowned for its pedagogical clarity, the book introduces a '
+                          'signature six-step problem-solving methodology that trains '
+                          'students to systematically approach complex electrical engineering'
+                          ' challenges.',
+                      image: 'assets/images/fundamen_circuit.jpg',
+                    ),
+                  ),
+                );
+              },
+              child: Container(
+                margin: EdgeInsets.symmetric(
+                  horizontal: 16,
+                  vertical: 8,
+                ),
+                padding: EdgeInsets.all(8),
+                decoration: BoxDecoration(
+                  border: Border.all(
+                    color: Colors.black,
+                  ),
+                  borderRadius: BorderRadius.circular(5),
+                ),
+                child: Row(
+                  children: [
+                    Image.asset('assets/images/fundamen_circuit.jpg',
+                      width: 110,
+                      height: 198,
+                      fit: BoxFit.fitWidth,
+                    ),
+                    SizedBox(width: 10),
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Container(
+                                color: Colors.black,
+                                padding: EdgeInsets.symmetric(
+                                  horizontal: 8,
+                                  vertical: 4,
+                                ),
+
+                                child: Text('BRAND NEW',
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 12,
+                                  ),
+                                ),
+                              ),
+
+                              Text('\$10.00',
+                                style: TextStyle(
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ],
+                          ),
+
+                          SizedBox(height: 12),
+                          const Text('FUNDAMENTALS OF ELECTRIC CIRCUITS, 6TH EDITION ',
+                            maxLines: 2,
+                            overflow: TextOverflow.ellipsis,
+
+                            style: TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          SizedBox(height: 6),
+                          const Text('Charles K. Alexander, Matthew Sadiku',
+                            overflow: TextOverflow.ellipsis,
+                            style: TextStyle(
+                              color: Colors.grey,
+                            ),
+                          ),
+
+                          SizedBox(height: 1),
+                          const Divider(thickness: 0.5,),
+                          SizedBox(height: 1),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              const Text('ELECTRICAL & \nELECTRONICS',
                                 style: TextStyle(
                                   color: Colors.grey,
                                   fontSize: 14,
