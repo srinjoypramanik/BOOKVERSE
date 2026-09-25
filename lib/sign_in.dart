@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'sign_up.dart';
-
+import 'package:firebase_auth/firebase_auth.dart';
 
 class SignIn extends StatefulWidget {
 
