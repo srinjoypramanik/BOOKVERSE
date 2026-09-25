@@ -58,9 +58,11 @@ class _SignInState extends State<SignIn> {
       });
 
       Timer(const Duration(seconds: 3), () {
-        setState(() {
+        setState(
+                () {
           showErrorSplash = false;
-        });
+        }
+        );
       });
     }
   }
