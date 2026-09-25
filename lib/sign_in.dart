@@ -114,9 +114,9 @@ class _SignInState extends State<SignIn> {
               Image.asset(
                 'assets/images/login_failed.png',
 
-                height: 150,
+                height: 180,
 
-                width: 150,
+                width: 180,
               ),
 
               const SizedBox(height: 30),
