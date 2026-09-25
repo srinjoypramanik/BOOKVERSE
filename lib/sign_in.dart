@@ -35,7 +35,6 @@ class _SignInState extends State<SignIn> {
     try {
       await FirebaseAuth.instance.signInWithEmailAndPassword(
         email: email.trim(),
-
         password: password.trim(),
       );
 
