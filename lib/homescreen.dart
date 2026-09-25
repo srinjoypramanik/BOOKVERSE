@@ -81,7 +81,23 @@ class HomeScreen extends StatelessWidget {
 
                   SizedBox(width: 10),
 
-                  
+                  GestureDetector(
+                    onTap: (){},
+                    child: Container(
+                      padding: EdgeInsets.symmetric(
+                        horizontal: 20,
+                        vertical: 12,
+                      ),
+                      color: Colors.black,
+
+                      child: Text('ALL BOOKS',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                  ),
 
                   SizedBox(width: 10),
                   Container(
