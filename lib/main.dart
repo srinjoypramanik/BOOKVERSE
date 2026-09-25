@@ -5,8 +5,17 @@ import 'splashscreen.dart';
 import 'bookdetails.dart';
 import 'CartPage.dart';
 
-void main(){
+void main() async{
   runApp(const MyApp());
+
+  // for firebase.
+  WidgetsFlutterBinding.ensureInitialized();
+
+  await Firebase.initializeApp(
+
+    options: DefaultFirebaseOptions.currentPlatform,
+
+  );
 }
 
 class MyApp extends StatelessWidget{
