@@ -74,7 +74,7 @@ class _SignUpPageState extends State<SignUpPage> {
     } on FirebaseAuthException catch (e) {
       ScaffoldMessenger.of(
         context,
-      ).showSnackBar(SnackBar(content: Text(e.message ?? "Signup Failed",),));
+      ).showSnackBar(SnackBar(content: Text(e.message ?? "Signup Failed",),),;
     }
   }
 
