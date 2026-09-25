@@ -213,7 +213,7 @@ class _SignInState extends State<SignIn> {
                 'Email Address:',
 
                 style: TextStyle(fontSize: 18,
-                    fontWeight: FontWeight.bold),
+                    fontWeight: FontWeight.bold,),
               ),
 
               SizedBox(height: 10),
