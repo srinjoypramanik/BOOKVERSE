@@ -39,7 +39,7 @@ class BookDetails extends StatelessWidget{
         ),
 
         centerTitle: true,
-        title: Text('BOOK METRICS',
+        title: Text('BOOK DETAILS',
           style: TextStyle(
             color: Colors.grey,
             fontWeight: FontWeight.bold,

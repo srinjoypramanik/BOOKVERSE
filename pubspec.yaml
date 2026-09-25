@@ -63,6 +63,10 @@ flutter:
     - assets/images/si_cp.jpg
     - assets/images/after_login.png
     - assets/images/login_failed.png
+    - assets/images/fundamen_circuit.jpg
+    - assets/images/elec_device.jpg
+    - assets/images/microelec_circuit.jpg
+    - assets/images/art_of_elec.jpg
 
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
