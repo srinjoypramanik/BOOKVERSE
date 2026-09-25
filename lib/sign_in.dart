@@ -169,11 +169,12 @@ class _SignInState extends State<SignIn> {
             crossAxisAlignment: CrossAxisAlignment.start,
 
             children: [
-              
+
               SizedBox(
                 height: 100,
 
                 child: Center(
+                  
                   child: Image.asset(
                     'assets/images/bookverse.png',
 
