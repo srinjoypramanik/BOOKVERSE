@@ -148,26 +148,52 @@ class HomeScreen extends StatelessWidget {
                     ),
                   ),
 
-
                   SizedBox(width: 8),
-                  Container(
-                    padding: EdgeInsets.symmetric(
-                      horizontal: 16,
-                      vertical: 12,
-                    ),
-                    decoration: BoxDecoration(
-                      border: Border.all(
-                        color: Colors.grey,
+                  GestureDetector(
+                    onTap: (){},
+                    child: Container(
+                      padding: EdgeInsets.symmetric(
+                        horizontal: 16,
+                        vertical: 12,
                       ),
-                    ),
-                    child: Text('MATHEMATICS',
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 13,
+                      decoration: BoxDecoration(
+                        border: Border.all(
+                          color: Colors.grey,
+                        ),
+                      ),
+                      child: Text('MATHEMATICS',
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 13,
+                        ),
                       ),
                     ),
                   ),
+
+                  SizedBox(width: 8),
+                  GestureDetector(
+                    onTap: (){},
+                    child: Container(
+                      padding: EdgeInsets.symmetric(
+                        horizontal: 16,
+                        vertical: 12,
+                      ),
+                      decoration: BoxDecoration(
+                        border: Border.all(
+                          color: Colors.grey,
+                        ),
+                      ),
+                      child: Text('STATISTICS',
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 13,
+                        ),
+                      ),
+                    ),
+                  ),
+
                 ],
               ),
             ),
