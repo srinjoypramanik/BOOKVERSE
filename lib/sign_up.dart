@@ -76,7 +76,8 @@ class _SignUpPageState extends State<SignUpPage> {
         context,
       ).showSnackBar(SnackBar(content: Text(e.message ?? "Signup Failed",
       ),
-      ),);
+      ),
+      );
     }
   }
 
