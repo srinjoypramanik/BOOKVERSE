@@ -15,7 +15,6 @@ class ProfilePage extends StatelessWidget {
   Widget build(BuildContext context) {
 
 
-    // Current logged in user
     User? user = FirebaseAuth.instance.currentUser;
 
 
@@ -34,7 +33,6 @@ class ProfilePage extends StatelessWidget {
         centerTitle: true,
 
       ),
-
 
 
 
@@ -81,12 +79,11 @@ class ProfilePage extends StatelessWidget {
 
 
 
+            // User Name
+
             Text(
 
-
               user?.displayName ?? "USER NAME",
-
-
 
               style: TextStyle(
 
@@ -96,25 +93,23 @@ class ProfilePage extends StatelessWidget {
 
               ),
 
-
             ),
 
 
 
 
 
-            SizedBox(height: 5),
+            SizedBox(height: 8),
 
 
 
 
+
+            // Mobile Number
 
             Text(
 
-
-              user?.email ?? "user@gmail.com",
-
-
+              "01XXXXXXXXX",
 
               style: TextStyle(
 
@@ -124,6 +119,31 @@ class ProfilePage extends StatelessWidget {
 
               ),
 
+            ),
+
+
+
+
+
+            SizedBox(height: 8),
+
+
+
+
+
+            // Email
+
+            Text(
+
+              user?.email ?? "user@gmail.com",
+
+              style: TextStyle(
+
+                fontSize: 16,
+
+                color: Colors.grey,
+
+              ),
 
             ),
 
@@ -140,21 +160,18 @@ class ProfilePage extends StatelessWidget {
             TextButton(
 
 
-              onPressed: () {
+              onPressed: (){
 
 
                 Navigator.push(
 
-
                   context,
-
 
                   MaterialPageRoute(
 
-                    builder: (context) => const Cart(),
+                    builder: (context)=> const Cart(),
 
                   ),
-
 
                 );
 
@@ -165,13 +182,10 @@ class ProfilePage extends StatelessWidget {
 
               child: Text(
 
-
                 "My Orders",
 
 
-
                 style: TextStyle(
-
 
                   fontSize: 20,
 
@@ -179,12 +193,9 @@ class ProfilePage extends StatelessWidget {
 
                   decoration: TextDecoration.underline,
 
-
                 ),
 
-
               ),
-
 
             ),
 
@@ -207,13 +218,10 @@ class ProfilePage extends StatelessWidget {
 
               child: Text(
 
-
                 "Wishlist",
 
 
-
                 style: TextStyle(
-
 
                   fontSize: 20,
 
@@ -221,12 +229,9 @@ class ProfilePage extends StatelessWidget {
 
                   decoration: TextDecoration.underline,
 
-
                 ),
 
-
               ),
-
 
             ),
 
@@ -243,22 +248,18 @@ class ProfilePage extends StatelessWidget {
             TextButton(
 
 
-              onPressed: () {
-
+              onPressed: (){
 
 
                 Navigator.push(
 
-
                   context,
-
 
                   MaterialPageRoute(
 
-                    builder: (context) => const Settings(),
+                    builder: (context)=> const Settings(),
 
                   ),
-
 
                 );
 
@@ -269,13 +270,10 @@ class ProfilePage extends StatelessWidget {
 
               child: Text(
 
-
                 "Settings",
 
 
-
                 style: TextStyle(
-
 
                   fontSize: 20,
 
@@ -283,12 +281,9 @@ class ProfilePage extends StatelessWidget {
 
                   decoration: TextDecoration.underline,
 
-
                 ),
 
-
               ),
-
 
             ),
 
@@ -325,19 +320,15 @@ class ProfilePage extends StatelessWidget {
 
                   Navigator.pushReplacement(
 
-
                     context,
-
 
                     MaterialPageRoute(
 
-                      builder: (context) => const HomeScreen(),
+                      builder: (context)=> const HomeScreen(),
 
                     ),
 
-
                   );
-
 
 
                 },
@@ -350,12 +341,9 @@ class ProfilePage extends StatelessWidget {
                   backgroundColor: Colors.black,
 
 
-
                   shape: RoundedRectangleBorder(
 
-
                     borderRadius: BorderRadius.circular(30),
-
 
                   ),
 
@@ -370,20 +358,16 @@ class ProfilePage extends StatelessWidget {
                   "Logout",
 
 
-
                   style: TextStyle(
-
 
                     color: Colors.white,
 
                     fontSize: 25,
 
-
                   ),
 
 
                 ),
-
 
 
               ),
