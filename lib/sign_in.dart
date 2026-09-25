@@ -20,7 +20,6 @@ class _SignInState extends State<SignIn> {
   bool isLoginActive = false;
 
   // Login success splash control
-
   bool showSuccessSplash = false;
 
   // Login failed splash control
