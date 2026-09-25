@@ -40,6 +40,7 @@ class _SignInState extends State<SignIn> {
 
 
 
+
   Future<void> loginUser() async {
 
 
@@ -60,7 +61,9 @@ class _SignInState extends State<SignIn> {
 
         const SnackBar(
 
-          content: Text("Login Successful"),
+          content: Text(
+            "Login Successful",
+          ),
 
         ),
 
@@ -78,7 +81,9 @@ class _SignInState extends State<SignIn> {
         SnackBar(
 
           content: Text(
-              e.message ?? "Login Failed"
+
+            e.message ?? "Login Failed",
+
           ),
 
         ),
@@ -100,7 +105,6 @@ class _SignInState extends State<SignIn> {
 
 
     return Scaffold(
-
 
       backgroundColor: Colors.white,
 
@@ -133,22 +137,16 @@ class _SignInState extends State<SignIn> {
 
 
 
-
-
       body: SafeArea(
-
 
         child: Padding(
 
           padding: EdgeInsets.symmetric(horizontal: 20),
 
 
-
           child: Column(
 
-
             crossAxisAlignment: CrossAxisAlignment.start,
-
 
 
             children: [
@@ -158,7 +156,6 @@ class _SignInState extends State<SignIn> {
               SizedBox(
 
                 height: 100,
-
 
                 child: Center(
 
@@ -178,9 +175,7 @@ class _SignInState extends State<SignIn> {
 
 
 
-
               SizedBox(height: 20),
-
 
 
 
@@ -188,9 +183,7 @@ class _SignInState extends State<SignIn> {
 
                 child: TextButton(
 
-
                   onPressed: () {},
-
 
 
                   child: Text(
@@ -216,10 +209,7 @@ class _SignInState extends State<SignIn> {
 
 
 
-
               SizedBox(height: 20),
-
-
 
 
 
@@ -240,53 +230,37 @@ class _SignInState extends State<SignIn> {
 
 
 
-
               SizedBox(height: 10),
-
 
 
 
               TextField(
 
-
                 onChanged: (value){
-
 
                   email = value;
 
-
                   checkLoginButton();
-
 
                 },
 
 
-
                 decoration: InputDecoration(
-
 
                   hintText: 'Enter your email',
 
-
-
                   filled: true,
-
 
                   fillColor: Color(0xFFF1F1F5),
 
 
-
                   border: OutlineInputBorder(
-
 
                     borderRadius: BorderRadius.circular(20),
 
-
                     borderSide: BorderSide.none,
 
-
                   ),
-
 
 
                   contentPadding: EdgeInsets.symmetric(
@@ -297,18 +271,13 @@ class _SignInState extends State<SignIn> {
 
                   ),
 
-
                 ),
 
               ),
 
 
 
-
-
               SizedBox(height: 15),
-
-
 
 
 
@@ -329,57 +298,40 @@ class _SignInState extends State<SignIn> {
 
 
 
-
               SizedBox(height: 10),
-
 
 
 
               TextField(
 
-
                 obscureText: true,
-
 
 
                 onChanged: (value){
 
-
                   password = value;
 
-
                   checkLoginButton();
-
 
                 },
 
 
-
                 decoration: InputDecoration(
-
 
                   hintText: 'Enter your Password',
 
-
-
                   filled: true,
-
 
                   fillColor: Color(0xFFF1F1F5),
 
 
-
                   border: OutlineInputBorder(
-
 
                     borderRadius: BorderRadius.circular(20),
 
-
                     borderSide: BorderSide.none,
 
-
                   ),
-
 
 
                   contentPadding: EdgeInsets.symmetric(
@@ -390,12 +342,9 @@ class _SignInState extends State<SignIn> {
 
                   ),
 
-
                 ),
 
               ),
-
-
 
 
 
@@ -404,13 +353,9 @@ class _SignInState extends State<SignIn> {
 
 
 
-
-
               TextButton(
 
-
                 onPressed: () {},
-
 
 
                 style: TextButton.styleFrom(
@@ -422,28 +367,20 @@ class _SignInState extends State<SignIn> {
                 ),
 
 
-
                 child: Text(
-
 
                   'Forgot My Password',
 
 
-
                   style: TextStyle(
-
 
                     color: Colors.grey,
 
-
                     fontSize: 16,
-
 
                     fontWeight: FontWeight.bold,
 
-
                     decoration: TextDecoration.underline,
-
 
                   ),
 
@@ -453,25 +390,17 @@ class _SignInState extends State<SignIn> {
 
 
 
-
-
               SizedBox(height: 20),
-
-
 
 
 
               Center(
 
-
                 child: SizedBox(
-
 
                   width: 250,
 
-
                   height: 60,
-
 
 
                   child: ElevatedButton(
@@ -487,7 +416,6 @@ class _SignInState extends State<SignIn> {
 
                     style: ElevatedButton.styleFrom(
 
-
                       backgroundColor: isLoginActive
 
                           ? Colors.black
@@ -495,9 +423,7 @@ class _SignInState extends State<SignIn> {
                           : Color(0xFF2563EB),
 
 
-
                       foregroundColor: Colors.white,
-
 
 
                       shape: RoundedRectangleBorder(
@@ -509,12 +435,9 @@ class _SignInState extends State<SignIn> {
                     ),
 
 
-
                     child: Text(
 
-
                       'Login',
-
 
 
                       style: TextStyle(
@@ -527,9 +450,7 @@ class _SignInState extends State<SignIn> {
 
                     ),
 
-
                   ),
-
 
                 ),
 
@@ -537,28 +458,18 @@ class _SignInState extends State<SignIn> {
 
 
 
-
-
               SizedBox(height: 20),
-
-
-
 
 
 
               Center(
 
-
                 child: SizedBox(
-
 
                   width: 300,
 
 
-
                   child: TextButton(
-
-
 
                     onPressed: (){
 
@@ -579,13 +490,9 @@ class _SignInState extends State<SignIn> {
                     },
 
 
-
-
                     child: Text(
 
-
                       'Create a new account',
-
 
 
                       style: TextStyle(
@@ -602,21 +509,16 @@ class _SignInState extends State<SignIn> {
 
                     ),
 
-
                   ),
-
 
                 ),
 
               ),
 
 
-
             ],
 
-
           ),
-
 
         ),
 
