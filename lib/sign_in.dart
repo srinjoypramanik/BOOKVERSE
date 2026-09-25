@@ -165,10 +165,11 @@ class _SignInState extends State<SignIn> {
           padding: const EdgeInsets.symmetric(horizontal: 20),
 
           child: Column(
-            
+
             crossAxisAlignment: CrossAxisAlignment.start,
 
             children: [
+              
               SizedBox(
                 height: 100,
 
