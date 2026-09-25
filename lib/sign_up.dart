@@ -76,7 +76,7 @@ class _SignUpPageState extends State<SignUpPage> {
         const SnackBar(
 
           content: Text(
-            "Password doesn't match",
+            "Password doesn't match/\n Please Try Again.",
           ),
 
         ),

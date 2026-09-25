@@ -61,6 +61,7 @@ flutter:
     - assets/images/ai_modern.jpg
     - assets/images/clean_code.jpg
     - assets/images/si_cp.jpg
+    - assets/images/after_login.png
 
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
