@@ -124,7 +124,6 @@ class HomeScreen extends StatefulWidget {
                 children: [
 
                   SizedBox(width: 10),
-
                   GestureDetector(
                     onTap: (){
                       setState(() {
@@ -257,7 +256,7 @@ class HomeScreen extends StatefulWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text('AVAILABLE HARDCOPIES (8)',
+                  Text('AVAILABLE BOOKS (8)',
                     style: TextStyle(
                       color: Colors.grey,
                       fontSize: 17,
