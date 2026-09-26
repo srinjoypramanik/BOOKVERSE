@@ -6,7 +6,7 @@ import 'profile_page.dart';
 import 'drawer.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-
+import 'searchbar.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -71,49 +71,8 @@ class HomeScreen extends StatefulWidget {
           children: [
             Padding(
               padding: const EdgeInsets.all(10),
-              child: TextField(
-                controller: searchController,
+              child: BookSearchBar(),
 
-                onChanged: (value) {
-                  setState(() {
-                    searchText = value.toLowerCase();
-                  });
-                },
-
-                decoration: InputDecoration(
-                  hintText: 'Search books, authors...',
-                  filled: true,
-                  fillColor: Colors.white,
-
-                  prefixIcon: const Icon(
-                    Icons.search,
-                    color: Colors.grey,
-                  ),
-
-                  suffixIcon: searchText.isNotEmpty
-                      ? IconButton(
-                    onPressed: () {
-                      searchController.clear();
-
-                      setState(() {
-                        searchText = '';
-                      });
-                    },
-                    icon: const Icon(
-                      Icons.clear,
-                      color: Colors.grey,
-                    ),
-                  )
-                      : null,
-
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(10),
-                    borderSide: const BorderSide(
-                      color: Colors.grey,
-                    ),
-                  ),
-                ),
-              ),
             ),
 
 
