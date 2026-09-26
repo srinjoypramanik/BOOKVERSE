@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-
 import 'CartPage.dart';
 import 'homescreen.dart';
 import 'settings.dart' as my_settings;
+
+
 
 
 class ProfilePage extends StatelessWidget {
