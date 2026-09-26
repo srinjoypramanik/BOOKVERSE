@@ -174,9 +174,9 @@ class _SignInState extends State<SignIn> {
               crossAxisAlignment: CrossAxisAlignment.start,
 
               children: [
-
+                const SizedBox(height: 10,),
                 SizedBox(
-                  height: 100,
+                  height: 60,
 
                   child: Center(
 
@@ -191,7 +191,7 @@ class _SignInState extends State<SignIn> {
                   ),
                 ),
 
-                const SizedBox(height: 20),
+                const SizedBox(height: 50),
                 // Center(
                 //   child: TextButton(
                 //     onPressed: () {

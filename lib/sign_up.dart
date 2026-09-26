@@ -108,7 +108,9 @@ class _SignUpPageState extends State<SignUpPage> {
               const SizedBox(height: 20),
 
               Center(
-                child: Image.asset('assets/images/bookverse.png', height: 100),
+                child: Image.asset('assets/images/bookverse.png',
+                    height: 60
+                ),
               ),
 
               const SizedBox(height: 20),
@@ -203,7 +205,7 @@ class _SignUpPageState extends State<SignUpPage> {
                 ),
               ),
 
-              const SizedBox(height: 15),
+
               const SizedBox(height: 15),
 
               const Text(
