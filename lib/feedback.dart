@@ -22,7 +22,7 @@ class _Feedback_pageState extends State<Feedback_page> {
   TextEditingController feedbackController = TextEditingController();
 
 
-  int rating = 5;
+  int rating = 0;
 
 
 
@@ -160,6 +160,47 @@ class _Feedback_pageState extends State<Feedback_page> {
             ),
 
 
+            Center(
+
+              child: Row(
+
+                mainAxisAlignment: MainAxisAlignment.center,
+
+                children: List.generate(5, (index){
+
+                  return IconButton(
+
+                    onPressed: (){
+
+                      setState((){
+
+                        rating = index + 1;
+
+                      });
+
+                    },
+
+
+                    icon: Icon(
+
+                      index < rating
+                          ? Icons.star
+                          : Icons.star_border,
+
+
+                      color: Colors.black,
+
+                      size: 35,
+
+                    ),
+
+                  );
+
+                }),
+
+              ),
+
+            ),
 
 
 
