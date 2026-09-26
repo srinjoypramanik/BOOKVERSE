@@ -7,7 +7,6 @@ import 'CartPage.dart';
 
 void main() async{
 
-  // for firebase.
   WidgetsFlutterBinding.ensureInitialized();
 
   await Firebase.initializeApp(
@@ -15,7 +14,6 @@ void main() async{
     options: DefaultFirebaseOptions.currentPlatform,
 
   );
-  //for firebase.
 
   runApp(const MyApp());
 
