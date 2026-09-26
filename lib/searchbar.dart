@@ -96,3 +96,67 @@ class _BookSearchBarState extends State<BookSearchBar> {
             controller.openView();
           },
         );
+      },
+
+      suggestionsBuilder: (
+          BuildContext context,
+          SearchController controller,
+          ) async {
+
+        final snapshot = await FirebaseFirestore
+            .instance
+            .collection('books')
+            .get();
+
+        final books = snapshot.docs.where((book) {
+
+          final data = book.data();
+
+          final title = data['title']
+              .toString()
+              .toLowerCase();
+
+          return title.contains(
+            controller.text.toLowerCase(),
+          );
+
+        }).toList();
+
+        return books.map((book) {
+
+          final data = book.data();
+
+          return ListTile(
+            title: Text(
+              data['title'].toString(),
+              style: const TextStyle(
+                fontSize: 18,
+              ),
+            ),
+
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => BookDetails(
+                    title: data['title'].toString(),
+                    author: data['author'].toString(),
+                    price:
+                    '\$${data['price']}.00',
+                    category:
+                    data['category'].toString(),
+                    description:
+                    data['description'].toString(),
+                    image:
+                    data['imageUrl'].toString(),
+                  ),
+                ),
+              );
+            },
+          );
+
+        }).toList();
+      },
+    );
+  }
+}
