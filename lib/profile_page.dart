@@ -29,7 +29,7 @@ class ProfilePage extends StatelessWidget {
         body: Center(
 
           child: Text(
-            "No User Logged In",
+            "No User Logged In.\nPlease Login First.",
             style: TextStyle(
               fontSize:20,
             ),
