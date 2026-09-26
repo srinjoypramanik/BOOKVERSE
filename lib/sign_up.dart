@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'sign_in.dart';
 
+import 'sign_in.dart';
 
 class SignUpPage extends StatefulWidget {
   const SignUpPage({super.key});
@@ -11,13 +11,15 @@ class SignUpPage extends StatefulWidget {
   State<SignUpPage> createState() => _SignUpPageState();
 }
 
-
 class _SignUpPageState extends State<SignUpPage> {
-
   String name = "";
+
   String phone = "";
+
   String email = "";
+
   String password = "";
+
   String confirmPassword = "";
 
   bool isSignupActive = false;
@@ -30,7 +32,6 @@ class _SignUpPageState extends State<SignUpPage> {
           email.isNotEmpty &&
           password.isNotEmpty &&
           confirmPassword.isNotEmpty;
-
     });
   }
 
@@ -38,7 +39,7 @@ class _SignUpPageState extends State<SignUpPage> {
     if (password != confirmPassword) {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
-          content: Text("Password doesn't match/\n Please Try Again."),
+          content: Text("Password doesn't match.\nPlease Try Again."),
         ),
       );
 
@@ -46,7 +47,6 @@ class _SignUpPageState extends State<SignUpPage> {
     }
 
     try {
-
       UserCredential userCredential = await FirebaseAuth.instance
           .createUserWithEmailAndPassword(
             email: email.trim(),
@@ -65,19 +65,18 @@ class _SignUpPageState extends State<SignUpPage> {
       });
 
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text("Account Created Successfully",
-          ),
-        ),
+        const SnackBar(content: Text("Account Created Successfully")),
       );
 
-      Navigator.pop(context);
+      Navigator.pushReplacement(
+        context,
+
+        MaterialPageRoute(builder: (context) => const SignIn()),
+      );
     } on FirebaseAuthException catch (e) {
       ScaffoldMessenger.of(
         context,
-      ).showSnackBar(SnackBar(content: Text(e.message ?? "Signup Failed",
-          ),
-        ),
-      );
+      ).showSnackBar(SnackBar(content: Text(e.message ?? "Signup Failed")));
     }
   }
 
@@ -132,7 +131,7 @@ class _SignUpPageState extends State<SignUpPage> {
 
                   filled: true,
 
-                  fillColor: Color(0xFFF1F1F5),
+                  fillColor: const Color(0xFFF1F1F5),
 
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(20),
@@ -164,7 +163,7 @@ class _SignUpPageState extends State<SignUpPage> {
 
                   filled: true,
 
-                  fillColor: Color(0xFFF1F1F5),
+                  fillColor: const Color(0xFFF1F1F5),
 
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(20),
@@ -194,7 +193,7 @@ class _SignUpPageState extends State<SignUpPage> {
 
                   filled: true,
 
-                  fillColor: Color(0xFFF1F1F5),
+                  fillColor: const Color(0xFFF1F1F5),
 
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(20),
@@ -205,6 +204,8 @@ class _SignUpPageState extends State<SignUpPage> {
               ),
 
               const SizedBox(height: 15),
+              const SizedBox(height: 15),
+
               const Text(
                 "Password:",
 
@@ -225,7 +226,7 @@ class _SignUpPageState extends State<SignUpPage> {
 
                   filled: true,
 
-                  fillColor: Color(0xFFF1F1F5),
+                  fillColor: const Color(0xFFF1F1F5),
 
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(20),
@@ -257,7 +258,7 @@ class _SignUpPageState extends State<SignUpPage> {
 
                   filled: true,
 
-                  fillColor: Color(0xFFF1F1F5),
+                  fillColor: const Color(0xFFF1F1F5),
 
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(20),
