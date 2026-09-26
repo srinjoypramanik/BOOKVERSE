@@ -2,195 +2,213 @@ import 'package:flutter/material.dart';
 
 
 class Settings extends StatelessWidget {
+
   const Settings({super.key});
 
+
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
+
+      backgroundColor: Colors.white,
+
+
       appBar: AppBar(
+
         backgroundColor: Colors.white,
-        //centerTitle: true,
-        // title: Text('Settings',
-        //     style: TextStyle(
-        //         color: Colors.black,
-        //     ),
-        // ),
+
+        //elevation: 0,
+
+        centerTitle: true,
+
+        title: Text(
+          "Settings",
+          style: TextStyle(
+            color: Colors.black,
+            fontSize: 24,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+
       ),
 
-      body: Column(
-        children: [
-          SizedBox(height: 40,),
-          Center(
 
-            child: SizedBox(
 
-              height: 60,
+      body: Padding(
 
-              child:TextButton(
-                onPressed: (){
+        padding: EdgeInsets.all(20),
+
+
+        child: Column(
+
+          children: [
+
+
+            SizedBox(height: 20),
+
+
+
+            // Privacy
+
+            Card(
+
+              elevation: 2,
+
+              color: Colors.white,
+
+              shape: RoundedRectangleBorder(
+
+                borderRadius: BorderRadius.circular(15),
+
+              ),
+
+
+              child: ListTile(
+
+                leading: Icon(
+                  Icons.privacy_tip_outlined,
+                  color: Colors.black,
+                  size: 30,
+                ),
+
+
+                title: Text(
+                  "Privacy",
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+
+
+                trailing: Icon(
+                  Icons.arrow_forward_ios,
+                  size: 18,
+                ),
+
+
+                onTap: (){
+
                   Navigator.push(
+
                     context,
 
-                    MaterialPageRoute(builder: (context) => const Language()),
+                    MaterialPageRoute(
+                      builder: (context)=> const Privacy(),
+                    ),
+
                   );
+
                 },
-                child: Text('Language',
-                  style: TextStyle(
-                    fontSize: 30,
-                    color: Colors.black,
-                    decoration: TextDecoration.underline,
-                  ),
-                ),
+
+
               ),
+
             ),
-          ),
 
-          SizedBox(height: 40,),
-          Center(
-            child: TextButton(
 
-              onPressed: (){
-                Navigator.push(
-                  context,
 
-                  MaterialPageRoute(builder: (context) => const Themepage()),
-                );
-              },
+            SizedBox(height:20),
 
-              child: SizedBox(
 
-                height: 40,
 
-                child: Text('Theme',
-                  style: TextStyle(
-                    fontSize: 30,
-                    color: Colors.black,
-                    decoration: TextDecoration.underline,
-                  ),
-                ),
+
+            // Feedback
+
+
+            Card(
+
+              elevation: 2,
+
+              color: Colors.white,
+
+
+              shape: RoundedRectangleBorder(
+
+                borderRadius: BorderRadius.circular(15),
+
               ),
-            ),
-          ),
 
-          SizedBox(height: 40,),
-          Center(
-            child: TextButton(
 
-              onPressed: (){
-                Navigator.push(
-                  context,
 
-                  MaterialPageRoute(builder: (context) => const Privacy()),
-                );
-              },
-              child: SizedBox(
+              child: ListTile(
 
-                height: 40,
 
-                child: Text('Privacy',
-                  style: TextStyle(
-                    fontSize: 30,
-                    color: Colors.black,
-                    decoration: TextDecoration.underline,
-                  ),
+                leading: Icon(
+
+                  Icons.feedback_outlined,
+
+                  color: Colors.black,
+
+                  size:30,
+
                 ),
-              ),
-            ),
-          ),
 
-          SizedBox(height: 40,),
-          Center(
-            child: TextButton(
 
-              onPressed: (){
-                Navigator.push(
-                  context,
 
-                  MaterialPageRoute(builder: (context) => const Feedback_page()),
-                );
-              },
-              child: SizedBox(
+                title: Text(
 
-                height: 40,
+                  "Feedback",
 
-                child: Text('Feedback',
                   style: TextStyle(
-                    fontSize: 30,
-                    color: Colors.black,
-                    decoration: TextDecoration.underline,
+
+                    fontSize:20,
+
+                    fontWeight:FontWeight.bold,
+
                   ),
+
                 ),
+
+
+
+                trailing: Icon(
+
+                  Icons.arrow_forward_ios,
+
+                  size:18,
+
+                ),
+
+
+
+                onTap: (){
+
+
+                  Navigator.push(
+
+                    context,
+
+                    MaterialPageRoute(
+
+                      builder:(context)=> const Feedback_page(),
+
+                    ),
+
+                  );
+
+
+                },
+
+
               ),
+
+
             ),
-          ),
-        ],
+
+
+
+          ],
+
+        ),
+
       ),
-    );
-  }
-}
 
-class Language extends StatelessWidget{
-  const Language({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-      ),
-
-      body: Column(
-        children: [
-          ListTile(
-
-            title: Text(
-
-              "English (UK)",
-
-              style: TextStyle(
-
-                fontSize: 22,
-
-                color: Colors.black,
-
-              ),
-
-            ),
-
-            onTap: (){
-
-            },
-
-          ),
-
-          ListTile(
-
-            title: Text(
-
-              "English (USA)",
-
-              style: TextStyle(
-
-                fontSize: 22,
-
-                color: Colors.black,
-
-              ),
-
-            ),
-
-            onTap: (){
-
-            },
-
-          ),
-
-
-        ],
-      ),
     );
 
   }
+
 }
 
 
@@ -490,16 +508,5 @@ class Privacy extends StatelessWidget{
 
 
 
-class Themepage extends StatelessWidget{
-  const Themepage({super.key});
 
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-      ),
-    );
-  }
-}
 
