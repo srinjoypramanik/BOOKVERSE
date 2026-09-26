@@ -201,7 +201,7 @@ class ProfilePage extends StatelessWidget {
 
                     style:TextStyle(
 
-                      color:Colors.grey,
+                      color:Colors.black,
 
                       fontSize:16,
 
@@ -223,7 +223,7 @@ class ProfilePage extends StatelessWidget {
 
                     style:TextStyle(
 
-                      color:Colors.grey,
+                      color:Colors.black,
 
                       fontSize:16,
 
