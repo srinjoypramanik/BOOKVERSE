@@ -111,12 +111,20 @@ class BookDetails extends StatelessWidget{
            Row(
              children: [
                SizedBox(width: 12),
-               Text(title,
-               style: TextStyle(
-                 fontSize: 20,
-                 fontWeight: FontWeight.bold,
-                 )
+
+               Expanded(
+                 child: Text(
+                   title,
+                   maxLines: 2,
+                   overflow: TextOverflow.ellipsis,
+                   style: TextStyle(
+                     fontSize: 20,
+                     fontWeight: FontWeight.bold,
+                   ),
+                 ),
                ),
+
+               SizedBox(width: 12),
              ],
            ),
 

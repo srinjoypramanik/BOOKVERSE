@@ -5,10 +5,22 @@ import 'CartPage.dart';
 import 'profile_page.dart';
 import 'drawer.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+  }
+  class _HomeScreenState extends State<HomeScreen>{
+
+  Stream<QuerySnapshot> getBooks(){
+    return FirebaseFirestore.instance
+        .collection('books')
+        .snapshots();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -227,1056 +239,1300 @@ class HomeScreen extends StatelessWidget {
               ),
             ),
 
-            //Books 1
-            GestureDetector(
-              onTap: (){
-                Navigator.push(context,
-                    MaterialPageRoute(
-                      builder: (context)=>const BookDetails(
-                        title: 'INTRODUCTION TO ALGORITHMS,\n4TH EDITION',
-                        author: 'by Thomas H. Corman',
-                        price: '\$12.00',
-                        category: 'COMPUTER SCIENCE',
-                        description: 'Introduction to Algorithms is a book on computer programming '
-                            'by Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest, and'
-                            ' Clifford Stein. The book is described by its publisher as "the'
-                            ' leading algorithms text in universities worldwide as well as the'
-                            ' standard reference for professionals". It is commonly cited as a '
-                            'reference for algorithms in published papers, with over 10,000 '
-                            'citations on CiteSeerX, and over 70,000 citations '
-                            'on Google Scholar as of 2024. The book sold half a million copies '
-                            'during first 20 years. Wikipedia.',
-                        image: 'assets/images/intro_to_algo.jpg',
-                      ),
-                    ),
-                );
-              },
+            //Firestore Book1
+            StreamBuilder<DocumentSnapshot>(
+              stream: FirebaseFirestore.instance
+                  .collection('books')
+                  .doc('algo_001')
+                  .snapshots(),
 
-              child:
-              Container(
-                margin: EdgeInsets.symmetric(
-                  horizontal: 16,
-                  vertical: 8,
-                ),
-                padding: EdgeInsets.all(8),
-                decoration: BoxDecoration(
-                  border: Border.all(
-                    color: Colors.black,
-                  ),
-                  borderRadius: BorderRadius.circular(5),
-                ),
-                child: Row(
-                  children: [
-                    Image.asset('assets/images/intro_to_algo.jpg',
-                    width: 110,
-                    height: 198,
-                    fit: BoxFit.fitWidth,
-                    ),
-                    SizedBox(width: 10),
-                    Expanded(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Container(
-                                color: Colors.black,
-                                padding: EdgeInsets.symmetric(
-                                  horizontal: 8,
-                                  vertical: 4,
-                                ),
+              builder: (context, snapshot) {
+                if(snapshot.connectionState==ConnectionState.waiting){
+                  return const Center(
+                    child: CircularProgressIndicator(),
+                  );
+                }
 
-                                child: Text('BRAND NEW',
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 12,
-                                  ),
-                                ),
-                              ),
-                              Text('\$12.00',
-                                style: TextStyle(
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                            ],
-                          ),
+                if(snapshot.hasError){
+                  return Center(
+                    child: Text('Error: ${snapshot.error}'),
+                  );
+                }
 
-                          SizedBox(height: 12),
-                          const Text('INTRODUCTION TO ALGORITHMS, 4TH EDITION',
-                            maxLines: 2,
-                            overflow: TextOverflow.ellipsis,
+                if(!snapshot.hasData||!snapshot.data!.exists){
+                  return const Center(
+                    child: Text('Book not found'),
+                  );
+                }
+                final data=snapshot.data!.data() as Map<String, dynamic>;
 
-                            style: TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          SizedBox(height: 6),
-                          const Text('Thomas H. Cormen',
-                            overflow: TextOverflow.ellipsis,
-                            style: TextStyle(
-                              color: Colors.grey,
-                            ),
-                          ),
-
-                          SizedBox(height: 1),
-                          Divider(thickness: 0.5,),
-                          SizedBox(height: 1),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              const Text('COMPUTER \nSCIENCE',
-                                style: TextStyle(
-                                  color: Colors.grey,
-                                  fontSize: 14,
-                                ),
-                              ),
-                              ElevatedButton(
-                                onPressed: (){
-                                },
-                                style: ElevatedButton.styleFrom(
-                                  backgroundColor: Colors.black,
-                                  foregroundColor: Colors.white,
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.zero,
-                                  ),
-                                ),
-                                child: const Text('+ADD TO CART',
-                                  style: TextStyle(
-                                    fontSize: 12,
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-            // EE Book 1
-            GestureDetector(
-              onTap: () {
-                Navigator.push(context,
-                  MaterialPageRoute(
-                    builder: (context)=> const BookDetails(
-                      title: 'FUNDAMENTALS OF ELECTRIC CIRCUITS,\n6TH EDITION',
-                      author: 'by Charles K. Alexander, Matthew Sadiku',
-                      price:  '\$10.00',
-                      category: 'ELECTRICAL & ELECTRONICS',
-                      description: 'Fundamentals of Electric Circuits by Charles K. Alexander '
-                          'and Matthew N. O. Sadiku is a benchmark introductory engineering '
-                          'textbook published by McGraw-Hill that offers a clear, comprehensive,'
-                          ' and student-focused introduction to linear circuit analysis. The '
-                          'text is strategically organized into three distinct parts, '
-                          'sequentially guiding students through the foundational physics of '
-                          'DC circuits, the steady-state analysis of AC circuits, and advanced '
-                          'network analysis methods like Laplace and Fourier transforms. '
-                          'Renowned for its pedagogical clarity, the book introduces a '
-                          'signature six-step problem-solving methodology that trains '
-                          'students to systematically approach complex electrical engineering'
-                          ' challenges.',
-                      image: 'assets/images/fundamen_circuit.jpg',
-                    ),
-                  ),
-                );
-              },
-              child: Container(
-                margin: EdgeInsets.symmetric(
-                  horizontal: 16,
-                  vertical: 8,
-                ),
-                padding: EdgeInsets.all(8),
-                decoration: BoxDecoration(
-                  border: Border.all(
-                    color: Colors.black,
-                  ),
-                  borderRadius: BorderRadius.circular(5),
-                ),
-                child: Row(
-                  children: [
-                    Image.asset('assets/images/fundamen_circuit.jpg',
-                      width: 110,
-                      height: 198,
-                      fit: BoxFit.fitWidth,
-                    ),
-                    SizedBox(width: 10),
-                    Expanded(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Container(
-                                color: Colors.black,
-                                padding: EdgeInsets.symmetric(
-                                  horizontal: 8,
-                                  vertical: 4,
-                                ),
-
-                                child: Text('BRAND NEW',
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 12,
-                                  ),
-                                ),
-                              ),
-
-                              Text('\$10.00',
-                                style: TextStyle(
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                            ],
-                          ),
-
-                          SizedBox(height: 12),
-                          const Text('FUNDAMENTALS OF ELECTRIC CIRCUITS, 6TH EDITION ',
-                            maxLines: 2,
-                            overflow: TextOverflow.ellipsis,
-
-                            style: TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          SizedBox(height: 6),
-                          const Text('Charles K. Alexander, Matthew Sadiku',
-                            overflow: TextOverflow.ellipsis,
-                            style: TextStyle(
-                              color: Colors.grey,
-                            ),
-                          ),
-
-                          SizedBox(height: 1),
-                          const Divider(thickness: 0.5,),
-                          SizedBox(height: 1),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              const Text('ELECTRICAL & \nELECTRONICS',
-                                style: TextStyle(
-                                  color: Colors.grey,
-                                  fontSize: 14,
-                                ),
-                              ),
-                              ElevatedButton(
-                                onPressed: (){},
-                                style: ElevatedButton.styleFrom(
-                                  backgroundColor: Colors.black,
-                                  foregroundColor: Colors.white,
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.zero,
-                                  ),
-                                ),
-                                child: const Text('+ADD TO CART',
-                                  style: TextStyle(
-                                    fontSize: 12,
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-            //Book2
-            GestureDetector(
-              onTap: () {
-                Navigator.push(context,
-                    MaterialPageRoute(
-                        builder: (context)=> const BookDetails(
-                            title: 'ARTIFICIAL INTELLIGENCE: A MODERN \nAPPROACH',
-                            author: 'Stuart Russell, Peter Norvig',
-                            price:  '\$10.00',
-                            category: 'COMPUTER SCIENCE',
-                            description: 'Artificial Intelligence: A Modern Approach is a textbook'
-                                ' about artificial intelligence by Stuart Russell and Peter Norvig.'
-                                ' It provides an introduction to the concepts, techniques, and '
-                                'applications of artificial intelligence. AIMA has been called '
-                                '"the most popular artificial intelligence textbook in the world", '
-                                'and is considered the standard text in the field of AI. As of 2023, '
-                                'it was used at over 1500 universities worldwide,and has '
-                                'over 59,000 citations on Google Scholar. It gives detailed '
-                                'information about the working of algorithms in AI.',
-                          image: 'assets/images/ai_modern.jpg',
+                return GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => BookDetails(
+                          title: data['title'].toString(),
+                          author: data['author'].toString(),
+                          price: '\$${data['price']}.00',
+                          category: data['category'].toString(),
+                          description: data['description'].toString(),
+                          image: data['imageUrl'].toString(),
                         ),
-                    ),
-                );
-              },
-              child: Container(
-                margin: EdgeInsets.symmetric(
-                  horizontal: 16,
-                  vertical: 8,
-                ),
-                padding: EdgeInsets.all(8),
-                decoration: BoxDecoration(
-                  border: Border.all(
-                    color: Colors.black,
-                  ),
-                  borderRadius: BorderRadius.circular(5),
-                ),
-                child: Row(
-                  children: [
-                    Image.asset('assets/images/ai_modern.jpg',
-                    width: 110,
-                      height: 198,
-                        fit: BoxFit.fitWidth,
-                    ),
-                    SizedBox(width: 10),
-                    Expanded(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Container(
-                                color: Colors.black,
-                                padding: EdgeInsets.symmetric(
-                                  horizontal: 8,
-                                  vertical: 4,
-                                ),
+                      ),
+                    );
+                  },
 
-                                child: Text('BRAND NEW',
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 12,
+                  child: Container(
+                    margin: const EdgeInsets.symmetric(
+                      horizontal: 16,
+                      vertical: 8,
+                    ),
+
+                    padding: const EdgeInsets.all(8),
+                    decoration: BoxDecoration(
+                      border: Border.all(
+                        color: Colors.black,
+                      ),
+                      borderRadius: BorderRadius.circular(5),
+                    ),
+
+                    child: Row(
+                      children: [
+                        Image.asset(data['imageUrl'],
+                          width: 110,
+                          height: 198,
+                          fit: BoxFit.fitWidth,
+                        ),
+
+                        SizedBox(width: 10),
+                        Expanded(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Container(
+                                    color: Colors.black,
+                                    padding: const EdgeInsets.symmetric(
+                                      horizontal: 8,
+                                      vertical: 4,
+                                    ),
+                                    child: Text('BRAND NEW',
+                                      style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 12,
+                                      ),
+                                    ),
                                   ),
-                                ),
+
+                                  Text('\$${data['price']}.00',
+                                    style: TextStyle(
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ],
                               ),
 
-                              Text('\$8.00',
+                              SizedBox(height: 12),
+                              Text(data['title'],
+                                maxLines: 2,
+                                overflow: TextOverflow.ellipsis,
                                 style: TextStyle(
-                                  fontSize: 18,
+                                  fontSize: 16,
                                   fontWeight: FontWeight.bold,
                                 ),
                               ),
-                            ],
-                          ),
 
-                          SizedBox(height: 12),
-                          const Text('ARTIFICIAl INTELLIGENCE: A MODERN APPROACH',
-                            maxLines: 2,
-                            overflow: TextOverflow.ellipsis,
-
-                            style: TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          SizedBox(height: 6),
-                          const Text('Stuart Russell, Peter Norvig',
-                            overflow: TextOverflow.ellipsis,
-                            style: TextStyle(
-                              color: Colors.grey,
-                            ),
-                          ),
-
-                          SizedBox(height: 1),
-                          const Divider(thickness: 0.5,),
-                          SizedBox(height: 1),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              const Text('COMPUTER \nSCIENCE',
-                                style: TextStyle(
+                              SizedBox(height: 6),
+                              Text(data['author'],
+                                overflow: TextOverflow.ellipsis,
+                                style: const TextStyle(
                                   color: Colors.grey,
-                                  fontSize: 14,
                                 ),
                               ),
-                              ElevatedButton(
-                                onPressed: (){},
-                                style: ElevatedButton.styleFrom(
-                                  backgroundColor: Colors.black,
-                                  foregroundColor: Colors.white,
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.zero,
+
+                              SizedBox(height: 1),
+                              Divider(thickness: 0.5,),
+                              SizedBox(height: 1),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Text(data['category']=='COMPUTER SCIENCE'
+                                        ? 'COMPUTER\nSCIENCE'
+                                        : data['category']=='ELECTRICAL & ELECTRONICS'
+                                        ? 'ELECTRICAL &\nELECTRONICS'
+                                        : data['category'],
+                                    style: TextStyle(
+                                      color: Colors.grey,
+                                      fontSize: 14,
+                                    ),
                                   ),
-                                ),
-                                child: const Text('+ADD TO CART',
-                                  style: TextStyle(
-                                    fontSize: 12,
+
+                                  ElevatedButton(
+                                    onPressed: () {
+
+                                    },
+                                    style: ElevatedButton.styleFrom(
+                                      backgroundColor: Colors.black,
+                                      foregroundColor: Colors.white,
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.zero,
+                                      ),
+                                    ),
+
+                                    child: Text('+ADD TO CART',
+                                      style: TextStyle(
+                                        fontSize: 12,
+                                      ),
+                                    ),
                                   ),
-                                ),
+                                ],
                               ),
                             ],
                           ),
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-            // EE Book 2
-            GestureDetector(
-              onTap: () {
-                Navigator.push(context,
-                  MaterialPageRoute(
-                    builder: (context)=> const BookDetails(
-                      title: 'ELECTRONIC DEVICES AND CIRCUIT \nTHEORY',
-                      author: 'by Robert L. Boylestad, Louis Nashelsky',
-                      price:  '\$12.00',
-                      category: 'ELECTRICAL & ELECTRONICS',
-                      description: 'Electronic Devices and Circuit Theory, originally '
-                          'written by Robert L. Boylestad and Louis Nashelsky, is widely'
-                          ' regarded as the definitive standard textbook for engineering '
-                          'students and electronics professionals. For decades, it has '
-                          'provided a comprehensive and highly accessible introduction to '
-                          'semiconductor devices and their practical applications. The '
-                          'book systematically covers everything from the foundational '
-                          'physics of diodes and transistors (BJTs and FETs) to advanced '
-                          'systems like operational amplifiers, feedback circuits, and '
-                          'power supplies. It balances mathematical rigor with intuitive '
-                          'explanations, making complex circuit analysis techniques highly '
-                          'digestible.',
-                      image: 'assets/images/elec_device.jpg',
+                        ),
+                      ],
                     ),
                   ),
                 );
               },
-              child: Container(
-                margin: EdgeInsets.symmetric(
-                  horizontal: 16,
-                  vertical: 8,
-                ),
-                padding: EdgeInsets.all(8),
-                decoration: BoxDecoration(
-                  border: Border.all(
-                    color: Colors.black,
-                  ),
-                  borderRadius: BorderRadius.circular(5),
-                ),
-                child: Row(
-                  children: [
-                    Image.asset('assets/images/elec_device.jpg',
-                      width: 110,
-                      height: 198,
-                      fit: BoxFit.fitWidth,
-                    ),
-                    SizedBox(width: 10),
-                    Expanded(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Container(
-                                color: Colors.black,
-                                padding: EdgeInsets.symmetric(
-                                  horizontal: 8,
-                                  vertical: 4,
-                                ),
-
-                                child: Text('BRAND NEW',
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 12,
-                                  ),
-                                ),
-                              ),
-
-                              Text('\$12.00',
-                                style: TextStyle(
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                            ],
-                          ),
-
-                          SizedBox(height: 12),
-                          const Text('ELECTRONIC DEVICES AND CIRCUIT THEORY ',
-                            maxLines: 2,
-                            overflow: TextOverflow.ellipsis,
-
-                            style: TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          SizedBox(height: 6),
-                          const Text('Robert L. Boylestad, Louis Nashelsky',
-                            overflow: TextOverflow.ellipsis,
-                            style: TextStyle(
-                              color: Colors.grey,
-                            ),
-                          ),
-
-                          SizedBox(height: 1),
-                          const Divider(thickness: 0.5,),
-                          SizedBox(height: 1),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              const Text('ELECTRICAL & \nELECTRONICS',
-                                style: TextStyle(
-                                  color: Colors.grey,
-                                  fontSize: 14,
-                                ),
-                              ),
-                              ElevatedButton(
-                                onPressed: (){},
-                                style: ElevatedButton.styleFrom(
-                                  backgroundColor: Colors.black,
-                                  foregroundColor: Colors.white,
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.zero,
-                                  ),
-                                ),
-                                child: const Text('+ADD TO CART',
-                                  style: TextStyle(
-                                    fontSize: 12,
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
-              ),
             ),
 
-            //Book3
-            GestureDetector(
-              onTap: () {
-                Navigator.push(context,
-                  MaterialPageRoute(
-                    builder: (context)=> const BookDetails(
-                      title: 'CLEAN CODE: A HANDBOOK OF \nSOFTWARE CRAFTSMANSHIPS' ,
-                      author: 'by Robert C. Martin',
-                      price:  '\$10.00',
-                      category: 'COMPUTER SCIENCE',
-                      description: '"Clean Code" by Robert C. Martin is a foundational '
-                          'software engineering guide that teaches developers how to '
-                          'write readable, maintainable, and highly efficient code. '
-                          'The book centers around the philosophy that code should '
-                          'be as readable as well-written prose, introducing core '
-                          'tenets like the Boy Scout Rule and the strict mandate that '
-                          'functions should do exactly one thing. While heavily '
-                          'illustrated with Java-based examples, its universal '
-                          'focus on meaningful naming conventions, robust unit '
-                          'testing makes it a staple for developers.',
-                      image: 'assets/images/clean_code.jpg',
+            //Firestore Book2
+            StreamBuilder<DocumentSnapshot>(
+              stream: FirebaseFirestore.instance
+                  .collection('books')
+                  .doc('ai_001')
+                  .snapshots(),
+
+              builder: (context, snapshot) {
+                if(snapshot.connectionState==ConnectionState.waiting){
+                  return const Center(
+                    child: CircularProgressIndicator(),
+                  );
+                }
+
+                if(snapshot.hasError){
+                  return Center(
+                    child: Text('Error: ${snapshot.error}'),
+                  );
+                }
+
+                if(!snapshot.hasData||!snapshot.data!.exists){
+                  return const Center(
+                    child: Text('Book not found'),
+                  );
+                }
+                final data=snapshot.data!.data() as Map<String, dynamic>;
+
+                return GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => BookDetails(
+                          title: data['title'].toString(),
+                          author: data['author'].toString(),
+                          price: '\$${data['price']}.00',
+                          category: data['category'].toString(),
+                          description: data['description'].toString(),
+                          image: data['imageUrl'].toString(),
+                        ),
+                      ),
+                    );
+                  },
+
+                  child: Container(
+                    margin: const EdgeInsets.symmetric(
+                      horizontal: 16,
+                      vertical: 8,
+                    ),
+
+                    padding: const EdgeInsets.all(8),
+                    decoration: BoxDecoration(
+                      border: Border.all(
+                        color: Colors.black,
+                      ),
+                      borderRadius: BorderRadius.circular(5),
+                    ),
+
+                    child: Row(
+                      children: [
+                        Image.asset(data['imageUrl'],
+                          width: 110,
+                          height: 198,
+                          fit: BoxFit.fitWidth,
+                        ),
+
+                        SizedBox(width: 10),
+                        Expanded(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Container(
+                                    color: Colors.black,
+                                    padding: const EdgeInsets.symmetric(
+                                      horizontal: 8,
+                                      vertical: 4,
+                                    ),
+                                    child: Text('BRAND NEW',
+                                      style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 12,
+                                      ),
+                                    ),
+                                  ),
+
+                                  Text('\$${data['price']}.00',
+                                    style: TextStyle(
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ],
+                              ),
+
+                              SizedBox(height: 12),
+                              Text(data['title'],
+                                maxLines: 2,
+                                overflow: TextOverflow.ellipsis,
+                                style: TextStyle(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+
+                              SizedBox(height: 6),
+                              Text(data['author'],
+                                overflow: TextOverflow.ellipsis,
+                                style: const TextStyle(
+                                  color: Colors.grey,
+                                ),
+                              ),
+
+                              SizedBox(height: 1),
+                              Divider(thickness: 0.5,),
+                              SizedBox(height: 1),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Text(data['category']=='COMPUTER SCIENCE'
+                                      ? 'COMPUTER\nSCIENCE'
+                                      : data['category']=='ELECTRICAL & ELECTRONICS'
+                                      ? 'ELECTRICAL &\nELECTRONICS'
+                                      : data['category'],
+                                    style: TextStyle(
+                                      color: Colors.grey,
+                                      fontSize: 14,
+                                    ),
+                                  ),
+
+                                  ElevatedButton(
+                                    onPressed: () {
+
+                                    },
+                                    style: ElevatedButton.styleFrom(
+                                      backgroundColor: Colors.black,
+                                      foregroundColor: Colors.white,
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.zero,
+                                      ),
+                                    ),
+
+                                    child: Text('+ADD TO CART',
+                                      style: TextStyle(
+                                        fontSize: 12,
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                 );
               },
-              child: Container(
-                margin: EdgeInsets.symmetric(
-                  horizontal: 16,
-                  vertical: 8,
-                ),
-                padding: EdgeInsets.all(8),
-                decoration: BoxDecoration(
-                  border: Border.all(
-                    color: Colors.black,
-                  ),
-                  borderRadius: BorderRadius.circular(5),
-                ),
-                child: Row(
-                  children: [
-                    Image.asset('assets/images/clean_code.jpg',
-                    width: 110,
-                    height: 198,
-                    fit: BoxFit.fitWidth,
-                    ),
-                    SizedBox(width: 10),
-                    Expanded(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Container(
-                                color: Colors.black,
-                                padding: EdgeInsets.symmetric(
-                                  horizontal: 8,
-                                  vertical: 4,
-                                ),
-
-                                child: Text('BRAND NEW',
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 12,
-                                  ),
-                                ),
-                              ),
-                              Text('\$10.00',
-                                style: TextStyle(
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                            ],
-                          ),
-
-                          SizedBox(height: 12),
-                          const Text('CLEAN CODE: A HANDBOOK OF SOFTWARE CRAFTSMANSHIPS',
-                            maxLines: 2,
-                            overflow: TextOverflow.ellipsis,
-
-                            style: TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          SizedBox(height: 6),
-                          const Text('Robert C. Martin',
-                            overflow: TextOverflow.ellipsis,
-                            style: TextStyle(
-                              color: Colors.grey,
-                            ),
-                          ),
-
-                          SizedBox(height: 1),
-                          const Divider(thickness: 0.5,),
-                          SizedBox(height: 1),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              const Text('COMPUTER \nSCIENCE',
-                                style: TextStyle(
-                                  color: Colors.grey,
-                                  fontSize: 14,
-                                ),
-                              ),
-                              ElevatedButton(
-                                onPressed: (){},
-                                style: ElevatedButton.styleFrom(
-                                  backgroundColor: Colors.black,
-                                  foregroundColor: Colors.white,
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.zero,
-                                  ),
-                                ),
-                                child: const Text('+ADD TO CART',
-                                  style: TextStyle(
-                                    fontSize: 12,
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
-              ),
             ),
 
-            //Book4
-            GestureDetector(
-              onTap: () {
-                Navigator.push(context,
-                  MaterialPageRoute(
-                    builder: (context)=> const BookDetails(
-                      title: 'Structure and Interpretation of Computer \nPrograms (SICP)' ,
-                      author: 'by Harold Abelson, Gerald Jay Sussman, Julie Sussman',
-                      price:  '\$6.00',
-                      category: 'COMPUTER SCIENCE',
-                      description: 'Structure and Interpretation of Computer Programs (SICP) '
-                          'is a computer science textbook by Massachusetts Institute of '
-                          'Technology professors Harold Abelson and Gerald Jay Sussman with'
-                          ' Julie Sussman. It is known as the "Wizard Book" in hacker '
-                          'culture. It teaches fundamental principles of computer '
-                          'programming, including recursion, abstraction, modularity, '
-                          'and programming language design and implementation. The book '
-                          'describes computer science concepts using Scheme, a dialect '
-                          'of Lisp. Wikipedia.',
-                      image: 'assets/images/si_cp.jpg',
+            //Firestore Book3
+            StreamBuilder<DocumentSnapshot>(
+              stream: FirebaseFirestore.instance
+                  .collection('books')
+                  .doc('fec_001')
+                  .snapshots(),
+
+              builder: (context, snapshot) {
+                if(snapshot.connectionState==ConnectionState.waiting){
+                  return const Center(
+                    child: CircularProgressIndicator(),
+                  );
+                }
+
+                if(snapshot.hasError){
+                  return Center(
+                    child: Text('Error: ${snapshot.error}'),
+                  );
+                }
+
+                if(!snapshot.hasData||!snapshot.data!.exists){
+                  return const Center(
+                    child: Text('Book not found'),
+                  );
+                }
+                final data=snapshot.data!.data() as Map<String, dynamic>;
+
+                return GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => BookDetails(
+                          title: data['title'],
+                          author: data['author'],
+                          price: '\$${data['price']}.00',
+                          category: data['category'],
+                          description: data['description'],
+                          image: data['imageUrl'],
+                        ),
+                      ),
+                    );
+                  },
+
+                  child: Container(
+                    margin: const EdgeInsets.symmetric(
+                      horizontal: 16,
+                      vertical: 8,
+                    ),
+
+                    padding: const EdgeInsets.all(8),
+                    decoration: BoxDecoration(
+                      border: Border.all(
+                        color: Colors.black,
+                      ),
+                      borderRadius: BorderRadius.circular(5),
+                    ),
+
+                    child: Row(
+                      children: [
+                        Image.asset(data['imageUrl'],
+                          width: 110,
+                          height: 198,
+                          fit: BoxFit.fitWidth,
+                        ),
+
+                        SizedBox(width: 10),
+                        Expanded(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Container(
+                                    color: Colors.black,
+                                    padding: const EdgeInsets.symmetric(
+                                      horizontal: 8,
+                                      vertical: 4,
+                                    ),
+                                    child: Text('BRAND NEW',
+                                      style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 12,
+                                      ),
+                                    ),
+                                  ),
+
+                                  Text('\$${data['price']}.00',
+                                    style: TextStyle(
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ],
+                              ),
+
+                              SizedBox(height: 12),
+                              Text(data['title'],
+                                maxLines: 2,
+                                overflow: TextOverflow.ellipsis,
+                                style: TextStyle(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+
+                              SizedBox(height: 6),
+                              Text(data['author'],
+                                overflow: TextOverflow.ellipsis,
+                                style: const TextStyle(
+                                  color: Colors.grey,
+                                ),
+                              ),
+
+                              SizedBox(height: 1),
+                              Divider(thickness: 0.5,),
+                              SizedBox(height: 1),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Text(data['category']=='COMPUTER SCIENCE'
+                                      ? 'COMPUTER\nSCIENCE'
+                                      : data['category']=='ELECTRICAL & ELECTRONICS'
+                                      ? 'ELECTRICAL &\nELECTRONICS'
+                                      : data['category'],
+                                    style: TextStyle(
+                                      color: Colors.grey,
+                                      fontSize: 14,
+                                    ),
+                                  ),
+
+                                  ElevatedButton(
+                                    onPressed: () {
+
+                                    },
+                                    style: ElevatedButton.styleFrom(
+                                      backgroundColor: Colors.black,
+                                      foregroundColor: Colors.white,
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.zero,
+                                      ),
+                                    ),
+
+                                    child: Text('+ADD TO CART',
+                                      style: TextStyle(
+                                        fontSize: 12,
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                 );
               },
-              child: Container(
-                margin: EdgeInsets.symmetric(
-                  horizontal: 16,
-                  vertical: 8,
-                ),
-                padding: EdgeInsets.all(8),
-                decoration: BoxDecoration(
-                  border: Border.all(
-                    color: Colors.black,
-                  ),
-                  borderRadius: BorderRadius.circular(5),
-                ),
-                child: Row(
-                  children: [
-                    Image.asset('assets/images/si_cp.jpg',
-                    width:110,
-                      height:198,
-                      fit: BoxFit.fitWidth,
-                    ),
-                    SizedBox(width: 10),
-                    Expanded(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Container(
-                                color: Colors.black,
-                                padding: EdgeInsets.symmetric(
-                                  horizontal: 8,
-                                  vertical: 4,
-                                ),
-
-                                child: Text('BRAND NEW',
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 12,
-                                  ),
-                                ),
-                              ),
-                              Text('\$8.00',
-                                style: TextStyle(
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                            ],
-                          ),
-
-                          SizedBox(height: 12),
-                          const Text('STRUCTURE AND INTERPRETA\nTION OF COMPUTER PROGRAMS (SICP)',
-                            maxLines: 2,
-                            overflow: TextOverflow.ellipsis,
-
-                            style: TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          SizedBox(height: 6),
-                          const Text('Harold Abelson, Gerald Jay Sussman, Julie Sussman',
-                            overflow: TextOverflow.ellipsis,
-                            style: TextStyle(
-                              color: Colors.grey,
-                            ),
-                          ),
-
-                          SizedBox(height: 1),
-                          const Divider(thickness: 0.5,),
-                          SizedBox(height: 1),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              const Text('COMPUTER \nSCIENCE',
-                                style: TextStyle(
-                                  color: Colors.grey,
-                                  fontSize: 14,
-                                ),
-                              ),
-                              ElevatedButton(
-                                onPressed: (){},
-                                style: ElevatedButton.styleFrom(
-                                  backgroundColor: Colors.black,
-                                  foregroundColor: Colors.white,
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.zero,
-                                  ),
-                                ),
-                                child: const Text('+ADD TO CART',
-                                  style: TextStyle(
-                                    fontSize: 12,
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
-              ),
             ),
 
-            // EE Book 3
-            GestureDetector(
-              onTap: () {
-                Navigator.push(context,
-                  MaterialPageRoute(
-                    builder: (context)=> const BookDetails(
-                      title: 'MICROELECTRONIC CIRCUITS',
-                      author: 'by Adel S. Sedra, Kenneth C. Smith',
-                      price:  '\$10.00',
-                      category: 'ELECTRICAL & ELECTRONICS',
-                      description: 'Microelectronic Circuits by Adel S. Sedra and Kenneth '
-                          'C. Smith is universally recognized as the gold-standard textbook '
-                          'for electrical and computer engineering education worldwide.'
-                          ' Published by Oxford University Press and currently in its '
-                          'updated eighth edition, this authoritative text seamlessly'
-                          ' bridges the gap between fundamental semiconductor physics '
-                          'and modern integrated circuit (IC) design. It provides an '
-                          'exceptionally detailed, parallel treatment of both MOSFETs and'
-                          ' BJTs, guiding students from the basic operation of single-stage'
-                          ' amplifiers up to complex analog and digital IC building blocks,'
-                          ' operational amplifiers, and frequency response analysis. '
-                          'Renowned for its rigorous mathematical foundations paired '
-                          'with practical design insights, "Sedra/Smith" remains an '
-                          'indispensable reference for both university classrooms and '
-                          'professional engineering careers.',
-                      image: 'assets/images/microelec_circuit.jpg',
+            //Firestore Book4
+            StreamBuilder<DocumentSnapshot>(
+              stream: FirebaseFirestore.instance
+                  .collection('books')
+                  .doc('edct_001')
+                  .snapshots(),
+
+              builder: (context, snapshot) {
+                if(snapshot.connectionState==ConnectionState.waiting){
+                  return const Center(
+                    child: CircularProgressIndicator(),
+                  );
+                }
+
+                if(snapshot.hasError){
+                  return Center(
+                    child: Text('Error: ${snapshot.error}'),
+                  );
+                }
+
+                if(!snapshot.hasData||!snapshot.data!.exists){
+                  return const Center(
+                    child: Text('Book not found'),
+                  );
+                }
+                final data=snapshot.data!.data() as Map<String, dynamic>;
+
+                return GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => BookDetails(
+                          title: data['title'],
+                          author: data['author'],
+                          price: '\$${data['price']}.00',
+                          category: data['category'],
+                          description: data['description'],
+                          image: data['imageUrl'],
+                        ),
+                      ),
+                    );
+                  },
+
+                  child: Container(
+                    margin: const EdgeInsets.symmetric(
+                      horizontal: 16,
+                      vertical: 8,
+                    ),
+
+                    padding: const EdgeInsets.all(8),
+                    decoration: BoxDecoration(
+                      border: Border.all(
+                        color: Colors.black,
+                      ),
+                      borderRadius: BorderRadius.circular(5),
+                    ),
+
+                    child: Row(
+                      children: [
+                        Image.asset(data['imageUrl'],
+                          width: 110,
+                          height: 198,
+                          fit: BoxFit.fitWidth,
+                        ),
+
+                        SizedBox(width: 10),
+                        Expanded(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Container(
+                                    color: Colors.black,
+                                    padding: const EdgeInsets.symmetric(
+                                      horizontal: 8,
+                                      vertical: 4,
+                                    ),
+                                    child: Text('BRAND NEW',
+                                      style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 12,
+                                      ),
+                                    ),
+                                  ),
+
+                                  Text('\$${data['price']}.00',
+                                    style: TextStyle(
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ],
+                              ),
+
+                              SizedBox(height: 12),
+                              Text(data['title'],
+                                maxLines: 2,
+                                overflow: TextOverflow.ellipsis,
+                                style: TextStyle(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+
+                              SizedBox(height: 6),
+                              Text(data['author'],
+                                overflow: TextOverflow.ellipsis,
+                                style: const TextStyle(
+                                  color: Colors.grey,
+                                ),
+                              ),
+
+                              SizedBox(height: 1),
+                              Divider(thickness: 0.5,),
+                              SizedBox(height: 1),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Text(data['category']=='COMPUTER SCIENCE'
+                                      ? 'COMPUTER\nSCIENCE'
+                                      : data['category']=='ELECTRICAL & ELECTRONICS'
+                                      ? 'ELECTRICAL &\nELECTRONICS'
+                                      : data['category'],
+                                    style: TextStyle(
+                                      color: Colors.grey,
+                                      fontSize: 14,
+                                    ),
+                                  ),
+
+                                  ElevatedButton(
+                                    onPressed: () {
+
+                                    },
+                                    style: ElevatedButton.styleFrom(
+                                      backgroundColor: Colors.black,
+                                      foregroundColor: Colors.white,
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.zero,
+                                      ),
+                                    ),
+
+                                    child: Text('+ADD TO CART',
+                                      style: TextStyle(
+                                        fontSize: 12,
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                 );
               },
-              child: Container(
-                margin: EdgeInsets.symmetric(
-                  horizontal: 16,
-                  vertical: 8,
-                ),
-                padding: EdgeInsets.all(8),
-                decoration: BoxDecoration(
-                  border: Border.all(
-                    color: Colors.black,
-                  ),
-                  borderRadius: BorderRadius.circular(5),
-                ),
-                child: Row(
-                  children: [
-                    Image.asset('assets/images/microelec_circuit.jpg',
-                      width: 110,
-                      height: 198,
-                      fit: BoxFit.fitWidth,
-                    ),
-                    SizedBox(width: 10),
-                    Expanded(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Container(
-                                color: Colors.black,
-                                padding: EdgeInsets.symmetric(
-                                  horizontal: 8,
-                                  vertical: 4,
-                                ),
-
-                                child: Text('BRAND NEW',
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 12,
-                                  ),
-                                ),
-                              ),
-
-                              Text('\$10.00',
-                                style: TextStyle(
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                            ],
-                          ),
-
-                          SizedBox(height: 12),
-                          const Text('MICROELECTRONIC CIRCUITS ',
-                            maxLines: 2,
-                            overflow: TextOverflow.ellipsis,
-
-                            style: TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          SizedBox(height: 6),
-                          const Text('Adel S. Sedra, Kenneth C. Smith',
-                            overflow: TextOverflow.ellipsis,
-                            style: TextStyle(
-                              color: Colors.grey,
-                            ),
-                          ),
-
-                          SizedBox(height: 1),
-                          const Divider(thickness: 0.5,),
-                          SizedBox(height: 1),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              const Text('ELECTRICAL & \nELECTRONICS',
-                                style: TextStyle(
-                                  color: Colors.grey,
-                                  fontSize: 14,
-                                ),
-                              ),
-                              ElevatedButton(
-                                onPressed: (){},
-                                style: ElevatedButton.styleFrom(
-                                  backgroundColor: Colors.black,
-                                  foregroundColor: Colors.white,
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.zero,
-                                  ),
-                                ),
-                                child: const Text('+ADD TO CART',
-                                  style: TextStyle(
-                                    fontSize: 12,
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
-              ),
             ),
-            // EE Book 4
-            GestureDetector(
-              onTap: () {
-                Navigator.push(context,
-                  MaterialPageRoute(
-                    builder: (context)=> const BookDetails(
-                      title: 'THE ART OF ELECTRONICS',
-                      author: 'by Paul Horowitz, Winfield Hill',
-                      price:  '\$12.00',
-                      category: 'ELECTRICAL & ELECTRONICS',
-                      description: 'The Art of Electronics, by Paul Horowitz and '
-                          'Winfield Hill, is a popular electronics design reference '
-                          'textbook dealing with analog and digital electronics. The '
-                          'third edition was published in 2015. The book covers many'
-                          ' areas of circuit design, from basic DC voltage, current, '
-                          'and resistance, to active filters and oscillators, to digital '
-                          'electronics, including microprocessors and digital bus'
-                          ' interfacing. It also includes discussions of such often'
-                          '-neglected areas as high-frequency, high-speed design '
-                          'techniques and low-power applications. The book includes '
-                          'many example circuits. In addition to having examples of'
-                          'effective practices in circuit design',
-                      image: 'assets/images/art_of_elec.jpg',
+
+            //Firestore Book5
+            StreamBuilder<DocumentSnapshot>(
+              stream: FirebaseFirestore.instance
+                  .collection('books')
+                  .doc('sicp_001')
+                  .snapshots(),
+
+              builder: (context, snapshot) {
+                if(snapshot.connectionState==ConnectionState.waiting){
+                  return const Center(
+                    child: CircularProgressIndicator(),
+                  );
+                }
+
+                if(snapshot.hasError){
+                  return Center(
+                    child: Text('Error: ${snapshot.error}'),
+                  );
+                }
+
+                if(!snapshot.hasData||!snapshot.data!.exists){
+                  return const Center(
+                    child: Text('Book not found'),
+                  );
+                }
+                final data=snapshot.data!.data() as Map<String, dynamic>;
+
+                return GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => BookDetails(
+                          title: data['title'],
+                          author: data['author'],
+                          price: '\$${data['price']}.00',
+                          category: data['category'],
+                          description: data['description'],
+                          image: data['imageUrl'],
+                        ),
+                      ),
+                    );
+                  },
+
+                  child: Container(
+                    margin: const EdgeInsets.symmetric(
+                      horizontal: 16,
+                      vertical: 8,
+                    ),
+
+                    padding: const EdgeInsets.all(8),
+                    decoration: BoxDecoration(
+                      border: Border.all(
+                        color: Colors.black,
+                      ),
+                      borderRadius: BorderRadius.circular(5),
+                    ),
+
+                    child: Row(
+                      children: [
+                        Image.asset(data['imageUrl'],
+                          width: 110,
+                          height: 198,
+                          fit: BoxFit.fitWidth,
+                        ),
+
+                        SizedBox(width: 10),
+                        Expanded(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Container(
+                                    color: Colors.black,
+                                    padding: const EdgeInsets.symmetric(
+                                      horizontal: 8,
+                                      vertical: 4,
+                                    ),
+                                    child: Text('BRAND NEW',
+                                      style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 12,
+                                      ),
+                                    ),
+                                  ),
+
+                                  Text('\$${data['price']}.00',
+                                    style: TextStyle(
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ],
+                              ),
+
+                              SizedBox(height: 12),
+                              Text(data['title'],
+                                maxLines: 2,
+                                overflow: TextOverflow.ellipsis,
+                                style: TextStyle(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+
+                              SizedBox(height: 6),
+                              Text(data['author'],
+                                overflow: TextOverflow.ellipsis,
+                                style: const TextStyle(
+                                  color: Colors.grey,
+                                ),
+                              ),
+
+                              SizedBox(height: 1),
+                              Divider(thickness: 0.5,),
+                              SizedBox(height: 1),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Text(data['category']=='COMPUTER SCIENCE'
+                                      ? 'COMPUTER\nSCIENCE'
+                                      : data['category']=='ELECTRICAL & ELECTRONICS'
+                                      ? 'ELECTRICAL &\nELECTRONICS'
+                                      : data['category'],
+                                    style: TextStyle(
+                                      color: Colors.grey,
+                                      fontSize: 14,
+                                    ),
+                                  ),
+
+                                  ElevatedButton(
+                                    onPressed: () {
+
+                                    },
+                                    style: ElevatedButton.styleFrom(
+                                      backgroundColor: Colors.black,
+                                      foregroundColor: Colors.white,
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.zero,
+                                      ),
+                                    ),
+
+                                    child: Text('+ADD TO CART',
+                                      style: TextStyle(
+                                        fontSize: 12,
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                 );
               },
-              child: Container(
-                margin: EdgeInsets.symmetric(
-                  horizontal: 16,
-                  vertical: 8,
-                ),
-                padding: EdgeInsets.all(8),
-                decoration: BoxDecoration(
-                  border: Border.all(
-                    color: Colors.black,
-                  ),
-                  borderRadius: BorderRadius.circular(5),
-                ),
-                child: Row(
-                  children: [
-                    Image.asset('assets/images/art_of_elec.jpg',
-                      width: 110,
-                      height: 198,
-                      fit: BoxFit.fitWidth,
-                    ),
-                    SizedBox(width: 10),
-                    Expanded(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Container(
-                                color: Colors.black,
-                                padding: EdgeInsets.symmetric(
-                                  horizontal: 8,
-                                  vertical: 4,
-                                ),
+            ),
 
-                                child: Text('BRAND NEW',
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 12,
+            //Firestore Book6
+            StreamBuilder<DocumentSnapshot>(
+              stream: FirebaseFirestore.instance
+                  .collection('books')
+                  .doc('cc_001')
+                  .snapshots(),
+
+              builder: (context, snapshot) {
+                if(snapshot.connectionState==ConnectionState.waiting){
+                  return const Center(
+                    child: CircularProgressIndicator(),
+                  );
+                }
+
+                if(snapshot.hasError){
+                  return Center(
+                    child: Text('Error: ${snapshot.error}'),
+                  );
+                }
+
+                if(!snapshot.hasData||!snapshot.data!.exists){
+                  return const Center(
+                    child: Text('Book not found'),
+                  );
+                }
+                final data=snapshot.data!.data() as Map<String, dynamic>;
+
+                return GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => BookDetails(
+                          title: data['title'],
+                          author: data['author'],
+                          price: '\$${data['price']}.00',
+                          category: data['category'],
+                          description: data['description'],
+                          image: data['imageUrl'],
+                        ),
+                      ),
+                    );
+                  },
+
+                  child: Container(
+                    margin: const EdgeInsets.symmetric(
+                      horizontal: 16,
+                      vertical: 8,
+                    ),
+
+                    padding: const EdgeInsets.all(8),
+                    decoration: BoxDecoration(
+                      border: Border.all(
+                        color: Colors.black,
+                      ),
+                      borderRadius: BorderRadius.circular(5),
+                    ),
+
+                    child: Row(
+                      children: [
+                        Image.asset(data['imageUrl'],
+                          width: 110,
+                          height: 198,
+                          fit: BoxFit.fitWidth,
+                        ),
+
+                        SizedBox(width: 10),
+                        Expanded(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Container(
+                                    color: Colors.black,
+                                    padding: const EdgeInsets.symmetric(
+                                      horizontal: 8,
+                                      vertical: 4,
+                                    ),
+                                    child: Text('BRAND NEW',
+                                      style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 12,
+                                      ),
+                                    ),
                                   ),
-                                ),
+
+                                  Text('\$${data['price']}.00',
+                                    style: TextStyle(
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ],
                               ),
 
-                              Text('\$12.00',
+                              SizedBox(height: 12),
+                              Text(data['title'],
+                                maxLines: 2,
+                                overflow: TextOverflow.ellipsis,
                                 style: TextStyle(
-                                  fontSize: 18,
+                                  fontSize: 16,
                                   fontWeight: FontWeight.bold,
                                 ),
                               ),
-                            ],
-                          ),
 
-                          SizedBox(height: 12),
-                          const Text('THE ART OF ELECTRONICS',
-                            maxLines: 2,
-                            overflow: TextOverflow.ellipsis,
-
-                            style: TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          SizedBox(height: 6),
-                          const Text('Paul Horowitz, Winfield Hill',
-                            overflow: TextOverflow.ellipsis,
-                            style: TextStyle(
-                              color: Colors.grey,
-                            ),
-                          ),
-
-                          SizedBox(height: 1),
-                          const Divider(thickness: 0.5,),
-                          SizedBox(height: 1),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              const Text('ELECTRICAL & \nELECTRONICS',
-                                style: TextStyle(
+                              SizedBox(height: 6),
+                              Text(data['author'],
+                                overflow: TextOverflow.ellipsis,
+                                style: const TextStyle(
                                   color: Colors.grey,
-                                  fontSize: 14,
                                 ),
                               ),
-                              ElevatedButton(
-                                onPressed: (){},
-                                style: ElevatedButton.styleFrom(
-                                  backgroundColor: Colors.black,
-                                  foregroundColor: Colors.white,
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.zero,
+
+                              SizedBox(height: 1),
+                              Divider(thickness: 0.5,),
+                              SizedBox(height: 1),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Text(data['category']=='COMPUTER SCIENCE'
+                                      ? 'COMPUTER\nSCIENCE'
+                                      : data['category']=='ELECTRICAL & ELECTRONICS'
+                                      ? 'ELECTRICAL &\nELECTRONICS'
+                                      : data['category'],
+                                    style: TextStyle(
+                                      color: Colors.grey,
+                                      fontSize: 14,
+                                    ),
                                   ),
-                                ),
-                                child: const Text('+ADD TO CART',
-                                  style: TextStyle(
-                                    fontSize: 12,
+
+                                  ElevatedButton(
+                                    onPressed: () {
+
+                                    },
+                                    style: ElevatedButton.styleFrom(
+                                      backgroundColor: Colors.black,
+                                      foregroundColor: Colors.white,
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.zero,
+                                      ),
+                                    ),
+
+                                    child: Text('+ADD TO CART',
+                                      style: TextStyle(
+                                        fontSize: 12,
+                                      ),
+                                    ),
                                   ),
-                                ),
+                                ],
                               ),
                             ],
                           ),
-                        ],
-                      ),
+                        ),
+                      ],
                     ),
-                  ],
-                ),
-              ),
+                  ),
+                );
+              },
+            ),
+
+            //Firestore Book7
+            StreamBuilder<DocumentSnapshot>(
+              stream: FirebaseFirestore.instance
+                  .collection('books')
+                  .doc('mec_001')
+                  .snapshots(),
+
+              builder: (context, snapshot) {
+                if(snapshot.connectionState==ConnectionState.waiting){
+                  return const Center(
+                    child: CircularProgressIndicator(),
+                  );
+                }
+
+                if(snapshot.hasError){
+                  return Center(
+                    child: Text('Error: ${snapshot.error}'),
+                  );
+                }
+
+                if(!snapshot.hasData||!snapshot.data!.exists){
+                  return const Center(
+                    child: Text('Book not found'),
+                  );
+                }
+                final data=snapshot.data!.data() as Map<String, dynamic>;
+
+                return GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => BookDetails(
+                          title: data['title'],
+                          author: data['author'],
+                          price: '\$${data['price']}.00',
+                          category: data['category'],
+                          description: data['description'],
+                          image: data['imageUrl'],
+                        ),
+                      ),
+                    );
+                  },
+
+                  child: Container(
+                    margin: const EdgeInsets.symmetric(
+                      horizontal: 16,
+                      vertical: 8,
+                    ),
+
+                    padding: const EdgeInsets.all(8),
+                    decoration: BoxDecoration(
+                      border: Border.all(
+                        color: Colors.black,
+                      ),
+                      borderRadius: BorderRadius.circular(5),
+                    ),
+
+                    child: Row(
+                      children: [
+                        Image.asset(data['imageUrl'],
+                          width: 110,
+                          height: 198,
+                          fit: BoxFit.fitWidth,
+                        ),
+
+                        SizedBox(width: 10),
+                        Expanded(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Container(
+                                    color: Colors.black,
+                                    padding: const EdgeInsets.symmetric(
+                                      horizontal: 8,
+                                      vertical: 4,
+                                    ),
+                                    child: Text('BRAND NEW',
+                                      style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 12,
+                                      ),
+                                    ),
+                                  ),
+
+                                  Text('\$${data['price']}.00',
+                                    style: TextStyle(
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ],
+                              ),
+
+                              SizedBox(height: 12),
+                              Text(data['title'],
+                                maxLines: 2,
+                                overflow: TextOverflow.ellipsis,
+                                style: TextStyle(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+
+                              SizedBox(height: 6),
+                              Text(data['author'],
+                                overflow: TextOverflow.ellipsis,
+                                style: const TextStyle(
+                                  color: Colors.grey,
+                                ),
+                              ),
+
+                              SizedBox(height: 1),
+                              Divider(thickness: 0.5,),
+                              SizedBox(height: 1),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Text(data['category']=='COMPUTER SCIENCE'
+                                      ? 'COMPUTER\nSCIENCE'
+                                      : data['category']=='ELECTRICAL & ELECTRONICS'
+                                      ? 'ELECTRICAL &\nELECTRONICS'
+                                      : data['category'],
+                                    style: TextStyle(
+                                      color: Colors.grey,
+                                      fontSize: 14,
+                                    ),
+                                  ),
+
+                                  ElevatedButton(
+                                    onPressed: () {
+
+                                    },
+                                    style: ElevatedButton.styleFrom(
+                                      backgroundColor: Colors.black,
+                                      foregroundColor: Colors.white,
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.zero,
+                                      ),
+                                    ),
+
+                                    child: Text('+ADD TO CART',
+                                      style: TextStyle(
+                                        fontSize: 12,
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                );
+              },
+            ),
+
+            //Firestore Book8
+            StreamBuilder<DocumentSnapshot>(
+              stream: FirebaseFirestore.instance
+                  .collection('books')
+                  .doc('aoe_001')
+                  .snapshots(),
+
+              builder: (context, snapshot) {
+                if(snapshot.connectionState==ConnectionState.waiting){
+                  return const Center(
+                    child: CircularProgressIndicator(),
+                  );
+                }
+
+                if(snapshot.hasError){
+                  return Center(
+                    child: Text('Error: ${snapshot.error}'),
+                  );
+                }
+
+                if(!snapshot.hasData||!snapshot.data!.exists){
+                  return const Center(
+                    child: Text('Book not found'),
+                  );
+                }
+                final data=snapshot.data!.data() as Map<String, dynamic>;
+
+                return GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => BookDetails(
+                          title: data['title'],
+                          author: data['author'],
+                          price: '\$${data['price']}.00',
+                          category: data['category'],
+                          description: data['description'],
+                          image: data['imageUrl'],
+                        ),
+                      ),
+                    );
+                  },
+
+                  child: Container(
+                    margin: const EdgeInsets.symmetric(
+                      horizontal: 16,
+                      vertical: 8,
+                    ),
+
+                    padding: const EdgeInsets.all(8),
+                    decoration: BoxDecoration(
+                      border: Border.all(
+                        color: Colors.black,
+                      ),
+                      borderRadius: BorderRadius.circular(5),
+                    ),
+
+                    child: Row(
+                      children: [
+                        Image.asset(data['imageUrl'],
+                          width: 110,
+                          height: 198,
+                          fit: BoxFit.fitWidth,
+                        ),
+
+                        SizedBox(width: 10),
+                        Expanded(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Container(
+                                    color: Colors.black,
+                                    padding: const EdgeInsets.symmetric(
+                                      horizontal: 8,
+                                      vertical: 4,
+                                    ),
+                                    child: Text('BRAND NEW',
+                                      style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 12,
+                                      ),
+                                    ),
+                                  ),
+
+                                  Text('\$${data['price']}.00',
+                                    style: TextStyle(
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ],
+                              ),
+
+                              SizedBox(height: 12),
+                              Text(data['title'],
+                                maxLines: 2,
+                                overflow: TextOverflow.ellipsis,
+                                style: TextStyle(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+
+                              SizedBox(height: 6),
+                              Text(data['author'],
+                                overflow: TextOverflow.ellipsis,
+                                style: const TextStyle(
+                                  color: Colors.grey,
+                                ),
+                              ),
+
+                              SizedBox(height: 1),
+                              Divider(thickness: 0.5,),
+                              SizedBox(height: 1),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Text(data['category']=='COMPUTER SCIENCE'
+                                      ? 'COMPUTER\nSCIENCE'
+                                      : data['category']=='ELECTRICAL & ELECTRONICS'
+                                      ? 'ELECTRICAL &\nELECTRONICS'
+                                      : data['category'],
+                                    style: TextStyle(
+                                      color: Colors.grey,
+                                      fontSize: 14,
+                                    ),
+                                  ),
+
+                                  ElevatedButton(
+                                    onPressed: () {
+
+                                    },
+                                    style: ElevatedButton.styleFrom(
+                                      backgroundColor: Colors.black,
+                                      foregroundColor: Colors.white,
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.zero,
+                                      ),
+                                    ),
+
+                                    child: Text('+ADD TO CART',
+                                      style: TextStyle(
+                                        fontSize: 12,
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                );
+              },
             ),
 
           ],
@@ -1343,4 +1599,5 @@ class HomeScreen extends StatelessWidget {
       ),
     );
   }
+
 }
