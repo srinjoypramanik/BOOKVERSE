@@ -38,19 +38,19 @@ class _SignInState extends State<SignIn> {
         password: password.trim(),
       );
 
-      setState(() {
-        showSuccessSplash = true;
-      });
+      // setState(() {
+      //   showSuccessSplash = true;
+      // });
 
-      Timer(const Duration(seconds: 3), () {
+      // Timer( Duration(seconds: 3), () {
 
         Navigator.pushReplacement(
           context,
 
           MaterialPageRoute(builder: (context) => const HomeScreen()),
           );
-        }
-      );
+        // }
+      // );
     }
     on FirebaseAuthException catch (e) {
       setState(() {
@@ -72,35 +72,35 @@ class _SignInState extends State<SignIn> {
   Widget build(BuildContext context) {
     // Success Splash UI
 
-    if (showSuccessSplash) {
-      return Scaffold(
-        backgroundColor: Colors.white,
-
-        body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-
-            children: [
-              Image.asset(
-                'assets/images/after_login.png',
-
-                height: 150,
-
-                width: 150,
-              ),
-
-              const SizedBox(height: 30),
-
-              const Text(
-                "Login Successful",
-
-                style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
-              ),
-            ],
-          ),
-        ),
-      );
-    }
+    // if (showSuccessSplash) {
+    //   return Scaffold(
+    //     backgroundColor: Colors.white,
+    //
+    //     body: Center(
+    //       child: Column(
+    //         mainAxisAlignment: MainAxisAlignment.center,
+    //
+    //         children: [
+    //           Image.asset(
+    //             'assets/images/after_login.png',
+    //
+    //             height: 150,
+    //
+    //             width: 150,
+    //           ),
+    //
+    //           const SizedBox(height: 30),
+    //
+    //           const Text(
+    //             "Login Successful",
+    //
+    //             style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+    //           ),
+    //         ],
+    //       ),
+    //     ),
+    //   );
+    // }
 
     // Error Splash UI
 
