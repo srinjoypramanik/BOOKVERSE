@@ -28,8 +28,14 @@ class _Feedback_pageState extends State<Feedback_page> {
 
   Future<void> submitFeedback() async {
 
-
     User? user = FirebaseAuth.instance.currentUser;
+
+
+    DocumentSnapshot userData =
+    await FirebaseFirestore.instance
+        .collection("users")
+        .doc(user!.uid)
+        .get();
 
 
 
@@ -37,11 +43,11 @@ class _Feedback_pageState extends State<Feedback_page> {
         .collection("feedbacks")
         .add({
 
-      "userId": user?.uid ?? "guest",
+      "userId": user.uid,
 
-      "name": user?.displayName ?? "Unknown",
+      "name": userData["name"],
 
-      "email": user?.email ?? "No email",
+      "email": user.email,
 
       "rating": rating,
 
@@ -62,9 +68,7 @@ class _Feedback_pageState extends State<Feedback_page> {
     );
 
 
-
     feedbackController.clear();
-
 
   }
 
@@ -97,285 +101,287 @@ class _Feedback_pageState extends State<Feedback_page> {
 
 
 
-      body: Padding(
-
-        padding: EdgeInsets.all(20),
-
-
-
-        child: Column(
-
-
-          crossAxisAlignment: CrossAxisAlignment.start,
-
-
-
-          children: [
-
-
-
-            SizedBox(height: 30),
-
-
-
-
-            Center(
-
-              child: Text(
-
-                "We value your feedback",
-
+      body: SingleChildScrollView(
+        child: Padding(
+        
+          padding: EdgeInsets.all(20),
+        
+        
+        
+          child: Column(
+        
+        
+            crossAxisAlignment: CrossAxisAlignment.start,
+        
+        
+        
+            children: [
+        
+        
+        
+              SizedBox(height: 30),
+        
+        
+        
+        
+              Center(
+        
+                child: Text(
+        
+                  "We value your feedback",
+        
+                  style: TextStyle(
+        
+                    fontSize: 24,
+        
+                    fontWeight: FontWeight.bold,
+        
+                  ),
+        
+                ),
+        
+              ),
+        
+        
+        
+        
+              SizedBox(height: 40),
+        
+        
+        
+        
+              Text(
+        
+                "How was your experience?",
+        
                 style: TextStyle(
-
-                  fontSize: 24,
-
-                  fontWeight: FontWeight.bold,
-
+        
+                  fontSize: 18,
+        
+                  fontWeight: FontWeight.w900,
+        
                 ),
-
+        
               ),
-
-            ),
-
-
-
-
-            SizedBox(height: 40),
-
-
-
-
-            Text(
-
-              "How was your experience?",
-
-              style: TextStyle(
-
-                fontSize: 18,
-
-                fontWeight: FontWeight.w900,
-
+        
+        
+              Center(
+        
+                child: Row(
+        
+                  mainAxisAlignment: MainAxisAlignment.center,
+        
+                  children: List.generate(5, (index){
+        
+                    return IconButton(
+        
+                      onPressed: (){
+        
+                        setState((){
+        
+                          rating = index + 1;
+        
+                        });
+        
+                      },
+        
+        
+                      icon: Icon(
+        
+                        index < rating
+                            ? Icons.star
+                            : Icons.star_border,
+        
+        
+                        color: Colors.black,
+        
+                        size: 35,
+        
+                      ),
+        
+                    );
+        
+                  }),
+        
+                ),
+        
               ),
-
-            ),
-
-
-            Center(
-
-              child: Row(
-
-                mainAxisAlignment: MainAxisAlignment.center,
-
-                children: List.generate(5, (index){
-
-                  return IconButton(
-
+        
+        
+        
+        
+              SizedBox(height: 40),
+        
+        
+        
+        
+        
+        
+              TextField(
+        
+        
+                controller: feedbackController,
+        
+        
+                maxLines: 5,
+        
+        
+                decoration: InputDecoration(
+        
+        
+                  hintText: "Write your feedback...",
+        
+        
+        
+                  border: OutlineInputBorder(
+        
+                    borderRadius: BorderRadius.circular(10),
+        
+                  ),
+        
+                ),
+        
+              ),
+        
+        
+        
+        
+        
+              SizedBox(height: 30),
+        
+        
+        
+        
+        
+        
+              Center(
+        
+        
+                child: SizedBox(
+        
+        
+        
+                  width: 250,
+        
+        
+                  height: 60,
+        
+        
+        
+                  child: ElevatedButton(
+        
+        
+        
                     onPressed: (){
-
-                      setState((){
-
-                        rating = index + 1;
-
-                      });
-
+        
+        
+                      submitFeedback();
+        
+        
                     },
-
-
-                    icon: Icon(
-
-                      index < rating
-                          ? Icons.star
-                          : Icons.star_border,
-
-
-                      color: Colors.black,
-
-                      size: 35,
-
+        
+        
+        
+                    style: ElevatedButton.styleFrom(
+        
+        
+        
+                      backgroundColor: Colors.black,
+        
+        
+        
+                      shape: RoundedRectangleBorder(
+        
+        
+                        borderRadius: BorderRadius.circular(30),
+        
+        
+                      ),
+        
+        
                     ),
-
-                  );
-
-                }),
-
-              ),
-
-            ),
-
-
-
-
-            SizedBox(height: 40),
-
-
-
-
-
-
-            TextField(
-
-
-              controller: feedbackController,
-
-
-              maxLines: 5,
-
-
-              decoration: InputDecoration(
-
-
-                hintText: "Write your feedback...",
-
-
-
-                border: OutlineInputBorder(
-
-                  borderRadius: BorderRadius.circular(10),
-
-                ),
-
-              ),
-
-            ),
-
-
-
-
-
-            SizedBox(height: 30),
-
-
-
-
-
-
-            Center(
-
-
-              child: SizedBox(
-
-
-
-                width: 250,
-
-
-                height: 60,
-
-
-
-                child: ElevatedButton(
-
-
-
-                  onPressed: (){
-
-
-                    submitFeedback();
-
-
-                  },
-
-
-
-                  style: ElevatedButton.styleFrom(
-
-
-
-                    backgroundColor: Colors.black,
-
-
-
-                    shape: RoundedRectangleBorder(
-
-
-                      borderRadius: BorderRadius.circular(30),
-
-
+        
+        
+        
+        
+                    child: Text(
+        
+        
+        
+                      "Submit Feedback",
+        
+        
+        
+                      style: TextStyle(
+        
+        
+                        color: Colors.white,
+        
+        
+                        fontSize: 18,
+        
+        
+                        fontWeight: FontWeight.bold,
+        
+        
+                      ),
+        
+        
+        
                     ),
-
-
+        
+        
+        
                   ),
-
-
-
-
-                  child: Text(
-
-
-
-                    "Submit Feedback",
-
-
-
-                    style: TextStyle(
-
-
-                      color: Colors.white,
-
-
-                      fontSize: 18,
-
-
-                      fontWeight: FontWeight.bold,
-
-
-                    ),
-
-
-
-                  ),
-
-
-
+        
+        
                 ),
-
-
+        
+        
               ),
-
-
-            ),
-
-
-
-
-
-            SizedBox(height: 10),
-
-
-
-
-
-            Text(
-
-              'Thanks for your feedback',
-
-
-              style: TextStyle(
-
-
-                color: Colors.black,
-
-
-                fontSize: 20,
-
-
-                fontWeight: FontWeight.bold,
-
-
+        
+        
+        
+        
+        
+              SizedBox(height: 10),
+        
+        
+        
+        
+        
+              Text(
+        
+                'Thanks for your feedback',
+        
+        
+                style: TextStyle(
+        
+        
+                  color: Colors.black,
+        
+        
+                  fontSize: 20,
+        
+        
+                  fontWeight: FontWeight.bold,
+        
+        
+                ),
+        
+        
               ),
-
-
-            ),
-
-
-
-
-          ],
-
-
+        
+        
+        
+        
+            ],
+        
+        
+          ),
+        
+        
         ),
-
-
       ),
 
 
