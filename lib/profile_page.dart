@@ -19,7 +19,6 @@ class ProfilePage extends StatelessWidget {
     User? user = FirebaseAuth.instance.currentUser;
 
 
-
     if(user == null){
 
       return Scaffold(
@@ -29,13 +28,10 @@ class ProfilePage extends StatelessWidget {
         body: Center(
 
           child: Text(
-
             "No User Logged In",
-
             style: TextStyle(
-              fontSize: 20,
+              fontSize:20,
             ),
-
           ),
 
         ),
@@ -46,28 +42,25 @@ class ProfilePage extends StatelessWidget {
 
 
 
-
     return Scaffold(
 
       backgroundColor: Colors.white,
-
 
 
       appBar: AppBar(
 
         backgroundColor: Colors.white,
 
+        elevation:0,
+
         leading: IconButton(
 
           icon: Icon(
-
             Icons.arrow_back,
-
             color: Colors.black,
-
           ),
 
-          onPressed: (){
+          onPressed:(){
 
             Navigator.pop(context);
 
@@ -80,128 +73,66 @@ class ProfilePage extends StatelessWidget {
 
 
 
-
       body: FutureBuilder<DocumentSnapshot>(
 
 
         future: FirebaseFirestore.instance
-
             .collection("users")
-
             .doc(user.uid)
-
             .get(),
 
 
 
-
-        builder: (context, snapshot){
+        builder:(context,snapshot){
 
 
 
           if(snapshot.connectionState == ConnectionState.waiting){
 
-
             return Center(
 
-              child: CircularProgressIndicator(),
+              child:CircularProgressIndicator(),
 
             );
 
-
           }
-
-
-
-
-
-          if(snapshot.hasError){
-
-
-            return Center(
-
-              child: Text(
-
-                "Something went wrong",
-
-              ),
-
-            );
-
-
-          }
-
-
 
 
 
           if(!snapshot.hasData || !snapshot.data!.exists){
 
-
             return Center(
 
-              child: Text(
-
+              child:Text(
                 "User Information Not Found",
-
-                style: TextStyle(
-
+                style:TextStyle(
                   fontSize:18,
-
                 ),
-
               ),
 
             );
-
 
           }
 
 
 
 
-
           Map<String,dynamic> data =
-
           snapshot.data!.data() as Map<String,dynamic>;
-
-
-
 
 
 
 
           return SingleChildScrollView(
 
+            child: Padding(
 
-            child: Center(
-
-
-              child: Column(
+              padding:EdgeInsets.symmetric(horizontal:25),
 
 
+              child:Column(
 
-                children: [
-
-
-
-                  SizedBox(height:50),
-
-
-
-
-
-                  Icon(
-
-                    Icons.person,
-
-                    size:100,
-
-                    color:Colors.black,
-
-                  ),
-
-
+                children:[
 
 
 
@@ -210,24 +141,46 @@ class ProfilePage extends StatelessWidget {
 
 
 
+                  CircleAvatar(
+
+                    radius:45,
+
+                    backgroundColor:Colors.grey.shade200,
+
+
+                    child:Icon(
+
+                      Icons.person,
+
+                      size:55,
+
+                      color:Colors.black,
+
+                    ),
+
+                  ),
+
+
+
+
+                  SizedBox(height:15),
+
+
+
 
                   Text(
 
-
                     data["name"] ?? "USER NAME",
-
 
                     style:TextStyle(
 
-                      fontSize:30,
+                      fontSize:24,
 
                       fontWeight:FontWeight.bold,
 
                     ),
 
-
                   ),
-
 
 
 
@@ -237,48 +190,89 @@ class ProfilePage extends StatelessWidget {
 
 
 
-
                   Text(
-
 
                     data["phone"] ?? "Mobile Number",
 
-
                     style:TextStyle(
-
-                      fontSize:16,
 
                       color:Colors.grey,
 
-                    ),
+                      fontSize:16,
 
+                    ),
 
                   ),
 
 
 
 
-
-                  SizedBox(height:8),
-
+                  SizedBox(height:5),
 
 
 
 
                   Text(
 
-
                     data["email"] ?? user.email ?? "Email",
-
 
                     style:TextStyle(
 
-                      fontSize:16,
-
                       color:Colors.grey,
 
+                      fontSize:16,
+
                     ),
 
+                  ),
+
+
+
+
+                  SizedBox(height:45),
+
+
+
+
+
+                  profileMenu(
+
+                    context,
+
+                    Icons.shopping_bag_outlined,
+
+                    "My Orders",
+
+                        (){
+
+                      Navigator.push(
+
+                        context,
+
+                        MaterialPageRoute(
+
+                          builder:(context)=>const Cart(),
+
+                        ),
+
+                      );
+
+                    },
+
+                  ),
+
+
+
+
+                  profileMenu(
+
+                    context,
+
+                    Icons.favorite_border,
+
+                    "Wishlist",
+
+                        (){},
 
                   ),
 
@@ -286,185 +280,40 @@ class ProfilePage extends StatelessWidget {
 
 
 
-                  SizedBox(height:120),
+                  profileMenu(
 
+                    context,
 
+                    Icons.settings_outlined,
 
+                    "Settings",
 
-
-                  TextButton(
-
-
-                    onPressed:(){
+                        (){
 
 
                       Navigator.push(
 
-
                         context,
-
 
                         MaterialPageRoute(
 
-
-                          builder:(context)=> const Cart(),
-
+                          builder:(context)=>
+                          const my_settings.Settings(),
 
                         ),
-
 
                       );
 
 
                     },
 
-
-
-                    child:Text(
-
-
-                      "My Orders",
-
-
-                      style:TextStyle(
-
-
-                        fontSize:20,
-
-
-                        fontWeight:FontWeight.bold,
-
-
-                        decoration:TextDecoration.underline,
-
-
-                      ),
-
-
-                    ),
-
-
                   ),
 
 
 
 
 
-
-                  SizedBox(height:20),
-
-
-
-
-
-
-                  TextButton(
-
-
-                    onPressed:(){},
-
-
-
-                    child:Text(
-
-
-                      "Wishlist",
-
-
-                      style:TextStyle(
-
-
-                        fontSize:20,
-
-
-                        fontWeight:FontWeight.bold,
-
-
-                        decoration:TextDecoration.underline,
-
-
-                      ),
-
-
-                    ),
-
-
-                  ),
-
-
-
-
-
-
-                  SizedBox(height:20),
-
-
-
-
-
-
-                  TextButton(
-
-
-                    onPressed:(){
-
-
-
-                      Navigator.push(
-
-
-                        context,
-
-
-                        MaterialPageRoute(
-
-
-                          builder:(context)=> const my_settings.Settings(),
-
-
-                        ),
-
-
-                      );
-
-
-                    },
-
-
-
-                    child:Text(
-
-
-                      "Settings",
-
-
-                      style:TextStyle(
-
-
-                        fontSize:20,
-
-
-                        fontWeight:FontWeight.bold,
-
-
-                        decoration:TextDecoration.underline,
-
-
-                      ),
-
-
-                    ),
-
-
-                  ),
-
-
-
-
-
-
-                  SizedBox(height:100),
-
+                  SizedBox(height:70),
 
 
 
@@ -472,119 +321,92 @@ class ProfilePage extends StatelessWidget {
 
                   SizedBox(
 
-
                     width:200,
 
-
                     height:50,
-
 
 
                     child:ElevatedButton(
 
 
-
-                      onPressed:() async {
-
+                      onPressed:() async{
 
 
                         await FirebaseAuth.instance.signOut();
 
 
 
-
-
                         Navigator.pushReplacement(
-
 
                           context,
 
-
                           MaterialPageRoute(
 
-
-                            builder:(context)=> const HomeScreen(),
-
+                            builder:(context)=>
+                            const HomeScreen(),
 
                           ),
 
-
                         );
-
 
 
                       },
 
 
 
-
                       style:ElevatedButton.styleFrom(
-
 
 
                         backgroundColor:Colors.black,
 
 
-
                         shape:RoundedRectangleBorder(
 
-
-                          borderRadius:BorderRadius.circular(30),
-
+                          borderRadius:
+                          BorderRadius.circular(30),
 
                         ),
 
-
                       ),
-
 
 
 
 
                       child:Text(
 
-
                         "Logout",
-
 
                         style:TextStyle(
 
-
                           color:Colors.white,
 
-
-                          fontSize:25,
-
+                          fontSize:20,
 
                         ),
-
 
                       ),
 
 
                     ),
 
-
                   ),
 
 
 
 
-                ],
+                  SizedBox(height:30),
 
+
+                ],
 
               ),
 
-
             ),
-
 
           );
 
 
-
         },
-
 
 
       ),
@@ -594,6 +416,132 @@ class ProfilePage extends StatelessWidget {
 
 
   }
+
+
+
+
+  Widget profileMenu(
+
+      BuildContext context,
+
+      IconData icon,
+
+      String title,
+
+      VoidCallback onTap,
+
+      ){
+
+
+
+    return GestureDetector(
+
+
+      onTap:onTap,
+
+
+      child:Container(
+
+
+        margin:EdgeInsets.symmetric(vertical:8),
+
+
+        padding:EdgeInsets.all(16),
+
+
+
+        decoration:BoxDecoration(
+
+
+          color:Colors.white,
+
+
+          borderRadius:
+          BorderRadius.circular(15),
+
+
+
+          border:Border.all(
+
+            color:Colors.grey.shade300,
+
+          ),
+
+
+        ),
+
+
+
+        child:Row(
+
+
+          children:[
+
+
+
+            Icon(
+
+              icon,
+
+              color:Colors.black,
+
+            ),
+
+
+
+            SizedBox(width:15),
+
+
+
+
+            Text(
+
+              title,
+
+              style:TextStyle(
+
+                fontSize:17,
+
+                fontWeight:FontWeight.w500,
+
+              ),
+
+            ),
+
+
+
+
+            Spacer(),
+
+
+
+
+            Icon(
+
+              Icons.arrow_forward_ios,
+
+              size:15,
+
+              color:Colors.grey,
+
+            ),
+
+
+
+          ],
+
+
+        ),
+
+
+      ),
+
+
+    );
+
+
+  }
+
 
 
 }
