@@ -265,7 +265,7 @@ class HomeScreen extends StatefulWidget {
                   ),
                   TextButton(
                       onPressed: (){},
-                      child: const Text('Filter',
+                      child: const Text('',
                         style: TextStyle(
                           fontSize: 15,
                           color: Colors.black,
