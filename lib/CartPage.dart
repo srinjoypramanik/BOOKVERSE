@@ -1,3 +1,6 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'Checkoutpage.dart';
 import 'homescreen.dart';
@@ -11,8 +14,22 @@ class Cart extends StatefulWidget {
 }
 
 class  CartState extends State<Cart> {
+ 
+ 
   @override
+  
+
   Widget build(BuildContext context) {
+
+     User?user=FirebaseAuth.instance.currentUser;
+  if(user==null){
+     return const SignIn();
+      
+    
+  }
+
+bool cartISfull = true;
+
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
@@ -27,7 +44,7 @@ class  CartState extends State<Cart> {
 
         
 
-        title: const Text('CART',style: TextStyle(color: Colors.black,fontSize: 20,fontWeight: FontWeight.bold,),),
+        title:  Text('CART',style: TextStyle(color: Colors.black,fontSize: 20,fontWeight: FontWeight.bold,),),
         
         actions: [TextButton(
           onPressed: (){},
@@ -38,11 +55,82 @@ class  CartState extends State<Cart> {
 
         body: Column(
           children: [
-            Expanded(child:SingleChildScrollView(
-              child: Column(
-               children:[],
-              )
-            ) 
+            Expanded(child:
+               
+              
+                SafeArea(
+                  child: 
+                  StreamBuilder(
+                    stream: FirebaseFirestore.instance.collection("user-cart").doc(FirebaseAuth.instance.currentUser!.email).collection("items").snapshots(), 
+                    builder: (BuildContext context, AsyncSnapshot <QuerySnapshot> snapshot)
+                    
+                    {
+
+                      if(!snapshot.hasData||snapshot.data!.docs.isEmpty)
+                      {
+                       cartISfull=false;
+                        return const Center(
+                          child: Text("empty cart"),
+                        );
+                      }
+
+                      else{ cartISfull=true;
+                      return ListView.builder(
+                        itemCount: snapshot.data!.docs.length,
+                        itemBuilder: (context,index){
+                          DocumentSnapshot documentSnapshot =snapshot.data!.docs[index];
+
+
+                          //card starts here___________________________________
+                          return Card(
+                           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(0)),
+                            elevation: 1,
+                            child:
+                           ListTile(
+                            leading: SizedBox(
+                              child: 
+                              Image.asset(documentSnapshot['image'],height: 80,width: 40,)),
+                            
+                            //___________________ ADD quantity and price HERE _____________________________________//
+                            
+                            title: 
+                          
+                            Text(documentSnapshot['title'],
+                            ),
+                           
+                             //___________________ ADD quantity and price HERE _____________________________________//
+                            trailing: GestureDetector(
+                              child: Icon(Icons.delete),
+                              onTap: (){
+                                FirebaseFirestore
+                                .instance
+                                .collection("user-cart")
+                                .doc(FirebaseAuth.
+                                instance.
+                                currentUser!.
+                                email)
+                                .collection("items")
+                                .doc(documentSnapshot.
+                                id)
+                                .delete();
+                              },
+                            )
+
+                          )
+                          );
+
+                          //card ends__________________________________________
+                        }
+                        );
+
+                      
+
+                    }}) ,)
+
+
+             
+            
+           
           ),
 
             Container( 
@@ -69,8 +157,18 @@ class  CartState extends State<Cart> {
                     ),
                     ElevatedButton(
                             onPressed: (){
-                              Navigator.push(context,MaterialPageRoute(builder:(context)=>const Checkoutpage()));
-                            },
+
+                               
+                              if(cartISfull==true)
+                              { 
+                                 Navigator.push(context, MaterialPageRoute(builder: (context)=> const Checkoutpage() ));
+
+                               
+
+                            }
+
+                              },
+                            
 
                           style: ElevatedButton.styleFrom(
                             fixedSize: Size.fromWidth(350),

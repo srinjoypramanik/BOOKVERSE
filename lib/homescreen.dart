@@ -16,6 +16,35 @@ class HomeScreen extends StatefulWidget {
   }
   class _HomeScreenState extends State<HomeScreen>{
 
+
+    //waizur________________(NOT WORKING)
+  Future addToCart(String title,String image,String price)async{
+    final FirebaseAuth authoo = FirebaseAuth.instance;
+    var currentUserrr = authoo.currentUser;
+    CollectionReference collectionREF = FirebaseFirestore.instance.collection("user-cart");
+    DocumentReference itemREF= collectionREF.doc(currentUserrr!.email).collection("items").doc(title);
+    DocumentSnapshot itemSNAP =await itemREF.get();
+   //quantity logic____
+    if(itemSNAP.exists){
+      int quantity=itemSNAP['quantity'];
+      await itemREF.update({"quantity": quantity+1,});
+    }
+    else{
+      await itemREF.set(
+    
+      {
+        "title":title,
+        "image":image,
+        "price":price,
+        "quantity":1,
+      }
+    );
+  }
+  //quantity logic____
+  }
+// waizur_________________________________________
+   
+
     TextEditingController searchController = TextEditingController();
     String searchText = '';
 
@@ -374,9 +403,20 @@ class HomeScreen extends StatefulWidget {
                                   ),
 
                                   ElevatedButton(
-                                    onPressed: () {
 
-                                    },
+                                    onPressed: () {
+                                       addToCart(
+                                          data['title'].toString(),
+                                          data['imageUrl'].toString(),
+                                          '\$${data['price']}.00',
+                                        );
+                                      },
+                                      
+                                    
+                                    
+                                    
+
+                                    
                                     style: ElevatedButton.styleFrom(
                                       backgroundColor: Colors.black,
                                       foregroundColor: Colors.white,
