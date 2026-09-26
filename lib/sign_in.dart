@@ -187,25 +187,25 @@ class _SignInState extends State<SignIn> {
               ),
 
               const SizedBox(height: 20),
-              Center(
-                child: TextButton(
-                  onPressed: () {
-
-                  },
-
-                  child: const Text(
-                    'Sign in with your email',
-
-                    style: TextStyle(
-                      fontSize: 20,
-
-                      fontWeight: FontWeight.w900,
-
-                      decoration: TextDecoration.underline,
-                    ),
-                  ),
-                ),
-              ),
+              // Center(
+              //   child: TextButton(
+              //     onPressed: () {
+              //
+              //     },
+              //
+              //     child: const Text(
+              //       'Sign in with your email',
+              //
+              //       style: TextStyle(
+              //         fontSize: 20,
+              //
+              //         fontWeight: FontWeight.w900,
+              //
+              //         decoration: TextDecoration.underline,
+              //       ),
+              //     ),
+              //   ),
+              // ),
 
               const SizedBox(height: 20),
 
