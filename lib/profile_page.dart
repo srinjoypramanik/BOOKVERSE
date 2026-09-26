@@ -2,16 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
-import 'package:bookverse/CartPage.dart';
-import 'package:bookverse/homescreen.dart';
+import 'CartPage.dart';
+import 'homescreen.dart';
 import 'settings.dart' as my_settings;
-
 
 
 class ProfilePage extends StatelessWidget {
 
   const ProfilePage({super.key});
-
 
 
   @override
@@ -22,7 +20,6 @@ class ProfilePage extends StatelessWidget {
 
 
 
-    // No user logged in
     if(user == null){
 
       return Scaffold(
@@ -32,10 +29,13 @@ class ProfilePage extends StatelessWidget {
         body: Center(
 
           child: Text(
+
             "No User Logged In",
+
             style: TextStyle(
               fontSize: 20,
             ),
+
           ),
 
         ),
@@ -49,7 +49,6 @@ class ProfilePage extends StatelessWidget {
 
     return Scaffold(
 
-
       backgroundColor: Colors.white,
 
 
@@ -58,7 +57,23 @@ class ProfilePage extends StatelessWidget {
 
         backgroundColor: Colors.white,
 
-        centerTitle: true,
+        leading: IconButton(
+
+          icon: Icon(
+
+            Icons.arrow_back,
+
+            color: Colors.black,
+
+          ),
+
+          onPressed: (){
+
+            Navigator.pop(context);
+
+          },
+
+        ),
 
       ),
 
@@ -100,7 +115,27 @@ class ProfilePage extends StatelessWidget {
 
 
 
-          if(!snapshot.hasData || snapshot.data!.data() == null){
+          if(snapshot.hasError){
+
+
+            return Center(
+
+              child: Text(
+
+                "Something went wrong",
+
+              ),
+
+            );
+
+
+          }
+
+
+
+
+
+          if(!snapshot.hasData || !snapshot.data!.exists){
 
 
             return Center(
@@ -111,7 +146,7 @@ class ProfilePage extends StatelessWidget {
 
                 style: TextStyle(
 
-                  fontSize: 18,
+                  fontSize:18,
 
                 ),
 
@@ -128,182 +163,65 @@ class ProfilePage extends StatelessWidget {
 
           Map<String,dynamic> data =
 
-          snapshot.data!.data()
-
-          as Map<String,dynamic>;
+          snapshot.data!.data() as Map<String,dynamic>;
 
 
 
 
 
 
-          return Center(
+
+          return SingleChildScrollView(
 
 
-            child: Column(
+            child: Center(
 
 
-              mainAxisAlignment: MainAxisAlignment.start,
-
-
-              crossAxisAlignment: CrossAxisAlignment.center,
-
-
-
-              children: [
+              child: Column(
 
 
 
-                SizedBox(height:50),
+                children: [
 
 
 
-
-
-                Icon(
-
-                  Icons.person,
-
-                  size:100,
-
-                  color:Colors.black,
-
-                ),
+                  SizedBox(height:50),
 
 
 
 
 
-                SizedBox(height:20),
+                  Icon(
 
+                    Icons.person,
 
+                    size:100,
 
-
-
-                // Name
-
-                Text(
-
-
-                  data["name"] ?? "USER NAME",
-
-
-                  style:TextStyle(
-
-                    fontSize:30,
-
-                    fontWeight:FontWeight.bold,
+                    color:Colors.black,
 
                   ),
 
 
-                ),
 
 
 
+                  SizedBox(height:20),
 
 
-                SizedBox(height:8),
 
 
 
+                  Text(
 
 
-                // Mobile Number
-
-                Text(
-
-
-                  data["phone"] ?? "Mobile Number",
-
-
-                  style:TextStyle(
-
-                    fontSize:16,
-
-                    color:Colors.grey,
-
-                  ),
-
-
-                ),
-
-
-
-
-
-                SizedBox(height:8),
-
-
-
-
-
-                // Email
-
-                Text(
-
-
-                  data["email"] ?? "Email",
-
-
-                  style:TextStyle(
-
-                    fontSize:16,
-
-                    color:Colors.grey,
-
-                  ),
-
-
-                ),
-
-
-
-
-
-
-                SizedBox(height:120),
-
-
-
-
-
-                TextButton(
-
-
-                  onPressed:(){
-
-
-
-                    Navigator.push(
-
-                      context,
-
-                      MaterialPageRoute(
-
-                        builder:(context)=> const Cart(),
-
-                      ),
-
-                    );
-
-
-                  },
-
-
-
-                  child:Text(
-
-                    "My Orders",
+                    data["name"] ?? "USER NAME",
 
 
                     style:TextStyle(
 
-                      fontSize:20,
+                      fontSize:30,
 
                       fontWeight:FontWeight.bold,
-
-                      decoration:TextDecoration.underline,
 
                     ),
 
@@ -311,37 +229,26 @@ class ProfilePage extends StatelessWidget {
                   ),
 
 
-                ),
+
+
+
+                  SizedBox(height:8),
 
 
 
 
 
-                SizedBox(height:20),
+                  Text(
 
 
-
-
-
-                TextButton(
-
-
-                  onPressed:(){},
-
-
-
-                  child:Text(
-
-                    "Wishlist",
+                    data["phone"] ?? "Mobile Number",
 
 
                     style:TextStyle(
 
-                      fontSize:20,
+                      fontSize:16,
 
-                      fontWeight:FontWeight.bold,
-
-                      decoration:TextDecoration.underline,
+                      color:Colors.grey,
 
                     ),
 
@@ -349,55 +256,26 @@ class ProfilePage extends StatelessWidget {
                   ),
 
 
-                ),
+
+
+
+                  SizedBox(height:8),
 
 
 
 
 
-
-                SizedBox(height:20),
-
+                  Text(
 
 
-
-
-                TextButton(
-
-
-                  onPressed:(){
-
-
-
-                    Navigator.push(
-
-                      context,
-
-                      MaterialPageRoute(
-
-                        builder:(context)=> const my_settings.Settings(),
-
-                      ),
-
-                    );
-
-
-                  },
-
-
-
-                  child:Text(
-
-                    "Settings",
+                    data["email"] ?? user.email ?? "Email",
 
 
                     style:TextStyle(
 
-                      fontSize:20,
+                      fontSize:16,
 
-                      fontWeight:FontWeight.bold,
-
-                      decoration:TextDecoration.underline,
+                      color:Colors.grey,
 
                     ),
 
@@ -405,41 +283,22 @@ class ProfilePage extends StatelessWidget {
                   ),
 
 
-                ),
+
+
+
+                  SizedBox(height:120),
 
 
 
 
 
-
-                SizedBox(height:100),
-
+                  TextButton(
 
 
+                    onPressed:(){
 
 
-                SizedBox(
-
-
-                  width:200,
-
-
-                  height:50,
-
-
-
-                  child: ElevatedButton(
-
-
-                    onPressed:() async {
-
-
-
-                      await FirebaseAuth.instance.signOut();
-
-
-
-                      Navigator.pushReplacement(
+                      Navigator.push(
 
 
                         context,
@@ -448,7 +307,7 @@ class ProfilePage extends StatelessWidget {
                         MaterialPageRoute(
 
 
-                          builder:(context)=> const HomeScreen(),
+                          builder:(context)=> const Cart(),
 
 
                         ),
@@ -457,43 +316,27 @@ class ProfilePage extends StatelessWidget {
                       );
 
 
-
                     },
-
-
-
-
-                    style:ElevatedButton.styleFrom(
-
-
-                      backgroundColor:Colors.black,
-
-
-
-                      shape:RoundedRectangleBorder(
-
-                        borderRadius:BorderRadius.circular(30),
-
-                      ),
-
-
-                    ),
-
-
 
 
 
                     child:Text(
 
 
-                      "Logout",
+                      "My Orders",
 
 
                       style:TextStyle(
 
-                        color:Colors.white,
 
-                        fontSize:25,
+                        fontSize:20,
+
+
+                        fontWeight:FontWeight.bold,
+
+
+                        decoration:TextDecoration.underline,
+
 
                       ),
 
@@ -504,11 +347,233 @@ class ProfilePage extends StatelessWidget {
                   ),
 
 
-                ),
 
 
 
-              ],
+
+                  SizedBox(height:20),
+
+
+
+
+
+
+                  TextButton(
+
+
+                    onPressed:(){},
+
+
+
+                    child:Text(
+
+
+                      "Wishlist",
+
+
+                      style:TextStyle(
+
+
+                        fontSize:20,
+
+
+                        fontWeight:FontWeight.bold,
+
+
+                        decoration:TextDecoration.underline,
+
+
+                      ),
+
+
+                    ),
+
+
+                  ),
+
+
+
+
+
+
+                  SizedBox(height:20),
+
+
+
+
+
+
+                  TextButton(
+
+
+                    onPressed:(){
+
+
+
+                      Navigator.push(
+
+
+                        context,
+
+
+                        MaterialPageRoute(
+
+
+                          builder:(context)=> const my_settings.Settings(),
+
+
+                        ),
+
+
+                      );
+
+
+                    },
+
+
+
+                    child:Text(
+
+
+                      "Settings",
+
+
+                      style:TextStyle(
+
+
+                        fontSize:20,
+
+
+                        fontWeight:FontWeight.bold,
+
+
+                        decoration:TextDecoration.underline,
+
+
+                      ),
+
+
+                    ),
+
+
+                  ),
+
+
+
+
+
+
+                  SizedBox(height:100),
+
+
+
+
+
+
+                  SizedBox(
+
+
+                    width:200,
+
+
+                    height:50,
+
+
+
+                    child:ElevatedButton(
+
+
+
+                      onPressed:() async {
+
+
+
+                        await FirebaseAuth.instance.signOut();
+
+
+
+
+
+                        Navigator.pushReplacement(
+
+
+                          context,
+
+
+                          MaterialPageRoute(
+
+
+                            builder:(context)=> const HomeScreen(),
+
+
+                          ),
+
+
+                        );
+
+
+
+                      },
+
+
+
+
+                      style:ElevatedButton.styleFrom(
+
+
+
+                        backgroundColor:Colors.black,
+
+
+
+                        shape:RoundedRectangleBorder(
+
+
+                          borderRadius:BorderRadius.circular(30),
+
+
+                        ),
+
+
+                      ),
+
+
+
+
+
+                      child:Text(
+
+
+                        "Logout",
+
+
+                        style:TextStyle(
+
+
+                          color:Colors.white,
+
+
+                          fontSize:25,
+
+
+                        ),
+
+
+                      ),
+
+
+                    ),
+
+
+                  ),
+
+
+
+
+                ],
+
+
+              ),
 
 
             ),
@@ -521,8 +586,8 @@ class ProfilePage extends StatelessWidget {
         },
 
 
-      ),
 
+      ),
 
 
     );
