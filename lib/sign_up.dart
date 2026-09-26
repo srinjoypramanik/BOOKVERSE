@@ -308,13 +308,15 @@ class _SignUpPageState extends State<SignUpPage> {
 
                   children: [
                     const Text(
-                      "Already have an account? ",
+                      "Already have an account?",
 
-                      style: TextStyle(fontSize: 16, color: Colors.black),
+                      style: TextStyle(fontSize: 16,
+                          color: Colors.black,
+                      ),
                     ),
 
-                    GestureDetector(
-                      onTap: () {
+                    TextButton(
+                      onPressed: () {
                         Navigator.push(
                           context,
 
