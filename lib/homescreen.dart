@@ -16,7 +16,12 @@ class HomeScreen extends StatefulWidget {
   }
   class _HomeScreenState extends State<HomeScreen>{
 
-  Stream<QuerySnapshot> getBooks(){
+    TextEditingController searchController = TextEditingController();
+    String searchText = '';
+
+    String selectedCategory = 'ALL BOOKS';
+
+    Stream<QuerySnapshot> getBooks(){
     return FirebaseFirestore.instance
         .collection('books')
         .snapshots();
@@ -64,17 +69,43 @@ class HomeScreen extends StatefulWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-
-            Padding(padding: const EdgeInsets.all(10),
+            Padding(
+              padding: const EdgeInsets.all(10),
               child: TextField(
+                controller: searchController,
+
+                onChanged: (value) {
+                  setState(() {
+                    searchText = value.toLowerCase();
+                  });
+                },
+
                 decoration: InputDecoration(
                   hintText: 'Search books, authors...',
                   filled: true,
                   fillColor: Colors.white,
+
                   prefixIcon: const Icon(
                     Icons.search,
                     color: Colors.grey,
                   ),
+
+                  suffixIcon: searchText.isNotEmpty
+                      ? IconButton(
+                    onPressed: () {
+                      searchController.clear();
+
+                      setState(() {
+                        searchText = '';
+                      });
+                    },
+                    icon: const Icon(
+                      Icons.clear,
+                      color: Colors.grey,
+                    ),
+                  )
+                      : null,
+
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10),
                     borderSide: const BorderSide(
@@ -86,6 +117,7 @@ class HomeScreen extends StatefulWidget {
             ),
 
 
+
             SingleChildScrollView(
               scrollDirection: Axis.horizontal,
               child: Row(
@@ -94,42 +126,65 @@ class HomeScreen extends StatefulWidget {
                   SizedBox(width: 10),
 
                   GestureDetector(
-                    onTap: (){},
+                    onTap: (){
+                      setState(() {
+                        selectedCategory = 'ALL BOOKS';
+                      });
+                    },
                     child: Container(
                       padding: EdgeInsets.symmetric(
                         horizontal: 16,
                         vertical: 12,
                       ),
                       decoration: BoxDecoration(
-                        color: Colors.black,
-                      ),
+                        color: selectedCategory == 'ALL BOOKS'
+                            ? Colors.black : Colors.white,
 
-                      child: Text('ALL BOOKS',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 13,
-                        ),
-                      ),
-                    ),
-                  ),
-
-                  SizedBox(width: 8),
-                  GestureDetector(
-                    onTap: (){},
-                    child: Container(
-                      padding: EdgeInsets.symmetric(
-                        horizontal: 16,
-                        vertical: 12,
-                      ),
-                      decoration: BoxDecoration(
                         border: Border.all(
                           color: Colors.grey,
                         ),
                       ),
+
+                      child: Text('ALL BOOKS',
+                        style: TextStyle(
+                          color: selectedCategory == 'ALL BOOKS'
+                              ? Colors.white
+                              : Colors.black,
+
+                          fontWeight: FontWeight.bold,
+                          fontSize: 13,
+                        ),
+                      ),
+
+                    ),
+                  ),
+
+                  SizedBox(width: 8),
+                  GestureDetector(
+                    onTap: (){
+                      setState(() {
+                        selectedCategory = 'COMPUTER SCIENCE';
+                      });
+                    },
+                    child: Container(
+                      padding: EdgeInsets.symmetric(
+                        horizontal: 16,
+                        vertical: 12,
+                      ),
+                      decoration: BoxDecoration(
+                        color: selectedCategory == 'COMPUTER SCIENCE'
+                            ? Colors.black
+                            : Colors.white,
+
+                        border: Border.all(
+                          color: Colors.grey,
+                        ),
+                      ),
+
                       child: Text('COMPUTER SCIENCE',
                         style: TextStyle(
-                          color: Colors.black,
+                          color: selectedCategory == 'COMPUTER SCIENCE'
+                              ? Colors.white : Colors.black,
                           fontWeight: FontWeight.bold,
                           fontSize: 13,
                         ),
@@ -139,20 +194,28 @@ class HomeScreen extends StatefulWidget {
 
                   SizedBox(width: 8),
                   GestureDetector(
-                    onTap: (){},
+                    onTap: (){
+                      setState(() {
+                        selectedCategory = 'ELECTRICAL & ELECTRONICS';
+                      });
+                    },
                     child: Container(
                       padding: EdgeInsets.symmetric(
                         horizontal: 16,
                         vertical: 12,
                       ),
                       decoration: BoxDecoration(
+                        color: selectedCategory=='ELECTRICAL & ELECTRONICS'
+                            ?Colors.black:Colors.white,
+
                         border: Border.all(
                           color: Colors.grey,
                         ),
                       ),
                       child: Text('ELECTRICAL & ELECTRONICS',
                         style: TextStyle(
-                          color: Colors.black,
+                          color: selectedCategory=='ELECTRICAL & ELECTRONICS'
+                              ?Colors.white:Colors.black,
                           fontWeight: FontWeight.bold,
                           fontSize: 13,
                         ),
@@ -182,30 +245,6 @@ class HomeScreen extends StatefulWidget {
                       ),
                     ),
                   ),
-
-                  SizedBox(width: 8),
-                  GestureDetector(
-                    onTap: (){},
-                    child: Container(
-                      padding: EdgeInsets.symmetric(
-                        horizontal: 16,
-                        vertical: 12,
-                      ),
-                      decoration: BoxDecoration(
-                        border: Border.all(
-                          color: Colors.grey,
-                        ),
-                      ),
-                      child: Text('STATISTICS',
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 13,
-                        ),
-                      ),
-                    ),
-                  ),
-
                 ],
               ),
             ),
@@ -265,6 +304,11 @@ class HomeScreen extends StatefulWidget {
                   );
                 }
                 final data=snapshot.data!.data() as Map<String, dynamic>;
+
+                if (selectedCategory != 'ALL BOOKS' &&
+                    data['category'] != selectedCategory) {
+                  return SizedBox();
+                }
 
                 return GestureDetector(
                   onTap: () {
@@ -428,6 +472,11 @@ class HomeScreen extends StatefulWidget {
                 }
                 final data=snapshot.data!.data() as Map<String, dynamic>;
 
+                if (selectedCategory != 'ALL BOOKS' &&
+                    data['category'] != selectedCategory) {
+                  return const SizedBox();
+                }
+
                 return GestureDetector(
                   onTap: () {
                     Navigator.push(
@@ -589,6 +638,11 @@ class HomeScreen extends StatefulWidget {
                   );
                 }
                 final data=snapshot.data!.data() as Map<String, dynamic>;
+
+                if (selectedCategory != 'ALL BOOKS' &&
+                    data['category'] != selectedCategory) {
+                  return const SizedBox();
+                }
 
                 return GestureDetector(
                   onTap: () {
@@ -752,6 +806,11 @@ class HomeScreen extends StatefulWidget {
                 }
                 final data=snapshot.data!.data() as Map<String, dynamic>;
 
+                if (selectedCategory != 'ALL BOOKS' &&
+                    data['category'] != selectedCategory) {
+                  return const SizedBox();
+                }
+
                 return GestureDetector(
                   onTap: () {
                     Navigator.push(
@@ -913,6 +972,11 @@ class HomeScreen extends StatefulWidget {
                   );
                 }
                 final data=snapshot.data!.data() as Map<String, dynamic>;
+
+                if (selectedCategory != 'ALL BOOKS' &&
+                    data['category'] != selectedCategory) {
+                  return const SizedBox();
+                }
 
                 return GestureDetector(
                   onTap: () {
@@ -1076,6 +1140,11 @@ class HomeScreen extends StatefulWidget {
                 }
                 final data=snapshot.data!.data() as Map<String, dynamic>;
 
+                if (selectedCategory != 'ALL BOOKS' &&
+                    data['category'] != selectedCategory) {
+                  return const SizedBox();
+                }
+
                 return GestureDetector(
                   onTap: () {
                     Navigator.push(
@@ -1238,6 +1307,11 @@ class HomeScreen extends StatefulWidget {
                 }
                 final data=snapshot.data!.data() as Map<String, dynamic>;
 
+                if (selectedCategory != 'ALL BOOKS' &&
+                    data['category'] != selectedCategory) {
+                  return const SizedBox();
+                }
+
                 return GestureDetector(
                   onTap: () {
                     Navigator.push(
@@ -1399,6 +1473,11 @@ class HomeScreen extends StatefulWidget {
                   );
                 }
                 final data=snapshot.data!.data() as Map<String, dynamic>;
+
+                if (selectedCategory != 'ALL BOOKS' &&
+                    data['category'] != selectedCategory) {
+                  return const SizedBox();
+                }
 
                 return GestureDetector(
                   onTap: () {
