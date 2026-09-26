@@ -160,232 +160,238 @@ class _SignInState extends State<SignIn> {
 
       body: SafeArea(
 
-        child: Padding(
 
-          padding: const EdgeInsets.symmetric(horizontal: 20),
 
-          child: Column(
+        child: SingleChildScrollView(
 
-            crossAxisAlignment: CrossAxisAlignment.start,
 
-            children: [
+          child: Padding(
 
-              SizedBox(
-                height: 100,
+            padding: const EdgeInsets.symmetric(horizontal: 20),
 
-                child: Center(
+            child: Column(
 
-                  child: Image.asset(
+              crossAxisAlignment: CrossAxisAlignment.start,
 
-                    'assets/images/bookverse.png',
+              children: [
 
-                    height: 300,
+                SizedBox(
+                  height: 100,
 
-                    width: 300,
-                  ),
-                ),
-              ),
+                  child: Center(
 
-              const SizedBox(height: 20),
-              // Center(
-              //   child: TextButton(
-              //     onPressed: () {
-              //
-              //     },
-              //
-              //     child: const Text(
-              //       'Sign in with your email',
-              //
-              //       style: TextStyle(
-              //         fontSize: 20,
-              //
-              //         fontWeight: FontWeight.w900,
-              //
-              //         decoration: TextDecoration.underline,
-              //       ),
-              //     ),
-              //   ),
-              // ),
+                    child: Image.asset(
 
-              const SizedBox(height: 20),
+                      'assets/images/bookverse.png',
 
-              Text(
-                'Email Address:',
+                      height: 300,
 
-                style: TextStyle(fontSize: 18,
-                    fontWeight: FontWeight.bold,
-                ),
-              ),
-
-              SizedBox(height: 10),
-
-              TextField(
-                onChanged: (value) {
-                  email = value;
-
-                  checkLoginButton();
-                },
-
-                decoration: InputDecoration(
-                  hintText: 'Enter your email',
-
-                  filled: true,
-
-                  fillColor: Color(0xFFF1F1F5),
-
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(20),
-
-                    borderSide: BorderSide.none,
-                  ),
-
-                  contentPadding: EdgeInsets.symmetric(
-                    horizontal: 20,
-
-                    vertical: 18,
-                  ),
-                ),
-              ),
-
-              SizedBox(height: 15),
-
-              Text(
-                'Password:',
-
-                style: TextStyle(fontSize: 18,
-                    fontWeight: FontWeight.bold,
-                ),
-              ),
-
-              SizedBox(height: 10),
-
-              TextField(
-                obscureText: true,
-
-                onChanged: (value) {
-                  password = value;
-
-                  checkLoginButton();
-                },
-
-                decoration: InputDecoration(
-                  hintText: 'Enter your Password',
-
-                  filled: true,
-
-                  fillColor: Color(0xFFF1F1F5),
-
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(20),
-
-                    borderSide: BorderSide.none,
-                  ),
-
-                  contentPadding: EdgeInsets.symmetric(
-                    horizontal: 20,
-
-                    vertical: 18,
-                  ),
-                ),
-              ),
-
-              SizedBox(height: 15),
-              TextButton(
-                onPressed: () {
-
-                },
-
-                style: TextButton.styleFrom(
-                  padding: EdgeInsets.zero,
-
-                  alignment: Alignment.centerLeft,
-                ),
-
-                child: Text(
-                  'Forgot My Password',
-
-                  style: TextStyle(
-                    color: Colors.grey,
-
-                    fontSize: 16,
-
-                    fontWeight: FontWeight.bold,
-
-                    decoration: TextDecoration.underline,
-                  ),
-                ),
-              ),
-
-              SizedBox(height: 20),
-
-              Center(
-                child: SizedBox(
-                  width: 250,
-
-                  height: 60,
-
-                  child: ElevatedButton(
-                    onPressed: isLoginActive ? loginUser : null,
-
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: isLoginActive
-                          ? Colors.black
-                          : Color(0xFF2563EB),
-
-                      foregroundColor: Colors.white,
-
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(30),
-                      ),
-                    ),
-
-                    child: Text(
-                      'Login',
-
-                      style: TextStyle(
-                        fontSize: 25,
-
-                        fontWeight: FontWeight.w500,
-                      ),
+                      width: 300,
                     ),
                   ),
                 ),
-              ),
 
-              SizedBox(height: 20),
+                const SizedBox(height: 20),
+                // Center(
+                //   child: TextButton(
+                //     onPressed: () {
+                //
+                //     },
+                //
+                //     child: const Text(
+                //       'Sign in with your email',
+                //
+                //       style: TextStyle(
+                //         fontSize: 20,
+                //
+                //         fontWeight: FontWeight.w900,
+                //
+                //         decoration: TextDecoration.underline,
+                //       ),
+                //     ),
+                //   ),
+                // ),
 
-              Center(
-                child: SizedBox(
-                  width: 300,
+                const SizedBox(height: 40),
 
-                  child: TextButton(
-                    onPressed: () {
-                      Navigator.push(
-                        context,
+                Text(
+                  'Email Address:',
 
-                        MaterialPageRoute(
-                          builder: (context) => const SignUpPage(),
+                  style: TextStyle(fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                  ),
+                ),
+
+                SizedBox(height: 10),
+
+                TextField(
+                  onChanged: (value) {
+                    email = value;
+
+                    checkLoginButton();
+                  },
+
+                  decoration: InputDecoration(
+                    hintText: 'Enter your email',
+
+                    filled: true,
+
+                    fillColor: Color(0xFFF1F1F5),
+
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(20),
+
+                      borderSide: BorderSide.none,
+                    ),
+
+                    contentPadding: EdgeInsets.symmetric(
+                      horizontal: 20,
+
+                      vertical: 18,
+                    ),
+                  ),
+                ),
+
+                SizedBox(height: 15),
+
+                Text(
+                  'Password:',
+
+                  style: TextStyle(fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                  ),
+                ),
+
+                SizedBox(height: 10),
+
+                TextField(
+                  obscureText: true,
+
+                  onChanged: (value) {
+                    password = value;
+
+                    checkLoginButton();
+                  },
+
+                  decoration: InputDecoration(
+                    hintText: 'Enter your Password',
+
+                    filled: true,
+
+                    fillColor: Color(0xFFF1F1F5),
+
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(20),
+
+                      borderSide: BorderSide.none,
+                    ),
+
+                    contentPadding: EdgeInsets.symmetric(
+                      horizontal: 20,
+
+                      vertical: 18,
+                    ),
+                  ),
+                ),
+
+                SizedBox(height: 15),
+                TextButton(
+                  onPressed: () {
+
+                  },
+
+                  style: TextButton.styleFrom(
+                    padding: EdgeInsets.zero,
+
+                    alignment: Alignment.centerLeft,
+                  ),
+
+                  child: Text(
+                    'Forgot My Password',
+
+                    style: TextStyle(
+                      color: Colors.grey,
+
+                      fontSize: 16,
+
+                      fontWeight: FontWeight.bold,
+
+                      decoration: TextDecoration.underline,
+                    ),
+                  ),
+                ),
+
+                SizedBox(height: 20),
+
+                Center(
+                  child: SizedBox(
+                    width: 250,
+
+                    height: 60,
+
+                    child: ElevatedButton(
+                      onPressed: isLoginActive ? loginUser : null,
+
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: isLoginActive
+                            ? Colors.black
+                            : Color(0xFF2563EB),
+
+                        foregroundColor: Colors.white,
+
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(30),
                         ),
-                      );
-                    },
+                      ),
 
-                    child: Text(
-                      'Create a new account',
+                      child: Text(
+                        'Login',
 
-                      style: TextStyle(
-                        color: Colors.black,
+                        style: TextStyle(
+                          fontSize: 25,
 
-                        fontSize: 18,
-
-                        fontWeight: FontWeight.w500,
-
-                        decoration: TextDecoration.underline,
+                          fontWeight: FontWeight.w500,
+                        ),
                       ),
                     ),
                   ),
                 ),
-              ),
-            ],
+
+                SizedBox(height: 20),
+
+                Center(
+                  child: SizedBox(
+                    width: 300,
+
+                    child: TextButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+
+                          MaterialPageRoute(
+                            builder: (context) => const SignUpPage(),
+                          ),
+                        );
+                      },
+
+                      child: Text(
+                        'Create a new account',
+
+                        style: TextStyle(
+                          color: Colors.black,
+
+                          fontSize: 18,
+
+                          fontWeight: FontWeight.w500,
+
+                          decoration: TextDecoration.underline,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),
