@@ -94,13 +94,14 @@ class AppDrawer extends StatelessWidget {
               ListTile(
                 leading: Icon(
                   Icons.book_rounded,
-                  color: Colors.black,
+                  color: Colors.grey,
                 ),
                 contentPadding: EdgeInsets.only(left: 20),
                 title: Text('MATHEMATICS',
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 14,
+                    color: Colors.grey
                   ),
                 ),
                 onTap: (){
@@ -109,7 +110,6 @@ class AppDrawer extends StatelessWidget {
                 },
               ),
             ],
-
 
           ),
           
@@ -198,7 +198,6 @@ class AppDrawer extends StatelessWidget {
             },
           ),
 
-          //By Tanzid
           ListTile(
             leading: Icon(
                 Icons.phone,
@@ -216,7 +215,6 @@ class AppDrawer extends StatelessWidget {
               );
             },
           ),
-          //By Tanzid
 
           ListTile(
             leading: Icon(

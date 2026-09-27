@@ -234,7 +234,7 @@ class HomeScreen extends StatefulWidget {
                         ),
                         child: Text('MATHEMATICS',
                           style: TextStyle(
-                            color: Colors.black,
+                            color: Colors.grey,
                             fontWeight: FontWeight.bold,
                             fontSize: 13,
                           ),
