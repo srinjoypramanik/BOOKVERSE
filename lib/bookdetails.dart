@@ -316,7 +316,35 @@ class BookDetails extends StatelessWidget{
             type: BottomNavigationBarType.fixed,
             backgroundColor: Colors.white,
 
-            
+            onTap: (index){
+              if(index == 3){
+
+                User? user = FirebaseAuth.instance.currentUser;
+
+
+                if(user != null){
+
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context)=> const ProfilePage(),
+                    ),
+                  );
+
+                }
+
+                else{
+
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context)=> const SignIn(),
+                    ),
+                  );
+
+                }
+
+             
 
 
     );
