@@ -14,10 +14,11 @@ class AboutUs extends StatelessWidget {
 
         centerTitle: true,
 
-        title: Text('About Us',
+        title: Text('ABOUT US',
         style: TextStyle(
-          color: Colors.black,
+          color: Colors.grey,
           fontWeight: FontWeight.bold,
+          fontSize: 19,
           ),
         ),
 
@@ -39,7 +40,7 @@ class AboutUs extends StatelessWidget {
 
               Image.asset(
                 'assets/images/bookverse.png',
-                height: 90,
+                height: 70,
               ),
 
 
@@ -60,7 +61,7 @@ class AboutUs extends StatelessWidget {
 
 
               Text(
-                "Your digital gateway to discover, explore and enjoy your favorite books.",
+                "Your digital gateway to discover and \nexplore and enjoy your favorite books.",
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 16,
@@ -133,7 +134,7 @@ class AboutUs extends StatelessWidget {
               Align(
                 alignment: Alignment.centerLeft,
                 child: Text(
-                  "Meet our Developers",
+                  "Meet Our Developers Team",
                   style: TextStyle(
                     fontSize: 22,
                     fontWeight: FontWeight.bold,
