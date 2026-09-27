@@ -921,6 +921,11 @@ class HomeScreen extends StatefulWidget {
 
                                   ElevatedButton(
                                     onPressed: () {
+                                      addToCart(
+                                        data['title'].toString(),
+                                        data['imageUrl'].toString(),
+                                        (data['price'] as num).toDouble(),
+                                      );
 
                                     },
                                     style: ElevatedButton.styleFrom(
@@ -1088,6 +1093,11 @@ class HomeScreen extends StatefulWidget {
 
                                   ElevatedButton(
                                     onPressed: () {
+                                      addToCart(
+                                        data['title'].toString(),
+                                        data['imageUrl'].toString(),
+                                        (data['price'] as num).toDouble(),
+                                      );
 
                                     },
                                     style: ElevatedButton.styleFrom(
@@ -1255,6 +1265,11 @@ class HomeScreen extends StatefulWidget {
 
                                   ElevatedButton(
                                     onPressed: () {
+                                      addToCart(
+                                        data['title'].toString(),
+                                        data['imageUrl'].toString(),
+                                        (data['price'] as num).toDouble(),
+                                      );
 
                                     },
                                     style: ElevatedButton.styleFrom(
