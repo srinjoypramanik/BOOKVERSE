@@ -775,7 +775,7 @@ class HomeScreen extends StatefulWidget {
                                         ),
                                       );
                                     },
-                                    
+
                                     style: ElevatedButton.styleFrom(
                                       backgroundColor: Colors.black,
                                       foregroundColor: Colors.white,
@@ -940,14 +940,21 @@ class HomeScreen extends StatefulWidget {
                                   ),
 
                                   ElevatedButton(
-                                    onPressed: () {
-                                      addToCart(
+                                    onPressed: () async {
+                                      await addToCart(
                                         data['title'].toString(),
                                         data['imageUrl'].toString(),
                                         (data['price'] as num).toDouble(),
                                       );
 
+                                      ScaffoldMessenger.of(context).showSnackBar(
+                                        const SnackBar(
+                                          content: Text('Book Added to Cart'),
+                                          duration: Duration(seconds: 2),
+                                        ),
+                                      );
                                     },
+
                                     style: ElevatedButton.styleFrom(
                                       backgroundColor: Colors.black,
                                       foregroundColor: Colors.white,
@@ -1112,14 +1119,21 @@ class HomeScreen extends StatefulWidget {
                                   ),
 
                                   ElevatedButton(
-                                    onPressed: () {
-                                      addToCart(
+                                    onPressed: () async {
+                                      await addToCart(
                                         data['title'].toString(),
                                         data['imageUrl'].toString(),
                                         (data['price'] as num).toDouble(),
                                       );
 
+                                      ScaffoldMessenger.of(context).showSnackBar(
+                                        const SnackBar(
+                                          content: Text('Book Added to Cart'),
+                                          duration: Duration(seconds: 2),
+                                        ),
+                                      );
                                     },
+
                                     style: ElevatedButton.styleFrom(
                                       backgroundColor: Colors.black,
                                       foregroundColor: Colors.white,
@@ -1284,14 +1298,21 @@ class HomeScreen extends StatefulWidget {
                                   ),
 
                                   ElevatedButton(
-                                    onPressed: () {
-                                      addToCart(
+                                    onPressed: () async {
+                                      await addToCart(
                                         data['title'].toString(),
                                         data['imageUrl'].toString(),
                                         (data['price'] as num).toDouble(),
                                       );
 
+                                      ScaffoldMessenger.of(context).showSnackBar(
+                                        const SnackBar(
+                                          content: Text('Book Added to Cart'),
+                                          duration: Duration(seconds: 2),
+                                        ),
+                                      );
                                     },
+                                    
                                     style: ElevatedButton.styleFrom(
                                       backgroundColor: Colors.black,
                                       foregroundColor: Colors.white,
