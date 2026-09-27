@@ -1,5 +1,7 @@
 import 'package:bookverse/homescreen.dart';
 import 'package:bookverse/sign_in.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'CartPage.dart';
 
@@ -9,6 +11,7 @@ class BookDetails extends StatelessWidget{
   final String price;
   final String category;
   final String description;
+  final String image;
 
   const BookDetails({
     super.key,
@@ -17,7 +20,35 @@ class BookDetails extends StatelessWidget{
     required this.price,
     required this.category,
     required this.description,
+    required this.image,
   });
+
+  //waizur________________
+  Future addToCart()async{
+    final FirebaseAuth authoo = FirebaseAuth.instance;
+    var currentUserrr = authoo.currentUser;
+    CollectionReference collectionREF = FirebaseFirestore.instance.collection("user-cart");
+    DocumentReference itemREF= collectionREF.doc(currentUserrr!.email).collection("items").doc(title);
+    DocumentSnapshot itemSNAP =await itemREF.get();
+   //quantity logic____
+    if(itemSNAP.exists){
+      int quantity=itemSNAP['quantity'];
+      await itemREF.update({"quantity": quantity+1,});
+    }
+    else{
+      await itemREF.set(
+    
+      {
+        "title":title,
+        "image":image,
+        "price":price,
+        "quantity":1,
+      }
+    );
+  }
+  //quantity logic____
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +68,7 @@ class BookDetails extends StatelessWidget{
         ),
 
         centerTitle: true,
-        title: Text('BOOK METRICS',
+        title: Text('BOOK DETAILS',
           style: TextStyle(
             color: Colors.grey,
             fontWeight: FontWeight.bold,
@@ -95,12 +126,34 @@ class BookDetails extends StatelessWidget{
            Row(
              children: [
                SizedBox(width: 12),
-               Text(title,
-               style: TextStyle(
-                 fontSize: 20,
-                 fontWeight: FontWeight.bold,
-                 )
+
+               Expanded(child: Image.asset(
+                 image,
+                 height: 450,
+                 fit: BoxFit.contain,
+                  ),
                ),
+               SizedBox(width: 12),
+             ],
+           ),
+           SizedBox(height: 16),
+           Row(
+             children: [
+               SizedBox(width: 12),
+
+               Expanded(
+                 child: Text(
+                   title,
+                   maxLines: 2,
+                   overflow: TextOverflow.ellipsis,
+                   style: TextStyle(
+                     fontSize: 20,
+                     fontWeight: FontWeight.bold,
+                   ),
+                 ),
+               ),
+
+               SizedBox(width: 12),
              ],
            ),
 
@@ -226,7 +279,7 @@ class BookDetails extends StatelessWidget{
 
                Expanded(
                    child: ElevatedButton(
-                       onPressed: () {},
+                       onPressed: () => addToCart(),
                      style: ElevatedButton.styleFrom(
                        backgroundColor: Colors.black,
                        foregroundColor: Colors.white,
@@ -262,6 +315,10 @@ class BookDetails extends StatelessWidget{
             );
           }
           else if(index == 2){
+            
+
+            
+           
             Navigator.push(
               context,
               MaterialPageRoute(
@@ -269,6 +326,7 @@ class BookDetails extends StatelessWidget{
               ),
             );
           }
+          
           else if(index == 1){
             Navigator.push(
               context,

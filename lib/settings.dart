@@ -1,210 +1,39 @@
 import 'package:flutter/material.dart';
-
+import 'package:bookverse/feedback.dart';
 
 class Settings extends StatelessWidget {
+
   const Settings({super.key});
 
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        //centerTitle: true,
-        // title: Text('Settings',
-        //     style: TextStyle(
-        //         color: Colors.black,
-        //     ),
-        // ),
-      ),
-
-      body: Column(
-        children: [
-          SizedBox(height: 40,),
-          Center(
-
-            child: SizedBox(
-
-              height: 60,
-
-              child:TextButton(
-                onPressed: (){
-                  Navigator.push(
-                    context,
-
-                    MaterialPageRoute(builder: (context) => const Language()),
-                  );
-                },
-                child: Text('Language',
-                  style: TextStyle(
-                    fontSize: 30,
-                    color: Colors.black,
-                    decoration: TextDecoration.underline,
-                  ),
-                ),
-              ),
-            ),
-          ),
-
-          SizedBox(height: 40,),
-          Center(
-            child: TextButton(
-
-              onPressed: (){
-                Navigator.push(
-                  context,
-
-                  MaterialPageRoute(builder: (context) => const Themepage()),
-                );
-              },
-
-              child: SizedBox(
-
-                height: 40,
-
-                child: Text('Theme',
-                  style: TextStyle(
-                    fontSize: 30,
-                    color: Colors.black,
-                    decoration: TextDecoration.underline,
-                  ),
-                ),
-              ),
-            ),
-          ),
-
-          SizedBox(height: 40,),
-          Center(
-            child: TextButton(
-
-              onPressed: (){
-                Navigator.push(
-                  context,
-
-                  MaterialPageRoute(builder: (context) => const Privacy()),
-                );
-              },
-              child: SizedBox(
-
-                height: 40,
-
-                child: Text('Privacy',
-                  style: TextStyle(
-                    fontSize: 30,
-                    color: Colors.black,
-                    decoration: TextDecoration.underline,
-                  ),
-                ),
-              ),
-            ),
-          ),
-
-          SizedBox(height: 40,),
-          Center(
-            child: TextButton(
-
-              onPressed: (){
-                Navigator.push(
-                  context,
-
-                  MaterialPageRoute(builder: (context) => const Feedback_page()),
-                );
-              },
-              child: SizedBox(
-
-                height: 40,
-
-                child: Text('Feedback',
-                  style: TextStyle(
-                    fontSize: 30,
-                    color: Colors.black,
-                    decoration: TextDecoration.underline,
-                  ),
-                ),
-              ),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-class Language extends StatelessWidget{
-  const Language({super.key});
 
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
+
+      backgroundColor: Colors.white,
+
+
       appBar: AppBar(
+
         backgroundColor: Colors.white,
-      ),
 
-      body: Column(
-        children: [
-          ListTile(
+        //elevation: 0,
 
-            title: Text(
+        centerTitle: true,
 
-              "English (UK)",
-
-              style: TextStyle(
-
-                fontSize: 22,
-
-                color: Colors.black,
-
-              ),
-
-            ),
-
-            onTap: (){
-
-            },
-
+        title: Text(
+          "Settings",
+          style: TextStyle(
+            color: Colors.black,
+            fontSize: 24,
+            fontWeight: FontWeight.bold,
           ),
+        ),
 
-          ListTile(
-
-            title: Text(
-
-              "English (USA)",
-
-              style: TextStyle(
-
-                fontSize: 22,
-
-                color: Colors.black,
-
-              ),
-
-            ),
-
-            onTap: (){
-
-            },
-
-          ),
-
-
-        ],
       ),
-    );
-
-  }
-}
 
 
-
-
-class Feedback_page extends StatelessWidget{
-  const Feedback_page ({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-      ),
 
       body: Padding(
 
@@ -213,150 +42,159 @@ class Feedback_page extends StatelessWidget{
 
         child: Column(
 
-          crossAxisAlignment: CrossAxisAlignment.start,
-
-
           children: [
 
 
-            SizedBox(height: 30),
+            SizedBox(height: 20),
 
 
 
-            Center(
+            // Privacy
 
-              child: Text(
+            Card(
 
-                "We value your feedback",
+              elevation: 2,
 
-                style: TextStyle(
+              color: Colors.white,
 
-                  fontSize: 24,
+              shape: RoundedRectangleBorder(
 
-                  fontWeight: FontWeight.bold,
+                borderRadius: BorderRadius.circular(15),
 
+              ),
+
+
+              child: ListTile(
+
+                leading: Icon(
+                  Icons.privacy_tip_outlined,
+                  color: Colors.black,
+                  size: 30,
                 ),
 
-              ),
 
-            ),
-
-
-
-            SizedBox(height: 40),
-
-
-
-            Text(
-
-              "How was your experience?",
-
-              style: TextStyle(
-
-                fontSize: 18,
-
-                fontWeight: FontWeight.w900,
-
-              ),
-
-            ),
-
-
-
-
-
-
-
-
-
-            SizedBox(height: 40),
-
-
-
-            TextField(
-
-              maxLines: 5,
-
-
-              decoration: InputDecoration(
-
-                hintText: "Write your feedback...",
-
-
-                border: OutlineInputBorder(
-
-                  borderRadius: BorderRadius.circular(10),
-
-                ),
-
-              ),
-
-            ),
-
-
-
-            SizedBox(height: 30),
-
-
-
-            Center(
-              child: SizedBox(
-
-
-                width: 250,
-
-                height: 60,
-
-
-                child: ElevatedButton(
-
-                  onPressed: (){
-
-
-                  },
-
-
-                  style: ElevatedButton.styleFrom(
-
-                    backgroundColor: Colors.black,
-
-                    shape: RoundedRectangleBorder(
-
-                      borderRadius: BorderRadius.circular(30),
-
-                    ),
-
+                title: Text(
+                  "Privacy",
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
                   ),
+                ),
 
 
-                  child: Text(
+                trailing: Icon(
+                  Icons.arrow_forward_ios,
+                  size: 18,
+                ),
 
-                    "Submit Feedback",
 
-                    style: TextStyle(
+                onTap: (){
 
-                      color: Colors.white,
+                  Navigator.push(
 
-                      fontSize: 18,
+                    context,
 
-                      fontWeight: FontWeight.bold,
-
+                    MaterialPageRoute(
+                      builder: (context)=> const Privacy(),
                     ),
+
+                  );
+
+                },
+
+
+              ),
+
+            ),
+
+
+
+            SizedBox(height:20),
+
+
+
+
+            // Feedback
+
+
+            Card(
+
+              elevation: 2,
+
+              color: Colors.white,
+
+
+              shape: RoundedRectangleBorder(
+
+                borderRadius: BorderRadius.circular(15),
+
+              ),
+
+
+
+              child: ListTile(
+
+
+                leading: Icon(
+
+                  Icons.feedback_outlined,
+
+                  color: Colors.black,
+
+                  size:30,
+
+                ),
+
+
+
+                title: Text(
+
+                  "Feedback",
+
+                  style: TextStyle(
+
+                    fontSize:20,
+
+                    fontWeight:FontWeight.bold,
 
                   ),
 
                 ),
 
-              ),
-            ),
 
-            SizedBox(height: 10,),
-            Text('Thanks for your feedback',
-              style: TextStyle(
-                color: Colors.black,
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
+
+                trailing: Icon(
+
+                  Icons.arrow_forward_ios,
+
+                  size:18,
+
+                ),
+
+
+
+                onTap: (){
+
+
+                  Navigator.push(
+
+                    context,
+
+                    MaterialPageRoute(
+
+                      builder:(context)=> const Feedback_page(),
+
+                    ),
+
+                  );
+
+
+                },
+
+
               ),
+
+
             ),
 
 
@@ -366,9 +204,189 @@ class Feedback_page extends StatelessWidget{
         ),
 
       ),
+
     );
+
   }
+
 }
+
+
+
+
+// class Feedback_page extends StatelessWidget{
+//   const Feedback_page ({super.key});
+//
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       appBar: AppBar(
+//         backgroundColor: Colors.white,
+//       ),
+//
+//       body: Padding(
+//
+//         padding: EdgeInsets.all(20),
+//
+//
+//         child: Column(
+//
+//           crossAxisAlignment: CrossAxisAlignment.start,
+//
+//
+//           children: [
+//
+//
+//             SizedBox(height: 30),
+//
+//
+//
+//             Center(
+//
+//               child: Text(
+//
+//                 "We value your feedback",
+//
+//                 style: TextStyle(
+//
+//                   fontSize: 24,
+//
+//                   fontWeight: FontWeight.bold,
+//
+//                 ),
+//
+//               ),
+//
+//             ),
+//
+//
+//
+//             SizedBox(height: 40),
+//
+//
+//
+//             Text(
+//
+//               "How was your experience?",
+//
+//               style: TextStyle(
+//
+//                 fontSize: 18,
+//
+//                 fontWeight: FontWeight.w900,
+//
+//               ),
+//
+//             ),
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//             SizedBox(height: 40),
+//
+//
+//
+//             TextField(
+//
+//               maxLines: 5,
+//
+//
+//               decoration: InputDecoration(
+//
+//                 hintText: "Write your feedback...",
+//
+//
+//                 border: OutlineInputBorder(
+//
+//                   borderRadius: BorderRadius.circular(10),
+//
+//                 ),
+//
+//               ),
+//
+//             ),
+//
+//
+//
+//             SizedBox(height: 30),
+//
+//
+//
+//             Center(
+//               child: SizedBox(
+//
+//
+//                 width: 250,
+//
+//                 height: 60,
+//
+//
+//                 child: ElevatedButton(
+//
+//                   onPressed: (){
+//
+//
+//                   },
+//
+//
+//                   style: ElevatedButton.styleFrom(
+//
+//                     backgroundColor: Colors.black,
+//
+//                     shape: RoundedRectangleBorder(
+//
+//                       borderRadius: BorderRadius.circular(30),
+//
+//                     ),
+//
+//                   ),
+//
+//
+//                   child: Text(
+//
+//                     "Submit Feedback",
+//
+//                     style: TextStyle(
+//
+//                       color: Colors.white,
+//
+//                       fontSize: 18,
+//
+//                       fontWeight: FontWeight.bold,
+//
+//                     ),
+//
+//                   ),
+//
+//                 ),
+//
+//               ),
+//             ),
+//
+//             SizedBox(height: 10,),
+//             Text('Thanks for your feedback',
+//               style: TextStyle(
+//                 color: Colors.black,
+//                 fontSize: 20,
+//                 fontWeight: FontWeight.bold,
+//               ),
+//             ),
+//
+//
+//
+//           ],
+//
+//         ),
+//
+//       ),
+//     );
+//   }
+// }
 
 
 
@@ -490,16 +508,5 @@ class Privacy extends StatelessWidget{
 
 
 
-class Themepage extends StatelessWidget{
-  const Themepage({super.key});
 
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-      ),
-    );
-  }
-}
 
