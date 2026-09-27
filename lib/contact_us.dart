@@ -19,9 +19,11 @@ class ContactUs extends StatelessWidget {
         backgroundColor: Colors.white,
 
         title: const Text(
-          "Contact Us",
+          "CONTACT US",
           style: TextStyle(
-            color: Colors.black,
+            color: Colors.grey,
+            fontWeight: FontWeight.bold,
+            fontSize: 18,
           ),
         ),
 
@@ -40,6 +42,7 @@ class ContactUs extends StatelessWidget {
         padding: const EdgeInsets.all(20),
 
 
+
         child: Column(
 
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -47,7 +50,7 @@ class ContactUs extends StatelessWidget {
 
           children: [
 
-
+            SizedBox(height: 60),
             const Center(
 
               child: Icon(
