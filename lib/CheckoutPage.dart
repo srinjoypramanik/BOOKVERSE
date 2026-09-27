@@ -3,6 +3,10 @@ import 'OrderConfirmationPage.dart';
 import 'CartPage.dart';
 import 'homescreen.dart';
 import 'sign_in.dart';
+import 'profile_page.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+
 
 class Checkoutpage extends StatefulWidget {
   const Checkoutpage({super.key});
@@ -321,7 +325,75 @@ class _CheckoutpageState extends State<Checkoutpage> {
           
           ),
 
-          
+      bottomNavigationBar: StreamBuilder<QuerySnapshot>(
+        stream: FirebaseAuth.instance.currentUser == null
+            ? null : FirebaseFirestore.instance
+            .collection("user-cart")
+            .doc(FirebaseAuth.instance.currentUser!.email)
+            .collection("items")
+            .snapshots(),
+        builder: (context, snapshot) {
+          int cartCount = 0;
+          if (snapshot.hasData) {
+            for (var document in snapshot.data!.docs) {
+              final data = document.data() as Map<String, dynamic>;
+              int quantity = (data['quantity'] as num?)?.toInt() ?? 0;
+              cartCount += quantity;
+            }
+          }
+          return BottomNavigationBar(
+            type: BottomNavigationBarType.fixed,
+            backgroundColor: Colors.white,
+
+            onTap: (index){
+              if(index == 3){
+                User? user = FirebaseAuth.instance.currentUser;
+                if(user != null){
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context)=> const ProfilePage(),
+                    ),
+                  );
+                }
+                else{
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context)=> const SignIn(),
+                    ),
+                  );
+                }
+              }
+              else if(index == 2){
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context)=> const Cart(),
+                  ),
+                );
+              }
+
+              else if(index == 1){
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context)=> const HomeScreen(),
+                  ),
+                );
+              }
+              else if(index == 0){
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context)=> const HomeScreen(),
+                  ),
+                );
+              }
+            },
+
+            items: [
+              B
 
 
 
