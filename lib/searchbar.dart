@@ -141,14 +141,10 @@ class _BookSearchBarState extends State<BookSearchBar> {
                   builder: (context) => BookDetails(
                     title: data['title'].toString(),
                     author: data['author'].toString(),
-                    price:
-                    '\$${data['price']}.00',
-                    category:
-                    data['category'].toString(),
-                    description:
-                    data['description'].toString(),
-                    image:
-                    data['imageUrl'].toString(),
+                    price: (data['price'] as num).toDouble(),
+                    category: data['category'].toString(),
+                    description: data['description'].toString(),
+                    image: data['imageUrl'].toString(),
                   ),
                 ),
               );
