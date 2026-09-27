@@ -1774,42 +1774,58 @@ class HomeScreen extends StatefulWidget {
               type: BottomNavigationBarType.fixed,
               backgroundColor: Colors.white,
 
-              onTap: (index) {
-                // if(index == 3){
-                //   Navigator.push(
-                //     context,
-                //     MaterialPageRoute(
-                //       builder: (context)=> const SignIn(),
-                //     ),
-                //   );
-                // }
-                //by Tanzid
-                if (index == 3) {
+              onTap: (index){
+                if(index == 3){
+
                   User? user = FirebaseAuth.instance.currentUser;
-                  if (user != null) {
+
+
+                  if(user != null){
+
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => const ProfilePage(),
+                        builder: (context)=> const ProfilePage(),
                       ),
                     );
+
                   }
 
-                  else {
+                  else{
+
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => const SignIn(),
+                        builder: (context)=> const SignIn(),
                       ),
                     );
+
                   }
+
                 }
-
-                else if (index == 2) {
+                //by tanzid.
+                else if(index == 2){
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const Cart(),
+                      builder: (context)=> const Cart(),
+                    ),
+                  );
+                }
+
+                else if(index == 1){
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context)=> const HomeScreen(),
+                    ),
+                  );
+                }
+                else if(index == 0){
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context)=> const HomeScreen(),
                     ),
                   );
                 }

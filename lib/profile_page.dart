@@ -27,6 +27,7 @@ class ProfilePage extends StatelessWidget {
         backgroundColor: Colors.white,
 
         appBar: AppBar(
+          backgroundColor: Colors.white,
 
         ),
 

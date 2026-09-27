@@ -327,10 +327,6 @@ class BookDetails extends StatelessWidget{
             );
           }
           else if(index == 2){
-            
-
-            
-           
             Navigator.push(
               context,
               MaterialPageRoute(
