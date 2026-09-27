@@ -4,6 +4,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'CartPage.dart';
+import 'profile_page.dart';
 
 class BookDetails extends StatelessWidget{
   final String title;
@@ -295,7 +296,27 @@ class BookDetails extends StatelessWidget{
 
        ),
 
-        
+      bottomNavigationBar: StreamBuilder<QuerySnapshot>(
+        stream: FirebaseAuth.instance.currentUser == null
+            ? null : FirebaseFirestore.instance
+            .collection("user-cart")
+            .doc(FirebaseAuth.instance.currentUser!.email)
+            .collection("items")
+            .snapshots(),
+        builder: (context, snapshot) {
+          int cartCount = 0;
+          if (snapshot.hasData) {
+            for (var document in snapshot.data!.docs) {
+              final data = document.data() as Map<String, dynamic>;
+              int quantity = (data['quantity'] as num?)?.toInt() ?? 0;
+              cartCount += quantity;
+            }
+          }
+          return BottomNavigationBar(
+            type: BottomNavigationBarType.fixed,
+            backgroundColor: Colors.white,
+
+            
 
 
     );
