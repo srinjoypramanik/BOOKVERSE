@@ -279,7 +279,16 @@ class BookDetails extends StatelessWidget{
 
                Expanded(
                    child: ElevatedButton(
-                       onPressed: () => addToCart(),
+                     onPressed: () async {
+                       await addToCart();
+
+                       ScaffoldMessenger.of(context).showSnackBar(
+                         const SnackBar(
+                           content: Text('Book Added to Shopping Cart'),
+                           duration: Duration(seconds: 2),
+                         ),
+                       );
+                     },
                      style: ElevatedButton.styleFrom(
                        backgroundColor: Colors.black,
                        foregroundColor: Colors.white,
@@ -298,8 +307,11 @@ class BookDetails extends StatelessWidget{
                
              ],
            ),
+           SizedBox(height: 50),
          ],
+
         ),
+
        ),
             bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
