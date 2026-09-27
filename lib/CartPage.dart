@@ -243,6 +243,81 @@ bool cartISfull = true;
                 );
               }
 
+              else if(index == 1){
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context)=> const HomeScreen(),
+                  ),
+                );
+              }
+              else if(index == 0){
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context)=> const HomeScreen(),
+                  ),
+                );
+              }
+            },
+
+            items: [
+              BottomNavigationBarItem(
+                icon: Icon(Icons.home_filled,
+                  size: 30,
+                  color: Colors.black,
+                ),
+                label: 'HOME',
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.search_outlined,
+                  size: 30,
+                  color: Colors.black,
+                ),
+                label: 'SEARCH',
+              ),
+              BottomNavigationBarItem(
+                icon: Stack(
+                  clipBehavior: Clip.none,
+                  children: [
+                    Icon(Icons.shopping_bag_rounded,
+                      size: 30,
+                      color: Colors.black,
+                    ),
+                    if (cartCount > 0)
+                      Positioned(
+                        right: -8,
+                        top: -8,
+                        child: Container(
+                          padding: const EdgeInsets.all(5),
+                          decoration: const BoxDecoration(
+                            color: Colors.black,
+                            shape: BoxShape.circle,
+                          ),
+                          child: Text('$cartCount',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 13,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
+                      ),
+                  ],
+                ),
+                label: 'CART',
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.person_2_rounded,
+                  size: 30,
+                  color: Colors.black,
+                ),
+                label: 'ACCOUNT',
+              ),
+            ],
+          );
+        },
+      ),
 
 
 
