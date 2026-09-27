@@ -52,7 +52,7 @@ class ContactUs extends StatelessWidget {
 
               child: Icon(
 
-                Icons.contact_phone,
+                Icons.perm_contact_cal,
 
                 size: 80,
 
