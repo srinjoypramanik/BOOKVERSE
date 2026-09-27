@@ -6,10 +6,10 @@ class BookSearchBar extends StatefulWidget {
   const BookSearchBar({super.key});
 
   @override
-  State<BookSearchBar> createState() => _BookSearchBarState();
+  State<BookSearchBar> createState() => BookSearchBarState();
 }
 
-class _BookSearchBarState extends State<BookSearchBar> {
+class BookSearchBarState extends State<BookSearchBar> {
 
   final SearchController searchController = SearchController();
 

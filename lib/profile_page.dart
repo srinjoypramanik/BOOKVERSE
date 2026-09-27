@@ -27,6 +27,7 @@ class ProfilePage extends StatelessWidget {
         backgroundColor: Colors.white,
 
         appBar: AppBar(
+          backgroundColor: Colors.white,
 
         ),
 
@@ -276,6 +277,7 @@ class ProfilePage extends StatelessWidget {
                     Icons.favorite_border,
 
                     "Wishlist",
+
 
                         (){},
 

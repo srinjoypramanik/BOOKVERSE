@@ -6,7 +6,11 @@ import 'about_us.dart';
 import 'package:bookverse/contact_us.dart';
 
 class AppDrawer extends StatelessWidget {
-  const AppDrawer({super.key});
+  final Function(String) onCategorySelected;
+  const AppDrawer({
+    super.key,
+    required this.onCategorySelected,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -43,18 +47,71 @@ class AppDrawer extends StatelessWidget {
             },
           ),
 
-          ListTile(
-            leading: Icon(
-              Icons.category_rounded,
-              color: Colors.black
-              ),
-            title: Text('Categories',
-              style: TextStyle(fontWeight: FontWeight.bold,
-                  fontSize: 16),
+          ExpansionTile(
+            leading: Icon(Icons.category_rounded,
+            color: Colors.black,
             ),
-            onTap: () {
-              Navigator.pop(context);
-            },
+            title: Text('Categories',
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 16,
+              ),
+            ),
+            children: [
+              ListTile(
+                leading: Icon(
+                  Icons.book_rounded,
+                  color: Colors.black,
+                ),
+                contentPadding: EdgeInsets.only(left: 20),
+                title: Text('COMPUTER SCIENCE',
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 14,
+                  ),
+                ),
+                onTap: (){
+                  onCategorySelected('COMPUTER SCIENCE');
+                  Navigator.pop(context);
+                },
+              ),
+              ListTile(
+                leading: Icon(
+                  Icons.book_rounded,
+                  color: Colors.black,
+                ),
+                contentPadding: EdgeInsets.only(left: 20),
+                title: Text('ELECTRICAL ELECTRONICS',
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 14,
+                  ),
+                ),
+                onTap: (){
+                  onCategorySelected('ELECTRICAL & ELECTRONICS');
+                  Navigator.pop(context);
+                },
+              ),
+              ListTile(
+                leading: Icon(
+                  Icons.book_rounded,
+                  color: Colors.grey,
+                ),
+                contentPadding: EdgeInsets.only(left: 20),
+                title: Text('MATHEMATICS',
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 14,
+                    color: Colors.grey
+                  ),
+                ),
+                onTap: (){
+                  onCategorySelected('MATHEMATICS');
+                  Navigator.pop(context);
+                },
+              ),
+            ],
+
           ),
           
           ListTile(
@@ -92,10 +149,11 @@ class AppDrawer extends StatelessWidget {
           ListTile(
             leading: Icon(
               Icons.receipt_long_rounded,
-              color: Colors.black
+              color: Colors.grey
             ),
             title: Text('My Wishlist',
               style: TextStyle(fontWeight: FontWeight.bold,
+                  color: Colors.grey,
                   fontSize: 16),
             ),
             onTap: () {
@@ -141,7 +199,6 @@ class AppDrawer extends StatelessWidget {
             },
           ),
 
-          //By Tanzid
           ListTile(
             leading: Icon(
                 Icons.phone,
@@ -159,7 +216,6 @@ class AppDrawer extends StatelessWidget {
               );
             },
           ),
-          //By Tanzid
 
           ListTile(
             leading: Icon(

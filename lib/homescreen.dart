@@ -97,7 +97,11 @@ class HomeScreen extends StatefulWidget {
           ],
         ),
 
-        drawer: const AppDrawer(),
+        drawer: AppDrawer(
+          onCategorySelected: (category) {
+            setState(() {selectedCategory = category;});
+          },
+        ),
 
         body: SingleChildScrollView(
           child: Column(
@@ -230,7 +234,7 @@ class HomeScreen extends StatefulWidget {
                         ),
                         child: Text('MATHEMATICS',
                           style: TextStyle(
-                            color: Colors.black,
+                            color: Colors.grey,
                             fontWeight: FontWeight.bold,
                             fontSize: 13,
                           ),
@@ -249,7 +253,7 @@ class HomeScreen extends StatefulWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text('AVAILABLE BOOKS (8)',
+                    Text('AVAILABLE BOOKS',
                       style: TextStyle(
                         color: Colors.grey,
                         fontSize: 17,
@@ -258,10 +262,10 @@ class HomeScreen extends StatefulWidget {
                     ),
                     TextButton(
                       onPressed: () {},
-                      child: const Text('',
+                      child: const Text('Filter',
                         style: TextStyle(
                           fontSize: 15,
-                          color: Colors.black,
+                          color: Colors.grey,
                           decoration: TextDecoration.underline,
                         ),
                       ),
@@ -1774,42 +1778,58 @@ class HomeScreen extends StatefulWidget {
               type: BottomNavigationBarType.fixed,
               backgroundColor: Colors.white,
 
-              onTap: (index) {
-                // if(index == 3){
-                //   Navigator.push(
-                //     context,
-                //     MaterialPageRoute(
-                //       builder: (context)=> const SignIn(),
-                //     ),
-                //   );
-                // }
-                //by Tanzid
-                if (index == 3) {
+              onTap: (index){
+                if(index == 3){
+
                   User? user = FirebaseAuth.instance.currentUser;
-                  if (user != null) {
+
+
+                  if(user != null){
+
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => const ProfilePage(),
+                        builder: (context)=> const ProfilePage(),
                       ),
                     );
+
                   }
 
-                  else {
+                  else{
+
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => const SignIn(),
+                        builder: (context)=> const SignIn(),
                       ),
                     );
+
                   }
+
                 }
-
-                else if (index == 2) {
+                //by tanzid.
+                else if(index == 2){
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const Cart(),
+                      builder: (context)=> const Cart(),
+                    ),
+                  );
+                }
+
+                else if(index == 1){
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context)=> const HomeScreen(),
+                    ),
+                  );
+                }
+                else if(index == 0){
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context)=> const HomeScreen(),
                     ),
                   );
                 }

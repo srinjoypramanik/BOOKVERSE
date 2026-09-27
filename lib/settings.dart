@@ -37,7 +37,9 @@ class Settings extends StatelessWidget {
 
       body: Padding(
 
+
         padding: EdgeInsets.all(20),
+
 
 
         child: Column(
@@ -410,6 +412,9 @@ class Privacy extends StatelessWidget{
 
 
           padding: EdgeInsets.all(20),
+          child: Column(
+            children: [
+              Text(
 
 
           child: Column(
