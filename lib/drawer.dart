@@ -5,7 +5,11 @@ import 'settings.dart';
 import 'about_us.dart';
 
 class AppDrawer extends StatelessWidget {
-  const AppDrawer({super.key});
+  final Function(String) onCategorySelected;
+  const AppDrawer({
+    super.key,
+    required this.onCategorySelected,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -41,19 +45,19 @@ class AppDrawer extends StatelessWidget {
               Navigator.pop(context);
             },
           ),
-
-          ListTile(
-            leading: Icon(
-              Icons.category_rounded,
-              color: Colors.black
-              ),
-            title: Text('Categories',
-              style: TextStyle(fontWeight: FontWeight.bold,
-                  fontSize: 16),
+          
+          ExpansionTile(
+            leading: Icon(Icons.category_rounded,
+            color: Colors.black,
             ),
-            onTap: () {
-              Navigator.pop(context);
-            },
+            title: Text('Categories',
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 16,
+              ),
+            ),
+
+
           ),
           
           ListTile(

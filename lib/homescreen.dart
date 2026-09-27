@@ -97,7 +97,11 @@ class HomeScreen extends StatefulWidget {
           ],
         ),
 
-        drawer: const AppDrawer(),
+        drawer: AppDrawer(
+          onCategorySelected: (category) {
+            setState(() {selectedCategory = category;});
+          },
+        ),
 
         body: SingleChildScrollView(
           child: Column(
