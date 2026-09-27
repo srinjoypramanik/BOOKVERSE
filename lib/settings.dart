@@ -400,103 +400,113 @@ class Privacy extends StatelessWidget{
         backgroundColor: Colors.white,
       ),
 
-      body: Padding(
+      body: Container(
+
+        color: Colors.white,
 
 
-        padding: EdgeInsets.all(20),
-
-
-        child: Column(
-
-
-          crossAxisAlignment: CrossAxisAlignment.start,
-
-
-          children: [
+        child: Padding(
 
 
 
-            Text(
+          padding: EdgeInsets.all(20),
 
-              "Privacy Policy",
 
-              style: TextStyle(
+          child: Column(
 
-                fontSize: 28,
 
-                fontWeight: FontWeight.bold,
-
-                color: Colors.black,
-
-              ),
-
-            ),
+            crossAxisAlignment: CrossAxisAlignment.start,
 
 
 
-
-            SizedBox(height: 20),
+            children: [
 
 
 
 
 
-            Text(
+              Text(
 
-              "BookVerse respects your privacy. We keep your personal information safe and do not share your information with others without permission.",
+                "Privacy Policy",
 
+                style: TextStyle(
 
-              style: TextStyle(
+                  fontSize: 28,
 
-                fontSize: 18,
+                  fontWeight: FontWeight.bold,
 
-                color: Colors.black,
+                  color: Colors.black,
+
+                ),
 
               ),
 
-            ),
 
 
 
-
-            SizedBox(height: 20),
+              SizedBox(height: 20),
 
 
 
 
 
-            Text(
+              Text(
 
-              "Your data is used only to provide a better reading and shopping experience.",
+                "BookVerse respects your privacy. We keep your personal information safe and do not share your information with others without permission.",
 
 
-              style: TextStyle(
+                style: TextStyle(
 
-                fontSize: 18,
+                  fontSize: 18,
 
-                color: Colors.black,
+                  color: Colors.black,
+
+                ),
 
               ),
 
-            ),
 
 
-            SizedBox(height: 30,),
 
-            Text('Thanks For Support us.',
-              style: TextStyle(
-                fontSize: 18,
-                color: Colors.black,
+              SizedBox(height: 20),
+
+
+
+
+
+              Text(
+
+                "Your data is used only to provide a better reading and shopping experience.",
+
+
+                style: TextStyle(
+
+                  fontSize: 18,
+
+                  color: Colors.black,
+
+                ),
+
               ),
-            ),
 
 
-          ],
+              SizedBox(height: 30,),
+
+              Text('Thanks For Support us.',
+                style: TextStyle(
+                  fontSize: 18,
+                  color: Colors.black,
+                ),
+              ),
+
+
+            ],
+
+
+          ),
 
 
         ),
-
-
       ),
 
 

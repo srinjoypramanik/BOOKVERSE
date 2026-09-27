@@ -3,6 +3,7 @@ import 'CartPage.dart';
 import 'profile_page.dart';
 import 'settings.dart';
 import 'about_us.dart';
+import 'package:bookverse/contact_us.dart';
 
 class AppDrawer extends StatelessWidget {
   const AppDrawer({super.key});
@@ -154,7 +155,7 @@ class AppDrawer extends StatelessWidget {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                    builder: (context) => const AboutUs()),
+                    builder: (context) => const ContactUs()),
               );
             },
           ),

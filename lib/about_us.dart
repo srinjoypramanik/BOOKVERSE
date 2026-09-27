@@ -12,6 +12,15 @@ class AboutUs extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.white,
 
+        centerTitle: true,
+
+        title: Text('About Us',
+        style: TextStyle(
+          color: Colors.black,
+          fontWeight: FontWeight.bold,
+          ),
+        ),
+
       ),
 
 
@@ -117,7 +126,101 @@ class AboutUs extends StatelessWidget {
               ),
 
 
-              SizedBox(height: 25),
+              Divider(),
+
+              SizedBox(height: 25,),
+
+              Align(
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  "Meet our Developers",
+                  style: TextStyle(
+                    fontSize: 22,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+
+
+              SizedBox(height: 15,),
+
+              Align(
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  "Srinjoy Pramanik",
+                  style: TextStyle(
+                    fontSize: 19,
+                    fontWeight: FontWeight.w700,
+                  ),
+                ),
+              ),
+
+              SizedBox(height: 10),
+
+
+              Align(
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  "Full Stack Developer",
+                  style: TextStyle(
+                    fontSize: 16,
+                  ),
+                ),
+              ),
+
+              SizedBox(height: 15,),
+
+              Align(
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  "Sheikh Tanzid Ahmed Sadi",
+                  style: TextStyle(
+                    fontSize: 19,
+                    fontWeight: FontWeight.w700,
+                  ),
+                ),
+              ),
+
+              SizedBox(height: 10),
+
+
+              Align(
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  "Full Stack Developer",
+                  style: TextStyle(
+                    fontSize: 16,
+                  ),
+                ),
+              ),
+
+              SizedBox(height: 15,),
+
+              Align(
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  "Waizur Rahman",
+                  style: TextStyle(
+                    fontSize: 19,
+                    fontWeight: FontWeight.w700,
+                  ),
+                ),
+              ),
+
+              SizedBox(height: 10),
+
+
+              Align(
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  "Full Stack Developer",
+                  style: TextStyle(
+                    fontSize: 16,
+                  ),
+                ),
+              ),
+
+              //SizedBox(height: 25),
 
 
               // Divider(),
@@ -130,89 +233,89 @@ class AboutUs extends StatelessWidget {
               //   ),
               // ),
 
-              SizedBox(height: 30),
-
-              Divider(),
-
-
-              Align(
-                alignment: Alignment.centerLeft,
-                child: Text(
-                  "Contact Us",
-                  style: TextStyle(
-                    fontSize: 22,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ),
-
-
-              SizedBox(height: 15),
-
-
-              ListTile(
-                contentPadding: EdgeInsets.zero,
-
-                leading: Icon(
-                  Icons.email,
-                  color: Colors.black,
-                ),
-
-                title: Text(
-                  "Email",
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-
-                subtitle: Text(
-                  "support@bookverse.com",
-                ),
-              ),
-
-
-
-              ListTile(
-                contentPadding: EdgeInsets.zero,
-
-                leading: Icon(
-                  Icons.phone,
-                  color: Colors.black,
-                ),
-
-                title: Text(
-                  "Phone",
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-
-                subtitle: Text(
-                  "+880 1234567890",
-                ),
-              ),
-
-
-
-              ListTile(
-                contentPadding: EdgeInsets.zero,
-
-                leading: Icon(
-                  Icons.location_on,
-                  color: Colors.black,
-                ),
-
-                title: Text(
-                  "Address",
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-
-                subtitle: Text(
-                  "Dhaka, Bangladesh",
-                ),
-              ),
+              // SizedBox(height: 30),
+              //
+              // Divider(),
+              //
+              //
+              // Align(
+              //   alignment: Alignment.centerLeft,
+              //   child: Text(
+              //     "Contact Us",
+              //     style: TextStyle(
+              //       fontSize: 22,
+              //       fontWeight: FontWeight.bold,
+              //     ),
+              //   ),
+              // ),
+              //
+              //
+              // SizedBox(height: 15),
+              //
+              //
+              // ListTile(
+              //   contentPadding: EdgeInsets.zero,
+              //
+              //   leading: Icon(
+              //     Icons.email,
+              //     color: Colors.black,
+              //   ),
+              //
+              //   title: Text(
+              //     "Email",
+              //     style: TextStyle(
+              //       fontWeight: FontWeight.bold,
+              //     ),
+              //   ),
+              //
+              //   subtitle: Text(
+              //     "support@bookverse.com",
+              //   ),
+              // ),
+              //
+              //
+              //
+              // ListTile(
+              //   contentPadding: EdgeInsets.zero,
+              //
+              //   leading: Icon(
+              //     Icons.phone,
+              //     color: Colors.black,
+              //   ),
+              //
+              //   title: Text(
+              //     "Phone",
+              //     style: TextStyle(
+              //       fontWeight: FontWeight.bold,
+              //     ),
+              //   ),
+              //
+              //   subtitle: Text(
+              //     "+880 1234567890",
+              //   ),
+              // ),
+              //
+              //
+              //
+              // ListTile(
+              //   contentPadding: EdgeInsets.zero,
+              //
+              //   leading: Icon(
+              //     Icons.location_on,
+              //     color: Colors.black,
+              //   ),
+              //
+              //   title: Text(
+              //     "Address",
+              //     style: TextStyle(
+              //       fontWeight: FontWeight.bold,
+              //     ),
+              //   ),
+              //
+              //   subtitle: Text(
+              //     "Dhaka, Bangladesh",
+              //   ),
+              // ),
 
 
             ],
