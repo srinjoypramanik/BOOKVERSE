@@ -253,7 +253,7 @@ class HomeScreen extends StatefulWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text('AVAILABLE BOOKS (8)',
+                    Text('AVAILABLE BOOKS',
                       style: TextStyle(
                         color: Colors.grey,
                         fontSize: 17,
@@ -262,10 +262,10 @@ class HomeScreen extends StatefulWidget {
                     ),
                     TextButton(
                       onPressed: () {},
-                      child: const Text('',
+                      child: const Text('Filter',
                         style: TextStyle(
                           fontSize: 15,
-                          color: Colors.black,
+                          color: Colors.grey,
                           decoration: TextDecoration.underline,
                         ),
                       ),

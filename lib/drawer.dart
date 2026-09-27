@@ -148,10 +148,11 @@ class AppDrawer extends StatelessWidget {
           ListTile(
             leading: Icon(
               Icons.receipt_long_rounded,
-              color: Colors.black
+              color: Colors.grey
             ),
             title: Text('My Wishlist',
               style: TextStyle(fontWeight: FontWeight.bold,
+                  color: Colors.grey,
                   fontSize: 16),
             ),
             onTap: () {

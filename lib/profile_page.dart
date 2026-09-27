@@ -278,6 +278,7 @@ class ProfilePage extends StatelessWidget {
 
                     "Wishlist",
 
+
                         (){},
 
                   ),
