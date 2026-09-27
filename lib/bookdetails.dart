@@ -8,7 +8,7 @@ import 'CartPage.dart';
 class BookDetails extends StatelessWidget{
   final String title;
   final String author;
-  final String price;
+  final double price;
   final String category;
   final String description;
   final String image;
@@ -195,7 +195,7 @@ class BookDetails extends StatelessWidget{
                          ),
                        ),
                        SizedBox(height: 8),
-                       Text(price,
+                       Text('\$${price.toStringAsFixed(2)}',
                          style: TextStyle(
                            color: Colors.black,
                            fontSize: 22,

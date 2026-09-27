@@ -305,7 +305,7 @@ class HomeScreen extends StatefulWidget {
                         builder: (context) => BookDetails(
                           title: data['title'].toString(),
                           author: data['author'].toString(),
-                          price: '\$${data['price']}.00',
+                          price: (data['price'] as num).toDouble(),
                           category: data['category'].toString(),
                           description: data['description'].toString(),
                           image: data['imageUrl'].toString(),
@@ -483,7 +483,7 @@ class HomeScreen extends StatefulWidget {
                         builder: (context) => BookDetails(
                           title: data['title'].toString(),
                           author: data['author'].toString(),
-                          price: '\$${data['price']}.00',
+                          price: (data['price'] as num).toDouble(),
                           category: data['category'].toString(),
                           description: data['description'].toString(),
                           image: data['imageUrl'].toString(),
@@ -650,7 +650,7 @@ class HomeScreen extends StatefulWidget {
                         builder: (context) => BookDetails(
                           title: data['title'],
                           author: data['author'],
-                          price: '\$${data['price']}.00',
+                          price: (data['price'] as num).toDouble(),
                           category: data['category'],
                           description: data['description'],
                           image: data['imageUrl'],
@@ -817,7 +817,7 @@ class HomeScreen extends StatefulWidget {
                         builder: (context) => BookDetails(
                           title: data['title'],
                           author: data['author'],
-                          price: '\$${data['price']}.00',
+                          price: (data['price'] as num).toDouble(),
                           category: data['category'],
                           description: data['description'],
                           image: data['imageUrl'],
@@ -984,7 +984,7 @@ class HomeScreen extends StatefulWidget {
                         builder: (context) => BookDetails(
                           title: data['title'],
                           author: data['author'],
-                          price: '\$${data['price']}.00',
+                          price: (data['price'] as num).toDouble(),
                           category: data['category'],
                           description: data['description'],
                           image: data['imageUrl'],
@@ -1151,7 +1151,7 @@ class HomeScreen extends StatefulWidget {
                         builder: (context) => BookDetails(
                           title: data['title'],
                           author: data['author'],
-                          price: '\$${data['price']}.00',
+                          price: (data['price'] as num).toDouble(),
                           category: data['category'],
                           description: data['description'],
                           image: data['imageUrl'],
@@ -1318,7 +1318,7 @@ class HomeScreen extends StatefulWidget {
                         builder: (context) => BookDetails(
                           title: data['title'],
                           author: data['author'],
-                          price: '\$${data['price']}.00',
+                          price: (data['price'] as num).toDouble(),
                           category: data['category'],
                           description: data['description'],
                           image: data['imageUrl'],
@@ -1485,7 +1485,7 @@ class HomeScreen extends StatefulWidget {
                         builder: (context) => BookDetails(
                           title: data['title'],
                           author: data['author'],
-                          price: '\$${data['price']}.00',
+                          price: (data['price'] as num).toDouble(),
                           category: data['category'],
                           description: data['description'],
                           image: data['imageUrl'],
