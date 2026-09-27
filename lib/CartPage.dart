@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'Checkoutpage.dart';
 import 'homescreen.dart';
 import 'sign_in.dart';
+import 'profile_page.dart';
 
 class Cart extends StatefulWidget {
   const Cart({super.key});
@@ -196,76 +197,7 @@ bool cartISfull = true;
 
 
 
-      bottomNavigationBar: BottomNavigationBar(
-        type: BottomNavigationBarType.fixed,
-         backgroundColor: Colors.white,
-        onTap: (index){
-          if(index == 3){
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context)=> const SignIn(),
-              ),
-            );
-          }
-        else if(index == 2){
-            Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (context)=> const Cart(),
-                ),
-            );
-          }
-
-          else if(index == 0){
-            Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (context)=> const HomeScreen(),
-                ),
-            );
-          }
-        },
-
-      items: const [
-        BottomNavigationBarItem(
-          icon: Icon(
-            
-            Icons.home_filled,
-            size: 30,
-            color: Colors.black,
-          ),
-          label: 'HOME',
-        ),
-
-        BottomNavigationBarItem(
-          icon: Icon(
-            Icons.search_outlined,
-            size: 30,
-            color: Colors.black,
-          ),
-          label: 'STORE',
-        ),
-
-        BottomNavigationBarItem(
-          icon: Icon(
-            Icons.shopping_bag_rounded,
-            size: 30,
-            color: Colors.black,
-          ),
-          label: 'CART',
-        ),
-
-        BottomNavigationBarItem(
-          icon: Icon(
-            Icons.person_2_rounded,
-            size: 30,
-            color: Colors.black,
-          ),
-          label: 'ACCOUNT',
-        ),
-      ],
-    ),
+      
 
 
 
