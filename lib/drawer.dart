@@ -45,7 +45,7 @@ class AppDrawer extends StatelessWidget {
               Navigator.pop(context);
             },
           ),
-          
+
           ExpansionTile(
             leading: Icon(Icons.category_rounded,
             color: Colors.black,
@@ -56,6 +56,42 @@ class AppDrawer extends StatelessWidget {
               fontSize: 16,
               ),
             ),
+            children: [
+              ListTile(
+                leading: Icon(
+                  Icons.book_online_rounded,
+                  color: Colors.black,
+                ),
+                contentPadding: EdgeInsets.only(left: 20),
+                title: Text('COMPUTER SCIENCE',
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 14,
+                  ),
+                ),
+                onTap: (){
+                  onCategorySelected('COMPUTER SCIENCE');
+                  Navigator.pop(context);
+                },
+              ),
+              ListTile(
+                leading: Icon(
+                  Icons.book_rounded,
+                  color: Colors.black,
+                ),
+                contentPadding: EdgeInsets.only(left: 20),
+                title: Text('ELECTRICAL ELECTRONICS',
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 14,
+                  ),
+                ),
+                onTap: (){
+                  onCategorySelected('ELECTRICAL & ELECTRONICS');
+                  Navigator.pop(context);
+                },
+              ),
+            ],
 
 
           ),
