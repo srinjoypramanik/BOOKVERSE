@@ -18,7 +18,7 @@ class HomeScreen extends StatefulWidget {
 
 
     //waizur________________(NOT WORKING)
-  Future addToCart(String title,String image,String price)async{
+    Future addToCart(String title, String image, double price) async{
     final FirebaseAuth authoo = FirebaseAuth.instance;
     var currentUserrr = authoo.currentUser;
     CollectionReference collectionREF = FirebaseFirestore.instance.collection("user-cart");
@@ -405,17 +405,12 @@ class HomeScreen extends StatefulWidget {
                                   ElevatedButton(
 
                                     onPressed: () {
-                                       addToCart(
-                                          data['title'].toString(),
-                                          data['imageUrl'].toString(),
-                                          '\$${data['price']}.00',
-                                        );
+                                      addToCart(
+                                        data['title'].toString(),
+                                        data['imageUrl'].toString(),
+                                        (data['price'] as num).toDouble(),
+                                      );
                                       },
-                                      
-                                    
-                                    
-                                    
-
                                     
                                     style: ElevatedButton.styleFrom(
                                       backgroundColor: Colors.black,
@@ -582,6 +577,11 @@ class HomeScreen extends StatefulWidget {
 
                                   ElevatedButton(
                                     onPressed: () {
+                                      addToCart(
+                                        data['title'].toString(),
+                                        data['imageUrl'].toString(),
+                                        (data['price'] as num).toDouble(),
+                                      );
 
                                     },
                                     style: ElevatedButton.styleFrom(
@@ -749,6 +749,11 @@ class HomeScreen extends StatefulWidget {
 
                                   ElevatedButton(
                                     onPressed: () {
+                                      addToCart(
+                                        data['title'].toString(),
+                                        data['imageUrl'].toString(),
+                                        (data['price'] as num).toDouble(),
+                                      );
 
                                     },
                                     style: ElevatedButton.styleFrom(
