@@ -374,7 +374,22 @@ class BookDetails extends StatelessWidget{
             },
 
 
-           
+            items: [
+              BottomNavigationBarItem(
+                icon: Icon(Icons.home_filled,
+                  size: 30,
+                  color: Colors.black,
+                ),
+                label: 'HOME',
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.search_outlined,
+                  size: 30,
+                  color: Colors.black,
+                ),
+                label: 'SEARCH',
+              ),
+             
 
 
     );
