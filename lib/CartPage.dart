@@ -94,9 +94,10 @@ bool cartISfull = true;
                             
                             //___________________ ADD quantity and price HERE _____________________________________//
                             
-                            title: 
-                          
+                            title:
+
                             Text(documentSnapshot['title'],
+
                             ),
                            
                              //___________________ ADD quantity and price HERE _____________________________________//
