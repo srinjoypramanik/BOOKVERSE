@@ -344,7 +344,37 @@ class BookDetails extends StatelessWidget{
 
                 }
 
-             
+              }
+              //by tanzid.
+              else if(index == 2){
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context)=> const Cart(),
+                  ),
+                );
+              }
+
+              else if(index == 1){
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context)=> const HomeScreen(),
+                  ),
+                );
+              }
+              else if(index == 0){
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context)=> const HomeScreen(),
+                  ),
+                );
+              }
+            },
+
+
+           
 
 
     );
