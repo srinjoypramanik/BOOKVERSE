@@ -75,25 +75,6 @@ class BookDetails extends StatelessWidget{
             fontSize: 20,
            ),
           ),
-
-
-        actions: [
-          IconButton(
-            onPressed: () {
-              Navigator.push(context,
-                  MaterialPageRoute(
-                      builder: (context)=>const Cart(),
-                  ),
-              );
-            },
-            icon: const Icon(
-              Icons.shopping_bag_outlined,
-              color: Colors.black,
-              size: 35,
-            ),
-          ),
-           const SizedBox(width: 6),
-        ],
       ),
 
 
