@@ -413,11 +413,11 @@ class Privacy extends StatelessWidget{
 
           padding: EdgeInsets.all(20),
           child: Column(
-            children: [
-              Text(
+            // children: [
+            //    Text(
 
 
-          child: Column(
+          // child: Column(
 
 
             crossAxisAlignment: CrossAxisAlignment.start,
