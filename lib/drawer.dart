@@ -59,7 +59,7 @@ class AppDrawer extends StatelessWidget {
             children: [
               ListTile(
                 leading: Icon(
-                  Icons.book_online_rounded,
+                  Icons.book_rounded,
                   color: Colors.black,
                 ),
                 contentPadding: EdgeInsets.only(left: 20),
@@ -88,6 +88,23 @@ class AppDrawer extends StatelessWidget {
                 ),
                 onTap: (){
                   onCategorySelected('ELECTRICAL & ELECTRONICS');
+                  Navigator.pop(context);
+                },
+              ),
+              ListTile(
+                leading: Icon(
+                  Icons.book_rounded,
+                  color: Colors.black,
+                ),
+                contentPadding: EdgeInsets.only(left: 20),
+                title: Text('MATHEMATICS',
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 14,
+                  ),
+                ),
+                onTap: (){
+                  onCategorySelected('MATHEMATICS');
                   Navigator.pop(context);
                 },
               ),
