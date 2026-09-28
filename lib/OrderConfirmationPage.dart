@@ -1,4 +1,3 @@
-
 import 'package:bookverse/homescreen.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -25,6 +24,8 @@ class Orderconfirmationpage extends StatefulWidget {
 }
 
 class _OrderconfirmationpageState extends State<Orderconfirmationpage> {
+
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -106,30 +107,7 @@ class _OrderconfirmationpageState extends State<Orderconfirmationpage> {
             height: 10,
           ),
 
-          // ElevatedButton(
-          //   onPressed: () {
-          //     Navigator.pushReplacement(
-          //       context,
-          //       MaterialPageRoute(
-          //         builder: (context) => const HomeScreen(),
-          //       ),
-          //     );
-          //   },
-          //   style: ElevatedButton.styleFrom(
-          //     fixedSize: const Size.fromWidth(350),
-          //     backgroundColor: Colors.black,
-          //     foregroundColor: Colors.white,
-          //     shape: const RoundedRectangleBorder(
-          //       borderRadius: BorderRadius.zero,
-          //     ),
-          //   ),
-          //   child: const Text(
-          //     'CONTINUE SHOPPING',
-          //     style: TextStyle(
-          //       fontSize: 20,
-          //     ),
-          //   ),
-          // ),
+         
           ElevatedButton(
             onPressed: () async {
 

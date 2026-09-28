@@ -75,7 +75,7 @@ class ContactUs extends StatelessWidget {
 
               child: Text(
 
-                "Contact Us",
+                "CONTACT US",
 
                 style: TextStyle(
 

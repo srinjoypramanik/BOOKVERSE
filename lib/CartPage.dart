@@ -1,5 +1,4 @@
 
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -52,7 +51,7 @@ bool cartISfull = true;
 
         
 
-        title:  Text('CART',style: TextStyle(color: Colors.black,fontSize: 20,fontWeight: FontWeight.bold,),),
+        title:  Text('CART',style: TextStyle(color: Colors.black,fontSize: 22,fontWeight: FontWeight.bold,),),
         
         // actions: [TextButton(
         //   onPressed: (){FirebaseFirestore
@@ -88,7 +87,7 @@ bool cartISfull = true;
               'CLEAR',
               style: TextStyle(
                 color: Color.fromARGB(255, 125, 124, 124),
-                fontSize: 15,
+                fontSize: 20,
                 fontWeight: FontWeight.bold,
               ),
             ),
@@ -120,7 +119,7 @@ bool cartISfull = true;
 
                        cartISfull=false;
                         return const Center(
-                          child: Text("empty cart"),
+                          child: Text("Empty Cart",style: TextStyle(fontSize: 25),),
                         );
                       }
 
@@ -129,14 +128,14 @@ bool cartISfull = true;
 
                       totalPrice = 0;
 
-  for (var document in snapshot.data!.docs) {
-    final data = document.data() as Map<String, dynamic>;
+                          for (var document in snapshot.data!.docs) {
+                            final data = document.data() as Map<String, dynamic>;
 
-    double price = (data['price'] as num?)?.toDouble() ?? 0;
-    int quantity = (data['quantity'] as num?)?.toInt() ?? 0;
+                            double price = (data['price'] as num?)?.toDouble() ?? 0;
+                            int quantity = (data['quantity'] as num?)?.toInt() ?? 0;
 
-    totalPrice += price * quantity;
-  }
+                            totalPrice += price * quantity;
+                          }
 
 
 
@@ -146,13 +145,16 @@ bool cartISfull = true;
                           DocumentSnapshot documentSnapshot =snapshot.data!.docs[index];
 
 
-                          //card starts here___________________________________
+                          
                           return Card(
+                            
+                             
+                            color: const Color.fromARGB(255, 243, 243, 243),
 
 
-                           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(0)),
+                           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(1)),
 
-                            elevation: 1,
+                            elevation: 0,
                             child: SizedBox(
                               height: 100,
 
@@ -169,7 +171,7 @@ bool cartISfull = true;
                               Image.asset(documentSnapshot['image'],height: 90,width: 50,)),
 
                             
-                            //___________________ ADD quantity and price HERE _____________________________________//
+                            
                             
                             title:Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
@@ -184,18 +186,24 @@ bool cartISfull = true;
                                   
                                 Expanded(
                                   child: Text(documentSnapshot['title'],
+                                   style:TextStyle(
+                                      fontWeight: FontWeight.bold,fontSize: 19,
+                                    ),
+                                  
                                     
                                     overflow: TextOverflow.ellipsis),
                                 ),
                                   Text("(${documentSnapshot['quantity']})",
                                     style:TextStyle(
-                                      fontWeight: FontWeight.bold,
+                                      fontWeight: FontWeight.bold,fontSize: 19,
                                     )
                                     ,),
                                   SizedBox(width: 10,)
                                 ]
                                 ),
-                                Text("\$${documentSnapshot['price']}"),
+                                Text("\$${documentSnapshot['price']}",style: TextStyle(
+                                  fontSize: 16,
+                                ),),
                                 SizedBox(height:5,),
 
 
@@ -204,7 +212,7 @@ bool cartISfull = true;
 
 
                            
-                             //___________________ ADD quantity and price HERE _____________________________________//
+                            
                             trailing: GestureDetector(
                               child: Icon(Icons.delete),
                               onTap: (){
@@ -225,7 +233,7 @@ bool cartISfull = true;
                           )
                           )
 
-                          );//card ends__________________________________________
+                          );
                         }
                         );
 
@@ -255,15 +263,6 @@ bool cartISfull = true;
                       
                       child: 
                       
-                      
-                    //   Row( mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    //   children: [
-                      
-                    //    Text('TOTAL AMOUNT  :                         ',style: TextStyle(color:Color.fromARGB(255, 0, 0, 0),fontSize: 18,fontWeight: FontWeight.bold),),
-                    //    Text('0/-', style: TextStyle(color:Color.fromARGB(255, 0, 0, 0),fontSize: 18,fontWeight: FontWeight.bold),),
-                    // ]  
-                    // ),
-
                                             StreamBuilder<QuerySnapshot>(
                           stream: FirebaseFirestore.instance
                               .collection("user-cart")
@@ -321,6 +320,7 @@ bool cartISfull = true;
 
                     ),
                     ElevatedButton(
+                      
                             onPressed: (){
 
                                
@@ -331,11 +331,21 @@ bool cartISfull = true;
                                
 
                             }
+                            else{
+                              ScaffoldMessenger.of(context).showSnackBar(
+                         const SnackBar(
+                           content: Text('Book Added to Shopping Cart'),
+                           duration: Duration(seconds: 2),
+                         ));
+                            }
 
                               },
                             
 
                           style: ElevatedButton.styleFrom(
+
+                            
+                            
                             fixedSize: Size.fromWidth(350),
                             backgroundColor: Colors.black,
                             foregroundColor: Colors.white,
