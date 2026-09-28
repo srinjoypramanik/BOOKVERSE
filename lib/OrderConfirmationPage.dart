@@ -103,9 +103,7 @@ class _OrderconfirmationpageState extends State<Orderconfirmationpage> {
               ],
             ),
           ),
-          const SizedBox(
-            height: 10,
-          ),
+          SizedBox(height: 5,),
 
          
           ElevatedButton(

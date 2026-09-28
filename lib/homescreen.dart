@@ -17,8 +17,7 @@ class HomeScreen extends StatefulWidget {
   class _HomeScreenState extends State<HomeScreen> {
 
 
-    //waizur________________(NOT WORKING)
-    Future addToCart(String title, String image, double price) async {
+  Future addToCart(String title, String image, double price) async {
       final FirebaseAuth authoo = FirebaseAuth.instance;
       var currentUserrr = authoo.currentUser;
       CollectionReference collectionREF = FirebaseFirestore.instance.collection(
@@ -28,27 +27,20 @@ class HomeScreen extends StatefulWidget {
           .collection("items")
           .doc(title);
       DocumentSnapshot itemSNAP = await itemREF.get();
-      //quantity logic____
       if (itemSNAP.exists) {
         int quantity = itemSNAP['quantity'];
         await itemREF.update({"quantity": quantity + 1,});
       }
       else {
         await itemREF.set(
-
-            {
-              "title": title,
+            {"title": title,
               "image": image,
               "price": price,
               "quantity": 1,
             }
         );
       }
-      //quantity logic____
     }
-
-// waizur_________________________________________
-
 
     TextEditingController searchController = TextEditingController();
     String searchText = '';
@@ -229,12 +221,12 @@ class HomeScreen extends StatefulWidget {
                         ),
                         decoration: BoxDecoration(
                           border: Border.all(
-                            color: Colors.grey,
+                            color: Colors.black,
                           ),
                         ),
                         child: Text('MATHEMATICS',
                           style: TextStyle(
-                            color: Colors.grey,
+                            color: Colors.black,
                             fontWeight: FontWeight.bold,
                             fontSize: 13,
                           ),
@@ -262,7 +254,7 @@ class HomeScreen extends StatefulWidget {
                     ),
                     TextButton(
                       onPressed: () {},
-                      child: const Text('Filter',
+                      child: const Text('',
                         style: TextStyle(
                           fontSize: 15,
                           color: Colors.grey,

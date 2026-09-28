@@ -201,6 +201,7 @@ class _CheckoutpageState extends State<Checkoutpage> {
                     crossAxisAlignment: CrossAxisAlignment.start,
 
                     children: [
+                      SizedBox(height: 65),
 
                       const Text(
                         "Reciver's Name:",
@@ -238,7 +239,7 @@ class _CheckoutpageState extends State<Checkoutpage> {
                       const SizedBox(height: 15),
 
                       const Text(
-                        "Phone Number:",
+                        "Reciver's Number:",
                         style: TextStyle(
                           fontSize: 20,
                           fontWeight: FontWeight.bold,
@@ -275,7 +276,7 @@ class _CheckoutpageState extends State<Checkoutpage> {
                       const SizedBox(height: 15),
 
                       const Text(
-                        "Address:",
+                        "Reciver's Address:",
                         style: TextStyle(
                           fontSize: 20,
                           fontWeight: FontWeight.bold,
@@ -386,13 +387,13 @@ class _CheckoutpageState extends State<Checkoutpage> {
                                         Row(
                                           children: [
                                             const Radio<String>(
-                                              value: "Cash on delivery",
+                                              value: "Cash on Delivery",
                                             ),
 
                                             const Text(
-                                              "Cash on delivery",
+                                              "Cash on Delivery",
                                               style: TextStyle(
-                                                fontSize: 20,
+                                                fontSize: 15,
                                                 fontWeight: FontWeight.bold,
                                               ),
                                             ),

@@ -87,7 +87,7 @@ bool cartISfull = true;
               'CLEAR',
               style: TextStyle(
                 color: Color.fromARGB(255, 125, 124, 124),
-                fontSize: 20,
+                fontSize: 16,
                 fontWeight: FontWeight.bold,
               ),
             ),
@@ -119,7 +119,11 @@ bool cartISfull = true;
 
                        cartISfull=false;
                         return const Center(
-                          child: Text("Empty Cart",style: TextStyle(fontSize: 25),),
+                          child: Text("Empty Cart",
+                            style: TextStyle(
+                                fontSize: 20,
+                              fontWeight: FontWeight.bold,
+                            ),),
                         );
                       }
 

@@ -96,14 +96,14 @@ class AppDrawer extends StatelessWidget {
               ListTile(
                 leading: Icon(
                   Icons.book_rounded,
-                  color: Colors.grey,
+                  color: Colors.black,
                 ),
                 contentPadding: EdgeInsets.only(left: 20),
                 title: Text('MATHEMATICS',
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 14,
-                    color: Colors.grey
+                    color: Colors.black,
                   ),
                 ),
                 onTap: (){

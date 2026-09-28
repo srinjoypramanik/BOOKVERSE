@@ -91,6 +91,7 @@ class _Feedback_pageState extends State<Feedback_page> {
   Widget build(BuildContext context) {
 
     return Scaffold(
+      backgroundColor: Colors.white,
 
 
       appBar: AppBar(
@@ -105,6 +106,7 @@ class _Feedback_pageState extends State<Feedback_page> {
         child: Padding(
         
           padding: EdgeInsets.all(20),
+
         
         
         
@@ -352,7 +354,7 @@ class _Feedback_pageState extends State<Feedback_page> {
         
               Text(
         
-                'Thanks for your feedback',
+                '',
         
         
                 style: TextStyle(
