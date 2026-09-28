@@ -270,18 +270,18 @@ class ProfilePage extends StatelessWidget {
 
 
 
-                  profileMenu(
-
-                    context,
-
-                    Icons.favorite_border,
-
-                    "Wishlist",
-
-
-                        (){},
-
-                  ),
+                  // profileMenu(
+                  //
+                  //   context,
+                  //
+                  //   Icons.favorite_border,
+                  //
+                  //   "Wishlist",
+                  //
+                  //
+                  //       (){},
+                  //
+                  // ),
 
 
 
