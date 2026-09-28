@@ -15,6 +15,8 @@ class Cart extends StatefulWidget {
 }
 
 class  CartState extends State<Cart> {
+  double totalPrice=0;
+  List<String> bookNames =[];
  
  
   @override
