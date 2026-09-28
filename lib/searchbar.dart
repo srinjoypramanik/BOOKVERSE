@@ -8,7 +8,6 @@ import 'bookdetails.dart';
     @override
     State<BookSearchBar> createState()=> BookSearchBarState();
   }
-
   class BookSearchBarState extends State<BookSearchBar>{
     final SearchController searchController=SearchController();
 
@@ -123,8 +122,7 @@ import 'bookdetails.dart';
                 },
               );
             }).toList();
-             },
-          };
-
+          },
+      );
     }
   }
