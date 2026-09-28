@@ -92,6 +92,7 @@ class AppDrawer extends StatelessWidget {
                   Navigator.pop(context);
                 },
               ),
+
               ListTile(
                 leading: Icon(
                   Icons.book_rounded,
@@ -106,8 +107,6 @@ class AppDrawer extends StatelessWidget {
                   ),
                 ),
                 onTap: (){
-                  onCategorySelected('MATHEMATICS');
-                  Navigator.pop(context);
                 },
               ),
             ],
