@@ -19,6 +19,7 @@ class  CartState extends State<Cart> {
   double totalPrice=0;
 
   List<String> bookNames =[];
+  // double price = data['price'];
  
  
  
@@ -52,7 +53,20 @@ bool cartISfull = true;
 
         title:  Text('CART',style: TextStyle(color: Colors.black,fontSize: 22,fontWeight: FontWeight.bold,),),
         
-        
+        // actions: [TextButton(
+        //   onPressed: (){FirebaseFirestore
+        //       .instance
+        //       .collection("user-cart")
+        //       .doc(FirebaseAuth.
+        //   instance.
+        //   currentUser!.
+        //   email)
+        //       .collection("items")
+        //       .doc(documentSnapshot.
+        //   id)
+        //       .delete();},
+        //   child:const Text('CLEAR',style: TextStyle(color:Color.fromARGB(255, 125, 124, 124),fontSize: 15, fontWeight: FontWeight.bold),)  ,)
+
 
 
 

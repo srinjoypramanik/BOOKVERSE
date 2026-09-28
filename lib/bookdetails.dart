@@ -425,5 +425,3 @@ class BookDetails extends StatelessWidget{
 
 
 
-
-           

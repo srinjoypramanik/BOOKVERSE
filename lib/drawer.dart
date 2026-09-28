@@ -92,6 +92,7 @@ class AppDrawer extends StatelessWidget {
                   Navigator.pop(context);
                 },
               ),
+
               ListTile(
                 leading: Icon(
                   Icons.book_rounded,
@@ -106,8 +107,6 @@ class AppDrawer extends StatelessWidget {
                   ),
                 ),
                 onTap: (){
-                  onCategorySelected('MATHEMATICS');
-                  Navigator.pop(context);
                 },
               ),
             ],
@@ -146,20 +145,20 @@ class AppDrawer extends StatelessWidget {
             },
           ),
           
-          ListTile(
-            leading: Icon(
-              Icons.receipt_long_rounded,
-              color: Colors.grey
-            ),
-            title: Text('My Wishlist',
-              style: TextStyle(fontWeight: FontWeight.bold,
-                  color: Colors.grey,
-                  fontSize: 16),
-            ),
-            onTap: () {
-              Navigator.pop(context);
-            },
-          ),
+          // ListTile(
+          //   leading: Icon(
+          //     Icons.receipt_long_rounded,
+          //     color: Colors.grey
+          //   ),
+          //   title: Text('My Wishlist',
+          //     style: TextStyle(fontWeight: FontWeight.bold,
+          //         color: Colors.grey,
+          //         fontSize: 16),
+          //   ),
+          //   onTap: () {
+          //     Navigator.pop(context);
+          //   },
+          // ),
 
           ListTile(
             leading: Icon(

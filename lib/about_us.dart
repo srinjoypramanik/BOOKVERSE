@@ -79,7 +79,7 @@ class AboutUs extends StatelessWidget {
               Align(
                 alignment: Alignment.centerLeft,
                 child: Text(
-                  "About BOOKVERSE",
+                  "ABOUT BOOKVERSE",
                   style: TextStyle(
                     fontSize: 22,
                     fontWeight: FontWeight.bold,
@@ -92,7 +92,7 @@ class AboutUs extends StatelessWidget {
 
 
               Text(
-                "BookVerse is a modern book platform designed to help "
+                "BOOKVERSE is a modern book platform designed to help "
                     "Users to find, explore and manage books easily.",
                 style: TextStyle(
                   fontSize: 16,
@@ -100,31 +100,31 @@ class AboutUs extends StatelessWidget {
               ),
 
 
-              SizedBox(height: 25),
-
-
-              Align(
-                alignment: Alignment.centerLeft,
-                child: Text(
-                  "Our Mission",
-                  style: TextStyle(
-                    fontSize: 22,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ),
-
-
-              SizedBox(height: 10),
-
-
-              Text(
-                "To make reading more accessible by connecting readers with "
-                    "books they love.",
-                style: TextStyle(
-                  fontSize: 16,
-                ),
-              ),
+              // SizedBox(height: 25),
+              //
+              //
+              // Align(
+              //   alignment: Alignment.centerLeft,
+              //   child: Text(
+              //     "Our Mission",
+              //     style: TextStyle(
+              //       fontSize: 22,
+              //       fontWeight: FontWeight.bold,
+              //     ),
+              //   ),
+              // ),
+              //
+              //
+              // SizedBox(height: 10),
+              //
+              //
+              // Text(
+              //   "To make reading more accessible by connecting readers with "
+              //       "books they love.",
+              //   style: TextStyle(
+              //     fontSize: 16,
+              //   ),
+              // ),
 
 
               Divider(),
