@@ -31,7 +31,7 @@ class BookDetails extends StatelessWidget{
     CollectionReference collectionREF = FirebaseFirestore.instance.collection("user-cart");
     DocumentReference itemREF= collectionREF.doc(currentUserrr!.email).collection("items").doc(title);
     DocumentSnapshot itemSNAP =await itemREF.get();
-   //quantity logic____
+   
     if(itemSNAP.exists){
       int quantity=itemSNAP['quantity'];
       await itemREF.update({"quantity": quantity+1,});
@@ -47,7 +47,7 @@ class BookDetails extends StatelessWidget{
       }
     );
   }
-  //quantity logic____
+  
   }
 
 

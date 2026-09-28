@@ -1,5 +1,3 @@
-
-
 import 'package:flutter/material.dart';
 import 'OrderConfirmationPage.dart';
 import 'CartPage.dart';
@@ -369,15 +367,20 @@ class _CheckoutpageState extends State<Checkoutpage> {
                                             const Radio<String>(
                                               value: "Bkash",
                                             ),
+                                            
 
-                                            const Text(
-                                              "Bkash",
-                                              style: TextStyle(
-                                                fontSize: 20,
-                                                fontWeight: FontWeight.bold,
-                                              ),
-                                            ),
-                                          ],
+                                            
+
+                                            
+                                            Image.asset('assets/images/images.png',
+                                                height: 50,width: 70,)
+                                           
+                                           
+                                         
+                                         
+
+                                            
+                                          ]
                                         ),
 
                                         Row(
@@ -466,7 +469,7 @@ class _CheckoutpageState extends State<Checkoutpage> {
         ],
       ),
 
-      // Bottom Navigation Bar
+      
       bottomNavigationBar: StreamBuilder<QuerySnapshot>(
         stream: FirebaseAuth.instance.currentUser == null
             ? null
