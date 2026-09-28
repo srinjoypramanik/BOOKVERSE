@@ -142,7 +142,7 @@ class ProfilePage extends StatelessWidget {
 
 
 
-                  SizedBox(height:20),
+                  SizedBox(height:75),
 
 
 
@@ -235,7 +235,7 @@ class ProfilePage extends StatelessWidget {
 
 
 
-                  SizedBox(height:45),
+                  SizedBox(height:70),
 
 
 
