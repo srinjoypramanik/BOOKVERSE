@@ -1,3 +1,5 @@
+
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -16,7 +18,9 @@ class Cart extends StatefulWidget {
 
 class  CartState extends State<Cart> {
   double totalPrice=0;
+
   List<String> bookNames =[];
+  // double price = data['price'];
  
  
   @override
@@ -49,10 +53,50 @@ bool cartISfull = true;
 
         title:  Text('CART',style: TextStyle(color: Colors.black,fontSize: 20,fontWeight: FontWeight.bold,),),
         
-        actions: [TextButton(
-          onPressed: (){},
-          child:const Text('CLEAR',style: TextStyle(color:Color.fromARGB(255, 125, 124, 124),fontSize: 15, fontWeight: FontWeight.bold),)  ,)
-          ],
+        // actions: [TextButton(
+        //   onPressed: (){FirebaseFirestore
+        //       .instance
+        //       .collection("user-cart")
+        //       .doc(FirebaseAuth.
+        //   instance.
+        //   currentUser!.
+        //   email)
+        //       .collection("items")
+        //       .doc(documentSnapshot.
+        //   id)
+        //       .delete();},
+        //   child:const Text('CLEAR',style: TextStyle(color:Color.fromARGB(255, 125, 124, 124),fontSize: 15, fontWeight: FontWeight.bold),)  ,)
+
+
+
+        actions: [
+          TextButton(
+            onPressed: () async {
+              final items = await FirebaseFirestore.instance
+                  .collection("user-cart")
+                  .doc(FirebaseAuth.instance.currentUser!.email)
+                  .collection("items")
+                  .get();
+
+              for (var doc in items.docs) {
+                await doc.reference.delete();
+              }
+            },
+            child: const Text(
+              'CLEAR',
+              style: TextStyle(
+                color: Color.fromARGB(255, 125, 124, 124),
+                fontSize: 15,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
+        ],
+
+
+
+
+
         ),
 
 
@@ -86,21 +130,61 @@ bool cartISfull = true;
 
                           //card starts here___________________________________
                           return Card(
+
+
                            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(0)),
+
                             elevation: 1,
+                            child: SizedBox(
+                              height: 100,
+
+
                             child:
                            ListTile(
-                            leading: SizedBox(
-                              child: 
-                              Image.asset(documentSnapshot['image'],height: 80,width: 40,)),
+
+                            leading:
+
+                            SizedBox(
+
+
+                              child:
+                              Image.asset(documentSnapshot['image'],height: 90,width: 50,)),
+
                             
                             //___________________ ADD quantity and price HERE _____________________________________//
                             
-                            title:
+                            title:Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: [
+                                Row(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
 
-                            Text(documentSnapshot['title'],
+                                mainAxisAlignment: MainAxisAlignment.start,
 
+                                children: [
+                                  
+                                Expanded(
+                                  child: Text(documentSnapshot['title'],
+                                    
+                                    overflow: TextOverflow.ellipsis),
+                                ),
+                                  Text("(${documentSnapshot['quantity']})",
+                                    style:TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                    )
+                                    ,),
+                                  SizedBox(width: 10,)
+                                ]
+                                ),
+                                Text("\$${documentSnapshot['price']}"),
+                                SizedBox(height:5,),
+
+
+                              ],
                             ),
+
+
                            
                              //___________________ ADD quantity and price HERE _____________________________________//
                             trailing: GestureDetector(
@@ -121,9 +205,9 @@ bool cartISfull = true;
                             )
 
                           )
-                          );
+                          )
 
-                          //card ends__________________________________________
+                          );//card ends__________________________________________
                         }
                         );
 

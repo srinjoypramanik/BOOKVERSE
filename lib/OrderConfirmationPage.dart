@@ -1,6 +1,11 @@
+
+
+
+
 import 'package:bookverse/homescreen.dart';
 import 'package:flutter/material.dart';
-
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 class Orderconfirmationpage extends StatefulWidget {
   final String name;
   final String phone;
@@ -29,12 +34,12 @@ class _OrderconfirmationpageState extends State<Orderconfirmationpage> {
       backgroundColor: Colors.white,
 
       body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           const SizedBox(
             width: double.infinity,
-            height: 40,
+            height: 100,
           ),
 
           const Icon(
@@ -55,56 +60,104 @@ class _OrderconfirmationpageState extends State<Orderconfirmationpage> {
             ),
           ),
 
-          const SizedBox(height: 25),
-
-          Text(
-            'Name: ${widget.name}',
-            style: const TextStyle(fontSize: 18),
+          //
+          const SizedBox(
+            height: 10,
           ),
 
-          const SizedBox(height: 10),
+          Container(
+            width: 350,
+            padding: const EdgeInsets.all(15),
+            decoration: BoxDecoration(
+              border: Border.all(
+                color: Colors.black,
+                width: 1.5,
+              ),
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  'Name: ${widget.name}',
+                  style: const TextStyle(fontSize: 18),
+                ),
 
-          Text(
-            'Phone: ${widget.phone}',
-            style: const TextStyle(fontSize: 18),
+                const SizedBox(height: 10),
+
+                Text(
+                  'Phone: ${widget.phone}',
+                  style: const TextStyle(fontSize: 18),
+                ),
+
+                const SizedBox(height: 10),
+
+                Text(
+                  'Address: ${widget.address}',
+                  style: const TextStyle(fontSize: 18),
+                ),
+
+                const SizedBox(height: 10),
+
+                Text(
+                  'Payment: ${widget.paymentMethod}',
+                  style: const TextStyle(fontSize: 18),
+                ),
+              ],
+            ),
+          ),
+          const SizedBox(
+            height: 10,
           ),
 
-          const SizedBox(height: 10),
-
-          Text(
-            'Address: ${widget.address}',
-            style: const TextStyle(fontSize: 18),
-            textAlign: TextAlign.center,
-          ),
-
-          const SizedBox(height: 10),
-
-          Text(
-            'Payment: ${widget.paymentMethod}',
-            style: const TextStyle(fontSize: 18),
-          ),
-
-          const SizedBox(height: 10),
-
-          // Text(
-          //   'Total: ${widget.totalPrice} Tk',
-          //   style: const TextStyle(
-          //     fontSize: 18,
-          //     fontWeight: FontWeight.bold,
+          // ElevatedButton(
+          //   onPressed: () {
+          //     Navigator.pushReplacement(
+          //       context,
+          //       MaterialPageRoute(
+          //         builder: (context) => const HomeScreen(),
+          //       ),
+          //     );
+          //   },
+          //   style: ElevatedButton.styleFrom(
+          //     fixedSize: const Size.fromWidth(350),
+          //     backgroundColor: Colors.black,
+          //     foregroundColor: Colors.white,
+          //     shape: const RoundedRectangleBorder(
+          //       borderRadius: BorderRadius.zero,
+          //     ),
+          //   ),
+          //   child: const Text(
+          //     'CONTINUE SHOPPING',
+          //     style: TextStyle(
+          //       fontSize: 20,
+          //     ),
           //   ),
           // ),
-
-          const SizedBox(height: 25),
-
           ElevatedButton(
-            onPressed: () {
-              Navigator.push(
+            onPressed: () async {
+
+              final user = FirebaseAuth.instance.currentUser;
+
+              if (user != null) {
+                final items = await FirebaseFirestore.instance
+                    .collection("user-cart")
+                    .doc(user.email)
+                    .collection("items")
+                    .get();
+
+                for (var doc in items.docs) {
+                  await doc.reference.delete();
+                }
+              }
+
+              Navigator.pushReplacement(
                 context,
                 MaterialPageRoute(
                   builder: (context) => const HomeScreen(),
                 ),
               );
             },
+
             style: ElevatedButton.styleFrom(
               fixedSize: const Size.fromWidth(350),
               backgroundColor: Colors.black,
@@ -113,12 +166,16 @@ class _OrderconfirmationpageState extends State<Orderconfirmationpage> {
                 borderRadius: BorderRadius.zero,
               ),
             ),
+
             child: const Text(
               'CONTINUE SHOPPING',
               style: TextStyle(
                 fontSize: 20,
               ),
             ),
+          ),
+          const SizedBox(
+            height: 200,
           ),
         ],
       ),
