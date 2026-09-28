@@ -20,7 +20,7 @@ class  CartState extends State<Cart> {
   double totalPrice=0;
 
   List<String> bookNames =[];
-  // double price = data['price'];
+ 
  
  
   @override
@@ -53,19 +53,7 @@ bool cartISfull = true;
 
         title:  Text('CART',style: TextStyle(color: Colors.black,fontSize: 20,fontWeight: FontWeight.bold,),),
         
-        // actions: [TextButton(
-        //   onPressed: (){FirebaseFirestore
-        //       .instance
-        //       .collection("user-cart")
-        //       .doc(FirebaseAuth.
-        //   instance.
-        //   currentUser!.
-        //   email)
-        //       .collection("items")
-        //       .doc(documentSnapshot.
-        //   id)
-        //       .delete();},
-        //   child:const Text('CLEAR',style: TextStyle(color:Color.fromARGB(255, 125, 124, 124),fontSize: 15, fontWeight: FontWeight.bold),)  ,)
+        
 
 
 
@@ -115,6 +103,7 @@ bool cartISfull = true;
 
                       if(!snapshot.hasData||snapshot.data!.docs.isEmpty)
                       {
+
                        cartISfull=false;
                         return const Center(
                           child: Text("empty cart"),
@@ -122,6 +111,21 @@ bool cartISfull = true;
                       }
 
                       else{ cartISfull=true;
+
+
+                      totalPrice = 0;
+
+  for (var document in snapshot.data!.docs) {
+    final data = document.data() as Map<String, dynamic>;
+
+    double price = (data['price'] as num?)?.toDouble() ?? 0;
+    int quantity = (data['quantity'] as num?)?.toInt() ?? 0;
+
+    totalPrice += price * quantity;
+  }
+
+
+
                       return ListView.builder(
                         itemCount: snapshot.data!.docs.length,
                         itemBuilder: (context,index){
@@ -235,13 +239,72 @@ bool cartISfull = true;
                     Container(
                       width:double.infinity,
                       
-                      child: Row( mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
+                      child: 
                       
-                       Text('TOTAL AMOUNT  :                         ',style: TextStyle(color:Color.fromARGB(255, 0, 0, 0),fontSize: 18,fontWeight: FontWeight.bold),),
-                       Text('0/-', style: TextStyle(color:Color.fromARGB(255, 0, 0, 0),fontSize: 18,fontWeight: FontWeight.bold),),
-                    ]  
-                    ),
+                      
+                    //   Row( mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    //   children: [
+                      
+                    //    Text('TOTAL AMOUNT  :                         ',style: TextStyle(color:Color.fromARGB(255, 0, 0, 0),fontSize: 18,fontWeight: FontWeight.bold),),
+                    //    Text('0/-', style: TextStyle(color:Color.fromARGB(255, 0, 0, 0),fontSize: 18,fontWeight: FontWeight.bold),),
+                    // ]  
+                    // ),
+
+                                            StreamBuilder<QuerySnapshot>(
+                          stream: FirebaseFirestore.instance
+                              .collection("user-cart")
+                              .doc(FirebaseAuth.instance.currentUser!.email)
+                              .collection("items")
+                              .snapshots(),
+
+                          builder: (context, snapshot) {
+
+                            double totalPrice = 0;
+
+                            if (snapshot.hasData) {
+                              for (var document in snapshot.data!.docs) {
+
+                                final data = document.data() as Map<String, dynamic>;
+
+                                double price = (data['price'] as num?)?.toDouble() ?? 0;
+                                int quantity = (data['quantity'] as num?)?.toInt() ?? 0;
+
+                                totalPrice += price * quantity;
+                              }
+                            }
+
+                            return Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: [
+
+                                const Text(
+                                  'TOTAL AMOUNT  :',
+                                  style: TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+
+                                Text(
+                                  '\$${totalPrice.toStringAsFixed(2)}',
+                                  style: const TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+
+                              ],
+                            );
+                          },
+                        ),
+
+
+
+
+
+
                     ),
                     ElevatedButton(
                             onPressed: (){
