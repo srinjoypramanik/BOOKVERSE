@@ -141,7 +141,11 @@ class AppDrawer extends StatelessWidget {
                   fontSize: 16),
             ),
             onTap: () {
-              Navigator.pop(context);
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const Cart()),
+              );
             },
           ),
           

@@ -51,16 +51,15 @@ class _CheckoutpageState extends State<Checkoutpage> {
       return;
     }
 
-    // Get values from text fields
+
     String name = nameController.text.trim();
     String phone = phoneController.text.trim();
     String address = addressController.text.trim();
 
-    // Validation
     if (name.isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
-          content: Text("Please enter your name."),
+          content: Text("Please Enter Your Information."),
         ),
       );
       return;

@@ -1799,7 +1799,7 @@ class HomeScreen extends StatefulWidget {
                   }
 
                 }
-                //by tanzid.
+
                 else if(index == 2){
                   Navigator.push(
                     context,
