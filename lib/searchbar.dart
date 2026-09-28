@@ -59,8 +59,35 @@ import 'bookdetails.dart';
               : [],
             backgroundColor: WidgetStatePropertyAll(Colors.white),
 
-            elevation: ,
-           )
-          }
+            elevation: WidgetStatePropertyAll(0),
+            side: WidgetStatePropertyAll(
+              BorderSide(color: Colors.grey,),
+            ),
+            shape: WidgetStatePropertyAll(
+              RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10),
+              ),
+            ),
+            padding: WidgetStatePropertyAll(
+              EdgeInsets.symmetric(
+                horizontal: 10,
+              ),
+            ),
+
+            onTap: (){
+              controller.openView();
+            },
+           );
+          },
+
+          suggestionsBuilder: (context,controller) async{
+            final snapshot =await FirebaseFirestore
+                .instance
+                .collection('books')
+                .get();
+            final books=snapshot.docs.where((book){
+              
+            })
+          },
     }
   }
