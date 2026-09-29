@@ -212,27 +212,27 @@ class HomeScreen extends StatefulWidget {
                     ),
 
                     SizedBox(width: 8),
-                    GestureDetector(
-                      onTap: () {},
-                      child: Container(
-                        padding: EdgeInsets.symmetric(
-                          horizontal: 16,
-                          vertical: 12,
-                        ),
-                        decoration: BoxDecoration(
-                          border: Border.all(
-                            color: Colors.black,
-                          ),
-                        ),
-                        child: Text('MATHEMATICS',
-                          style: TextStyle(
-                            color: Colors.black,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 13,
-                          ),
-                        ),
-                      ),
-                    ),
+                    // GestureDetector(
+                    //   onTap: () {},
+                    //   child: Container(
+                    //     padding: EdgeInsets.symmetric(
+                    //       horizontal: 16,
+                    //       vertical: 12,
+                    //     ),
+                    //     decoration: BoxDecoration(
+                    //       border: Border.all(
+                    //         color: Colors.black,
+                    //       ),
+                    //     ),
+                    //     child: Text('MATHEMATICS',
+                    //       style: TextStyle(
+                    //         color: Colors.black,
+                    //         fontWeight: FontWeight.bold,
+                    //         fontSize: 13,
+                    //       ),
+                    //     ),
+                    //   ),
+                    // ),
                   ],
                 ),
               ),
