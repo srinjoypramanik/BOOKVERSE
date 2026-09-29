@@ -457,7 +457,7 @@ class Privacy extends StatelessWidget{
 
               Text(
 
-                "BookVerse respects your privacy. We keep your personal information safe and do not share your information with others without permission.",
+                "BOOKVERSE respects your privacy. We keep your personal information safe and do not share your information with others without permission.",
 
 
                 style: TextStyle(
@@ -481,7 +481,7 @@ class Privacy extends StatelessWidget{
 
               Text(
 
-                "Your data is used only to provide a better reading and shopping experience.",
+                "Your data is used only to provide a better shopping experience.",
 
 
                 style: TextStyle(
@@ -497,7 +497,7 @@ class Privacy extends StatelessWidget{
 
               SizedBox(height: 30,),
 
-              Text('Thanks For Support us.',
+              Text('Thanks For Supporting us.',
                 style: TextStyle(
                   fontSize: 18,
                   color: Colors.black,

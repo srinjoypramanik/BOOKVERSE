@@ -121,7 +121,7 @@ class _Feedback_pageState extends State<Feedback_page> {
         
         
         
-              SizedBox(height: 30),
+              SizedBox(height: 100),
         
         
         
@@ -151,20 +151,24 @@ class _Feedback_pageState extends State<Feedback_page> {
         
         
         
-        
-              Text(
-        
-                "How was your experience?",
-        
-                style: TextStyle(
-        
-                  fontSize: 18,
-        
-                  fontWeight: FontWeight.w900,
-        
+              Center(
+                child: Text(
+
+                  "How was your experience?",
+
+                  style: TextStyle(
+
+                    fontSize: 18,
+
+                    fontWeight: FontWeight.w900,
+
+                  ),
+
                 ),
-        
+
               ),
+
+
         
         
               Center(
