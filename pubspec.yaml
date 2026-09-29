@@ -69,6 +69,7 @@ flutter:
     - assets/images/art_of_elec.jpg
     - assets/images/images.png
     - assets/images/about.png
+    - assets/images/contact.png
 
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
