@@ -72,11 +72,12 @@ class Settings extends StatelessWidget {
                   Icons.privacy_tip_outlined,
                   color: Colors.black,
                   size: 30,
+                  fontWeight: FontWeight.bold,
                 ),
 
 
                 title: Text(
-                  "Privacy",
+                  "Privacy Policy",
                   style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
@@ -142,6 +143,7 @@ class Settings extends StatelessWidget {
                   Icons.feedback_outlined,
 
                   color: Colors.black,
+                  fontWeight: FontWeight.bold,
 
                   size:30,
 

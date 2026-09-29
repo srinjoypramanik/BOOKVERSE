@@ -36,18 +36,19 @@ class AboutUs extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
 
             children: [
-              SizedBox(height: 20),
+
 
 
 
               Image.asset(
-                'assets/images/bookverse.png',
-                height: 60,
+                'assets/images/about.png',
+                height: 310,
+                width: 420,
 
               ),
 
 
-              SizedBox(height: 40),
+
 
 
               Divider(),
@@ -201,14 +202,15 @@ class AboutUs extends StatelessWidget {
                 ),
               ),
 
+
+
+
+
+
               SizedBox(height: 25),
 
-
-              Divider(),
-
-
               Text(
-                "Version 1.592.0",
+                "Version 1.600.0",
                 style: TextStyle(
                   color: Colors.grey,
                 ),
