@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
@@ -12,123 +13,273 @@ class SignUpPage extends StatefulWidget {
 }
 
 class _SignUpPageState extends State<SignUpPage> {
+
   String name = "";
-
   String phone = "";
-
   String email = "";
-
   String password = "";
-
   String confirmPassword = "";
 
   bool isSignupActive = false;
 
+
+
+
   void checkSignupButton() {
+
     setState(() {
+
       isSignupActive =
-          name.isNotEmpty &&
-          phone.isNotEmpty &&
-          email.isNotEmpty &&
-          password.isNotEmpty &&
-          confirmPassword.isNotEmpty;
+
+          name.trim().isNotEmpty &&
+
+              // Phone must be exactly 11 digits
+              RegExp(r'^[0-9]{11}$').hasMatch(phone) &&
+
+              email.trim().isNotEmpty &&
+
+              password.isNotEmpty &&
+
+              confirmPassword.isNotEmpty;
+
     });
+
   }
 
+
+
   Future<void> signupUser() async {
-    if (password != confirmPassword) {
+
+
+
+
+    if (!RegExp(r'^[0-9]{11}$').hasMatch(phone)) {
+
       ScaffoldMessenger.of(context).showSnackBar(
+
         const SnackBar(
-          content: Text("Password doesn't match.\nPlease Try Again."),
+
+          content: Text(
+              "Mobile number must be exactly 11 digits."
+          ),
+
         ),
+
       );
 
       return;
     }
 
-    try {
-      UserCredential userCredential = await FirebaseAuth.instance
-          .createUserWithEmailAndPassword(
-            email: email.trim(),
 
-            password: password.trim(),
-          );
+
+
+    if (password != confirmPassword) {
+
+      ScaffoldMessenger.of(context).showSnackBar(
+
+        const SnackBar(
+
+          content: Text(
+              "Password doesn't match.\nPlease Try Again."
+          ),
+
+        ),
+
+      );
+
+      return;
+    }
+
+
+    try {
+
+
+
+      UserCredential userCredential =
+      await FirebaseAuth.instance
+          .createUserWithEmailAndPassword(
+
+        email: email.trim(),
+
+        password: password.trim(),
+
+      );
+
 
       String uid = userCredential.user!.uid;
 
-      await FirebaseFirestore.instance.collection("users").doc(uid).set({
+
+
+
+      await FirebaseFirestore.instance
+          .collection("users")
+          .doc(uid)
+          .set({
+
         "name": name.trim(),
 
         "phone": phone.trim(),
 
         "email": email.trim(),
+
       });
 
+
+      if (!mounted) return;
+
+
+
+
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text("Account Created Successfully")),
+
+        const SnackBar(
+
+          content: Text(
+              "Account Created Successfully"
+          ),
+
+        ),
+
       );
+
+
 
       Navigator.pushReplacement(
+
         context,
 
-        MaterialPageRoute(builder: (context) => const SignIn()),
+        MaterialPageRoute(
+
+          builder: (context) => const SignIn(),
+
+        ),
+
       );
-    } on FirebaseAuthException catch (e) {
-      ScaffoldMessenger.of(
-        context,
-      ).showSnackBar(SnackBar(content: Text(e.message ?? "Signup Failed")));
+
     }
+
+    on FirebaseAuthException catch (e) {
+
+      if (!mounted) return;
+
+      ScaffoldMessenger.of(context).showSnackBar(
+
+        SnackBar(
+
+          content: Text(
+              e.message ?? "Signup Failed"
+          ),
+
+        ),
+
+      );
+
+    }
+
   }
+
+
+
 
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
+
       backgroundColor: Colors.white,
 
+
+
       appBar: AppBar(
+
         backgroundColor: Colors.white,
 
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back, color: Colors.black),
+
+          icon: const Icon(
+
+            Icons.arrow_back,
+
+            color: Colors.black,
+
+          ),
 
           onPressed: () {
+
             Navigator.pop(context);
+
           },
+
         ),
+
       ),
 
+
+
       body: SingleChildScrollView(
+
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20),
+
+          padding: const EdgeInsets.symmetric(
+            horizontal: 20,
+          ),
 
           child: Column(
+
             crossAxisAlignment: CrossAxisAlignment.start,
 
             children: [
+
+
               const SizedBox(height: 20),
+
+
+
 
               Center(
-                child: Image.asset('assets/images/bookverse.png',
-                    height: 60
+
+                child: Image.asset(
+
+                  'assets/images/bookverse.png',
+
+                  height: 60,
+
                 ),
+
               ),
+
 
               const SizedBox(height: 20),
 
+
+
               const Text(
+
                 "Name:",
 
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                style: TextStyle(
+
+                  fontSize: 18,
+
+                  fontWeight: FontWeight.bold,
+
+                ),
+
               ),
 
+
               TextField(
+
                 onChanged: (value) {
+
                   name = value;
 
                   checkSignupButton();
+
                 },
 
                 decoration: InputDecoration(
+
                   hintText: "Enter your name",
 
                   filled: true,
@@ -136,61 +287,118 @@ class _SignUpPageState extends State<SignUpPage> {
                   fillColor: const Color(0xFFF1F1F5),
 
                   border: OutlineInputBorder(
+
                     borderRadius: BorderRadius.circular(20),
 
                     borderSide: BorderSide.none,
+
                   ),
+
                 ),
+
               ),
+
 
               const SizedBox(height: 15),
 
+
+
+
               const Text(
+
                 "Mobile Number:",
 
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                style: TextStyle(
+
+                  fontSize: 18,
+
+                  fontWeight: FontWeight.bold,
+
+                ),
+
               ),
 
+
               TextField(
-                keyboardType: TextInputType.phone,
+
+                keyboardType: TextInputType.number,
+
+
+                // Only numbers 0-9
+                // Maximum 11 digits
+                inputFormatters: [
+
+                  FilteringTextInputFormatter.digitsOnly,
+
+                  LengthLimitingTextInputFormatter(11),
+
+                ],
+
 
                 onChanged: (value) {
+
                   phone = value;
 
                   checkSignupButton();
+
                 },
 
+
                 decoration: InputDecoration(
-                  hintText: "Enter your phone number",
+
+                  hintText: "Enter your 11 digit phone number",
 
                   filled: true,
 
                   fillColor: const Color(0xFFF1F1F5),
 
                   border: OutlineInputBorder(
+
                     borderRadius: BorderRadius.circular(20),
 
                     borderSide: BorderSide.none,
+
                   ),
+
                 ),
+
               ),
+
 
               const SizedBox(height: 15),
 
+
+
+
               const Text(
+
                 "Email Address:",
 
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                style: TextStyle(
+
+                  fontSize: 18,
+
+                  fontWeight: FontWeight.bold,
+
+                ),
+
               ),
 
+
               TextField(
+
+                keyboardType: TextInputType.emailAddress,
+
                 onChanged: (value) {
+
                   email = value;
 
                   checkSignupButton();
+
                 },
 
                 decoration: InputDecoration(
+
                   hintText: "Enter your email",
 
                   filled: true,
@@ -198,32 +406,50 @@ class _SignUpPageState extends State<SignUpPage> {
                   fillColor: const Color(0xFFF1F1F5),
 
                   border: OutlineInputBorder(
+
                     borderRadius: BorderRadius.circular(20),
 
                     borderSide: BorderSide.none,
+
                   ),
+
                 ),
+
               ),
 
 
               const SizedBox(height: 15),
 
+
               const Text(
+
                 "Password:",
 
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                style: TextStyle(
+
+                  fontSize: 18,
+
+                  fontWeight: FontWeight.bold,
+
+                ),
+
               ),
 
+
               TextField(
+
                 obscureText: true,
 
                 onChanged: (value) {
+
                   password = value;
 
                   checkSignupButton();
+
                 },
 
                 decoration: InputDecoration(
+
                   hintText: "Enter password",
 
                   filled: true,
@@ -231,31 +457,51 @@ class _SignUpPageState extends State<SignUpPage> {
                   fillColor: const Color(0xFFF1F1F5),
 
                   border: OutlineInputBorder(
+
                     borderRadius: BorderRadius.circular(20),
 
                     borderSide: BorderSide.none,
+
                   ),
+
                 ),
+
               ),
+
 
               const SizedBox(height: 15),
 
+
+
               const Text(
+
                 "Confirm Password:",
 
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                style: TextStyle(
+
+                  fontSize: 18,
+
+                  fontWeight: FontWeight.bold,
+
+                ),
+
               ),
 
+
               TextField(
+
                 obscureText: true,
 
                 onChanged: (value) {
+
                   confirmPassword = value;
 
                   checkSignupButton();
+
                 },
 
                 decoration: InputDecoration(
+
                   hintText: "Confirm password",
 
                   filled: true,
@@ -263,88 +509,167 @@ class _SignUpPageState extends State<SignUpPage> {
                   fillColor: const Color(0xFFF1F1F5),
 
                   border: OutlineInputBorder(
+
                     borderRadius: BorderRadius.circular(20),
 
                     borderSide: BorderSide.none,
+
                   ),
+
                 ),
+
               ),
+
 
               const SizedBox(height: 30),
 
+
+
+
               Center(
+
                 child: SizedBox(
+
                   width: 250,
 
                   height: 60,
 
                   child: ElevatedButton(
-                    onPressed: isSignupActive ? signupUser : null,
+
+                    onPressed:
+                    isSignupActive
+                        ? signupUser
+                        : null,
+
 
                     style: ElevatedButton.styleFrom(
+
                       backgroundColor: Colors.black,
 
                       foregroundColor: Colors.white,
 
+                      disabledBackgroundColor:
+                      Colors.grey.shade400,
+
+                      disabledForegroundColor:
+                      Colors.white,
+
                       shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(30),
+
+                        borderRadius:
+                        BorderRadius.circular(30),
+
                       ),
+
                     ),
+
 
                     child: const Text(
+
                       "Sign Up",
 
-                      style: TextStyle(fontSize: 25),
+                      style: TextStyle(
+
+                        fontSize: 25,
+
+                      ),
+
                     ),
+
                   ),
+
                 ),
+
               ),
+
 
               const SizedBox(height: 30),
 
+
+
+
               Center(
+
                 child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
+
+                  mainAxisAlignment:
+                  MainAxisAlignment.center,
 
                   children: [
+
                     const Text(
+
                       "Already have an account?",
 
-                      style: TextStyle(fontSize: 16,
-                          color: Colors.black,
+                      style: TextStyle(
+
+                        fontSize: 16,
+
+                        color: Colors.black,
+
                       ),
+
                     ),
 
+
                     TextButton(
+
                       onPressed: () {
+
                         Navigator.push(
+
                           context,
 
                           MaterialPageRoute(
-                            builder: (context) => const SignIn(),
+
+                            builder: (context) =>
+                            const SignIn(),
+
                           ),
+
                         );
+
                       },
 
+
                       child: const Text(
+
                         "Login",
 
                         style: TextStyle(
+
                           fontSize: 16,
 
                           color: Colors.blue,
 
-                          fontWeight: FontWeight.bold,
+                          fontWeight:
+                          FontWeight.bold,
+
                         ),
+
                       ),
+
                     ),
+
                   ],
+
                 ),
+
               ),
+
+
+              const SizedBox(height: 30),
+
             ],
+
           ),
+
         ),
+
       ),
+
     );
+
   }
+
 }

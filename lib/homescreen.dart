@@ -315,7 +315,6 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
 
-            //Firestore Book1
             StreamBuilder<DocumentSnapshot>(
               stream: FirebaseFirestore.instance
                   .collection('books')
@@ -500,7 +499,7 @@ class _HomeScreenState extends State<HomeScreen> {
               },
             ),
 
-            //Firestore Book2
+
             StreamBuilder<DocumentSnapshot>(
               stream: FirebaseFirestore.instance
                   .collection('books')
@@ -685,7 +684,6 @@ class _HomeScreenState extends State<HomeScreen> {
               },
             ),
 
-            //Firestore Book3
             StreamBuilder<DocumentSnapshot>(
               stream: FirebaseFirestore.instance
                   .collection('books')
@@ -870,7 +868,7 @@ class _HomeScreenState extends State<HomeScreen> {
               },
             ),
 
-            //Firestore Book4
+
             StreamBuilder<DocumentSnapshot>(
               stream: FirebaseFirestore.instance
                   .collection('books')
@@ -1055,7 +1053,7 @@ class _HomeScreenState extends State<HomeScreen> {
               },
             ),
 
-            //Firestore Book5
+
             StreamBuilder<DocumentSnapshot>(
               stream: FirebaseFirestore.instance
                   .collection('books')
@@ -1240,7 +1238,7 @@ class _HomeScreenState extends State<HomeScreen> {
               },
             ),
 
-            //Firestore Book6
+
             StreamBuilder<DocumentSnapshot>(
               stream: FirebaseFirestore.instance
                   .collection('books')
@@ -1425,7 +1423,6 @@ class _HomeScreenState extends State<HomeScreen> {
               },
             ),
 
-            //Firestore Book7
             StreamBuilder<DocumentSnapshot>(
               stream: FirebaseFirestore.instance
                   .collection('books')
@@ -1610,7 +1607,6 @@ class _HomeScreenState extends State<HomeScreen> {
               },
             ),
 
-            //Firestore Book8
             StreamBuilder<DocumentSnapshot>(
               stream: FirebaseFirestore.instance
                   .collection('books')
