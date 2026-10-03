@@ -93,22 +93,22 @@ class AppDrawer extends StatelessWidget {
                 },
               ),
 
-              ListTile(
-                leading: Icon(
-                  Icons.book_rounded,
-                  color: Colors.black,
-                ),
-                contentPadding: EdgeInsets.only(left: 20),
-                title: Text('MATHEMATICS',
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 14,
-                    color: Colors.black,
-                  ),
-                ),
-                onTap: (){
-                },
-              ),
+              // ListTile(
+              //   leading: Icon(
+              //     Icons.book_rounded,
+              //     color: Colors.black,
+              //   ),
+              //   contentPadding: EdgeInsets.only(left: 20),
+              //   title: Text('MATHEMATICS',
+              //     style: TextStyle(
+              //       fontWeight: FontWeight.bold,
+              //       fontSize: 14,
+              //       color: Colors.black,
+              //     ),
+              //   ),
+              //   onTap: (){
+              //   },
+              // ),
             ],
 
           ),
@@ -127,6 +127,24 @@ class AppDrawer extends StatelessWidget {
                 context,
                 MaterialPageRoute(
                     builder: (context) => const Cart()),
+              );
+            },
+          ),
+
+          ListTile(
+            leading: Icon(
+                Icons.person_3_rounded,
+                color: Colors.black
+            ),
+            title: Text('Account',
+              style: TextStyle(fontWeight: FontWeight.bold,
+                  fontSize: 16),
+            ),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => const ProfilePage()),
               );
             },
           ),
@@ -163,24 +181,6 @@ class AppDrawer extends StatelessWidget {
           //     Navigator.pop(context);
           //   },
           // ),
-
-          ListTile(
-            leading: Icon(
-              Icons.person_3_rounded,
-              color: Colors.black
-              ),
-            title: Text('Account',
-              style: TextStyle(fontWeight: FontWeight.bold,
-                  fontSize: 16),
-            ),
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (context) => const ProfilePage()),
-              );
-            },
-          ),
           
           Divider(),
 

@@ -294,32 +294,32 @@ class _SignInState extends State<SignIn> {
                   ),
                 ),
 
-                SizedBox(height: 15),
-                TextButton(
-                  onPressed: () {
-
-                  },
-
-                  style: TextButton.styleFrom(
-                    padding: EdgeInsets.zero,
-
-                    alignment: Alignment.centerLeft,
-                  ),
-
-                  child: Text(
-                    'Forgot My Password',
-
-                    style: TextStyle(
-                      color: Colors.grey,
-
-                      fontSize: 16,
-
-                      fontWeight: FontWeight.bold,
-
-                      decoration: TextDecoration.underline,
-                    ),
-                  ),
-                ),
+                // SizedBox(height: 15),
+                // TextButton(
+                //   onPressed: () {
+                //
+                //   },
+                //
+                //   style: TextButton.styleFrom(
+                //     padding: EdgeInsets.zero,
+                //
+                //     alignment: Alignment.centerLeft,
+                //   ),
+                //
+                //   child: Text(
+                //     'Forgot My Password',
+                //
+                //     style: TextStyle(
+                //       color: Colors.grey,
+                //
+                //       fontSize: 16,
+                //
+                //       fontWeight: FontWeight.bold,
+                //
+                //       decoration: TextDecoration.underline,
+                //     ),
+                //   ),
+                // ),
 
                 SizedBox(height: 20),
 

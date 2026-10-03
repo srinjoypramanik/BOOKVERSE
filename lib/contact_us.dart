@@ -50,19 +50,14 @@ class ContactUs extends StatelessWidget {
 
           children: [
 
-            SizedBox(height: 60),
-            const Center(
-
-              child: Icon(
-
-                Icons.perm_contact_cal,
-
-                size: 80,
-
-                color: Colors.black,
-
+            SizedBox(height: 30),
+             Center(
+              child: Image.asset(
+                'assets/images/contact.png',
+                height: 250,
+                width: double.infinity,
+                fit: BoxFit.contain,
               ),
-
             ),
 
 
@@ -75,7 +70,7 @@ class ContactUs extends StatelessWidget {
 
               child: Text(
 
-                "CONTACT US",
+                "Get in Touch",
 
                 style: TextStyle(
 

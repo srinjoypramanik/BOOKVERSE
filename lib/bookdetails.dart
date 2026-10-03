@@ -24,7 +24,6 @@ class BookDetails extends StatelessWidget{
     required this.image,
   });
 
-  //waizur________________
   Future addToCart()async{
     final FirebaseAuth authoo = FirebaseAuth.instance;
     var currentUserrr = authoo.currentUser;
@@ -38,16 +37,13 @@ class BookDetails extends StatelessWidget{
     }
     else{
       await itemREF.set(
-    
-      {
-        "title":title,
+      {"title":title,
         "image":image,
         "price":price,
         "quantity":1,
       }
     );
-  }
-  
+   }
   }
 
 
